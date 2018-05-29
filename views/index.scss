@@ -1,1 +1,3 @@
-@import './components/main/index.scss'
+@import './components/_base/reset.scss';
+@import './components/_base/mixins.scss';
+@import './components/main/index.scss';
