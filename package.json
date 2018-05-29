@@ -9,7 +9,7 @@
     "build": "yarn run mkdirp public ./public/scripts ./public/styles",
     "start": "yarn run dev",
     "dev": "nodemon app.js -e ejs",
-    "watch:scss": "node-sass ./views/index.scss -w -r --source-map true -o ./public/styles/",
+    "watch:scss": "node-sass -w  ./views/ --include-path ./views/components/** --source-map true -o ./public/styles/",
     "watch:js": "watchify ./views/index.js -t babelify -o ./public/scripts/index.js -v --debug",
     "copy:fonts": "cpx ./src/fonts/** ./public/fonts -w",
     "copy:jsStatic": "cpx ./src/scripts/**.js ./public/scripts -w",
