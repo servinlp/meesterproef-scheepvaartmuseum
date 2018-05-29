@@ -16,7 +16,7 @@
     "copy:images": "cpx ./src/images/** ./public/images -w",
     "copy:cssStatic": "cpx ./src/styles/** ./public/styles -w",
     "build:scss": "yarn run node-sass",
-    "build:js": "browserify ./src/index.js -t babelify | uglifyjs -cm > ./public/scripts/index.js"
+    "build:js": "browserify ./views/index.js -t babelify | uglifyjs -cm > ./public/scripts/index.js"
   },
   "engines": {
     "node": "9.9.0"
