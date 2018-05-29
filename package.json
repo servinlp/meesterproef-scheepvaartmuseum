@@ -19,7 +19,7 @@
     "build:js": "browserify ./views/index.js -t babelify | uglifyjs -cm > ./public/scripts/index.js"
   },
   "engines": {
-    "node": "9.9.0"
+    "node": ">= 9.9.0"
   },
   "license": "MIT",
   "dependencies": {
