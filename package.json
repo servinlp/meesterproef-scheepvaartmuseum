@@ -6,16 +6,16 @@
   "author": "Mohammed Mulazada <thisismoniac@gmail.com>",
   "scripts": {
     "postinstall": "yarn run build",
-    "build": "yarn run mkdirp public ./public/scripts ./public/styles",
+    "build": "mkdirp public ./public/scripts ./public/styles ./public/fonts ./public/images",
+    "build:scss": "node-sass --output-style compressed ./views/index.scss > ./public/styles/index.css",
     "start": "yarn run dev",
     "dev": "nodemon app.js -e ejs",
-    "watch:scss": "node-sass -w  ./views/ --include-path ./views/components/** --source-map true -o ./public/styles/",
+    "watch:scss": "node-sass -w -r  ./views/ --include-path ./views/components/** --source-map true -o ./public/styles/",
     "watch:js": "watchify ./views/index.js -t babelify -o ./public/scripts/index.js -v --debug",
     "copy:fonts": "cpx ./src/fonts/** ./public/fonts -w",
     "copy:jsStatic": "cpx ./src/scripts/**.js ./public/scripts -w",
     "copy:images": "cpx ./src/images/** ./public/images -w",
     "copy:cssStatic": "cpx ./src/styles/** ./public/styles -w",
-    "build:scss": "yarn run node-sass",
     "build:js": "browserify ./views/index.js -t babelify | uglifyjs -cm > ./public/scripts/index.js"
   },
   "engines": {
