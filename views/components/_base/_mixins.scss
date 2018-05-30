@@ -15,10 +15,10 @@
 
 // We use this for creating scalable elements (usually images / background images) that maintain a ratio.
 @mixin responsive-ratio($x, $y, $pseudo: false) {
-	$padding: unquote( ( $y / $x) * 100 + '%');
+	$padding: unquote(($y/$x) * 100 + '%');
 	@if $pseudo {
 		&:before {
-			@include pseudo($pos: relative);
+			@include pseudo( $pos: relative);
 			width: 100%;
 			padding-top: $padding;
 		}
@@ -40,13 +40,13 @@
 		border-left: $size solid transparent;
 		border-right: $size solid transparent;
 		border-top: $size solid $color;
-		margin-top: 0 - round( $size / 2.5);
+		margin-top: 0 - round($size / 2.5);
 	}
 	@else if $direction==up {
 		border-left: $size solid transparent;
 		border-right: $size solid transparent;
 		border-bottom: $size solid $color;
-		margin-bottom: 0 - round( $size / 2.5);
+		margin-bottom: 0 - round($size / 2.5);
 	}
 	@else if $direction==right {
 		border-top: $size solid transparent;
@@ -84,16 +84,16 @@
 	&.placeholder {
 		@content;
 	}
-	&:-moz-placeholder {
+	&::-moz-placeholder {
 		@content;
 	}
-	&::-moz-placeholder {
+	&::-webkit-input-placeholder {
 		@content;
 	}
 	&:-ms-input-placeholder {
 		@content;
 	}
-	&::-webkit-input-placeholder {
+	&:-moz-placeholder {
 		@content;
 	}
 }

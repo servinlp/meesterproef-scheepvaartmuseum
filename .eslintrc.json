@@ -35,6 +35,9 @@
         "prefer-const": ["error", {
             "destructuring": "all"
         }],
-        "space-in-parens": ["warn", "always"]
+        "space-in-parens": ["warn", "always"],
+        "prefer-arrow-callback": ["error", {
+            "allowNamedFunctions": true
+        }]
     }
 }
