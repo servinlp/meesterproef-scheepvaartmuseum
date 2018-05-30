@@ -5,7 +5,7 @@ const express = 	require( 'express' ),
 	helmet = 		require( 'helmet' ),
 	compression =	require( 'compression' ),
 
-	indexRout = 	require( './routes/index' ),
+	indexRoute = 	require( './routes/index' ),
 
 	app = 			express(),
 	PORT = 			ENV.NODE_ENV === 'production' ? ENV.PORT : ENV.DEV_PORT
@@ -21,7 +21,7 @@ app.set( 'view engine', 'ejs' )
 app.use( bodyParser.urlencoded( { extended: false } ) )
 app.use( bodyParser.json() )
 
-app.use( '/', indexRout )
+app.use( '/', indexRoute )
 
 app.get( '*', ( req, res ) => {
 
