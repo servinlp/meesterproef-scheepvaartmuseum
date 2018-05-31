@@ -1,6 +1,6 @@
-## Meesterproef Scheepvaartmuseum
+# Meesterproef Scheepvaartmuseum
 
-# Table of Contents
+## Table of Contents
 
 *   [General Overview](#general-overview)
 *   [Getting Started](#getting-started)
