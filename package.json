@@ -1,4 +1,3 @@
-{
   "name": "meesterproef-scheepvaartmuseum",
   "version": "1.0.0",
   "main": "index.js",
@@ -23,17 +22,26 @@
     "watch:js": "watchify ./views/index.js -t babelify -o ./public/scripts/index.js -v --debug",
     "copy:all:watch": "parallelshell 'yarn run copy:fonts -w' 'yarn run copy:jsStatic -w' 'yarn run copy:images -w' 'yarn run copy:cssStatic -w'",
     "copy:all": "parallelshell 'yarn run copy:fonts' 'yarn run copy:jsStatic' 'yarn run copy:images' 'yarn run copy:cssStatic'",
-    "copy:fonts": "cpx ./src/fonts/** ./public/fonts",
-    "copy:jsStatic": "cpx ./src/scripts/**.js ./public/scripts",
-    "copy:images": "cpx ./src/images/** ./public/images",
-    "copy:cssStatic": "cpx ./src/styles/** ./public/styles"
+    "copy:fonts": "cpx './src/fonts/**' ./public/fonts",
+    "copy:jsStatic": "cpx './src/scripts/**.js' ./public/scripts",
+    "copy:images": "cpx './src/images/**' ./public/images",
+    "copy:cssStatic": "cpx './src/styles/**' ./public/styles"
   },
   "engines": {
     "node": ">= 9.9.0"
   },
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^5.0.1"
+    "aws-sdk": "^2.249.1",
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.2",
+    "dotenv": "^5.0.1",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "helmet": "^3.12.1",
+    "moment": "^2.22.1",
+    "multer": "^1.3.0",
+    "multer-s3": "^2.7.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
