@@ -1,7 +1,7 @@
 const express = require( 'express' ),
-	upload = 	require( './lib/aws' ),
+	upload = 	require( '../lib/aws' ),
 	router = 	express.Router(),
-	pool = require( './lib/mysql' )
+	pool = require( '../lib/mysql' )
 
 router.get( '/', ( req, res ) => {
 
