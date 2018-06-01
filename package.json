@@ -29,7 +29,7 @@
     "copy:cssStatic": "cpx './src/styles/**' ./public/styles"
   },
   "engines": {
-    "node": ">= 9.9.0"
+    "node": ">= 9.0 < 10"
   },
   "license": "MIT",
   "dependencies": {
