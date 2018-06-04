@@ -18,7 +18,7 @@
     "build:dir": "mkdirp public ./public/scripts ./public/styles ./public/fonts ./public/images",
     "build:scss": "node-sass --output-style compressed ./views/index.scss > ./public/styles/index.css",
     "build:js": "browserify ./views/index.js -t babelify | uglifyjs -cm > ./public/scripts/index.js",
-    "watch:all": "parallelshell 'yarn run copy:all:watch'",
+    "watch:all": "parallelshell 'yarn run copy:all:watch' 'yarn run watch:scss' 'yarn run watch:js'",
     "watch:scss": "node-sass -w -r  ./views/ --include-path ./views/components/** --source-map true -o ./public/styles/",
     "watch:js": "watchify ./views/index.js -t babelify -o ./public/scripts/index.js -v --debug",
     "copy:all:watch": "parallelshell 'yarn run copy:fonts -w' 'yarn run copy:jsStatic -w' 'yarn run copy:images -w' 'yarn run copy:cssStatic -w'",
