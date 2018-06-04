@@ -39,7 +39,7 @@ app.get( '/styleguide', ( req, res ) => {
 
 	res.render( 'styleguide' )
 
-} )
+})
 
 app.get( '/components', ( req, res ) => {
 
@@ -57,4 +57,4 @@ app.listen( PORT, () => {
 
 	console.log( `Hello from http://localhost:${ PORT }` )
 
-})
+} )
