@@ -99,7 +99,7 @@
 }
 
 // A massive time saver! You can just use pixel values but we have some default breakpoints setup that work too, another time saver while keeping your breakpoints consistent.
-$breakpoints: ( "phone": 25rem, "phone-wide": 30rem, "phablet": 35rem, "tablet-small": 40rem, "tablet": 48rem, "tablet-wide": 64rem, "desktop": 78rem, "desktop-wide": 90rem);
+$breakpoints: ( "small": 25rem, "medium": 48rem, "large": 64rem, "xl": 78rem);
 @mixin mq($width, $type: min) {
 	@if map_has_key($breakpoints, $width) {
 		$width: map_get($breakpoints, $width);
