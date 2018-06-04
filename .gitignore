@@ -60,3 +60,7 @@ typings/
 # next.js build output
 .next
 public/
+
+# Database service account private key
+.aws/
+yarn-error.log
