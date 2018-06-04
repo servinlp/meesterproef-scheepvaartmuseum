@@ -1,9 +1,9 @@
 {
-	"name": "meesterproef-scheepvaartmuseum",
-	"version": "1.0.0",
-	"main": "index.js",
-	"repository": "git@github.com:moniac/meesterproef-scheepvaartmuseum.git",
-	"author": "Mohammed Mulazada <thisismoniac@gmail.com>",
+  "name": "meesterproef-scheepvaartmuseum",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:moniac/meesterproef-scheepvaartmuseum.git",
+  "author": "Mohammed Mulazada <thisismoniac@gmail.com>",
   "scripts": {
     "postinstall": "yarn run build:dir",
     "start": "yarn run dev",
@@ -28,32 +28,32 @@
     "copy:images": "cpx \"./src/images/**\" ./public/images",
     "copy:cssStatic": "cpx \"./src/styles/**\" ./public/styles"
   },
-	"engines": {
-		"node": ">= 9.0 < 10"
-	},
-	"license": "MIT",
-	"dependencies": {
-		"dotenv": "^5.0.1"
-	},
-	"devDependencies": {
-		"babel-core": "^6.26.3",
-		"babel-plugin-transform-async-to-generator": "^6.24.1",
-		"babel-plugin-transform-runtime": "^6.23.0",
-		"babel-preset-env": "^1.7.0",
-		"babelify": "^8.0.0",
-		"browser-sync": "^2.24.4",
-		"browserify": "^16.2.2",
-		"cpx": "^1.5.0",
-		"eslint": "^4.19.1",
-		"mkdirp": "^0.5.1",
-		"node-sass": "^4.9.0",
-		"nodemon": "^1.17.5",
-		"onchange": "^4.0.0",
-		"parallelshell": "^3.0.2",
-		"rimraf": "^2.6.2",
-		"stylelint": "^9.2.1",
-		"stylelint-scss": "^3.1.0",
-		"uglify-js": "^3.3.27",
-		"watchify": "^3.11.0"
-	}
+  "engines": {
+    "node": ">= 8.0 < 10"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^5.0.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babelify": "^8.0.0",
+    "browser-sync": "^2.24.4",
+    "browserify": "^16.2.2",
+    "cpx": "^1.5.0",
+    "eslint": "^4.19.1",
+    "mkdirp": "^0.5.1",
+    "node-sass": "^4.9.0",
+    "nodemon": "^1.17.5",
+    "onchange": "^4.0.0",
+    "parallelshell": "^3.0.2",
+    "rimraf": "^2.6.2",
+    "stylelint": "^9.2.1",
+    "stylelint-scss": "^3.1.0",
+    "uglify-js": "^3.3.27",
+    "watchify": "^3.11.0"
+  }
 }
