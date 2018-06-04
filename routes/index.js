@@ -4,7 +4,7 @@ const express = require( 'express' ),
 	pool = require( '../lib/mysql' )
 
 router.get( '/', ( req, res ) => {
-
+		  
 	res.render( 'index' )
 
 } )
@@ -21,10 +21,5 @@ router.post( '/upload', ( request, response ) => {
 		response.send( 'success' )
 	} )
 } )
-console.log(pool)
-// pool.query('select `name` from hobbits').then(function(rows){
-//     // Logs out a list of hobbits
-//     console.log(rows)
-// })
 
 module.exports = router
