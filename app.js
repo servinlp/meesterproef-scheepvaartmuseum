@@ -69,6 +69,18 @@ app.post( '/upload', ( request, response, next ) => {
 
 app.use( '/', indexRoute )
 
+app.get( '/styleguide', ( req, res ) => {
+
+	res.render( 'styleguide' )
+
+} )
+
+app.get( '/components', ( req, res ) => {
+
+	res.render( 'components' )
+
+} )
+
 app.get( '*', ( req, res ) => {
 
 	res.render( '404' )
