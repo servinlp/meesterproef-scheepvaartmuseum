@@ -311,8 +311,13 @@ autoprefixer@^8.0.0:
     postcss-value-parser "^3.2.3"
 
 aws-sdk@^2.249.1:
+<<<<<<< HEAD
+  version "2.250.1"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.250.1.tgz#0cc04edfc41fa0a6a5eccbc56888832f59270141"
+=======
   version "2.251.1"
   resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.251.1.tgz#0f7e44b45c227ab7d5c63188c42c6ac913f25bf3"
+>>>>>>> 197617e58ce58ffdc36138ec26c065dba3585b35
   dependencies:
     buffer "4.9.1"
     events "1.1.1"
