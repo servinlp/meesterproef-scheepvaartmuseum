@@ -1,0 +1,87 @@
+
+// nav underline on hover: https://codepen.io/gnevin/pen/VaVexE
+
+* {
+    box-sizing: border-box;
+}
+html,
+body {
+    font-family: "Poppins", sans-serif;
+    height: 100em;
+}
+
+.header--container {
+    min-height: 3em;
+    // background: rgba(255, 251, 244, 0.929);
+    background: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.5em;
+    box-shadow: 0px 0px 20px 0px lightgray;
+    position: sticky;
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: -ms-sticky;
+    position: -o-sticky;
+    top: 0;
+    z-index: 5;
+
+    img {
+        height: 2em;
+        width: 2em;
+    }
+}
+
+
+.navigation {
+    ul{
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    left: 0;
+    top: 3em;
+    height: 10em;
+    @include mq("medium"){
+        
+    }
+        li{     
+            a{
+            text-decoration: none;
+            color: black;
+            font-size: 0.9em;
+            position: relative;
+
+            &:after {
+            content: "";
+            position: absolute;
+            height: 2px;
+            background-color: #3369A0;
+            width: 0;
+            left: 50%;
+            bottom: -0.2em;
+            -webkit-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+            -webkit-transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
+            transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
+            }
+
+            &:hover:after {
+                width: 100%;
+            }
+
+            } 
+        }
+    }
+}
+
+.navUl--progressive {
+    position: absolute;
+    transform: translateX(-100%)
+    display: none;
+}

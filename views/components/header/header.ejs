@@ -1,0 +1,31 @@
+
+    <header class="header--container">
+        <a href="#uitgelicht">
+            <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/131573-200.png">
+        </a>
+    
+        <nav class="navigation">
+            <ul>
+                <li>
+                    <a href="#uitgelicht">Uitgelicht</a>
+                </li>
+                <li>
+                    <a href="#alle-verhalen">Alle verhalen</a>
+                </li>
+                <li>
+                    <a href="#jouw-verhaal">Jouw verhaal</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <script>
+        if(document.documentElement.classList && document.querySelectorAll){
+            const header = document.querySelector(".header--container")
+            const nav = document.querySelector(".navigation")
+            const navUl = document.querySelector(".navigation ul")
+            
+            navUl.classList.add('navUl--progressive')
+        }
+    
+    </script>
