@@ -35,6 +35,12 @@ app.use( bodyParser.json() )
 
 app.use( '/', indexRoute )
 
+app.get( '/detail', ( req, res ) => {
+
+	res.render( 'detail' )
+
+})
+
 app.get( '/styleguide', ( req, res ) => {
 
 	res.render( 'styleguide' )
