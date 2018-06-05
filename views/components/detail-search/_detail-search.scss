@@ -1,0 +1,27 @@
+@font-face {
+	font-family: 'Poppins';
+	src: url(/Users/jamie/Library/Fonts/Poppins-Regular.otf) format('opentype');
+}
+
+$primary-background: #fffbf4;
+$primary-textColor: #373740;
+
+.detail-form {
+	font-family: 'Poppins', sans-serif;
+	margin: 0.5rem;
+
+	input {
+		margin: 0.5rem 0 0 0;
+		padding: 0.5rem;
+		font-size: 0.8rem;
+		width: 10rem;
+		border: solid 1px $primary-textColor;
+		background-color: $primary-background;
+		color: $primary-textColor;
+	
+		&::placeholder {
+			font-size: 0.8rem;
+			color: $primary-textColor;
+		}
+	}
+}

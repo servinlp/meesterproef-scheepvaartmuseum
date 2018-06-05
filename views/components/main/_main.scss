@@ -1,3 +1,15 @@
+@font-face {
+	font-family: 'Poppins';
+	src: url(/Users/jamie/Library/Fonts/Poppins-Regular.otf) format('opentype');
+}
+
+$primary-background: #fffbf4;
+$primary-textColor: #373740;
+
+body {
+	background-color: $primary-background;
+}
+
 main {
 	display: block;
 }

@@ -1,6 +1,35 @@
-input, 
-label {
+@font-face {
+	font-family: 'Poppins';
+	src: url(/Users/jamie/Library/Fonts/Poppins-Regular.otf) format('opentype');
+}
+
+input, label {
 	display: block;
+}
+
+.upload-form {
+	font-family: 'Poppins', sans-serif;
+	margin: 0.5rem;
+	
+	input {
+		font-family: 'Poppins', sans-serif;
+		padding: 0.3rem;
+		font-size: 0.8rem;
+		width: 10rem;
+		border: solid 1px $primary-textColor;
+		background-color: $primary-background;
+		color: $primary-textColor;
+
+		&.button {
+			margin: 0.5rem 0 0 0;
+			background-color: $primary-background;
+
+			&:hover {
+				background-color: $primary-textColor;
+				color: $primary-background;
+			}
+		}
+	}
 }
 
 label {
