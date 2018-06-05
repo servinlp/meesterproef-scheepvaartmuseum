@@ -1,18 +1,5 @@
-
-// nav underline on hover: https://codepen.io/gnevin/pen/VaVexE
-
-* {
-    box-sizing: border-box;
-}
-html,
-body {
-    font-family: "Poppins", sans-serif;
-    height: 100em;
-}
-
 .header--container {
     min-height: 3em;
-    // background: rgba(255, 251, 244, 0.929);
     background: white;
     display: flex;
     flex-direction: row;
@@ -32,22 +19,46 @@ body {
         height: 2em;
         width: 2em;
     }
+
+    button {
+        border: none;
+        height: 2em;
+        width: 2em;
+        background: transparent;
+        font-size: 1.5em;
+        cursor: pointer;
+
+    @include mq("small"){
+        display: none;
+    }
+    }
 }
 
 
 .navigation {
-    ul{
     background: white;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: 100%;
     left: 0;
     top: 3em;
-    height: 10em;
-    @include mq("medium"){
-        
+    @include mq("small"){
+        position: relative;
+        top: 0;
+    }
+    
+    ul{
+        height: 10em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        text-align: center;
+    
+    @include mq("small"){
+        flex-direction: row;
+        height: inherit;
+        width: 100%;
     }
         li{     
             a{
@@ -80,8 +91,41 @@ body {
     }
 }
 
-.navUl--progressive {
+.nav--progressive {
     position: absolute;
-    transform: translateX(-100%)
-    display: none;
+    width: 100%;
+    opacity: 1;
+    @include mq("small"){
+        position: relative;
+        width: 20em;
+
+    }
+}
+
+.nav--hide {
+    visibility: hidden;
+    opacity: 0;
+    @include mq("small"){
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.overflow--hidden{
+    overflow: hidden;
+}
+
+.gradient {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: black;
+    opacity: 0;
+    transition: 0.3s ease;
+    visibility: hidden;
+}
+
+.gradient--show {
+    opacity: 0.7;
+    visibility: visible;
 }
