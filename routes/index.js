@@ -11,17 +11,15 @@ router.get( '/', ( req, res ) => {
 } )
 
 //Post the upload input file
-router.post( '/upload', upload.array( 'upload', 1 ), ( req, res ) => {
+router.post( '/upload', upload.array( 'upload', 5 ), ( req, res ) => {
 	console.log( 'trying to upload' )
-	console.log( req.body);
 	console.log( 'File uploaded successfully.' )
-	console.log( req.files )
 	uploadToDb(req.body, req.files)
 	res.send( 'success' )
 } )
 
-async function uploadToDb(data, dataImg) {
-	const obj = {
+async function uploadToDb(data, dataFiles) {
+	const storyMeta = {
 		title: data.title,
 		storyText: data.storyText,
 		email: data.email, 
@@ -30,21 +28,33 @@ async function uploadToDb(data, dataImg) {
 		location: data.location, 
 		timestamp: moment.now(),
 		storyTime: data.time
-	},
-	fileLocation = {
-		link: dataImg[0].location,
-		type: dataImg[0].mimetype
-	},
-	[ story, file ] = await Promise.all( [
-		pool.query('INSERT INTO stories SET ?', obj),
+	}
+	const fileLocation = dataFiles.map( (file) => {
+		const fileMeta = {
+			link: file.location,
+			type: file.mimetype
+		}
+		return pool.query( 'INSERT INTO files SET ?', fileMeta )
+	})
+	// fileLocation is an array of queries
+	const fileQueries = await Promise.all( [
+		pool.query('INSERT INTO stories SET ?', storyMeta),
 		// Upload image shiz
-		pool.query('INSERT INTO files SET ?', fileLocation)
-	] ),
-	updateStory = await pool.query( 'UPDATE stories set ? where ID = ?', [ {
-		files: file.insertId
+		...fileLocation
+	] )
+	const story = fileQueries.shift()
+
+	const fileIds = fileQueries.reduce( (acc, val) => {
+		return acc.concat(val.insertId)
+	}, [] )
+	const fileIdsString = fileIds.join(',')
+
+	console.log(fileIds);
+	const updateStory = await pool.query( 'UPDATE stories set ? where ID = ?', [ {
+		files: fileIdsString
 	}, story.insertId ] )
 
-	console.log( story, file, updateStory )
+	console.log( 'loggin story and file', story, fileIdsString )
 }
 
 module.exports = router
