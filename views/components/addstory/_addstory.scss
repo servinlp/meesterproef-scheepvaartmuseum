@@ -5,19 +5,10 @@ $font-color: #fff;
     display: flex;
     justify-content: center;
     .addstory--container {
-        @include mq('medium') {
-            max-width: 66%;
-        }
-        @include mq('large') {
-            max-width: 50%;
-        }
-        @include mq('xl') {
-            max-width: 40%;
-        }
         display: flex;
         justify-content: space-around;
         width: 100%;
-        button {
+        .button--regular {
             font-size: 1rem;
             display: block;
             width: 6rem;
@@ -27,12 +18,6 @@ $font-color: #fff;
             transition: 0.2s ease;
             background-color: $primary-color;
             color: $font-color;
-        }
-        .button--responsive {
-            transform: translateY(0%);
-            @include mq('medium') {
-                transform: translateY(125%);
-            }
         }
         .button--show {
             display: none;
@@ -45,5 +30,20 @@ $font-color: #fff;
                 transform: translateY(-30%);
             }
         }
+        @include mq('medium') {
+            max-width: 66%;
+        }
+        @include mq('large') {
+            max-width: 50%;
+        }
+        @include mq('xl') {
+            max-width: 40%;
+        }
     }
-}   
+}
+.button--responsive {
+    transform: translateY(0%);
+    @include mq('medium') {
+        transform: translateY(125%);
+    }
+}
