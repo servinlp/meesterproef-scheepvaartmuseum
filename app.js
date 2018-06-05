@@ -1,4 +1,5 @@
 const express = require( 'express' ),
+	session = require( 'express-session' ),
 	ENV = require( 'dotenv' ).config().parsed,
 	bodyParser = require( 'body-parser' ),
 	moment = require( 'moment' ),
@@ -10,6 +11,17 @@ const express = require( 'express' ),
 
 app.use( compression() )
 app.use( helmet() )
+
+app.set( 'trust proxy', 1 )
+app.use( session( {
+	secret: ENV.SESSION_SECRET,
+	resave: false,
+	saveUninitialized: true,
+	cookie: {
+		httpOnly: true,
+		secure: ENV.SECURE === '1'
+	}
+} ) )
 
 app.use( express.static( 'public' ) )
 
@@ -23,11 +35,17 @@ app.use( bodyParser.json() )
 
 app.use( '/', indexRoute )
 
+app.get( '/detail', ( req, res ) => {
+
+	res.render( 'detail' )
+
+})
+
 app.get( '/styleguide', ( req, res ) => {
 
 	res.render( 'styleguide' )
 
-} )
+})
 
 app.get( '/components', ( req, res ) => {
 
@@ -45,4 +63,4 @@ app.listen( PORT, () => {
 
 	console.log( `Hello from http://localhost:${ PORT }` )
 
-})
+} )
