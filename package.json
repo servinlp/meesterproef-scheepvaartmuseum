@@ -16,7 +16,7 @@
     "clean": "rimraf ./public/**/*",
     "build:lint": "parallelshell \"yarn run eslint:js\" \"yarn run eslint:scss\" \"yarn run build:scss\" \"yarn run build:js\" \"yarn run copy:all\"",
     "build": "parallelshell \"yarn run clean\" \"yarn run build:dir\" \"yarn run copy:all\" \"yarn run build:scss\" \"yarn run build:js\" ",
-    "build:dir": "mkdirp public ./public/scripts ./public/styles ./public/fonts ./public/images",
+	"build:dir": "mkdirp public ./public/scripts ./public/styles ./public/fonts ./public/images ./src ./src/scripts ./src/styles ./src/fonts ./src/images ./template/ ./template/component ./template/component/{name_cc}",
     "build:scss": "node-sass --output-style compressed ./views/index.scss -o ./public/styles",
     "build:js": "browserify ./views/index.js -t babelify | uglifyjs -cm -o ./public/scripts/index.js",
     "watch:all": "parallelshell \"yarn run copy:all:watch\" \"yarn run watch:scss\" \"yarn run watch:js\"",
