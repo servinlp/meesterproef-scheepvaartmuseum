@@ -12,11 +12,12 @@ router.get( '/', ( req, res ) => {
 
 //Post the upload input file
 router.post( '/upload', upload.array( 'upload', 5 ), ( req, res ) => {
-	uploadToDb(req.body, req.files)
-	res.send( 'success' )
+
+	uploadToDb( req.body, req.files, res )
+
 } )
 
-async function uploadToDb(data, dataFiles) {
+async function uploadToDb( data, dataFiles, res ) {
 	// Here we create an object that contains all the information which we are going to insert into the story table
 	const storyMeta = {
 		title: data.title,
@@ -95,6 +96,9 @@ async function uploadToDb(data, dataFiles) {
 	const updateStoryTags = await pool.query( 'UPDATE stories set ? where ID = ?', [ {
 		tags: tagIdsString
 	}, story.insertId ] )
+
+	res.send( 'success' )
+	
 }
 
 module.exports = router
