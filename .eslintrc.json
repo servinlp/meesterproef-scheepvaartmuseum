@@ -40,6 +40,8 @@
         "prefer-arrow-callback": ["error", {
             "allowNamedFunctions": true
         }],
+        "arrow-parens": ["error", "as-needed"],
+        "array-bracket-spacing": ["error", "always"],
         "eqeqeq": [
             "error",
             "always"
