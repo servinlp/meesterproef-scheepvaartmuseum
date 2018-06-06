@@ -39,6 +39,11 @@
         "space-in-parens": ["warn", "always"],
         "prefer-arrow-callback": ["error", {
             "allowNamedFunctions": true
-        }]
+        }],
+        "eqeqeq": [
+            "error",
+            "always"
+        ],
+        "func-names": ["error", "as-needed"]
     }
 }

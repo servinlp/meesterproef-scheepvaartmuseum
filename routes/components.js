@@ -3,7 +3,7 @@ const express = require( 'express' ),
 
 router.get( '/', ( req, res ) => {
 
-	res.render( 'index' )
+	res.render( 'components' )
 
 } )
 
