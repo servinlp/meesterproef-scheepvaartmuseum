@@ -1,5 +1,9 @@
-import Main from './components/main/main.js'
+import header from './components/header/header.js'
 
-function kek() {
+( function IIFE () {
 
-}
+	if( !( document.documentElement.classList && document.querySelectorAll ) ) return
+
+	header()
+
+} )()
