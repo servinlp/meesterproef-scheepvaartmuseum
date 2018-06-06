@@ -5,7 +5,16 @@ const express = require( 'express' ),
 	moment = require( 'moment' ),
 	helmet = require( 'helmet' ),
 	compression = require( 'compression' ),
+
 	indexRoute = require( './routes/index' ),
+	detailRoute = require( './routes/detail' ),
+	adminLoginRoute = require( './routes/adminLogin' ),
+	componentsRoute = require( './routes/components' ),
+	storyOverviewRoute = require( './routes/storyOverview' ),
+	storyUploadRoute = require( './routes/storyUpload' ),
+	styleguideRoute = require( './routes/styleguide' ),
+	fourOFourRoute = require( './routes/404' ),
+
 	app = express(),
 	PORT = ENV.NODE_ENV === 'production' ? ENV.PORT : ENV.DEV_PORT
 
@@ -34,30 +43,14 @@ app.use( bodyParser.urlencoded( {
 app.use( bodyParser.json() )
 
 app.use( '/', indexRoute )
+app.use( '/detail', detailRoute )
+app.use( '/styleguide', styleguideRoute )
+app.use( '/components', componentsRoute )
+app.use( '/admin-login', adminLoginRoute )
+app.use( '/story-upload', storyUploadRoute )
+app.use( '/story-overview', storyOverviewRoute )
 
-app.get( '/detail', ( req, res ) => {
-
-	res.render( 'detail' )
-
-})
-
-app.get( '/styleguide', ( req, res ) => {
-
-	res.render( 'styleguide' )
-
-})
-
-app.get( '/components', ( req, res ) => {
-
-	res.render( 'components' )
-
-} )
-
-app.get( '*', ( req, res ) => {
-
-	res.render( '404' )
-
-} )
+app.use( '*', fourOFourRoute )
 
 app.listen( PORT, () => {
 
