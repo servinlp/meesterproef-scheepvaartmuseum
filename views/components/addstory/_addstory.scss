@@ -4,49 +4,24 @@ $font-color: #fff;
 .temp--container {
     display: flex;
     justify-content: center;
-    .addstory--container {
-        display: flex;
-        justify-content: space-around;
-        width: 100%;
-        margin-top: 3em;
-        .button--regular {
-            font-size: 1rem;
-            display: block;
-            width: 6rem;
-            height: 6rem;
-            border: none;
-            border-radius: 50%;
-            transition: 0.2s ease;
-            background-color: $primary-color;
-            color: $font-color;
-        }
-        .button--show {
-            display: none;
-            @include mq('medium') {
-                border: none;
-                border-radius: 50%;
-                transition: 0.2s ease;
-                display: block;
-                width: 1em;
-                font-size: 8rem;
-                background-color: transparent;
-                color: black;
-                transform: translateY(-30%);
-            }
-        }
-        @include mq('medium') {
-            max-width: 66%;
-        }
-        @include mq('large') {
-            max-width: 50%;
-        }
-        @include mq('xl') {
-            max-width: 40%;
-        }
+}
+.addstory--container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 3rem;
+
+    @include mq('medium') {
+        max-width: 66%;
+    }
+    @include mq('large') {
+        max-width: 50%;
+    }
+    @include mq('xl') {
+        max-width: 40%;
     }
 }
-.button--responsive {
-    transform: translateY(0%);
+.button--regular {
     font-size: 1rem;
     display: block;
     width: 6rem;
@@ -56,7 +31,28 @@ $font-color: #fff;
     transition: 0.2s ease;
     background-color: $primary-color;
     color: $font-color;
+
+    &:nth-of-type(even) {
+        @include mq('medium') {
+            transform: translateY(125%);
+        }
+    }
+
     @include mq('medium') {
-        transform: translateY(125%);
+        display: none;
+    }
+}
+.button--show {
+    display: none;
+
+    @include mq('medium') {
+        border: none;
+        border-radius: 50%;
+        transition: 0.2s ease;
+        display: block;
+        font-size: 8rem;
+        background-color: transparent;
+        color: black;
+        transform: translateY(-30%);
     }
 }
