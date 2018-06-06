@@ -7,6 +7,7 @@
   "scripts": {
     "postinstall": "yarn run build:dir",
     "start": "yarn run dev",
+    "component":"sg generate component",
     "dev": "parallelshell \"yarn run watch:all\" \"nodemon app.js \" \"yarn run audit:js\" \"yarn run audit:scss\"",
     "audit:js": "onchange \"./views/**/*.js\" \"./views/*.js\" -- yarn run eslint:js",
     "audit:scss": "onchange \"./views/**/*.scss\" -- yarn run eslint:scss",
@@ -14,10 +15,10 @@
     "eslint:scss": "stylelint ./views/**/*.scss",
     "clean": "rimraf ./public/**/*",
     "build:lint": "parallelshell \"yarn run eslint:js\" \"yarn run eslint:scss\" \"yarn run build:scss\" \"yarn run build:js\" \"yarn run copy:all\"",
-    "build": "parallelshell \"yarn run clean\" \"yarn run build:dir\" \"yarn run build:scss\" \"yarn run build:js\" \"yarn run copy:all\"",
-    "build:dir": "mkdirp public ./public/scripts ./public/styles ./public/fonts ./public/images",
-    "build:scss": "node-sass --output-style compressed ./views/index.scss > ./public/styles/index.css",
-    "build:js": "browserify ./views/index.js -t babelify | uglifyjs -cm > ./public/scripts/index.js",
+    "build": "parallelshell \"yarn run clean\" \"yarn run build:dir\" \"yarn run copy:all\" \"yarn run build:scss\" \"yarn run build:js\" ",
+		"build:dir": "mkdirp public ./public/scripts ./public/styles ./public/fonts ./public/images ./src ./src/scripts ./src/styles ./src/fonts ./src/images ./template/ ./template/component ./template/component/{name_cc}",
+    "build:scss": "node-sass --output-style compressed ./views/index.scss -o ./public/styles",
+    "build:js": "browserify ./views/index.js -t babelify | uglifyjs -cm -o ./public/scripts/index.js",
     "watch:all": "parallelshell \"yarn run copy:all:watch\" \"yarn run watch:scss\" \"yarn run watch:js\"",
     "watch:scss": "node-sass -w -r  ./views/ --include-path ./views/components/** --source-map true -o ./public/styles/",
     "watch:js": "watchify ./views/index.js -t babelify -o ./public/scripts/index.js -v --debug",
@@ -44,7 +45,8 @@
     "moment": "^2.22.1",
     "multer": "^1.3.0",
     "multer-s3": "^2.7.0",
-    "promise-mysql": "^3.2.1"
+    "promise-mysql": "^3.2.1",
+    "uuid": "^3.2.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -62,6 +64,7 @@
     "onchange": "^4.0.0",
     "parallelshell": "^3.0.2",
     "rimraf": "^2.6.2",
+    "seng-generator": "^0.7.1",
     "stylelint": "^9.2.1",
     "stylelint-scss": "^3.1.0",
     "uglify-js": "^3.3.27",

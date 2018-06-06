@@ -11,6 +11,40 @@ $font-color: #fff;
     width: 100%;
     margin-top: 3rem;
 
+
+    button {
+        font-size: 1rem;
+        display: block;
+        width: 6rem;
+        height: 6rem;
+        border: none;
+        border-radius: 50%;
+        transition: 0.2s ease;
+        background-color: $primary-color;
+        color: $font-color;
+
+        &:nth-of-type(even) {
+            @include mq('medium') {
+                transform: translateY(125%);
+            }
+        }
+
+        &:nth-of-type(3) {
+            display: none;
+
+            @include mq('medium') {
+                border: none;
+                border-radius: 50%;
+                transition: 0.2s ease;
+                display: block;
+                font-size: 8rem;
+                background-color: transparent;
+                color: black;
+                transform: translateY(-30%);
+            }
+        }
+    }
+
     @include mq('medium') {
         max-width: 66%;
     }
@@ -21,7 +55,7 @@ $font-color: #fff;
         max-width: 40%;
     }
 }
-.button--regular {
+.button--regular--hidden {
     font-size: 1rem;
     display: block;
     width: 6rem;
@@ -32,27 +66,7 @@ $font-color: #fff;
     background-color: $primary-color;
     color: $font-color;
 
-    &:nth-of-type(even) {
-        @include mq('medium') {
-            transform: translateY(125%);
-        }
-    }
-
     @include mq('medium') {
         display: none;
-    }
-}
-.button--show {
-    display: none;
-
-    @include mq('medium') {
-        border: none;
-        border-radius: 50%;
-        transition: 0.2s ease;
-        display: block;
-        font-size: 8rem;
-        background-color: transparent;
-        color: black;
-        transform: translateY(-30%);
     }
 }

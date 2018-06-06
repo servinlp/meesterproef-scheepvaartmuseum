@@ -1,5 +1,10 @@
+* {
+	box-sizing: border-box;
+}
+
 body {
-	font-size: 16px;
+	font-size: 1rem;
+	font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
 .components__overview { 
