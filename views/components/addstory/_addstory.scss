@@ -1,16 +1,13 @@
 $primary-color: #3369a0;
+$secondairy-color: #C81200;
 $font-color: #fff;
 
-.temp--container {
-    display: flex;
-    justify-content: center;
-}
 .addstory--container {
     display: flex;
     justify-content: space-around;
     width: 100%;
     margin-top: 3rem;
-
+    margin-bottom: 11rem;
 
     button {
         font-size: 1rem;
@@ -35,18 +32,20 @@ $font-color: #fff;
 
             @include mq('medium') {
                 border: none;
-                border-radius: 50%;
                 transition: 0.2s ease;
                 display: block;
                 font-size: 8rem;
                 background-color: transparent;
                 color: black;
-                transform: translateY(-30%) rotate(0deg);
-                transform-origin: 46% 82%;
+                transform: rotate(0deg);
+                transform-origin: center;
+                line-height: 6rem;
             }
 
             &:focus {
                 outline: none;
+                color: $primary-color;
+                transform: scale(1.1);
             }
         }
     }
@@ -55,8 +54,16 @@ $font-color: #fff;
         display: none;
 
         @include mq('medium') {
-            transform: translateY(-30%) rotate(45deg) !important;
+            transform: rotate(45deg) !important;
+            color: $secondairy-color !important;
+
         }
+
+        &:focus {
+            outline: none;
+            transform: scale(1.1);
+        }
+
     }
 
     @include mq('medium') {
