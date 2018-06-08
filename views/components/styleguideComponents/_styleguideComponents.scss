@@ -1,0 +1,164 @@
+.styleguide--container {
+	margin-top: -3em;
+	padding: 5%;
+}
+
+.container--component {
+	padding: 10% 0;
+	border-bottom: 2px dashed black;
+
+	&:first-child {
+		padding-top: 0;
+	}
+
+	&:last-child {
+		border-bottom: none;
+	}
+}
+
+.container--items{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.css--selector-list {
+	list-style: initial;
+	margin-left: 1em;
+	vertical-align: initial;
+	li {
+		margin: 0.5em;
+	}
+	i {
+		font-style: italic;
+		font-size: 0.8em;
+	}
+}
+
+// buttons
+
+.button--standard {
+	height: 3em;
+	padding: 0.5em 3em;
+	background-color: #4f8cef;
+	border-radius: 100px;
+	border: none;
+	cursor: pointer;
+	color: white;
+	margin: 1em;
+	transition: 0.2s ease;
+
+	&:hover, &:focus {
+		background-color: #76a9fc;
+	}
+}
+
+.button--3d {
+	box-shadow: 0px 3.5px 0px 0.1px rgb(43, 113, 179);
+
+	&:hover, &:focus {
+		transform: translateY(3.5px);
+		box-shadow: none;
+	}
+}
+
+.button--gradient {
+	background-size: 200% auto;
+	background-image: linear-gradient(to right, #4f8cef 0%, #6dbbff 51%, #4f8cef 100%);
+
+	&:hover, &:focus {
+		background-position: center;
+	}
+}
+
+.button--square {
+	border-radius: 0;
+}
+
+.button--grow {
+	&:hover, &:focus {
+		transform: scale(1.1);
+		box-shadow: 0px 2px 5px 1px lightgray;
+	}
+}
+
+// colors
+
+.color--container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	
+	margin-right: 3em;
+}
+
+.color--box {
+	box-shadow: 0px 0px 20px 0px lightgray;
+	height: 4em;
+	width: 4em;
+	margin-bottom: 1em;
+}
+
+// color variations:
+
+.color--1 {
+	background: #ffffff;
+}
+
+.color--2 {
+	background: #4f8cef;
+}
+
+.color--3 {
+	background: #eb2d2d;
+}
+
+// text
+
+.styleguide--container {
+	
+	h1 {
+		font-size: 3em;
+		font-weight: 700;
+		margin-right: 1em;
+		line-height: initial;
+	}
+
+	h2 {
+		font-size: 2em;
+		font-weight: 700;
+		margin-right: 1em;
+	}
+	h3 {
+		line-height: initial;
+		padding: initial;
+		font-size: 1.6em;
+		font-weight: 700;
+		margin-right: 1em;
+	}
+	h4 {
+		font-size: 1.4em;
+		font-weight: 700;
+		
+	}
+	h5{
+		font-size: 1.2em;
+		font-weight: 700;
+		margin-right: 1em;
+	}
+	h6{
+		font-size: 1em;
+		font-weight: 700;
+		margin-right: 1em;
+	}
+
+	p {
+		font-size: 1em;
+		font-weight: 400;
+		margin-right: 1em;
+	}
+}
+
+
+
