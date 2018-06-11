@@ -4,8 +4,11 @@ $color-base: #fff;
 $color-primary: #4f8cef;
 $color-secondary: #eb2d2d;
 
-$color-lightblue: #6dbbff;
-$color-darkblue: rgb(43, 113, 179);
+$color-primary-hover: #6dbbff;
+$color-primary-border: rgb(43, 113, 179);
+
+$color-secondary-hover: #ff6f6f;
+$color-secondary-border: #b12020;
 
 // general: styleguide container styling
 
@@ -48,57 +51,115 @@ $color-darkblue: rgb(43, 113, 179);
 
 // buttons
 
-.button--standard {
+.button--primary {
 	font-size: 0.8rem;
 	height: 2.5rem;
 	padding: 0.5rem 2.5rem;
 	background-color: $color-primary;
-	border-radius: 100px;
 	border: none;
 	cursor: pointer;
 	color: white;
 	margin: 1em;
 	transition: 0.2s ease;
+	box-shadow: 0 3.5px 0 0.1px $color-primary-border;
 
 	&:hover,
 	&:focus {
-		background-color: $color-lightblue;
-	}
-}
-
-.button--3d {
-	box-shadow: 0 3.5px 0 0.1px $color-darkblue;
-
-	&:hover,
-	&:focus {
+		background-color: $color-primary-hover;
 		transform: translateY(3.5px);
 		box-shadow: none;
 	}
 }
 
-.button--gradient {
-	background-size: 200% auto;
-	background-image: linear-gradient(to right, $color-primary 0%, $color-lightblue 51%, $color-primary 100%);
+.button--secondary {
+	font-size: 0.8rem;
+	height: 2.5rem;
+	padding: 0.5rem 2.5rem;
+	background-color: $color-secondary;
+	border: none;
+	cursor: pointer;
+	color: white;
+	margin: 1em;
+	transition: 0.2s ease;
+	box-shadow: 0 3.5px 0 0.1px $color-secondary-border;
 
 	&:hover,
 	&:focus {
-		background-position: center;
+		background-color: $color-secondary-hover;
+		transform: translateY(3.5px);
+		box-shadow: none;
 	}
 }
 
-.button--square {
-	border-radius: 0;
-}
-
-.button--squareish {
-	border-radius: 4px;
-}
-
-.button--grow {
+.button--primary-round {
+	font-size: 0.8rem;
+	min-height: 4rem;
+	min-width: 4rem;
+	background-color: $color-primary;
+	border: none;
+	border-radius: 100px;
+	cursor: pointer;
+	color: white;
+	margin: 1em;
+	transition: 0.2s ease;
+	box-shadow: 0 0 10px 0 lightgray;
 	&:hover,
 	&:focus {
-		transform: scale(1.1);
-		box-shadow: 0 2px 5px 1px lightgray;
+		background-color: $color-primary-hover;
+	}
+}
+
+.button--secondary-round {
+	font-size: 0.8rem;
+	min-height: 4rem;
+	min-width: 4rem;
+	background-color: $color-secondary;
+	border: none;
+	border-radius: 100px;
+	cursor: pointer;
+	color: white;
+	margin: 1em;
+	transition: 0.2s ease;
+	box-shadow: 0 0 10px 0 lightgray;
+	&:hover,
+	&:focus {
+		background-color: $color-secondary-hover;
+	}
+}
+
+.button--primary-round-big {
+	font-size: 0.8rem;
+	min-height: 6rem;
+	min-width: 6rem;
+	background-color: $color-primary;
+	border: none;
+	border-radius: 100px;
+	cursor: pointer;
+	color: white;
+	margin: 1em;
+	transition: 0.2s ease;
+	box-shadow: 0 0 10px 0 lightgray;
+	&:hover,
+	&:focus {
+		background-color: $color-primary-hover;
+	}
+}
+
+.button--secondary-round-big {
+	font-size: 0.8rem;
+	min-height: 6rem;
+	min-width: 6rem;
+	background-color: $color-secondary;
+	border: none;
+	border-radius: 100px;
+	cursor: pointer;
+	color: white;
+	margin: 1em;
+	transition: 0.2s ease;
+	box-shadow: 0 0 10px 0 lightgray;
+	&:hover,
+	&:focus {
+		background-color: $color-secondary-hover;
 	}
 }
 
@@ -112,7 +173,7 @@ $color-darkblue: rgb(43, 113, 179);
 }
 
 .link:hover {
-	color: $color-darkblue;
+	color: $color-secondary-border;
 }
 
 // colors
@@ -146,47 +207,4 @@ $color-darkblue: rgb(43, 113, 179);
 	background: $color-secondary;
 }
 
-// text
 
-.styleguide--container {
-
-	h1 {
-		font-size: 3em;
-		font-weight: 700;
-		margin-right: 1em;
-		line-height: initial;
-	}
-
-	h2 {
-		font-size: 2em;
-		font-weight: 700;
-		margin-right: 1em;
-	}
-	h3 {
-		line-height: initial;
-		padding: initial;
-		font-size: 1.6em;
-		font-weight: 700;
-		margin-right: 1em;
-	}
-	h4 {
-		font-size: 1.4em;
-		font-weight: 700;
-	}
-	h5 {
-		font-size: 1.2em;
-		font-weight: 700;
-		margin-right: 1em;
-	}
-	h6 {
-		font-size: 1em;
-		font-weight: 700;
-		margin-right: 1em;
-	}
-
-	p {
-		font-size: 1em;
-		font-weight: 400;
-		margin-right: 1em;
-	}
-}
