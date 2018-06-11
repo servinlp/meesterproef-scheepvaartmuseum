@@ -1,5 +1,5 @@
 import header from './components/header/header.js'
-import toggleToolButton from './components/addstory/addstory.js'
+import toggleToolButton from './components/storyAddItemButton/storyAddItemButton.js'
 
 ( function iife() {
 
