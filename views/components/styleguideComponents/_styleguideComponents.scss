@@ -1,6 +1,6 @@
 // variables
 
-$color-base: #ffffff;
+$color-base: #fff;
 $color-primary: #4f8cef;
 $color-secondary: #eb2d2d;
 
@@ -27,7 +27,7 @@ $color-darkblue: rgb(43, 113, 179);
 	}
 }
 
-.container--items{
+.container--items {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
@@ -60,15 +60,17 @@ $color-darkblue: rgb(43, 113, 179);
 	margin: 1em;
 	transition: 0.2s ease;
 
-	&:hover, &:focus {
+	&:hover,
+	&:focus {
 		background-color: $color-lightblue;
 	}
 }
 
 .button--3d {
-	box-shadow: 0px 3.5px 0px 0.1px $color-darkblue;
+	box-shadow: 0 3.5px 0 0.1px $color-darkblue;
 
-	&:hover, &:focus {
+	&:hover,
+	&:focus {
 		transform: translateY(3.5px);
 		box-shadow: none;
 	}
@@ -78,7 +80,8 @@ $color-darkblue: rgb(43, 113, 179);
 	background-size: 200% auto;
 	background-image: linear-gradient(to right, $color-primary 0%, $color-lightblue 51%, $color-primary 100%);
 
-	&:hover, &:focus {
+	&:hover,
+	&:focus {
 		background-position: center;
 	}
 }
@@ -92,9 +95,10 @@ $color-darkblue: rgb(43, 113, 179);
 }
 
 .button--grow {
-	&:hover, &:focus {
+	&:hover,
+	&:focus {
 		transform: scale(1.1);
-		box-shadow: 0px 2px 5px 1px lightgray;
+		box-shadow: 0 2px 5px 1px lightgray;
 	}
 }
 
@@ -118,12 +122,11 @@ $color-darkblue: rgb(43, 113, 179);
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
-	
 	margin-right: 3em;
 }
 
 .color--box {
-	box-shadow: 0px 0px 20px 0px lightgray;
+	box-shadow: 0 0 20px 0 lightgray;
 	height: 4em;
 	width: 4em;
 	margin-bottom: 1em;
@@ -136,18 +139,17 @@ $color-darkblue: rgb(43, 113, 179);
 }
 
 .color--primary {
-	background:	$color-primary;
+	background: $color-primary;
 }
 
 .color--secondary {
 	background: $color-secondary;
 }
 
-
 // text
 
 .styleguide--container {
-	
+
 	h1 {
 		font-size: 3em;
 		font-weight: 700;
@@ -170,14 +172,13 @@ $color-darkblue: rgb(43, 113, 179);
 	h4 {
 		font-size: 1.4em;
 		font-weight: 700;
-		
 	}
-	h5{
+	h5 {
 		font-size: 1.2em;
 		font-weight: 700;
 		margin-right: 1em;
 	}
-	h6{
+	h6 {
 		font-size: 1em;
 		font-weight: 700;
 		margin-right: 1em;
@@ -189,6 +190,3 @@ $color-darkblue: rgb(43, 113, 179);
 		margin-right: 1em;
 	}
 }
-
-
-
