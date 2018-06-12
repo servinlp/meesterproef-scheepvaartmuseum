@@ -1,4 +1,3 @@
-
 function header () { 
 
 	const nav = document.querySelector( '.navigation' )
