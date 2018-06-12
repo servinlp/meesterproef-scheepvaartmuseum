@@ -1,5 +1,3 @@
-$colorBlue: rgb(17, 69, 223);
-$colorWhite: #FAFAFA;
 .map {
 	width: 100vw;
 	height: 50vh;
@@ -45,15 +43,9 @@ $colorWhite: #FAFAFA;
 			stroke: white;
 		}
 		[class$="-clone"]{
-			// stroke: red !important; 
 			fill-opacity: 1; 
 			stroke-opacity: .8;
 		}
-		
-		// g#year1939 g path {
-		// 	fill-opacity: 1;
-		// 	stroke-opacity: .8;
-		// }
 
 		.svgBoat {
 			z-index: z("boat");
