@@ -1,4 +1,4 @@
-(function setUpMap(){
+function setUpMap(){
 
 	// Sets the boat on the middle of the route line
 	TweenMax.set('[href="#boat"]', { xPercent: -50, yPercent: -50 } );
@@ -176,4 +176,6 @@
 		lineTl.play()
 	}
 	initializeMap()
-})()
+}
+
+export default setUpMap

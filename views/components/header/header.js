@@ -1,5 +1,4 @@
-
-function header() { 
+function header () { 
 
 	const nav = document.querySelector( '.navigation' )
 	if ( !nav ) return
