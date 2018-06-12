@@ -6,6 +6,7 @@ import toggleToolButton from './components/storyAddItemButton/storyAddItemButton
 	if( !( document.documentElement.classList && document.querySelectorAll ) ) return
 
 	header()
+	setUpMap()
 	toggleToolButton()
 
 } )()
