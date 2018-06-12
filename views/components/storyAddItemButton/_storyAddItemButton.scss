@@ -13,8 +13,8 @@
 		border: none;
 		border-radius: 50%;
 		transition: 0.2s ease;
-		background-color: $primary-color;
-		color: $font-color;
+		background-color: blue;
+		color: white;
 		animation: buttonFade .3s;
 
 		&:nth-of-type(even) {
