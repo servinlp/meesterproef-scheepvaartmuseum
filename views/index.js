@@ -10,7 +10,7 @@ import { enhancedDetail, fallbackDetail } from './components/enhancedDetail/enha
 
 	header()
 	uploadFormTest()
-	setUpMap()
+	// setUpMap()
 	toggleToolButton()
 
 	if (document.querySelector('main > .map')) {
