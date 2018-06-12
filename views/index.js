@@ -10,12 +10,11 @@ import { enhancedDetail, fallbackDetail } from './components/enhancedDetail/enha
 
 	header()
 	uploadFormTest()
-	// setUpMap()
 	toggleToolButton()
+	
+	setUpMap()
 
-	if (document.querySelector('main > .map')) {
-		setUpMap()
-	}
+	toggleToolButton()
 
 	if ( 'IntersectionObserver' in window) {
 		enhancedDetail()
