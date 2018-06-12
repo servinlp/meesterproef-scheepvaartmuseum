@@ -1,5 +1,15 @@
 <% include ./partials/head.ejs %>
 
-<% include ./components/styleguide/styleguide.ejs %>
+<div class="styleguide--container">
+	<div class="container--component">
+		<% include ./components/styleguideComponents/buttons.ejs %>
+	</div>
+	<div class="container--component">
+		<% include ./components/styleguideComponents/colors.ejs %>
+	</div>
+	<div class="container--component">
+		<% include ./components/styleguideComponents/text.ejs %>
+	</div>	
+</div>
 
 <% include ./partials/footer.ejs %>

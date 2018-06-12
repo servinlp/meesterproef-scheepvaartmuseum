@@ -13,8 +13,8 @@
 		border: none;
 		border-radius: 50%;
 		transition: 0.2s ease;
-		background-color: $primary-color;
-		color: $font-color;
+		background-color: blue;
+		color: white;
 		animation: buttonFade .3s;
 
 		&:nth-of-type(even) {
@@ -40,7 +40,7 @@
 
 			&:focus {
 				outline: none;
-				color: $primary-color;
+				color: blue;
 				transform: scale(1.1);
 			}
 		}
@@ -51,7 +51,7 @@
 
 		@include mq('medium') {
 			transform: rotate(45deg) !important;
-			color: $secondairy-color !important;
+			color: red !important;
 		}
 
 		&:focus {
