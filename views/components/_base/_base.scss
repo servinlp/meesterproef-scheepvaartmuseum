@@ -4,14 +4,14 @@
 
 body {
 	font-size: 1rem;
-	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+	font-family: $font-stack-base;
 	margin-top: 3em;
 	display: flex;
 	justify-content: center;
 }
 
 h1 {
-	font-family: 'PT Serif', Arial, Helvetica, sans-serif;
+	font-family: $font-stack-headers;
 	font-size: 3em;
 	font-weight: 700;
 	margin-right: 1em;
@@ -19,34 +19,34 @@ h1 {
 }
 
 h2 {
-	font-family: 'PT Serif', Arial, Helvetica, sans-serif;
+	font-family: $font-stack-headers;
 	font-size: 2em;
 	font-weight: 700;
 	margin-right: 1em;
 	line-height: initial;
 }
 h3 {
-	font-family: 'PT Serif', Arial, Helvetica, sans-serif;
+	font-family: $font-stack-headers;
 	line-height: initial;
 	font-size: 1.6em;
 	font-weight: 700;
 	margin-right: 1em;
 }
 h4 {
-	font-family: 'PT Serif', Arial, Helvetica, sans-serif;
+	font-family: $font-stack-headers;
 	line-height: initial;
 	font-size: 1.4em;
 	font-weight: 700;
 }
 h5 {
-	font-family: 'PT Serif', Arial, Helvetica, sans-serif;
+	font-family: $font-stack-headers;
 	line-height: initial;
 	font-size: 1.2em;
 	font-weight: 700;
 	margin-right: 1em;
 }
 h6 {
-	font-family: 'PT Serif', Arial, Helvetica, sans-serif;
+	font-family: $font-stack-headers;
 	line-height: initial;
 	font-size: 1em;
 	font-weight: 700;
@@ -54,6 +54,7 @@ h6 {
 }
 
 p {
+	font-family: $font-stack-base;
 	line-height: 1.4;
 	font-size: 1em;
 	font-weight: 400;
