@@ -8,11 +8,10 @@ import { enhancedDetail, fallbackDetail } from './components/enhancedDetail/enha
 	if( !( document.documentElement.classList && document.querySelectorAll ) ) return
 
 	header()
-	toggleToolButton()
+	
+	setUpMap()
 
-	if (document.querySelector('main > .map')) {
-		setUpMap()
-	}
+	toggleToolButton()
 
 	if ( 'IntersectionObserver' in window) {
 		enhancedDetail()
