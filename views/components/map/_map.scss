@@ -1,0 +1,105 @@
+.map {
+	width: 100vw;
+	height: 50vh;
+	&__svg {
+		transform: scale(1);
+		transform-origin: top left;
+		max-width: 100%;
+		max-height: 100%;
+		display: block;
+		margin: 0 auto;
+		background-color: $colorBlue;
+		overflow: hidden;
+		#worldLow {
+			polygon, > path {
+				fill: $colorWhite;
+				stroke: blue;
+			}
+		}
+		@include mq("small"){
+			transform: scale(1.1);
+
+		}
+		@include mq("medium"){
+			transform-origin: top;
+			transform: scale(1.5);
+		}
+		@include mq("large"){
+			transform-origin: top;
+			transform: scale(1.6);
+		}
+		@include mq("xl"){
+			transform-origin: top;
+			transform: scale(1.6);
+		}
+		
+		
+		// All route groups that contain 19 in the id
+		g[id^="year19"] g path{
+			stroke-opacity: 0;
+			fill-opacity: 0;
+			stroke-width: .25rem;
+			stroke-dasharray: 20, 5;
+			stroke: white;
+		}
+		[class$="-clone"]{
+			fill-opacity: 1; 
+			stroke-opacity: .8;
+		}
+
+		.svgBoat {
+			z-index: z("boat");
+			background-color: white;
+			width: 2rem;
+			height: 2rem;
+		}
+		&--container {
+			width: 100vw;
+			background-color: $colorBlue;
+			overflow: hidden;
+			@include mq("small"){
+				height: 40vh;
+			}
+			@include mq("medium"){
+				height: 50vh;
+			}	
+		}
+
+		&--land {
+			fill: #ccc;
+			fill-opacity: 1;
+			stroke: white;
+			stroke-opacity: 1;
+			stroke-width: 0.5;
+		}
+	}
+}
+.map__year--list {
+	display: flex;
+	justify-content: center;
+	li {
+		position: relative;
+		display: flex;
+		width: 18%;
+		margin-left: auto;
+		margin-bottom: 1rem;
+		button {
+			-webkit-appearance: none;
+			height: 3rem;
+			width: 100%;
+			font-size: 2rem;
+			@include mq("small"){
+				font-size: 1.25rem;
+			}
+			@include mq("medium"){
+				font-size: 2rem;
+			}
+	
+		}
+	}
+}
+
+.map__year--container {
+	padding: 0 1rem;
+	width: 100%;
+}

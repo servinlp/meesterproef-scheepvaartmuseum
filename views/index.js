@@ -1,5 +1,7 @@
 import header from './components/header/header.js'
 import uploadFormTest from './components/uploadForm/uploadForm.js'
+import setUpMap from './components/map/map.js'
+import toggleToolButton from './components/storyAddItemButton/storyAddItemButton.js'
 
 ( function IIFE () {
 
@@ -7,5 +9,7 @@ import uploadFormTest from './components/uploadForm/uploadForm.js'
 
 	header()
 	uploadFormTest()
+	setUpMap()
+	toggleToolButton()
 
 } )()

@@ -13,7 +13,10 @@
     "rules": {
         "indent": [
             "error",
-            "tab"
+			"tab",
+			{
+				"SwitchCase": 1
+			}
         ],
         "linebreak-style": [
             "error",
@@ -40,6 +43,8 @@
         "prefer-arrow-callback": ["error", {
             "allowNamedFunctions": true
         }],
+        "arrow-parens": ["error", "as-needed"],
+        "array-bracket-spacing": ["error", "always"],
         "eqeqeq": [
             "error",
             "always"

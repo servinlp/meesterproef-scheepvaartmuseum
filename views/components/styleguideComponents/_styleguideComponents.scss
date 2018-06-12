@@ -1,0 +1,197 @@
+
+// general: styleguide container styling
+
+.styleguide--container {
+	margin-top: -3em;
+	padding: 5%;
+}
+
+.container--component {
+	padding: 10% 0;
+	border-bottom: 2px dashed black;
+
+	&:first-child {
+		padding-top: 0;
+	}
+
+	&:last-child {
+		border-bottom: none;
+	}
+}
+
+.container--items {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.css--selector-list {
+	list-style: initial;
+	margin: 1em;
+	vertical-align: initial;
+	li {
+		margin: 0.5em;
+	}
+	i {
+		font-style: italic;
+		font-size: 0.8em;
+	}
+}
+
+// buttons
+
+.button--primary {
+	font-size: 0.8rem;
+	height: 2.5rem;
+	padding: 0.5rem 2.5rem;
+	background-color: $color-primary;
+	border: none;
+	cursor: pointer;
+	color: white;
+	margin: 1em;
+	transition: 0.2s ease;
+	box-shadow: 0 3.5px 0 0.1px $color-primary-border;
+
+	&:hover,
+	&:focus {
+		background-color: $color-primary-hover;
+		transform: translateY(3.5px);
+		box-shadow: none;
+	}
+}
+
+.button--secondary {
+	font-size: 0.8rem;
+	height: 2.5rem;
+	padding: 0.5rem 2.5rem;
+	background-color: $color-secondary;
+	border: none;
+	cursor: pointer;
+	color: white;
+	margin: 1em;
+	transition: 0.2s ease;
+	box-shadow: 0 3.5px 0 0.1px $color-secondary-border;
+
+	&:hover,
+	&:focus {
+		background-color: $color-secondary-hover;
+		transform: translateY(3.5px);
+		box-shadow: none;
+	}
+}
+
+.button--primary-round {
+	font-size: 0.8rem;
+	min-height: 4rem;
+	min-width: 4rem;
+	background-color: $color-primary;
+	border: none;
+	border-radius: 100px;
+	cursor: pointer;
+	color: white;
+	margin: 1em;
+	transition: 0.2s ease;
+	box-shadow: 0 0 10px 0 lightgray;
+	&:hover,
+	&:focus {
+		background-color: $color-primary-hover;
+	}
+}
+
+.button--secondary-round {
+	font-size: 0.8rem;
+	min-height: 4rem;
+	min-width: 4rem;
+	background-color: $color-secondary;
+	border: none;
+	border-radius: 100px;
+	cursor: pointer;
+	color: white;
+	margin: 1em;
+	transition: 0.2s ease;
+	box-shadow: 0 0 10px 0 lightgray;
+	&:hover,
+	&:focus {
+		background-color: $color-secondary-hover;
+	}
+}
+
+.button--primary-round-big {
+	font-size: 0.8rem;
+	min-height: 6rem;
+	min-width: 6rem;
+	background-color: $color-primary;
+	border: none;
+	border-radius: 100px;
+	cursor: pointer;
+	color: white;
+	margin: 1em;
+	transition: 0.2s ease;
+	box-shadow: 0 0 10px 0 lightgray;
+	&:hover,
+	&:focus {
+		background-color: $color-primary-hover;
+	}
+}
+
+.button--secondary-round-big {
+	font-size: 0.8rem;
+	min-height: 6rem;
+	min-width: 6rem;
+	background-color: $color-secondary;
+	border: none;
+	border-radius: 100px;
+	cursor: pointer;
+	color: white;
+	margin: 1em;
+	transition: 0.2s ease;
+	box-shadow: 0 0 10px 0 lightgray;
+	&:hover,
+	&:focus {
+		background-color: $color-secondary-hover;
+	}
+}
+
+// link
+
+.link {
+	text-decoration: underline;
+	color: $color-primary;
+	transition: 0.2s ease;
+	cursor: pointer;
+}
+
+.link:hover {
+	color: $color-secondary-border;
+}
+
+// colors
+
+.color--container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	margin-right: 3em;
+}
+
+.color--box {
+	box-shadow: 0 0 20px 0 lightgray;
+	height: 4em;
+	width: 4em;
+	margin-bottom: 1em;
+}
+
+// color variations:
+
+.color--base {
+	background: $color-base;
+}
+
+.color--primary {
+	background: $color-primary;
+}
+
+.color--secondary {
+	background: $color-secondary;
+}
