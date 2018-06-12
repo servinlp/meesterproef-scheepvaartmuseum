@@ -40,7 +40,7 @@
 
 			&:focus {
 				outline: none;
-				color: $primary-color;
+				color: blue;
 				transform: scale(1.1);
 			}
 		}
@@ -51,7 +51,7 @@
 
 		@include mq('medium') {
 			transform: rotate(45deg) !important;
-			color: $secondairy-color !important;
+			color: red !important;
 		}
 
 		&:focus {
