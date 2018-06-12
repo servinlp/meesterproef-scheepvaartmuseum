@@ -1,7 +1,7 @@
 function toggleToolButton() {
 	const addStoryButtons = document.querySelectorAll( '.button--regular--hidden' )
 	const plusButton = document.querySelector( '.button--show' )
-	if ( !addStoryButtons ) return
+	if ( !addStoryButtons || !plusButton ) return
 	function toggleButtons( addStoryButtons ){
 		addStoryButtons.classList.toggle( 'button--regular--hidden' )
 	}
