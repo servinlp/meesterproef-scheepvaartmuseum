@@ -24,7 +24,9 @@
         ],
         "quotes": [
             "error",
-            "single"
+            "single", {
+                "allowTemplateLiterals": true
+            }
         ],
         "semi": [
             "error",
@@ -83,6 +85,7 @@
         "VelocityTracker": true,
         "CSSPlugin": true,
         "ThrowPropsPlugin": true,
-        "BezierPlugin": true
+        "BezierPlugin": true,
+        "MorphSVGPlugin": true
     }
 }

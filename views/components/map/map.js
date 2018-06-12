@@ -118,10 +118,10 @@ function setUpMap() {
 		const allBezierRoutes = []
 		// Hides all routes that contain "year19..." as an ID
 		map.querySelectorAll( '[id^="year19"]' ).forEach( route => { 
-			route.style = "display: none"
+			route.style = 'display: none'
 		} )
 		// Displays current active route
-		map.querySelector( `[id^="year${ currentActiveYear.dataset.year }"]` ).style = "display: block"
+		map.querySelector( `[id^="year${ currentActiveYear.dataset.year }"]` ).style = 'display: block'
 
 		// Get the path of the currently active year
 		const pathsOfActiveYear = document.querySelectorAll( `#year${ currentActiveYear.dataset.year } > g > path` )
