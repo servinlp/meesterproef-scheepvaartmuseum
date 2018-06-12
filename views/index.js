@@ -6,17 +6,8 @@ import { enhancedDetailInit } from './components/enhancedDetail/enhancedDetail.j
 ( function IIFE () {
 
 	if( !( document.documentElement.classList && document.querySelectorAll ) ) return
-
+  enhancedDetailInit()	
 	header()
+  setUpMap()
 	toggleToolButton()
-	enhancedDetailInit()
-
-	if (document.querySelector('main > .map')) {
-		setUpMap()
-	}
-
-
-
-	
-
 } )()
