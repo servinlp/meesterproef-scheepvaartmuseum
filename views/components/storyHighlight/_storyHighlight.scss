@@ -54,6 +54,10 @@
 		overflow: scroll;
 		@include mq("medium") {
 			max-width: 50%;
+			min-width: 20rem;
+		}
+		@include mq("xl") {
+			min-width: 25rem;
 		}
 		img {
 			max-width: 100%;
@@ -64,7 +68,10 @@
 			float: right;
 			width: 100%;
 			@include mq("medium") {
-				width: auto;
+				width: 100%;
+			}
+			@include mq("xl") {
+				width: 100%;
 			}
 		}
 		&:before {
