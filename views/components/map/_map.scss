@@ -1,6 +1,13 @@
 .map {
 	width: 100vw;
 	height: 50vh;
+	@include mq('small'){
+		margin-left: -2rem;
+	}
+	@include mq('medium'){
+		margin-left: -4rem;
+	}
+
 	&__svg {
 		transform: scale(1);
 		transform-origin: top left;
