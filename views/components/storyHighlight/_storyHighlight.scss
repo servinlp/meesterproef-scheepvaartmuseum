@@ -1,0 +1,88 @@
+
+.story--container {
+	background: black;
+	display: flex;
+	flex-direction: column-reverse;
+	justify-content: space-between;
+	position: relative;
+	height: 25rem;
+	@include mq("small") {
+		height: 30rem;
+	}
+	@include mq("medium") {
+		height: 25rem;
+		flex-direction: row;
+	}
+	@include mq("xl") {
+		height: 30rem;
+	}
+
+	.story--container-text {
+		flex-shrink: 5;
+		padding: 2rem;
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+		position: absolute;
+		bottom: 0;
+		@include mq("medium") {
+			width: auto;
+			position: relative;
+		}
+		h1 {
+			font-size: 5vw;
+			position: relative;
+			z-index: 1;
+			color: $color-base;
+			margin-bottom: 1rem;
+			@include mq("medium") {
+				font-size: 7vw;
+			}
+		}
+		p {
+			position: relative;
+			z-index: 1;
+			color: $color-base;
+			font-size: 0.9rem;
+		}
+	}
+
+	.story--container-image {
+		flex-grow: 5;
+		height: 100%;
+		position: relative;
+		@include mq("medium") {
+			max-width: 50%;
+			min-width: 20rem;
+		}
+		@include mq("xl") {
+			min-width: 25rem;
+		}
+		img {
+			max-width: 100%;
+			height: 100%;
+			display: block;
+			object-fit: cover;
+			object-position: 50% 0%;
+			float: right;
+			width: 100%;
+			@include mq("medium") {
+				width: auto;
+				min-width: 100%;
+			}
+		}
+		&:before {
+			content: "";
+			height: 100%;
+			width: 100%;
+			background: linear-gradient(to top, rgba(0, 0, 0, 0.672) 30%, rgba(0, 0, 0, 0.611) 40%, rgba(0, 0, 0, 0) 100%);
+			position: absolute;
+			@include mq("small") {
+				background: linear-gradient(to top, rgba(0, 0, 0, 0.72) 20%, rgba(0, 0, 0, 0.556) 40%, rgba(0, 0, 0, 0) 100%);
+			}
+			@include mq("medium") {
+				background: linear-gradient(to right, black 0%, rgba(0, 0, 0, 0.659) 40%, rgba(0, 0, 0, 0) 100%);
+			}
+		}
+	}
+}
