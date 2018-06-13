@@ -1,9 +1,13 @@
+.story--container {
+	margin-bottom: 4%;
+}
+
 .content--container-basicbitch {
 	padding: 0 5%;
 	margin: auto;
 
 	@include mq('medium') {
 		padding: 0 10%;
-		max-width: 62.5rem;
+		max-width: 70rem;
 	}
 }
