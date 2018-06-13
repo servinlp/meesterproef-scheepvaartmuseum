@@ -22,7 +22,6 @@ h1 {
 	font-family: $font-stack-headers;
 	font-size: 3em;
 	font-weight: 700;
-	margin-right: 1em;
 	line-height: initial;
 }
 
@@ -45,7 +44,6 @@ h2 {
 	font-family: $font-stack-headers;
 	font-size: 2em;
 	font-weight: 700;
-	margin-right: 1em;
 	line-height: initial;
 }
 h3 {
@@ -53,7 +51,6 @@ h3 {
 	line-height: initial;
 	font-size: 1.6em;
 	font-weight: 700;
-	margin-right: 1em;
 }
 h4 {
 	font-family: $font-stack-headers;
@@ -66,14 +63,12 @@ h5 {
 	line-height: initial;
 	font-size: 1.2em;
 	font-weight: 700;
-	margin-right: 1em;
 }
 h6 {
 	font-family: $font-stack-headers;
 	line-height: initial;
 	font-size: 1em;
 	font-weight: 700;
-	margin-right: 1em;
 }
 
 p {
@@ -81,7 +76,6 @@ p {
 	line-height: 1.4;
 	font-size: 1em;
 	font-weight: 400;
-	margin-right: 1em;
 }
 
 .components__overview {

@@ -1,47 +1,47 @@
+function enhancedDetailInit() {
+	if ( ! ( document.querySelector( '.detail__content' ) && document.querySelector( '.detail__content--container' ) ) ) return
+	if ( 'IntersectionObserver' in window ) {
+		enhancedDetail()
+	} else {
+		fallbackDetail()
+	}
+}
+
 function enhancedDetail() {
-	console.log('enhanced')
-	const loadContentElement = function() {
-	const contentElements = document.querySelectorAll('.detail__content')
+	const contentElements = document.querySelectorAll( '.detail__content--container' )
 	const config = {
 		rootMargin: '0px 0px 0px 0px',
-		treshold: 0
+		threshold: 0.25
 	}
 	
-	let contentObserver = new IntersectionObserver(function(entries, self) {
-		entries.forEach(entry => {
-			if (entry.isIntersecting) {
-				console.log('in Viewport')
-				preloadContent(entry.target)
-				self.unobserve(entry.target)
+	const contentObserver = new IntersectionObserver( ( entries, self ) => {
+		entries.forEach( entry => {
+			if ( entry.isIntersecting ) {
+				preloadContent( entry.target )
+				self.unobserve( entry.target )
 			} 
-		})
+		} )
 	}, config )
 
-	contentElements.forEach(content => {
-		contentObserver.observe(content)
-	})
+	contentElements.forEach( content => {
+		contentObserver.observe( content )
+	} )
 
-	function preloadContent(content) {
-		const element = content.querySelector('.detail__content--container')
-		element.classList.add('visible')
-
+	function preloadContent( content ) {
+		const element = content.querySelector( '.detail__content' )
+		element.classList.add( 'visible' )
 	}
-
-} 
-
-loadContentElement()
 }
 
 
 function fallbackDetail() {
-	console.log('fallback')
-	const element = document.querySelectorAll('.detail__content--container')
-	for (let [i] of element.entries()) {
-    	element[i].classList.add('visible') 
+	const element = document.querySelectorAll( '.detail__content' )
+	for ( const [ i ] of element.entries() ) {
+		element[ i ].classList.add( 'visible' ) 
 	}
-	}
+}
 
 
 export {
-	enhancedDetail, fallbackDetail
+	enhancedDetailInit
 }

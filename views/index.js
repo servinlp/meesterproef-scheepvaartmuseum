@@ -1,8 +1,7 @@
 import header from './components/header/header.js'
 import setUpMap from './components/map/map.js'
 import toggleToolButton from './components/storyAddItemButton/storyAddItemButton.js'
-// import animateSearchAndSort from './components/searchAndSort/searchAndSort.js'
-import { enhancedDetail, fallbackDetail } from './components/enhancedDetail/enhancedDetail.js'
+import { enhancedDetailInit } from './components/enhancedDetail/enhancedDetail.js'
 
 ( function IIFE () {
 
@@ -16,7 +15,9 @@ import { enhancedDetail, fallbackDetail } from './components/enhancedDetail/enha
 		}}, 0.1 )
 	} }, 0.2)
 
+	enhancedDetailInit()	
 	header()
+	setUpMap()
 	toggleToolButton()
 	// animateSearchAndSort()
 	if (document.querySelector('main > .map')) {
