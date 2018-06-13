@@ -8,6 +8,7 @@ import { enhancedDetailInit } from './components/enhancedDetail/enhancedDetail.j
 	if( !( document.documentElement.classList && document.querySelectorAll ) ) return
   enhancedDetailInit()
 	enhancedDetailInit()	
+	enhancedDetailInit()
 	header()
 	setUpMap()
 	toggleToolButton()
