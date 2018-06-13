@@ -1,5 +1,8 @@
 .content--container-basicbitch {
-	margin: 0 10%;
-	border: 1px solid black;
+	margin: 1em 4%;
 	padding: 1rem 0;
+
+	@include mq('medium') {
+		max-width: 66vw;
+	}
 }
