@@ -13,17 +13,16 @@
 		padding: 1rem;
 		font-size: 1rem;
 	}
-
 	@include mq('medium') {
 		max-width: 75%;
 	}
 }
+
 .calltoaction--paragraph {
 	width: 90%;
 	border-left: 2px solid red;
 	padding: 1rem;
 	line-height: 1.4rem;
-
 	@include mq('medium') {
 		max-width: 75%;
 	}
