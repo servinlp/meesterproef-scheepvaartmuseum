@@ -1,0 +1,21 @@
+.detail__content {
+	opacity: 0;
+	transform: translateY(1%);
+	transition: all 500ms ease-out;
+}
+
+.detail__content--container {
+	margin: 1rem 0 0 0;
+	min-height: 5rem;
+	height: auto;
+}
+
+.no-js article {
+	opacity: 1;
+}
+
+.visible {
+	opacity: 1;
+	display: block;
+	transform: translateY(0);
+}
