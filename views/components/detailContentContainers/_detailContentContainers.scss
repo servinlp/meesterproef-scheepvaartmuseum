@@ -1,10 +1,9 @@
 .content--container-basicbitch {
-	margin: 1em 4%;
+	padding: 0 5%;
+	margin: auto;
 
 	@include mq('medium') {
-		margin: 1em 16.5%;
-	}
-	@include mq('xl') {
-		margin: 1em 25%;
+		padding: 0 10%;
+		max-width: 1000px;
 	}
 }
