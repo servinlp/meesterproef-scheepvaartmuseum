@@ -1,7 +1,7 @@
 import header from './components/header/header.js'
 import setUpMap from './components/map/map.js'
 import toggleToolButton from './components/storyAddItemButton/storyAddItemButton.js'
-import { enhancedDetailInit } from './components/enhancedDetail/enhancedDetail.js'
+import { enhancedDetail, enhancedDetailInit } from './components/enhancedDetail/enhancedDetail.js'
 
 ( function IIFE () {
 
@@ -15,21 +15,9 @@ import { enhancedDetailInit } from './components/enhancedDetail/enhancedDetail.j
 		}}, 0.1 )
 	} }, 0.2)
 
-	enhancedDetailInit()	
+	enhancedDetailInit()
 	header()
 	setUpMap()
 	toggleToolButton()
-	// animateSearchAndSort()
-	if (document.querySelector('main > .map')) {
-		setUpMap()
-	}
-
-	if ( 'IntersectionObserver' in window) {
-		enhancedDetail()
-	} else {
-		fallbackDetail()
-	}
-
 	
-
 } )()
