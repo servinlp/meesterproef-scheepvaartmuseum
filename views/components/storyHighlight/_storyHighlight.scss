@@ -16,7 +16,7 @@
 	@include mq("xl") {
 		height: 30rem;
 	}
-	
+
 	.story--container-text {
 		flex-shrink: 5;
 		padding: 2rem;
@@ -72,17 +72,17 @@
 			}
 		}
 		&:before {
-		content: "";
-		height: 100%;
-		width: 100%;
-		background: linear-gradient(to top, rgba(0, 0, 0, 0.672) 30%,rgba(0, 0, 0, 0.611) 40%,rgba(0,0,0,0) 100%); 
-		position: absolute;
-		@include mq("small") {
-			background: linear-gradient(to top, rgba(0, 0, 0, 0.72) 20%,rgba(0, 0, 0, 0.556) 40%,rgba(0,0,0,0) 100%); 
+			content: "";
+			height: 100%;
+			width: 100%;
+			background: linear-gradient(to top, rgba(0, 0, 0, 0.672) 30%, rgba(0, 0, 0, 0.611) 40%, rgba(0, 0, 0, 0) 100%);
+			position: absolute;
+			@include mq("small") {
+				background: linear-gradient(to top, rgba(0, 0, 0, 0.72) 20%, rgba(0, 0, 0, 0.556) 40%, rgba(0, 0, 0, 0) 100%);
+			}
+			@include mq("medium") {
+				background: linear-gradient(to right, black 0%, rgba(0, 0, 0, 0.659) 40%, rgba(0, 0, 0, 0) 100%);
+			}
 		}
-		@include mq("medium") {
-			background: linear-gradient(to right, black 0%,rgba(0, 0, 0, 0.659) 40%,rgba(0,0,0,0) 100%); 
-		}
-	}
 	}
 }
