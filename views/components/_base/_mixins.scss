@@ -18,7 +18,7 @@
 	$padding: unquote(($y/$x) * 100 + '%');
 	@if $pseudo {
 		&:before {
-			@include pseudo( $pos: relative);
+			@include pseudo($pos: relative);
 			width: 100%;
 			padding-top: $padding;
 		}
@@ -36,25 +36,25 @@
 	@if $round {
 		border-radius: 3px;
 	}
-	@if $direction==down {
+	@if $direction == down {
 		border-left: $size solid transparent;
 		border-right: $size solid transparent;
 		border-top: $size solid $color;
 		margin-top: 0 - round($size / 2.5);
 	}
-	@else if $direction==up {
+	@else if $direction == up {
 		border-left: $size solid transparent;
 		border-right: $size solid transparent;
 		border-bottom: $size solid $color;
 		margin-bottom: 0 - round($size / 2.5);
 	}
-	@else if $direction==right {
+	@else if $direction == right {
 		border-top: $size solid transparent;
 		border-bottom: $size solid transparent;
 		border-left: $size solid $color;
 		margin-right: -$size;
 	}
-	@else if $direction==left {
+	@else if $direction == left {
 		border-top: $size solid transparent;
 		border-bottom: $size solid transparent;
 		border-right: $size solid $color;
@@ -84,15 +84,19 @@
 	&.placeholder {
 		@content;
 	}
+
 	&::-moz-placeholder {
 		@content;
 	}
+
 	&::-webkit-input-placeholder {
 		@content;
 	}
+
 	&:-ms-input-placeholder {
 		@content;
 	}
+
 	&:-moz-placeholder {
 		@content;
 	}
@@ -103,7 +107,7 @@ $breakpoints: ( "small": 25rem, "medium": 48rem, "large": 64rem, "xl": 78rem);
 @mixin mq($width, $type: min) {
 	@if map_has_key($breakpoints, $width) {
 		$width: map_get($breakpoints, $width);
-		@if $type==max {
+		@if $type == max {
 			$width: $width - 1px;
 		}
 		@media only screen and (#{$type}-width: $width) {
@@ -115,10 +119,10 @@ $breakpoints: ( "small": 25rem, "medium": 48rem, "large": 64rem, "xl": 78rem);
 // While technically this is just a pure function, but I felt it's worth being on the list as it's so easy to loose track of your z-index values when working in several different files, so we created this so that we could store them in one place for easy editing/recording. Just place this snippet in your main variables/settings.scss file (needs to be imported before any of your other files that reference a x-index of course).
 @function z($name) {
 	@if index($z-indexes, $name) {
-		@return (length($z-indexes) - index($z-indexes, $name))+1;
+		@return (length($z-indexes) - index($z-indexes, $name)) + 1;
 	}
 	@else {
-		@warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+		@warn "There is no item"#{$name}"in this list; choose one of: #{$z-indexes}";
 		@return null;
 	}
 }
