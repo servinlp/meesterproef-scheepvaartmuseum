@@ -1,13 +1,13 @@
 .detail__content {
-	margin: 1rem 0 0 0;
-	min-height: 5rem;
-	height: auto;
-}
-
-.detail__content--container {
 	opacity: 0;
 	transform: translateY(1%);
 	transition: all 500ms ease-out;
+}
+
+.detail__content--container {
+	margin: 1rem 0 0 0;
+	min-height: 5rem;
+	height: auto;
 }
 
 .no-js article {
