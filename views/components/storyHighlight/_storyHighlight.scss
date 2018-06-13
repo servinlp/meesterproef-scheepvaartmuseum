@@ -20,6 +20,7 @@
 	.story--container-text {
 		flex-shrink: 5;
 		padding: 2rem;
+		padding-left: 5vw;
 		display: flex;
 		justify-content: space-between;
 		flex-direction: column;
@@ -30,12 +31,14 @@
 			position: relative;
 		}
 		h1 {
-			font-size: 5vw;
+			font-size: 2rem;
+			font-size: 7vw;
 			position: relative;
 			z-index: 1;
 			color: $color-base;
 			margin-bottom: 1rem;
 			@include mq("medium") {
+				font-size: 4rem;
 				font-size: 7vw;
 			}
 		}
@@ -44,6 +47,9 @@
 			z-index: 1;
 			color: $color-base;
 			font-size: 0.9rem;
+			@include mq("medium") {
+				font-size: 1.1rem;
+			}
 		}
 	}
 
