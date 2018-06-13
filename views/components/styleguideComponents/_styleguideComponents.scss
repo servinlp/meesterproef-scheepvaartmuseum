@@ -29,9 +29,11 @@
 	list-style: initial;
 	margin: 1em;
 	vertical-align: initial;
+
 	li {
 		margin: 0.5em;
 	}
+
 	i {
 		font-style: italic;
 		font-size: 0.8em;
@@ -92,6 +94,7 @@
 	margin: 1em;
 	transition: 0.2s ease;
 	box-shadow: 0 0 10px 0 lightgray;
+
 	&:hover,
 	&:focus {
 		background-color: $color-primary-hover;
@@ -110,6 +113,7 @@
 	margin: 1em;
 	transition: 0.2s ease;
 	box-shadow: 0 0 10px 0 lightgray;
+
 	&:hover,
 	&:focus {
 		background-color: $color-secondary-hover;
@@ -128,6 +132,7 @@
 	margin: 1em;
 	transition: 0.2s ease;
 	box-shadow: 0 0 10px 0 lightgray;
+
 	&:hover,
 	&:focus {
 		background-color: $color-primary-hover;
@@ -146,6 +151,7 @@
 	margin: 1em;
 	transition: 0.2s ease;
 	box-shadow: 0 0 10px 0 lightgray;
+
 	&:hover,
 	&:focus {
 		background-color: $color-secondary-hover;

@@ -12,7 +12,7 @@
 		padding: 5%;
 		border-radius: 0.5em;
 		width: 100%;
-		@include mq( "small" ) {
+		@include mq("small") {
 			box-shadow: 0 0 250px 0 rgba(211, 211, 211, 0.652);
 			width: auto;
 		}
@@ -27,12 +27,13 @@
 
 		form {
 			padding: 5%;
-			@include mq( "small" ) {
+			@include mq("small") {
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
 				align-items: center;
 			}
+
 			label {
 				color: rgb(67, 82, 82);
 				font-size: 0.9em;
@@ -44,9 +45,10 @@
 				border-bottom: 1px solid rgb(65, 60, 60);
 				padding: 0.5em 0 0.15em 0;
 				width: 100%;
-				@include mq( "small" ) {
+				@include mq("small") {
 					width: 15em;
 				}
+
 				&:focus {
 					outline: none;
 				}
@@ -62,6 +64,7 @@
 				border-radius: 100px;
 				width: 10em;
 				transition: 0.2s ease;
+
 				&:focus,
 				&:hover {
 					transform: scale(1.1);
@@ -69,6 +72,7 @@
 					background: rgb(46, 133, 226);
 				}
 			}
+
 			input[type="email"],
 			input[type="password"] {
 				&:valid {
