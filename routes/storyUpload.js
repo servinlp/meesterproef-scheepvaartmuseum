@@ -11,24 +11,60 @@ router.get( '/', ( req, res ) => {
 } )
 
 //Post the upload input file
-router.post( '/upload', upload.array( 'upload', 5 ), ( req, res ) => {
+router.post( '/upload', upload.any(), ( req, res ) => {
 
-	uploadToDb( req.body, req.files, res )
-
+	console.log( req.body )
+	console.log( req.files )
+	uploadToDb(req.body, req.files)
+	res.send( 'success' )
 } )
 
 async function uploadToDb( data, dataFiles, res ) {
 	// Here we create an object that contains all the information which we are going to insert into the story table
-	const storyMeta = {
-		title: data.title,
-		storyText: data.storyText,
-		email: data.email,
-		phone: data.phone,
-		tags: data.tags,
-		location: data.location,
-		timestamp: moment.now(),
-		storyTime: data.time
-	}
+	const contentObj = {},
+		storyMeta = {
+			title: data.title,
+			storyText: data.storyText,
+			email: data.email,
+			phone: data.phone,
+			tags: data.tags,
+			location: data.location,
+			timestamp: moment.now(),
+			storyTime: data.time
+		},
+		keys =  Object.keys( data ),
+		content = keys.filter( el => {
+
+			return includesOnOfAll( el, [ 'storyText', 'subtitle', 'videolink' ] )
+
+		} ).forEach( el => { 
+			
+			contentObj[ el ] = data[ el ]
+		
+		} )
+
+	console.log( contentObj )
+
+	dataFiles.forEach( el => {
+
+		contentObj[ el.fieldname ] = el
+
+	} )
+	
+	const contentKeys = Object.keys( contentObj ),
+		contentInOrder = contentKeys.sort( sortByIndex )
+
+	console.log( 'contentInOrder', contentInOrder )
+
+	contentInOrder.forEach( el => {
+
+		const type = getType( el, contentObj )
+
+		console.log( type )
+
+	} )
+
+	return
 	
 	// fileLocation inserts all the files and filetypes into the files table in the database
 	const fileLocation = dataFiles.map( file => {
@@ -99,6 +135,61 @@ async function uploadToDb( data, dataFiles, res ) {
 
 	res.send( 'success' )
 	
+}
+
+function includesOnOfAll( el, arr ) {
+
+	for ( let i = 0; i < arr.length; i++ ) {
+
+		if ( el.includes( arr[ i ] ) ) return true
+
+	}
+
+	return false
+
+}
+
+function sortByIndex( a, b ) {
+
+	const indexA = parseInt( a.substr( a.lastIndexOf( '-' ) + 1, a.length ) ),
+		indexB = parseInt( b.substr( b.lastIndexOf( '-' ) + 1, b.length ) )
+
+	// First b then a to get from 1 to 2, 3, 4
+	return indexB - indexA
+
+}
+
+function getType( el, data ) {
+
+	const type = el.substr( 0, el.indexOf( '-' ) )
+	let contentType
+
+	console.log( type )
+
+	switch( type ) {
+		case 'storyText':
+			contentType = 'text'
+			break
+		case 'upload':
+			contentType = data[ el ].mimetype
+			break
+		case 'subtitle':
+			contentType = 'title/h2'
+			break
+		case 'videolink':
+			// Use youtu here instead of youtube for short links
+			if ( data[ el ].includes( 'youtu' ) ) {
+				contentType = 'videolink/youtube'
+			} else if ( data[ el ].includes( 'vimeo' ) ) {
+				contentType = 'videolink/vimeo'
+			}
+			break
+		default:
+			contentType = null
+	}
+
+	return contentType
+
 }
 
 module.exports = router
