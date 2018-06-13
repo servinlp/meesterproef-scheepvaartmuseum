@@ -9,8 +9,10 @@
     "start": "yarn run dev",
     "component": "sg generate component",
     "dev": "parallelshell \"yarn run watch:all\" \"nodemon app.js \" \"yarn run audit:js\" \"yarn run audit:scss\"",
-    "audit:js": "onchange \"./views/**/*.js\" \"./views/*.js\" -- yarn run eslint:js",
-    "audit:scss": "onchange \"./views/**/*.scss\" -- yarn run eslint:scss",
+    "audit:js": "onchange \"./views/**/*.js\" \"./views/*.js\" -- yarn run correct:js",
+    "audit:scss": "onchange \"./views/**/*.scss\" -- yarn run correct:scss",
+    "correct:js": "yarn run eslint:js --fix",
+    "correct:scss": "stylefmt -r ./views/components/**/*.scss",
     "eslint:js": "eslint ./views/**/*.js",
     "eslint:scss": "stylelint ./views/**/*.scss",
     "clean": "rimraf ./public/**/*",
@@ -48,8 +50,6 @@
     "multer-s3": "^2.7.0",
     "postcss-preset-env": "^5.1.0",
     "promise-mysql": "^3.2.1",
-    "stylefmt": "^6.0.0",
-    "stylelint": "^9.2.1",
     "uuid": "^3.2.1"
   },
   "devDependencies": {
@@ -73,6 +73,8 @@
     "rimraf": "^2.6.2",
     "seng-generator": "^0.7.1",
     "stylelint-scss": "^3.1.0",
+    "stylefmt": "^6.0.0",
+    "stylelint": "^9.2.1",
     "uglify-js": "^3.3.27",
     "watchify": "^3.11.0"
   },
