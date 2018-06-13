@@ -41,42 +41,42 @@
 // buttons
 
 .button--primary {
-	font-size: 0.8rem;
-	height: 2.5rem;
+	font-size: 1rem;
+	height: 2.75rem;
 	padding: 0.5rem 2.5rem;
-	background-color: $color-primary;
+	background-color: darken($color-primary, 10%);
 	border: none;
 	cursor: pointer;
 	color: white;
 	margin: 1em;
-	transition: 0.2s ease;
-	box-shadow: 0 3.5px 0 0.1px $color-primary-border;
+	transition-property: transform, background-color, box-shadow;
+	transition: 150ms ease-out;
 
 	&:hover,
 	&:focus {
-		background-color: $color-primary-hover;
-		transform: translateY(3.5px);
-		box-shadow: none;
+		background-color: darken($color-primary, 15%);
+		transform: scale(1.01);
+		box-shadow: 0 0.2rem 0.2rem 0rem darken($color-primary, 40%);
 	}
 }
 
 .button--secondary {
 	font-size: 0.8rem;
-	height: 2.5rem;
+	height: 2.75rem;
 	padding: 0.5rem 2.5rem;
 	background-color: $color-secondary;
 	border: none;
 	cursor: pointer;
 	color: white;
 	margin: 1em;
-	transition: 0.2s ease;
-	box-shadow: 0 3.5px 0 0.1px $color-secondary-border;
+	transition-property: transform, background-color, box-shadow;
+	transition: 150ms ease-out;
 
 	&:hover,
 	&:focus {
-		background-color: $color-secondary-hover;
-		transform: translateY(3.5px);
-		box-shadow: none;
+		background-color: darken($color-secondary, 15%);
+		transform: scale(1.01);
+		box-shadow: 0 0.2rem 0.2rem 0rem darken($color-primary, 40%);
 	}
 }
 
