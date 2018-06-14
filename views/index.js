@@ -7,7 +7,7 @@ import animateStoryOverview from './components/storyGrid/storyGrid.js'
 ( function IIFE () {
 
 	if( !( document.documentElement.classList && document.querySelectorAll ) ) return
-
+	
 	enhancedDetailInit()
 	header()
 	animateStoryOverview()

@@ -44,6 +44,15 @@
 		left: 0;
 		top: 3em;
 		@include mq("small") {
+			flex-direction: row;
+			height: inherit;
+			width: 100%;
+		}
+
+		a {
+			text-decoration: none;
+			color: black;
+			font-size: 0.9em;
 			position: relative;
 			top: 0;
 		}

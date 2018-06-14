@@ -17,30 +17,7 @@
 		margin: 0 auto;
 		background-color: $colorBlue;
 		overflow: hidden;
-		#worldLow {
-			polygon, > path {
-				fill: $colorWhite;
-				stroke: blue;
-			}
-		}
-		@include mq("small"){
-			transform: scale(1.1);
 
-		}
-		@include mq("medium"){
-			transform-origin: top;
-			transform: scale(1.5);
-		}
-		@include mq("large"){
-			transform-origin: top;
-			transform: scale(1.6);
-		}
-		@include mq("xl"){
-			transform-origin: top;
-			transform: scale(1.6);
-		}
-		
-		
 		// All route groups that contain 19 in the id
 		g[id^="year19"] g path{
 			// stroke-opacity: 0;
@@ -49,9 +26,10 @@
 			stroke-dasharray: 20, 5;
 			stroke: white;
 		}
-		[class$="-clone"]{
-			fill-opacity: 1; 
-			stroke-opacity: .8;
+
+		[class$="-clone"] {
+			fill-opacity: 1;
+			stroke-opacity: 0.8;
 		}
 
 		.svgBoat {
@@ -60,16 +38,17 @@
 			width: 2rem;
 			height: 2rem;
 		}
+
 		&--container {
 			width: 100vw;
 			background-color: $colorBlue;
 			overflow: hidden;
-			@include mq("small"){
+			@include mq("small") {
 				height: 40vh;
 			}
-			@include mq("medium"){
+			@include mq("medium") {
 				height: 50vh;
-			}	
+			}
 		}
 
 		&--land {
@@ -79,29 +58,54 @@
 			stroke-opacity: 1;
 			stroke-width: 0.5;
 		}
+
+		#worldLow {
+			polygon,
+			> path {
+				fill: $colorWhite;
+				stroke: blue;
+			}
+		}
+		@include mq("small") {
+			transform: scale(1.1);
+		}
+		@include mq("medium") {
+			transform-origin: top;
+			transform: scale(1.5);
+		}
+		@include mq("large") {
+			transform-origin: top;
+			transform: scale(1.6);
+		}
+		@include mq("xl") {
+			transform-origin: top;
+			transform: scale(1.6);
+		}
 	}
 }
+
 .map__year--list {
 	display: flex;
 	justify-content: center;
+
 	li {
 		position: relative;
 		display: flex;
 		width: 18%;
 		margin-left: auto;
 		margin-bottom: 1rem;
+
 		button {
 			-webkit-appearance: none;
 			height: 3rem;
 			width: 100%;
 			font-size: 2rem;
-			@include mq("small"){
+			@include mq("small") {
 				font-size: 1.25rem;
 			}
-			@include mq("medium"){
+			@include mq("medium") {
 				font-size: 2rem;
 			}
-	
 		}
 	}
 }
