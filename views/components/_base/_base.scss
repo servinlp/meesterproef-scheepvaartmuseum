@@ -10,10 +10,10 @@ body {
 
 main {
 	margin: 0 auto;
-	@include mq('small'){
+	@include mq('small') {
 		padding: 0 2rem;
 	}
-	@include mq('medium'){
+	@include mq('medium') {
 		padding: 0 4rem;
 	}
 }
@@ -23,18 +23,22 @@ h1 {
 	font-size: 3em;
 	font-weight: 700;
 	line-height: initial;
+	color: $color-header;
+	margin: 1rem;
 }
 
 .title__underline--red {
 	text-align: center;
 	margin: 6rem 0 2rem 0;
+
 	> .underline-red {
 		display: inline-block;
+
 		&::after {
 			content: '';
 			display: block;
 			width: 100%;
-			height: .25rem;
+			height: 0.25rem;
 			background-color: $secondairy-color;
 		}
 	}
@@ -45,6 +49,8 @@ h2 {
 	font-size: 2em;
 	font-weight: 700;
 	line-height: initial;
+	color: $color-header;
+	margin: 1rem;
 }
 
 h3 {
@@ -52,6 +58,7 @@ h3 {
 	line-height: initial;
 	font-size: 1.6em;
 	font-weight: 700;
+	color: $color-header;
 }
 
 h4 {
@@ -59,6 +66,7 @@ h4 {
 	line-height: initial;
 	font-size: 1.4em;
 	font-weight: 700;
+	color: $color-header;
 }
 
 h5 {
@@ -66,6 +74,7 @@ h5 {
 	line-height: initial;
 	font-size: 1.2em;
 	font-weight: 700;
+	color: $color-header;
 }
 
 h6 {
@@ -73,6 +82,7 @@ h6 {
 	line-height: initial;
 	font-size: 1em;
 	font-weight: 700;
+	color: $color-header;
 }
 
 p {

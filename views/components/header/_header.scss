@@ -16,12 +16,13 @@
 		align-items: center;
 		justify-content: space-between;
 		padding: 0 0.5em;
-		
-		img, svg {
+
+		img,
+		svg {
 			height: 2em;
 			width: 2em;
 		}
-	
+
 		button {
 			border: none;
 			height: 2em;
@@ -34,19 +35,21 @@
 			}
 		}
 	}
-	
+
 	.navigation {
-		background: white;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-around;
 		align-items: center;
+		line-height: 3rem;
+		top: 3rem;
 		left: 0;
-		top: 3em;
+		background: white;
 		@include mq("small") {
 			flex-direction: row;
 			height: inherit;
 			width: 100%;
+			top: 0;
 		}
 
 		a {
@@ -56,25 +59,30 @@
 			position: relative;
 			top: 0;
 		}
-	
+
 		ul {
 			height: 10em;
 			display: flex;
 			flex-direction: column;
-			justify-content: space-around;
+			justify-content: flex-end;
 			text-align: center;
 			@include mq("small") {
 				flex-direction: row;
 				height: inherit;
 				width: 100%;
 			}
+
+			li {
+				padding-right: 1rem;
+			}
+
 			a {
 				text-decoration: none;
 				color: black;
 				font-size: 0.9em;
 				position: relative;
-	
-				&:after {
+
+				&::after {
 					content: "";
 					position: absolute;
 					height: 2px;
@@ -88,8 +96,8 @@
 					-webkit-transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
 					transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
 				}
-	
-				&:hover:after {
+
+				&:hover::after {
 					width: 100%;
 				}
 			}
