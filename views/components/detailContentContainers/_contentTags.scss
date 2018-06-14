@@ -4,14 +4,21 @@
 
 	a {
 		color: $color-secondary;
+		transition: 0.2s ease;
+
+		&:hover {
+			text-decoration: none;
+		}
 	}
 }
 
 .tag--container {
 	display: flex;
+	margin-bottom: 2rem;
 
 	label {
 		margin-top: 0;
 		width: fit-content;
+		margin-right: 1rem;
 	}
 }
