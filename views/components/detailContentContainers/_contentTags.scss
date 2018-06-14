@@ -1,7 +1,17 @@
 .content--container-tags {
 	display: inline-block;
+	width: fit-content;
 
 	a {
 		color: $color-secondary;
+	}
+}
+
+.tag--container {
+	display: flex;
+
+	label {
+		margin-top: 0;
+		width: fit-content;
 	}
 }
