@@ -8,11 +8,36 @@ body {
 	margin-top: 3em;
 }
 
+main {
+	margin: 0 auto;
+	@include mq('small'){
+		padding: 0 2rem;
+	}
+	@include mq('medium'){
+		padding: 0 4rem;
+	}
+}
+
 h1 {
 	font-family: $font-stack-headers;
 	font-size: 3em;
 	font-weight: 700;
 	line-height: initial;
+}
+
+.title__underline--red {
+	text-align: center;
+	margin: 6rem 0 2rem 0;
+	> .underline-red {
+		display: inline-block;
+		&::after {
+			content: '';
+			display: block;
+			width: 100%;
+			height: .25rem;
+			background-color: $secondairy-color;
+		}
+	}
 }
 
 h2 {

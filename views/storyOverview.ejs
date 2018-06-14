@@ -1,5 +1,13 @@
 <% include ./partials/head.ejs %>
+<% include ./components/header/header.ejs %>
 
-<h1>Story Overview</h1>
+<main class="stories">
+	<h1 class="title__underline--red stories--title"><span class="underline-red">Alle</span> <span>verhalen</span></h1>
+	<% include ./components/searchAndSort/searchAndSort.ejs %>
+	<% include ./components/storyGrid/storyGrid.ejs %>
+	<hr>
+	<% include ./components/pagination/pagination.ejs %>
+</main>
+
 
 <% include ./partials/footer.ejs %>

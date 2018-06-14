@@ -3,6 +3,7 @@ import uploadForm from './components/uploadForm/uploadForm.js'
 import setUpMap from './components/map/map.js'
 import toggleToolButton from './components/storyAddItemButton/storyAddItemButton.js'
 import { enhancedDetailInit } from './components/enhancedDetail/enhancedDetail.js'
+import animateStoryOverview from './components/storyGrid/storyGrid.js'
 
 ( function IIFE () {
 
@@ -12,8 +13,7 @@ import { enhancedDetailInit } from './components/enhancedDetail/enhancedDetail.j
 	header()
 	uploadForm()
 	toggleToolButton()
-	
+	animateStoryOverview()
 	setUpMap()
-
-	toggleToolButton()
+	
 } )()

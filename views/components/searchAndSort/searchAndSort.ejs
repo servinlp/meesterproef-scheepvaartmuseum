@@ -1,0 +1,17 @@
+<section class="stories__form">
+	<form class="stories__search" action="" method="get">
+		<label for="search">Zoeken op</label>
+		<input type="text" id="search" name="search" placeholder="Zoek hier naar verhalen">
+		<button class="button--primary" type="submit">Zoeken</button>
+	</form>
+	
+	<form class="stories__sort" action="" method="get">
+		<label for="sort">Sorteer op</label>
+		<select name="sort" id="sort">
+			<option value="uitgelicht" selected>Uitgelicht</option>
+			<option value="rating">Aantal keer bekeken</option>
+		</select>
+		<button class="button--primary" type="submit">Sorteren</button>
+	</form>
+</section>
+<p class="stories__search--result" id="searchResult"><span id="number-result">...</span> verhalen gebaseerd op de zoekterm: <span id="search-word" class="underline-red">appel</span> </p>
