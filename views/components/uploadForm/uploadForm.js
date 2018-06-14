@@ -1,4 +1,4 @@
-function uploadFormTest() {
+function uploadForm() {
 
 	const form = document.querySelector( '.upload-form' )
 
@@ -89,4 +89,4 @@ function addInput( type ) {
 
 }
 
-export default uploadFormTest
+export default uploadForm
