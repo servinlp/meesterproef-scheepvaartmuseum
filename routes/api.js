@@ -1,6 +1,6 @@
 const express = require( 'express' ),
-	router = 	express.Router(),
-	pool = 		require( '../lib/mysql' )
+	router = express.Router(),
+	pool = require( '../lib/mysql' )
 
 router.get( '/tags', async ( req, res ) => {
 
