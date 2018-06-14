@@ -72,24 +72,17 @@
 				width: 100%;
 			}
 
-<<<<<<< HEAD
-=======
 			li {
 				padding-right: 1rem;
 			}
 
->>>>>>> a3ccd8f738fb2c137b91be4fdbf0b49230ff925b
 			a {
 				text-decoration: none;
 				color: black;
 				font-size: 0.9em;
 				position: relative;
 
-<<<<<<< HEAD
-				&:after {
-=======
 				&::after {
->>>>>>> a3ccd8f738fb2c137b91be4fdbf0b49230ff925b
 					content: "";
 					position: absolute;
 					height: 2px;
@@ -104,11 +97,7 @@
 					transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
 				}
 
-<<<<<<< HEAD
-				&:hover:after {
-=======
 				&:hover::after {
->>>>>>> a3ccd8f738fb2c137b91be4fdbf0b49230ff925b
 					width: 100%;
 				}
 			}
