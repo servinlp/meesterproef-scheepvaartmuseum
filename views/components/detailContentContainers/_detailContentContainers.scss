@@ -1,23 +1,16 @@
-.content--container-basicbitch {
-	position: relative;
-	padding: 0 5%;
-	padding: 0 5vw;
+.container--main {
 	margin-bottom: 2rem;
-	@include push--auto;
+	padding-left: auto;
+	padding-right: auto;
+	margin-left: 5%;
+	margin-right: 5%;
 	@include mq('medium') {
 		max-width: 55rem;
-		padding: 0 2rem;
-		padding: 0 5vw;
 	}
-}
-
-.container--main {
-	margin-top: 4%;
-	margin-bottom: 4%;
-	width: 100%;
 }
 
 .content--container-text {
 	font-size: 1.2rem;
 	font-weight: 200;
+	margin-bottom: 2rem;
 }
