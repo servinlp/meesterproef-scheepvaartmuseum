@@ -1,9 +1,7 @@
 .container--main {
 	margin-bottom: 2rem;
-	padding-left: auto;
-	padding-right: auto;
-	margin-left: 5%;
-	margin-right: 5%;
+	margin-left: auto;
+	margin-right: auto;
 	@include mq('medium') {
 		max-width: 55rem;
 	}
