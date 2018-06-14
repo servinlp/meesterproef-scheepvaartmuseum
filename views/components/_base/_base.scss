@@ -20,9 +20,11 @@ main {
 
 h1 {
 	font-family: $font-stack-headers;
-	font-size: 3em;
+	font-size: 2.5rem;
 	font-weight: 700;
 	line-height: initial;
+	color: $color-header;
+	margin: 1rem;
 }
 
 .title__underline--red {
@@ -44,9 +46,11 @@ h1 {
 
 h2 {
 	font-family: $font-stack-headers;
-	font-size: 2em;
+	font-size: 1.6em;
 	font-weight: 700;
 	line-height: initial;
+	color: $color-header;
+	margin: 1rem;
 }
 
 h3 {
@@ -54,6 +58,7 @@ h3 {
 	line-height: initial;
 	font-size: 1.6em;
 	font-weight: 700;
+	color: $color-header;
 }
 
 h4 {
@@ -61,6 +66,7 @@ h4 {
 	line-height: initial;
 	font-size: 1.4em;
 	font-weight: 700;
+	color: $color-header;
 }
 
 h5 {
@@ -68,6 +74,7 @@ h5 {
 	line-height: initial;
 	font-size: 1.2em;
 	font-weight: 700;
+	color: $color-header;
 }
 
 h6 {
@@ -75,6 +82,7 @@ h6 {
 	line-height: initial;
 	font-size: 1em;
 	font-weight: 700;
+	color: $color-header;
 }
 
 p {

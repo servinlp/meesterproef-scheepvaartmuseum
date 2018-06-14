@@ -1,6 +1,9 @@
 .map {
 	width: 100vw;
 	height: 50vh;
+	<<<<<<<: hidden;
+
+	> >  >  >  >  >  > a3ccd8f738fb2c137b91be4fdbf0b49230ff925b
 	@include mq('small') {
 		margin-left: -2rem;
 	}
@@ -97,7 +100,7 @@
 			-webkit-appearance: none;
 			height: 3rem;
 			width: 100%;
-			font-size: 2rem;
+			font-size: 1rem;
 			@include mq("small") {
 				font-size: 1.25rem;
 			}
