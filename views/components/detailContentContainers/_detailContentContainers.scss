@@ -1,6 +1,8 @@
 .content--container-basicbitch {
+	position: relative;
 	padding: 0 5%;
 	padding: 0 5vw;
+	margin-bottom: 2rem;
 	@include push--auto;
 	@include mq('medium') {
 		max-width: 70rem;
