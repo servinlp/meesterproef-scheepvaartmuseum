@@ -1,9 +1,13 @@
-
 .content--title {
 	position: relative;
 	@include mq('medium') {
 		margin-bottom: 1.5rem;
+
+		&:before {
+			bottom: -0.2em !important;
+		}
 	}
+
 	&:before {
 		content: "";
 		height: 2px;
@@ -11,6 +15,6 @@
 		background: red;
 		position: absolute;
 		left: 0;
-		bottom: -0.5rem;
+		bottom: 0.05em;
 	}
 }

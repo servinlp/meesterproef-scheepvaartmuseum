@@ -6,7 +6,7 @@ import { enhancedDetailInit } from './components/enhancedDetail/enhancedDetail.j
 ( function IIFE () {
 
 	if( !( document.documentElement.classList && document.querySelectorAll ) ) return
-  enhancedDetailInit()
+	enhancedDetailInit()
 	enhancedDetailInit()	
 	enhancedDetailInit()
 	header()
