@@ -1,4 +1,3 @@
-$inputPadding: 0.7rem;
 .stories {
 	&__form {
 		text-align: center;
@@ -89,17 +88,3 @@ $inputPadding: 0.7rem;
 		}
 	}
 }
-
-// <form class="stories__form" action="" method="get">
-// 	<fieldset class="stories__search">
-// 		<label for="search">Zoeken op</label>
-// 		<input type="text" id="search" name="search">
-// 	</fieldset>
-
-// 	<select name="sort" id="sort">
-// 		<option value="uitgelicht" selected>Uitgelicht</option>
-// 		<option value="rating">Aantal keer bekeken</option>
-// 	</select>
-// 	<button type="submit">Uitvoeren</button>
-// </form>
-// <p class="stories__search--result" id="searchResult">... verhalen gebaseerd op de zoekterm: <span class="underline-red">appel</span> </p>
