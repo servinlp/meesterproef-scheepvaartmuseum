@@ -12,6 +12,9 @@
 @import './components/map/_map.scss';
 @import './components/storyAddItemButton/_storyAddItemButton.scss';
 @import './components/enhancedDetail/_enhancedDetail.scss';
+@import './components/storyGrid/_storyGrid.scss';
+@import './components/searchAndSort/_searchAndSort.scss';
+@import './components/pagination/_pagination.scss';
 @import './components/reactions/_reactions.scss';
 @import './components/detailContentContainers/_detailContentContainers.scss';
 @import './components/detailContentContainers/_contentImage.scss';
@@ -19,3 +22,4 @@
 @import './components/detailContentContainers/_contentVideo.scss';
 @import './components/detailContentContainers/_contentAudio.scss';
 @import './components/detailContentContainers/_contentTags.scss';
+@import './components/reactions/_reactions.scss';

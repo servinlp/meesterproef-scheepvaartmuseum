@@ -1,0 +1,68 @@
+.stories {
+	max-width: 90rem;
+
+	&__grid {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+
+		&--card {
+			position: relative;
+			min-width: 18rem;
+			width: 90%;
+			min-height: 16rem;
+			margin: 2.5% auto;
+			color: $colorWhite;
+			transition: transform 150ms ease-out;
+			@include mq('large') {
+				width: 45%;
+				min-height: 18rem;
+
+				&:nth-of-type(even) {
+					margin-left: 2.5%;
+				}
+
+				&:nth-of-type(odd) {
+					margin-right: 2.5%;
+				}
+			}
+
+			&:hover {
+				&-background {
+					transform: scale(1.05);
+				}
+				transform: scale(1.05);
+			}
+
+			&-background {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				transition: transform 150ms ease-out;
+			}
+
+			article {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				padding: 2rem;
+				text-shadow: 1px 1px 0 #000;
+				background: -moz-linear-gradient(right, rgba(0, 0, 0, 1) 55%, rgba(0, 0, 0, 0.85) 63%, rgba(0, 0, 0, 0) 100%);
+				background: -webkit-linear-gradient(right, rgba(0, 0, 0, 1) 55%, rgba(0, 0, 0, 0.85) 63%, rgba(0, 0, 0, 0) 100%);
+				background: linear-gradient(to right, black 30%, rgba(0, 0, 0, 0.76) 40%, rgba(0, 0, 0, 0) 100%);
+
+				h2 {
+					@include mq('large') {
+						max-width: 60%;
+					}
+				}
+
+				p {
+					max-width: 60%;
+					position: absolute;
+					bottom: 2rem;
+				}
+			}
+		}
+	}
+}

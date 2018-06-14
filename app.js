@@ -6,6 +6,7 @@ const express = require( 'express' ),
 	helmet = require( 'helmet' ),
 	compression = require( 'compression' ),
 
+	apiRoute = require( './routes/api' ),
 	indexRoute = require( './routes/index' ),
 	detailRoute = require( './routes/detail' ),
 	adminLoginRoute = require( './routes/adminLogin' ),
@@ -49,6 +50,8 @@ app.use( '/components', componentsRoute )
 app.use( '/admin-login', adminLoginRoute )
 app.use( '/story-upload', storyUploadRoute )
 app.use( '/story-overview', storyOverviewRoute )
+
+app.use( '/api/v1', apiRoute )
 
 app.use( '*', fourOFourRoute )
 

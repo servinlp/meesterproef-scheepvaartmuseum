@@ -4,6 +4,7 @@
 
 *   [General Overview](#general-overview)
 *   [Getting Started](#getting-started)
+*   [API Documentation](/wiki/API)
 
 ## General Overview
 
