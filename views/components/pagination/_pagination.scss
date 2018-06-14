@@ -1,0 +1,14 @@
+.stories__pagination {
+	margin: 2rem auto;
+	text-align: center;
+	a {
+		padding: 0 .25rem;
+		margin: 0 .25rem;
+	}
+	[aria-current="page"] {
+		text-decoration: none;
+		cursor: default;
+		pointer-events: none;
+		color: $color-secondary-border;
+	}
+}
