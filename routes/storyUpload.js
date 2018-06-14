@@ -231,7 +231,7 @@ async function getTagIDS( tagsString ) {
 	try{
 
 		// Splits tags by comma or space
-		const tagsArr = tagsString.split( /[ ,]+/ )
+		const tagsArr = tagsString.split( /[ ,]+/ ).map( el => el.toLowerCase() )
 
 		// Makes an array of all the queries needed for adding tags
 		const storyTagQueries = tagsArr.map( tag => {
