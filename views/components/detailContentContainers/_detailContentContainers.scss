@@ -2,8 +2,10 @@
 	margin-bottom: 2rem;
 	margin-left: auto;
 	margin-right: auto;
+	padding-left: 5%;
+	padding-right: 5%;
 	@include mq('medium') {
-		max-width: 55rem;
+		max-width: 50rem;
 	}
 }
 
