@@ -1,5 +1,6 @@
 const express = require( 'express' ),
-	router = 	express.Router()
+	router = 	express.Router(),
+	pool = 		require( '../lib/mysql' )
 
 router.get( '/', ( req, res ) => {
 
@@ -8,7 +9,11 @@ router.get( '/', ( req, res ) => {
 } )
 
 router.post( '/comment', ( req, res ) => {
-	res.render('detail')
+	const commentMeta = {
+		text: req.body.reaction
+	}
+	pool.query('INSERT INTO reactions SET ?', commentMeta)
+	res.send('ok')
 } )
 
 module.exports = router
