@@ -5,25 +5,23 @@
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
+	margin-top: 5rem;
 
 	button {
 		border: none;
 		background: red;
 		color: #fff;
-		padding: 1rem;
-		font-size: 1rem;
-	}
-	@include mq('medium') {
-		max-width: 75%;
+		padding: 1.5rem;
+		font-size: 1.5rem;
+		line-height: 0;
 	}
 }
 
 .calltoaction--paragraph {
-	width: 90%;
-	border-left: 2px solid red;
+	width: 100%;
 	padding: 1rem;
-	line-height: 1.4rem;
-	@include mq('medium') {
-		max-width: 75%;
-	}
+	font-size: 2rem;
+	line-height: 2rem;
+	padding-right: 0;
+	border-left: 2px solid red;
 }
