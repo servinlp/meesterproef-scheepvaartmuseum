@@ -37,6 +37,9 @@
 	}
 
 	.navigation {
+		animation: fade-in 1s;
+		position: absolute;
+		right: 0;
 		z-index: 5;
 		display: flex;
 		flex-direction: column;
@@ -148,4 +151,17 @@
 .gradient--show {
 	opacity: 0.7;
 	visibility: visible;
+}
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+
+	90% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
 }
