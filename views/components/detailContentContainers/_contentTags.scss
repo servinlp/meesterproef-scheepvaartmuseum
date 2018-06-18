@@ -13,9 +13,10 @@
 	display: flex;
 	margin-bottom: 2rem;
 
-	label {
+	p {
 		margin-top: 0;
 		width: fit-content;
 		margin-right: 1rem;
+		transform: translateY(-0.125rem);
 	}
 }
