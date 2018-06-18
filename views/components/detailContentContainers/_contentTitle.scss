@@ -1,0 +1,22 @@
+.content--title {
+	margin: 0;
+	margin-bottom: 0.5rem;
+	position: relative;
+	@include mq('medium') {
+		margin-bottom: 1.5rem;
+
+		&:before {
+			bottom: -0.2rem !important;
+		}
+	}
+
+	&::before {
+		content: "";
+		height: 0.125rem;
+		width: 5rem;
+		background: red;
+		position: absolute;
+		left: 0;
+		bottom: 0.05rem;
+	}
+}

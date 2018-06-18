@@ -20,3 +20,132 @@ textarea {
 form {
 	margin: 1rem;
 }
+
+[name^="subtitle"] {
+	display: block !important;
+}
+
+.upload-form {
+	margin: 3rem auto;
+	padding: 2.5% 5%;
+	background-color: $colorWhite;
+	line-height: 2;
+	font-size: $uploadFormFontSize;
+	font-weight: $uploadFormFontWeight;
+	color: darken($colorBlue, 50%);
+	max-width: 60rem;
+	width: 90%;
+
+	legend,
+	h2 {
+		font-family: $font-stack-headers;
+		font-size: 2rem;
+		font-weight: 700;
+		color: darken($colorBlue, 50%);
+		line-height: 1;
+		margin-bottom: 1rem;
+	}
+
+	h2 {
+		font-size: 1.5rem;
+	}
+
+	p,
+	label {
+		font-size: 1rem;
+		font-weight: 400;
+	}
+
+	label {
+		font-size: 1.25rem;
+		font-weight: 600;
+	}
+
+	input[type="text"],
+	input[type="email"],
+	input[type="tel"] {
+		border: 0;
+		border-bottom: 1px solid darken($colorBlue, 50%);
+		background-color: $colorWhite;
+		display: inline-block;
+		font-size: $uploadFormFontSize;
+		font-weight: $uploadFormFontWeight;
+		color: darken($colorBlue, 50%);
+		min-width: 2.75rem;
+
+		&::placeholder {
+			color: lighten($colorBlue, 10%);
+		}
+	}
+
+	button:first-of-type,
+	[type="submit"]:first-of-type {
+		margin-left: 0;
+	}
+
+	&--natural-form {
+		line-height: 1.5;
+		color: darken($colorBlue, 50%);
+
+		input[type="text"],
+		input[type="email"],
+		input[type="tel"] {
+			width: 10ex;
+		}
+	}
+
+	textarea {
+		width: 100%;
+		min-height: 12rem;
+		width: 100% !important;
+		padding: 1rem;
+		background-color: $colorWhite;
+		color: darken($colorBlue, 50%);
+		border: 0.05rem solid darken($colorBlue, 10%);
+		font-size: $uploadFormFontSize;
+
+		&::placeholder {
+			color: lighten($colorBlue, 10%);
+		}
+	}
+
+	[name="tags"],
+	[name="email"],
+	[name="phone"] {
+		display: block !important;
+	}
+
+	&__tag-suggestion {
+		-webkit-appearance: none;
+		border: none;
+		background-color: white;
+		padding: 0.5rem 1.25rem;
+		margin-right: 0.1rem;
+		transition: transform 150ms ease-out;
+
+		&:hover {
+			transform: scale(1.05);
+		}
+	}
+
+	small {
+		font-weight: 400;
+		font-size: 0.8rem;
+		line-height: 1;
+		display: inline-block;
+	}
+
+	&__story {
+		margin: 2rem auto;
+
+		&--button-container {
+			width: 100%;
+
+			button {
+				width: 25%;
+				height: 2rem;
+			}
+		}
+	}
+}
+

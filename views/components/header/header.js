@@ -4,9 +4,11 @@ function header () {
 	if ( !nav ) return
 	const button = document.querySelector( '.header--container button' )
 	const gradient = document.querySelector( '.gradient' )
+	const header = document.querySelector( '.header' )
 
 	nav.classList.add( 'nav--hide' )
 	nav.classList.add( 'nav--progressive' )
+	header.classList.add( 'header--fixed' )
 
 	button.addEventListener( 'click', hamburgerToggle )
 	gradient.addEventListener( 'click', gradientToggle ) 
