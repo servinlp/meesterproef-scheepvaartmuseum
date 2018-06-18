@@ -11,7 +11,9 @@
 		</span>
 		<span data-disclose="form">
 			dit speelde zich af in
-			<input type="text" name="location" placeholder="locatie">
+			<span class="autocomplete" data-search="locations">
+				<input type="text" name="location" placeholder="locatie" autocomplete="off">
+			</span>
 		</span>
 		<span data-disclose="form">
 			in het jaar 
@@ -46,7 +48,9 @@
 		<h2>Bedankt voor uw verhaal.</h2>
 		
 		<label for="tags">Deze woorden omschrijven mijn verhaal:</label>
-		<input type="text" name="tags" placeholder="Bijv. Oranje, kapitein, Nederlands-Indië">		
+		<span class="autocomplete" data-search="tags">
+			<input type="text" name="tags" autocomplete="off" placeholder="Bijv. Oranje, kapitein, Nederlands-Indië">
+		</span>		
 
 		<label for="email">E-mail</label>
 		<small>Als u uw email adres of telefoonnummer invult kunnen wij u in de toekomst nog contacteren om meer te vragen over uw verhaal, foto's of herinneringen.</small>
