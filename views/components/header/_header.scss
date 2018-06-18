@@ -6,12 +6,6 @@
 	position: absolute;
 	top: 0;
 	z-index: z('header');
-	padding: 0 1rem;
-	padding: 0 5%;
-	@include mq("xl") {
-		padding: 0 2rem;
-		padding: 0 10%;
-	}
 
 	&--container {
 		min-height: 3em;
@@ -19,6 +13,12 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
+		padding: 0 1rem;
+		padding: 0 5%;
+		@include mq("xl") {
+			padding: 0 2rem;
+			padding: 0 10%;
+		}
 
 		img,
 		svg {
@@ -52,6 +52,12 @@
 		top: 3rem;
 		left: 0;
 		background: white;
+		padding: 0 1rem;
+		padding: 0 5%;
+		@include mq("xl") {
+			padding: 0 2rem;
+			padding: 0 10%;
+		}
 		@include mq("small") {
 			animation: none;
 			flex-direction: row;
