@@ -1,0 +1,15 @@
+<article 
+<% if ( !responseTo ) { %>
+	class="reactions__first-order"
+<% } else { %>
+	class="reactions__second-order"
+<% } %>
+>
+	<header class="reactions__header">
+		<img class="reactions__header--image" src="/images/boat.svg" alt="Foto van een schip">
+		<p class="reactions__header--name"><%= name %></p>
+		<time datetime="<%= datetime %>" class="reactions__header--date"><%= time %></time>
+	</header>
+	<p class="reactions__reaction"><%= reaction %></p>
+	<button class="button--secondary">Reageren op deze reactie</button>
+</article>
