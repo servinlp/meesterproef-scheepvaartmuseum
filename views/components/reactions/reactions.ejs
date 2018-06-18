@@ -7,55 +7,33 @@
 		<button type="submit" class="button--primary">Versturen</button>
 	</form>
 	<h2>Reacties op dit verhaal</h2>
-	<% include '../reactionsComment/reactionsComment', {
+	<%- include( './components/reactionsComment/reactionsComment', {
+		responseTo: null,
 		datetime: '2016-12-10 05:23',
-		date: 'december 10, 2016 5:23',
+		time: 'december 10, 2016 5:23',
 		reaction: `Whilst this is a great article, I still bemoan the death of flash on the web. Yes, I know, proprietary, riddled with security flaws, required a plugin etc. etc. Despite this, many years after "the death of flash", animation on the web still hasn't come anywhere close to what flash could achieve. Instead, faster broadband has provided us with hi-res video - and most remarkable of all, a massive rebirth of animated GIFs, some of which clock in at ridiculous file sizes. We take this fore-granted, as our net connections are that much faster. I did expect web animation post flash to move at a far quicker pace than is has, however, it seems the barrier to entry and the lack of decent GUI tools is still hobbling progress.`,
 		name: 'Jan Jansen'
-	} %>
-	<article class="reactions__first-order">
-		<header class="reactions__header">
-			<img class="reactions__header--image" src="/images/boat.svg" alt="Foto van een schip">
-			<p class="reactions__header--name">Jan Jansen</p>
-			<time datetime="2016-12-10 05:23" class="reactions__header--date">december 10, 2016 5:23</time>
-		</header>
-		<p class="reactions__reaction">
-			Whilst this is a great article, I still bemoan the death of flash on the web. Yes, I know, proprietary, riddled with security flaws, required a plugin etc. etc. Despite this, many years after "the death of flash", animation on the web still hasn't come anywhere close to what flash could achieve. Instead, faster broadband has provided us with hi-res video - and most remarkable of all, a massive rebirth of animated GIFs, some of which clock in at ridiculous file sizes. We take this fore-granted, as our net connections are that much faster. I did expect web animation post flash to move at a far quicker pace than is has, however, it seems the barrier to entry and the lack of decent GUI tools is still hobbling progress.
-		</p>
-		<button class="button--secondary">Reageren op deze reactie</button>
-	</article>
-	<article class="reactions__first-order">
-		<header class="reactions__header">
-			<img class="reactions__header--image" src="/images/boat.svg" alt="Foto van een schip">
-			<p class="reactions__header--name">Jan Jansen</p>
-			<time datetime="2016-12-10 05:23" class="reactions__header--date">december 10, 2016 5:23</time>
-		</header>
-		<p class="reactions__reaction">
-			Whilst this is a great article, I still bemoan the death of flash on the web. Yes, I know, proprietary, riddled with security flaws, required a plugin etc. etc. Despite this, many years after "the death of flash", animation on the web still hasn't come anywhere close to what flash could achieve. Instead, faster broadband has provided us with hi-res video - and most remarkable of all, a massive rebirth of animated GIFs, some of which clock in at ridiculous file sizes. We take this fore-granted, as our net connections are that much faster. I did expect web animation post flash to move at a far quicker pace than is has, however, it seems the barrier to entry and the lack of decent GUI tools is still hobbling progress.
-		</p>
-		<button class="button--secondary">Reageren op deze reactie</button>
-	</article>
-	<article class="reactions__second-order">
-		<header class="reactions__header">
-			<img class="reactions__header--image" src="/images/boat.svg" alt="Foto van een schip">
-			<p class="reactions__header--name">Patrick Bakker</p>
-			<time datetime="2016-12-10 05:23" class="reactions__header--date">december 10, 2016 5:23</time>
-		</header>
-		<p class="reactions__reaction">
-			Whilst this is a great article, I still bemoan the death of flash on the web. Yes, I know, proprietary, riddled with security flaws, required a plugin etc. etc. Despite this, many years after "the death of flash", animation on the web still hasn't come anywhere close to what flash could achieve. Instead, faster broadband has provided us with hi-res video - and most remarkable of all, a massive rebirth of animated GIFs, some of which clock in at ridiculous file sizes. We take this fore-granted, as our net connections are that much faster. I did expect web animation post flash to move at a far quicker pace than is has, however, it seems the barrier to entry and the lack of decent GUI tools is still hobbling progress.
-		</p>
-		<button class="button--secondary">Reageren op deze reactie</button>
-	</article>
-	<article class="reactions__first-order">
-		<header class="reactions__header">
-			<img class="reactions__header--image" src="/images/boat.svg" alt="Foto van een schip">
-			<p class="reactions__header--name">Jan Jansen</p>
-			<time datetime="2016-12-10 05:23" class="reactions__header--date">december 10, 2016 5:23</time>
-		</header>
-		<p class="reactions__reaction">
-			Whilst this is a great article, I still bemoan the death of flash on the web. Yes, I know, proprietary, riddled with security flaws, required a plugin etc. etc. Despite this, many years after "the death of flash", animation on the web still hasn't come anywhere close to what flash could achieve. Instead, faster broadband has provided us with hi-res video - and most remarkable of all, a massive rebirth of animated GIFs, some of which clock in at ridiculous file sizes. We take this fore-granted, as our net connections are that much faster. I did expect web animation post flash to move at a far quicker pace than is has, however, it seems the barrier to entry and the lack of decent GUI tools is still hobbling progress.
-		</p>
-		<button class="button--secondary">Reageren op deze reactie</button>
-	</article>
+	} ) %>
+	<%- include( './components/reactionsComment/reactionsComment', {
+		responseTo: null,
+		datetime: '2016-12-10 05:23',
+		time: 'december 10, 2016 5:23',
+		reaction: `Whilst this is a great article, I still bemoan the death of flash on the web. Yes, I know, proprietary, riddled with security flaws, required a plugin etc. etc. Despite this, many years after "the death of flash", animation on the web still hasn't come anywhere close to what flash could achieve. Instead, faster broadband has provided us with hi-res video - and most remarkable of all, a massive rebirth of animated GIFs, some of which clock in at ridiculous file sizes. We take this fore-granted, as our net connections are that much faster. I did expect web animation post flash to move at a far quicker pace than is has, however, it seems the barrier to entry and the lack of decent GUI tools is still hobbling progress.`,
+		name: 'Jan Jansen'
+	} ) %>
+	<%- include( './components/reactionsComment/reactionsComment', {
+		responseTo: true,
+		datetime: '2016-12-10 05:23',
+		time: 'december 10, 2016 5:23',
+		reaction: `Whilst this is a great article, I still bemoan the death of flash on the web. Yes, I know, proprietary, riddled with security flaws, required a plugin etc. etc. Despite this, many years after "the death of flash", animation on the web still hasn't come anywhere close to what flash could achieve. Instead, faster broadband has provided us with hi-res video - and most remarkable of all, a massive rebirth of animated GIFs, some of which clock in at ridiculous file sizes. We take this fore-granted, as our net connections are that much faster. I did expect web animation post flash to move at a far quicker pace than is has, however, it seems the barrier to entry and the lack of decent GUI tools is still hobbling progress.`,
+		name: 'Patrick Bakker'
+	} ) %>
+	<%- include( './components/reactionsComment/reactionsComment', {
+		responseTo: null,
+		datetime: '2016-12-10 05:23',
+		time: 'december 10, 2016 5:23',
+		reaction: `Whilst this is a great article, I still bemoan the death of flash on the web. Yes, I know, proprietary, riddled with security flaws, required a plugin etc. etc. Despite this, many years after "the death of flash", animation on the web still hasn't come anywhere close to what flash could achieve. Instead, faster broadband has provided us with hi-res video - and most remarkable of all, a massive rebirth of animated GIFs, some of which clock in at ridiculous file sizes. We take this fore-granted, as our net connections are that much faster. I did expect web animation post flash to move at a far quicker pace than is has, however, it seems the barrier to entry and the lack of decent GUI tools is still hobbling progress.`,
+		name: 'Jan Jansen'
+	} ) %>
 	
 </section>
