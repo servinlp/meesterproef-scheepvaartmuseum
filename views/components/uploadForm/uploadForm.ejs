@@ -1,47 +1,61 @@
 <form class="upload-form" method="post" enctype="multipart/form-data" action="/story-upload/upload">
-	<label for="title">Titel</label>
-	<input type="text" name="title" required>
+	<legend>Begin uw verhaal</legend>
+	<p class="upload-form--natural-form">
+		<span data-disclose="form">
+			Ik ben
+			<input type="text" placeholder="Naam of anoniem">
+		</span>
+		<span data-disclose="form">
+			en ik wil een verhaal vertellen over 
+			<input type="text" name="title" required placeholder="titel">
+		</span>
+		<span data-disclose="form">
+			dit speelde zich af in
+			<input type="text" name="location" placeholder="locatie">
+		</span>
+		<span data-disclose="form">
+			in het jaar 
+			<input type="text" name="time" placeholder="19..">.
+		</span>
+	</p>
 
-	<label for="email">E-mail</label>
-	<input type="email" name="email">
-
-	<label for="phone">Telefoon nummer</label>
-	<input type="text" name="phone">
-
-	<label for="tags">Tags</label>
-	<input type="text" name="tags">
-
-	<label for="location">Locatie</label>
-	<input type="text" name="location">
+	<fieldset data-disclose="form" class="upload-form__story">
+		<legend>Dit is mijn verhaal:</legend>
+		<textarea name="story" id="story" cols="30" rows="10" placeholder="uw verhaal"></textarea>	
+		<section class="upload-form__story--button-container">
+			<p>Voeg eventueel extra titels, text, foto's of video's toe!</p>
+			<button type="button" class="button--secondary" data-add="subtitle">
+				Subtitel
+			</button>
+			<button type="button" class="button--secondary" data-add="textarea">
+				Alinea
+			</button>
+			<button type="button" class="button--secondary" data-add="file">
+				Audio of Afbeelding
+			</button>
+			<button type="button" class="button--secondary" data-add="videolink">
+				YouTube video
+			</button>
+		</section>
+		<button data-finish="story" type="button" class="button--primary">
+			Mijn verhaal is af
+		</button>	
+	</fieldset>
 	
-	<label for="time">Tijd van verhaal</label>
-	<input type="text" name="time">
+	<fieldset data-disclose="done" class="upload-form__finalize">
+		<h2>Bedankt voor uw verhaal.</h2>
+		
+		<label for="tags">Deze woorden omschrijven mijn verhaal:</label>
+		<input type="text" name="tags" placeholder="Bijv. Oranje, kapitein, Nederlands-Indië">		
 
-	<fieldset>
-		<legend>Jouw verhaal</legend>
+		<label for="email">E-mail</label>
+		<small>Als u uw email adres of telefoonnummer invult kunnen wij u in de toekomst nog contacteren om meer te vragen over uw verhaal, foto's of herinneringen.</small>
+		<small>Uw email-adres wordt niet openbaar gemaakt en wij zullen u niet onnodig e-mailen.</small>
+		<input type="email" name="email" placeholder="email@adres.nl">
+	
+		<label for="phone">Telefoon nummer</label>
+		<input type="tel" name="phone" placeholder="0612345678">
 
+		<input type="submit" class="button--primary">
 	</fieldset>
-
-	<fieldset>
-
-		<legend>Add Component</legend>
-
-		<button type="button" data-add="textarea">
-			Add TextArea
-		</button>
-
-		<button type="button" data-add="file">
-			Add File
-		</button>
-
-		<button type="button" data-add="subtitle">
-			Add Sub Title
-		</button>
-
-		<button type="button" data-add="videolink">
-			Add Youtube Link
-		</button>
-	</fieldset>
-
-	<input type="submit" class="button">
 </form>
