@@ -8,7 +8,7 @@ import animateStoryOverview from './components/storyGrid/storyGrid.js'
 ( function IIFE () {
 
 	if( !( document.documentElement.classList && document.querySelectorAll ) ) return
-  animateStoryOverview()
+	animateStoryOverview()
 	enhancedDetailInit()
 	header()
 	uploadForm()
