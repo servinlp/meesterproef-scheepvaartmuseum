@@ -127,7 +127,7 @@ $breakpoints: ( "small": 25rem, "medium": 48rem, "large": 64rem, "xl": 78rem);
 	}
 }
 // Goes from top -> bottom
-$z-indexes: ( "boat", "outdated-browser", "modal", "site-header", "page-wrapper", "site-footer");
+$z-indexes: ( "header", "boat", "outdated-browser", "modal", "site-header", "page-wrapper", "site-footer");
 // Simple and effective for when you need to trigger hardware acceleration for some animation, keeping everything fast, slick and flicker-free.
 @mixin hardware($backface: true, $perspective: 1000) {
 	@if $backface {

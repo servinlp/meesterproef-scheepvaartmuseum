@@ -5,7 +5,7 @@
 	box-shadow: 0 0 20px 0 lightgray;
 	position: absolute;
 	top: 0;
-	z-index: 5;
+	z-index: z('header');
 
 	&--container {
 		max-width: 80rem;
@@ -40,7 +40,6 @@
 		animation: fade-in 1s;
 		position: absolute;
 		right: 0;
-		z-index: 5;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-around;
@@ -50,6 +49,7 @@
 		left: 0;
 		background: white;
 		@include mq("small") {
+			animation: none;
 			flex-direction: row;
 			height: inherit;
 			width: 100%;
@@ -128,6 +128,11 @@
 	}
 }
 
+.header--container {
+	background: white;
+	position: relative;
+}
+
 .header--fixed {
 	position: fixed;
 	top: 0;
@@ -139,7 +144,6 @@
 
 .gradient {
 	position: fixed;
-	z-index: 4;
 	height: 100%;
 	width: 100%;
 	background: black;
@@ -157,7 +161,7 @@
 		opacity: 0;
 	}
 
-	90% {
+	99% {
 		opacity: 0;
 	}
 
