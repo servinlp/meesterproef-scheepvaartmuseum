@@ -3,13 +3,14 @@ const express = require( 'express' ),
 	router = express.Router(),
 	pool = require( '../lib/mysql' )
 
+	moment.locale( 'nl' )
+
 router.get( '/', ( req, res ) => {
 	res.redirect( '/story-overview' )
 } )
 
 router.get( '/:storyID', async ( req, res ) => {
 	console.log( req.params.storyID )
-	moment.locale('nl')
 	const reactions = await pool.query( `SELECT * FROM reactions WHERE storyID = ${ req.params.storyID }` )
 		.then( x => x )
 		.then( formatted => formatted.map( x => {
