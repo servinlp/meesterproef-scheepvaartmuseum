@@ -176,6 +176,9 @@
 	opacity: 0;
 	transition: 0.3s ease;
 	visibility: hidden;
+	@include mq("small") {
+		display: none;
+	}
 }
 
 .gradient--show {
