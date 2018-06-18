@@ -18,7 +18,7 @@ router.get( '/tags', async ( req, res ) => {
 
 	res.json( {
 		succes: true,
-		tags: tag
+		data: tag
 	} )
 
 } )
@@ -39,7 +39,7 @@ router.get( '/locations', async ( req, res ) => {
 
 	res.json( {
 		succes: true,
-		locations: location
+		data: location
 	} )
 
 } )
