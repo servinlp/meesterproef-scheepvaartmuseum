@@ -1,0 +1,20 @@
+.container--main {
+	margin-bottom: 2rem;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 5%;
+	padding-right: 5%;
+	@include mq('medium') {
+		max-width: 50rem;
+	}
+}
+
+.content--container-text {
+	font-size: 1.2rem;
+	font-weight: 200;
+	margin-bottom: 2rem;
+}
+
+.detailpage--main {
+	padding: 0;
+}

@@ -1,7 +1,6 @@
 .map {
 	width: 100vw;
 	height: 50vh;
-	overflow: hidden;
 	@include mq('small') {
 		margin-left: -2rem;
 	}
