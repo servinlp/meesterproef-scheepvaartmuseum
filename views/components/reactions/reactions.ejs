@@ -1,13 +1,12 @@
 <section class="reactions">
 	<h2>Reageer op dit verhaal</h2>
-
 	<form class="reactions__send" action="/detail/comment" method="post">
 		<textarea name="reaction" id="reaction" cols="30" rows="10" pattern="[\s\S]*" placeholder="Uw reactie"></textarea>
+		<label for="name">Uw naam</label>
+		<input type="text" name="name" pattern="[\s\S]*" placeholder="Jan Jansen">
 		<button type="submit" class="button--primary">Versturen</button>
 	</form>
-
 	<h2>Reacties op dit verhaal</h2>
-
 	<article class="reactions__first-order">
 		<header class="reactions__header">
 			<img class="reactions__header--image" src="/images/boat.svg" alt="Foto van een schip">
@@ -19,7 +18,6 @@
 		</p>
 		<button class="button--secondary">Reageren op deze reactie</button>
 	</article>
-
 	<article class="reactions__first-order">
 		<header class="reactions__header">
 			<img class="reactions__header--image" src="/images/boat.svg" alt="Foto van een schip">
