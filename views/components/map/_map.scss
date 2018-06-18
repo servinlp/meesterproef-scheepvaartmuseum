@@ -1,10 +1,11 @@
 .map {
 	width: 100vw;
 	height: 50vh;
-	@include mq('small'){
+	overflow: hidden;
+	@include mq('small') {
 		margin-left: -2rem;
 	}
-	@include mq('medium'){
+	@include mq('medium') {
 		margin-left: -4rem;
 	}
 
@@ -19,8 +20,8 @@
 		overflow: hidden;
 
 		// All route groups that contain 19 in the id
-		g[id^="year19"] g path{
-			stroke-width: .25rem;
+		g[id^="year19"] g path {
+			stroke-width: 0.25rem;
 			stroke-dasharray: 20, 5;
 			stroke: white;
 		}
@@ -97,7 +98,7 @@
 			-webkit-appearance: none;
 			height: 3rem;
 			width: 100%;
-			font-size: 2rem;
+			font-size: 1rem;
 			@include mq("small") {
 				font-size: 1.25rem;
 			}

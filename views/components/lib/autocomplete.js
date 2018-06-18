@@ -138,6 +138,19 @@ function selectTag( e ) {
 
 	destroyList( parent )
 
+	if ( 'createEvent' in document ) {
+
+		const evt = document.createEvent( 'HTMLEvents' )
+		evt.initEvent( 'change', false, true )
+		input.dispatchEvent( evt )
+
+	}
+	else {
+
+		input.fireEvent( 'onchange' )
+
+	}
+
 }
 
 function getDataFromApi( api ) {

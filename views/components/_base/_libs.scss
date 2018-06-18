@@ -1,0 +1,23 @@
+.autocomplete {
+	position: relative;
+
+	ul {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		transform: translateY(120%);
+		background-color: $colorBlue;
+	}
+	
+	li {
+		background: rgba( #fff, 0.3 );
+		border: 1px solid #fff;
+		border-bottom-width: 0;
+		padding: 0.4em 1em;
+		cursor: pointer;
+
+		&:last-child {
+			border-bottom-width: 1px;
+		}
+	}
+}
