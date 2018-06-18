@@ -11,7 +11,7 @@
 		<h2>Reacties op dit verhaal</h2>
 		<% reactions.forEach((reaction) => { %>
 			<%- include( './components/reactionsComment/reactionsComment', {
-				responseTo: null,
+				responseTo: reaction.responseTo,
 				datetime: reaction.datetime,
 				time: reaction.time,
 				reaction: reaction.text,
