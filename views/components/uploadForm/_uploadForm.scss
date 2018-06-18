@@ -48,7 +48,6 @@ form {
 
 	h2 {
 		font-size: 1.5rem;
-		margin-left: 0;
 	}
 
 	p,
@@ -72,7 +71,7 @@ form {
 		font-size: $uploadFormFontSize;
 		font-weight: $uploadFormFontWeight;
 		color: darken($colorBlue, 50%);
-		min-width: 3.25rem;
+		min-width: 2.75rem;
 
 		&::placeholder {
 			color: lighten($colorBlue, 10%);

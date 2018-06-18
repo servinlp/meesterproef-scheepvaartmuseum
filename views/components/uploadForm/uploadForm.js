@@ -11,7 +11,6 @@ function uploadForm() {
 		el.addEventListener( 'click', addComponent )
 
 	} )
-	autoScaleInput()
 	progressiveDiscloseForm()
 }
 
@@ -50,7 +49,7 @@ function addTextarea() {
 	textarea.setAttribute( 'data-index', allInputElements.length )
 	// Need to add the data-index here as well to be able to tell on the backend what index there at
 	textarea.setAttribute( 'name', `storyText-${ allTextareas.length + 1 }-${ allInputElements.length }` )
-	textarea.setAttribute( 'placeholder', 'Uw nieuwe alinea' )
+	textarea.setAttribute( 'placeholder', 'Jouw nieuwe alinea' )
 
 	fieldset.insertBefore( textarea, buttonContainer )
 
@@ -102,57 +101,43 @@ function addInput( type ) {
 	input.focus()
 }
 
-function autoScaleInput(){
-	const form = document.querySelector( '.upload-form' )
-
-	if ( !form ) return
-
-	const inputs = document.querySelectorAll( '.upload-form--natural-form input' )
-
-	inputs.forEach( input => {
-		input.addEventListener( 'input', () => {
-			const length = input.value.length
-			if( length > 10 ) {
-				input.style = `width: ${length}px`
-			}
-			else {
-				input.style = `width: ${input.getAttribute( 'placeholder' ).length}px`
-			}
-		} )
-		input.style = `width: ${input.getAttribute( 'placeholder' ).length}px`
-	} )
-}
-
 function progressiveDiscloseForm() {
 	const form = document.querySelector( '.upload-form' )
 
 	if ( !form ) return
 	// Gets all parts of the upload form
 	const parts = document.querySelectorAll( '[data-disclose="form"]' )
+	// Progressive enhancement
 	const finishStoryButton = document.querySelector( '[data-finish="story"]' )
 	finishStoryButton.style = 'display: block;'
-
+	// Hides form elements
 	TweenMax.set( [ parts, '.upload-form__story', '.upload-form__finalize' ], { autoAlpha: 0 } )
+	// Show first form element
 	TweenMax.set( parts[0], { autoAlpha: 1 } )
 
+	// For measureText function
 	const inputElement = parts[0].querySelector( 'input' )
 	const inputFontsize = parseInt( window.getComputedStyle( inputElement, null ).getPropertyValue( 'font-size' ) )
 	const inputFontFamily = 'Open Sans'
 
+	// For every part of the form that we want to disclose
 	parts.forEach( ( part, i ) => {
 		const input = part.querySelector( 'input' ) || part.querySelector( 'textarea' )
 		
 		if ( input !== null ) {
+			// Sets the width to the width of the placeholder with measureText
 			input.style = `width: ${measureText( input.getAttribute( 'placeholder' ), inputFontsize, inputFontFamily ) }px`
+			// Update width on input
 			input.addEventListener( 'input', () => {
 				uploadFormInputEvent( event.target, i, part )
 			} )
+			// Update width on change (for pasting and autocomplete)
 			input.addEventListener( 'change', () => {
 				uploadFormChangeEvent( event.target, i, part )
 			} )
 		}
 	} )
-	
+	// Shows section after story is finished
 	finishStoryButton.addEventListener( 'click', () => {
 		TweenMax.to( '[data-disclose="done"]', .5, { autoAlpha: 1, onComplete: () => {
 			document.querySelector( '[name="tags"]' ).focus()
@@ -162,31 +147,35 @@ function progressiveDiscloseForm() {
 
 	function uploadFormInputEvent( input, i, part ) {
 		const length = input.value.length
+		// Shows the next element
 		if ( length >= 3 ) {
 			const nextElement = parts[i+1] || part.closest( '[data-disclose="form"]' )
 			TweenMax.to( nextElement, .8, { autoAlpha: 1 }, .2 )
 		}
+		// Dynamic input width change
 		if( length > input.getAttribute( 'placeholder' ).length && input.tagName === 'INPUT' ) {
 			input.style = `width: ${measureText( input.value, inputFontsize, inputFontFamily ) }px`
 		}
 		else {
+			// Dynamic input width change
 			input.style = `width: ${measureText( input.getAttribute( 'placeholder' ), inputFontsize, inputFontFamily )}px`
 		}
 	}
 
 	function uploadFormChangeEvent( input, i, part ) {
 		const length = input.value.length
+		// Dynamic input width change
 		if( input.tagName === 'INPUT' ) {
 			TweenMax.to( input, .5, {width: `${measureText( input.value, inputFontsize, inputFontFamily )}px`} )
 		}
+		// Shows the next element
 		if ( length >= 1 ) {
 			const nextElement = parts[i+1] || part.closest( '[data-disclose="form"]' )
 			TweenMax.to( nextElement, .8, { autoAlpha: 1 } )
 		}
 	}
 
-	// Handy JavaScript to meature the size taken to render the supplied text;
-	// you can supply additional style information too if you have it.
+	// Measures rendered text
 	function measureText( pText, pFontSize, pFontFam ) {
 		let lDiv = document.createElement( 'span' )
 
