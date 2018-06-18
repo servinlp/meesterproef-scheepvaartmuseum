@@ -52,6 +52,7 @@
 				background: linear-gradient(to right, black 30%, rgba(0, 0, 0, 0.76) 40%, rgba(0, 0, 0, 0) 100%);
 
 				h2 {
+					color: $colorWhite;
 					@include mq('large') {
 						max-width: 60%;
 					}
