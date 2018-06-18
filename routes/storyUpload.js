@@ -26,9 +26,7 @@ async function uploadToDb( data, dataFiles, res ) {
 
 		keys.filter( el => includesOnOfAll( el, [ 'storyText', 'subtitle', 'videolink' ] ) )
 			.forEach( el => {
-				
 				contentObj[ el ] = data[ el ]
-			
 			} )
 
 		dataFiles.forEach( el => {
@@ -40,7 +38,6 @@ async function uploadToDb( data, dataFiles, res ) {
 		const contentKeys = Object.keys( contentObj ),
 			contentInOrder = contentKeys.sort( sortByIndex ).filter( el => filterOutEmptyOnes( el, contentObj ) ),
 			contentQueries = getContentQueries( contentInOrder, contentObj )
-		
 
 		const allContent = await Promise.all( contentQueries ),
 			contentIDS = allContent.map( el => el.insertId ).join( ',' ),
@@ -69,7 +66,6 @@ async function uploadToDb( data, dataFiles, res ) {
 		console.error( err )
 
 	}
-	
 }
 
 function includesOnOfAll( el, arr ) {
@@ -95,7 +91,7 @@ function sortByIndex( a, b ) {
 
 function filterOutEmptyOnes( el, data ) {
 
-	if ( data[ el ].length ) 
+	if ( data[ el ].length )
 		return el
 
 }
@@ -161,7 +157,6 @@ function getContentQueries( order, data ) {
 				} else {
 
 					return
-					
 				}
 
 			} else if ( type.includes( 'vimeo' ) ) {
@@ -196,7 +191,7 @@ async function getLocationID( location ) {
 
 		const exists = await pool.query( 'SELECT * FROM location WHERE name = ?', location )
 
-		let ID 
+		let ID
 
 		if ( exists.length > 0 ) {
 
@@ -243,7 +238,7 @@ async function getTagIDS( tagsString ) {
 			updateExistingTagRows = [],
 			updateIDS = []
 
-		/* This loop checks all the results if they exist in the database or not. 
+		/* This loop checks all the results if they exist in the database or not.
 			if they exist we push the id of the tag directly to the tagIds array
 			if they don't we'll insert them into the database table
 		*/

@@ -3,24 +3,28 @@
 	min-height: 3em;
 	background: white;
 	box-shadow: 0 0 20px 0 lightgray;
-	position: fixed;
+	position: absolute;
 	top: 0;
-	z-index: 5;
+	z-index: z('header');
 
 	&--container {
-		max-width: 80rem;
-		height: 3em;
-		margin: 0 auto;
+		min-height: 3em;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
 		padding: 0 1rem;
+		padding: 0 5%;
+		@include mq("xl") {
+			padding: 0 2rem;
+			padding: 0 10%;
+		}
 
 		img,
 		svg {
 			height: 2em;
-			width: 2em;
+			z-index: z('icon');
+			position: relative;
 		}
 
 		button {
@@ -37,6 +41,9 @@
 	}
 
 	.navigation {
+		animation: fade-in 1s;
+		position: absolute;
+		right: 0;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-around;
@@ -45,60 +52,83 @@
 		top: 3rem;
 		left: 0;
 		background: white;
+		padding: 0 1rem;
+		padding: 0 5%;
+		@include mq("xl") {
+			padding: 0 2rem;
+			padding: 0 10%;
+		}
 		@include mq("small") {
+			animation: none;
 			flex-direction: row;
 			height: inherit;
 			width: 100%;
 			top: 0;
 		}
 
-		a {
-			text-decoration: none;
-			color: black;
-			font-size: 0.9em;
-			position: relative;
-			top: 0;
-		}
-
 		ul {
-			height: 10em;
+			height: 12rem;
 			display: flex;
 			flex-direction: column;
-			justify-content: flex-end;
+			justify-content: space-around;
 			text-align: center;
 			@include mq("small") {
+				justify-content: flex-end;
 				flex-direction: row;
 				height: inherit;
 				width: 100%;
 			}
+		}
 
-			li {
+		li {
+			&:last-child {
+				padding-right: 0;
+			}
+			@include mq("small") {
 				padding-right: 1rem;
 			}
+			@include mq("medium") {
+				padding-right: 2rem;
+			}
+		}
 
-			a {
-				text-decoration: none;
-				color: black;
-				font-size: 0.9em;
-				position: relative;
+		a {
+			text-decoration: none;
+			color: black;
+			font-size: 1rem;
+			position: relative;
 
-				&::after {
-					content: "";
-					position: absolute;
-					height: 2px;
-					background-color: #3369a0;
-					width: 0;
-					left: 50%;
-					bottom: -0.2em;
-					-webkit-transform: translateX(-50%);
-					-ms-transform: translateX(-50%);
-					transform: translateX(-50%);
-					-webkit-transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
-					transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
-				}
+			&::after {
+				content: "";
+				position: absolute;
+				height: 2px;
+				background-color: #3369a0;
+				width: 0;
+				left: 50%;
+				bottom: -0.2em;
+				-webkit-transform: translateX(-50%);
+				-ms-transform: translateX(-50%);
+				transform: translateX(-50%);
+				-webkit-transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
+				transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
+			}
+
+			&:hover::after {
+				width: 100%;
+			}
+		}
+
+		.link--jouw-verhaal {
+			background: $color-primary;
+			padding: 0.4rem 1rem;
+			color: $color-base;
+			transition: 0.2s ease;
+
+			&:hover {
+				background: $color-primary-hover;
 
 				&:hover::after {
-					width: 100%;
+					display: none;
 				}
 			}
 		}
@@ -124,22 +154,47 @@
 	}
 }
 
+.header--container {
+	background: white;
+	position: relative;
+}
+
+.header--fixed {
+	position: fixed;
+	top: 0;
+}
+
 .overflow--hidden {
 	overflow: hidden;
 }
 
 .gradient {
 	position: fixed;
-	z-index: 4;
 	height: 100%;
 	width: 100%;
 	background: black;
 	opacity: 0;
 	transition: 0.3s ease;
 	visibility: hidden;
+	@include mq("small") {
+		display: none;
+	}
 }
 
 .gradient--show {
 	opacity: 0.7;
 	visibility: visible;
+}
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+
+	99% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
 }
