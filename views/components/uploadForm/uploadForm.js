@@ -11,7 +11,8 @@ function uploadForm() {
 		el.addEventListener( 'click', addComponent )
 
 	} )
-
+	autoScaleInput()
+	progressiveDiscloseForm()
 }
 
 function addComponent( e ) {
@@ -21,20 +22,19 @@ function addComponent( e ) {
 
 	switch( toAdd ) {
 		case 'textarea':
+			addInput( 'subtitle' )
 			addTextarea()
 			break
 		case 'file':
+			addInput( 'subtitle' )
 			addFileInput()
 			break
-		case 'subtitle':
-			addInput( 'subtitle' )
-			break
 		case 'videolink':
+			addInput( 'subtitle' )	
 			addInput( 'videolink' )
 			break
 		default:
 	}
-
 }
 
 function addTextarea() {
@@ -50,7 +50,7 @@ function addTextarea() {
 	textarea.setAttribute( 'data-index', allInputElements.length )
 	// Need to add the data-index here as well to be able to tell on the backend what index there at
 	textarea.setAttribute( 'name', `storyText-${ allTextareas.length + 1 }-${ allInputElements.length }` )
-	textarea.setAttribute( 'placeholder', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique nulla sed elit hendrerit gravida. Vivamus nunc neque, pharetra et elementum blandit, lacinia vitae turpis. Suspendisse laoreet sem vitae dui rhoncus euismod. Donec in vehicula ante, non tincidunt turpis. Vestibulum erat velit, bibendum in quam eu, iaculis placerat lacus. Sed consequat hendrerit sodales. Vestibulum laoreet ornare ultricies. Aenean pulvinar neque id ipsum ultricies luctus. Donec ornare in sapien quis sodales. In ac lacinia risus. Cras facilisis enim et volutpat rhoncus. Donec dapibus dolor leo, et volutpat mi porta quis. Morbi fringilla scelerisque consequat. Phasellus vel sem iaculis, vulputate nisi eget, ullamcorper metus. Ut maximus ullamcorper magna, eu viverra risus feugiat vehicula. ' )
+	textarea.setAttribute( 'placeholder', 'Uw nieuwe alinea' )
 
 	fieldset.insertBefore( textarea, buttonContainer )
 
@@ -86,10 +86,20 @@ function addInput( type ) {
 	input.setAttribute( 'type', 'text' )
 	input.setAttribute( 'data-index', allInputElements.length )
 	input.setAttribute( 'name', `${ type }-${ allTextInputs.length + 1 }-${ allInputElements.length }` )
-	input.setAttribute( 'placeholder', 'Insert here' )
+	
+	switch( type ) {
+		case 'subtitle':
+			input.setAttribute( 'placeholder', 'Ondertitel' )
+			break
+		case 'videolink':
+			input.setAttribute( 'placeholder', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' )	
+			break
+		default:
+	}
+
 
 	fieldset.insertBefore( input, buttonContainer )
-
+	input.focus()
 }
 
 function autoScaleInput(){
@@ -134,38 +144,49 @@ function progressiveDiscloseForm() {
 		
 		if ( input !== null ) {
 			input.style = `width: ${measureText( input.getAttribute( 'placeholder' ), inputFontsize, inputFontFamily ) }px`
-
 			input.addEventListener( 'input', () => {
-				const length = input.value.length
-				if ( length >= 3 ) {
-					const nextElement = parts[i+1] || part.closest( '[data-disclose="form"]' )
-					TweenMax.to( nextElement, .8, { autoAlpha: 1 }, .2 )
-				}
-				if( length > input.getAttribute( 'placeholder' ).length && input.tagName === 'INPUT' ) {
-					input.style = `width: ${measureText( input.value, inputFontsize, inputFontFamily ) }px`
-				}
-				else {
-					input.style = `width: ${measureText( input.getAttribute( 'placeholder' ), inputFontsize, inputFontFamily )}px`
-				}
+				uploadFormInputEvent( event.target, i, part )
 			} )
 			input.addEventListener( 'change', () => {
-				const length = input.value.length
-				if( input.tagName === 'INPUT' ) {
-					TweenMax.to( input, .5, {width: `${measureText( input.value, inputFontsize, inputFontFamily )}px`} )
-				}
-				if ( length >= 1 ) {
-					const nextElement = parts[i+1] || part.closest( '[data-disclose="form"]' )
-					TweenMax.to( nextElement, .8, { autoAlpha: 1 } )
-				}
+				uploadFormChangeEvent( event.target, i, part )
 			} )
 		}
 	} )
+	
 	finishStoryButton.addEventListener( 'click', () => {
-		TweenMax.to( '[data-disclose="done"]', .8, { autoAlpha: 1 } )
+		TweenMax.to( '[data-disclose="done"]', .5, { autoAlpha: 1, onComplete: () => {
+			document.querySelector( '[name="tags"]' ).focus()
+		} } )
+		TweenMax.to( finishStoryButton, .1, { autoAlpha: 0, height: 0, padding: 0, margin: 0 } )
 	} )
+
+	function uploadFormInputEvent( input, i, part ) {
+		const length = input.value.length
+		if ( length >= 3 ) {
+			const nextElement = parts[i+1] || part.closest( '[data-disclose="form"]' )
+			TweenMax.to( nextElement, .8, { autoAlpha: 1 }, .2 )
+		}
+		if( length > input.getAttribute( 'placeholder' ).length && input.tagName === 'INPUT' ) {
+			input.style = `width: ${measureText( input.value, inputFontsize, inputFontFamily ) }px`
+		}
+		else {
+			input.style = `width: ${measureText( input.getAttribute( 'placeholder' ), inputFontsize, inputFontFamily )}px`
+		}
+	}
+
+	function uploadFormChangeEvent( input, i, part ) {
+		const length = input.value.length
+		if( input.tagName === 'INPUT' ) {
+			TweenMax.to( input, .5, {width: `${measureText( input.value, inputFontsize, inputFontFamily )}px`} )
+		}
+		if ( length >= 1 ) {
+			const nextElement = parts[i+1] || part.closest( '[data-disclose="form"]' )
+			TweenMax.to( nextElement, .8, { autoAlpha: 1 } )
+		}
+	}
+
 	// Handy JavaScript to meature the size taken to render the supplied text;
 	// you can supply additional style information too if you have it.
-
 	function measureText( pText, pFontSize, pFontFam ) {
 		let lDiv = document.createElement( 'span' )
 
@@ -191,44 +212,4 @@ function progressiveDiscloseForm() {
 	}
 }
 
-function addTagSuggestions() {
-	const form = document.querySelector( '.upload-form' )
-
-	if ( !form ) return
-
-	const tagInput = document.querySelector( '[name="tags"]' )
-	/* Do a SQL querie here
-	 */
-	const results = [ 'tag', 'oranje', 'paars', 'blauw', 'walvis' ]
-	results.forEach( result => {
-		const suggestion = document.createElement( 'button' )
-		suggestion.type = 'button'
-		suggestion.classList.add( 'upload-form__tag-suggestion' )
-		suggestion.textContent = result
-		suggestion.dataset.tag = result
-		tagInput.insertAdjacentElement( 'afterend', suggestion )
-		addEvents( suggestion )
-	} )
-	function addEvents( elem ) {
-		elem.addEventListener( 'click', () => {
-			console.log( tagInput )
-			console.log( tagInput.value )
-			if( tagInput.value === '' ) {
-				console.log( 'adding tag' )
-				console.log( event.target.dataset.tag )
-				tagInput.value += event.target.dataset.tag
-			}
-			else {
-				console.log( 'adding tag with comma' )
-				tagInput.value += `, ${event.target.dataset.tag}`
-			}
-		} )
-	}
-}
-
-export {
-	uploadForm,
-	autoScaleInput,
-	progressiveDiscloseForm,
-	addTagSuggestions
-}
+export default uploadForm
