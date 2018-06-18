@@ -56,14 +56,6 @@
 			top: 0;
 		}
 
-		a {
-			text-decoration: none;
-			color: black;
-			font-size: 0.9em;
-			position: relative;
-			top: 0;
-		}
-
 		ul {
 			height: 10em;
 			display: flex;
@@ -75,34 +67,50 @@
 				height: inherit;
 				width: 100%;
 			}
+		}
 
-			li {
-				padding-right: 1rem;
+		li {
+			padding-right: 1rem;
+		}
+
+		a {
+			text-decoration: none;
+			color: black;
+			font-size: 0.9em;
+			position: relative;
+
+			&::after {
+				content: "";
+				position: absolute;
+				height: 2px;
+				background-color: #3369a0;
+				width: 0;
+				left: 50%;
+				bottom: -0.2em;
+				-webkit-transform: translateX(-50%);
+				-ms-transform: translateX(-50%);
+				transform: translateX(-50%);
+				-webkit-transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
+				transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
 			}
 
-			a {
-				text-decoration: none;
-				color: black;
-				font-size: 0.9em;
-				position: relative;
+			&:hover::after {
+				width: 100%;
+			}
+		}
 
-				&::after {
-					content: "";
-					position: absolute;
-					height: 2px;
-					background-color: #3369a0;
-					width: 0;
-					left: 50%;
-					bottom: -0.2em;
-					-webkit-transform: translateX(-50%);
-					-ms-transform: translateX(-50%);
-					transform: translateX(-50%);
-					-webkit-transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
-					transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
-				}
+		.link--jouw-verhaal {
+			background: $color-primary;
+			padding: 0.4rem 1rem;
+			color: $color-base;
+			transition: 0.2s ease;
+			border-radius: 3px;
+
+			&:hover {
+				background: $color-primary-hover;
 
 				&:hover::after {
-					width: 100%;
+					display: none;
 				}
 			}
 		}
