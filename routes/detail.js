@@ -3,14 +3,13 @@ const express = require( 'express' ),
 	router = express.Router(),
 	pool = require( '../lib/mysql' )
 
-	moment.locale( 'nl' )
+moment.locale( 'nl' )
 
 router.get( '/', ( req, res ) => {
 	res.redirect( '/story-overview' )
 } )
 
 router.get( '/:storyID', async ( req, res ) => {
-	console.log( req.params.storyID )
 	const reactions = await pool.query( `SELECT * FROM reactions WHERE storyID = ${ req.params.storyID }` )
 		.then( x => x )
 		.then( formatted => formatted.map( x => {
@@ -21,7 +20,6 @@ router.get( '/:storyID', async ( req, res ) => {
 			}
 		} ) )
 		.catch( e => console.log( e ) )
-	console.log( reactions )
 
 	res.render( 'detail', {
 		storyID: req.params.storyID,
@@ -33,7 +31,7 @@ router.post( '/:storyID/comment', ( req, res ) => {
 	const commentMeta = {
 		storyID: req.params.storyID,
 		text: req.body.reaction,
-		timestamp: moment(),
+		timestamp: moment().toISOString(),
 		name: req.body.name ? req.body.name : 'Anoniem'
 	}
 	pool.query( 'INSERT INTO reactions SET ?', commentMeta )
