@@ -10,21 +10,32 @@ router.get( '/', ( req, res ) => {
 } )
 
 router.get( '/:storyID', async ( req, res ) => {
-	const reactions = await pool.query( `SELECT * FROM reactions WHERE storyID = ${ req.params.storyID }` )
-		.then( x => x )
-		.then( formatted => formatted.map( x => {
-			return {
-				...x,
-				datetime: moment( x.timestamp ).format( 'DD-MM-YYYY HH:mm' ),
-				time: moment( x.timestamp ).format( 'DD MMMM, YYYY HH:mm' )
-			}
-		} ) )
-		.catch( e => console.log( e ) )
 
-	res.render( 'detail', {
-		storyID: req.params.storyID,
-		reactions
-	} )
+	try {
+		const reactions = await pool.query( `SELECT * FROM reactions WHERE storyID = ${ req.params.storyID }` )
+			.then( x => x )
+			.then( formatted => formatted.map( x => {
+				return {
+					...x,
+					datetime: moment( x.timestamp ).format( 'DD-MM-YYYY HH:mm' ),
+					time: moment( x.timestamp ).format( 'DD MMMM, YYYY HH:mm' )
+				}
+			} ) )
+
+		res.render( 'detail', {
+			storyID: req.params.storyID,
+			reactions
+		} )
+
+
+		if ( !reactions.length ) {
+			throw new Error( 'No reactions found' )
+		}
+
+	} catch ( error ) {
+		console.log( error )
+	}
+
 } )
 
 router.post( '/:storyID/comment', ( req, res ) => {
