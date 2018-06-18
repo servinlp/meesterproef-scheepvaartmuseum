@@ -2,7 +2,6 @@ const express = require( 'express' ),
 	session = require( 'express-session' ),
 	ENV = require( 'dotenv' ).config().parsed,
 	bodyParser = require( 'body-parser' ),
-	moment = require( 'moment' ),
 	helmet = require( 'helmet' ),
 	compression = require( 'compression' ),
 

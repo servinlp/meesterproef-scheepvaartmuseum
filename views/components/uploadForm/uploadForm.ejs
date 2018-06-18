@@ -3,36 +3,57 @@
 	<p class="upload-form--natural-form">
 		<span data-disclose="form">
 			Ik ben
-			<input type="text" placeholder="Naam of anoniem">
+			<span class="inputAnimation-container">
+				<input class="inputAnimation" type="text" placeholder="Naam of anoniem">
+				<span class="focus-border">
+					<i></i>
+				</span>
+			</span>
 		</span>
 		<span data-disclose="form">
 			en ik wil een verhaal vertellen over 
-			<input type="text" name="title" required placeholder="titel">
+			<span class="inputAnimation-container">
+				<input class="inputAnimation" type="text" name="title" required placeholder="titel">
+				<span class="focus-border">
+					<i></i>
+				</span>
+			</span>
 		</span>
 		<span data-disclose="form">
 			dit speelde zich af in
-			<span class="autocomplete" data-search="locations">
-				<input type="text" name="location" placeholder="locatie" autocomplete="off">
+			<span class="autocomplete inputAnimation-container" data-search="locations">
+				<input class="inputAnimation" type="text" name="location" placeholder="locatie" autocomplete="off">
+				<span class="focus-border">
+					<i></i>
+				</span>
 			</span>
 		</span>
 		<span data-disclose="form">
 			in het jaar 
-			<input type="text" name="time" placeholder="19..">.
+			<span class="inputAnimation-container">
+				<input class="inputAnimation" type="text" name="time" placeholder="19..">.
+				<span class="focus-border">
+					<i></i>
+				</span>
+			</span>
 		</span>
 	</p>
 
 	<fieldset data-disclose="form" class="upload-form__story">
 		<legend>Dit is mijn verhaal:</legend>
-		<textarea name="story" id="story" cols="30" rows="10" placeholder="Jouw verhaal"></textarea>	
+		<textarea maxlength="255" name="story" id="story" cols="30" rows="10" placeholder="Jouw verhaal"></textarea>
 		<section class="upload-form__story--button-container">
 			<p>Voeg eventueel extra titels, text, foto's of video's toe!</p>
 			<button type="button" class="button--secondary" data-add="textarea">
+				<%- include ../icons/add.ejs %>
 				Alinea
 			</button>
 			<button type="button" class="button--secondary" data-add="file">
+				<%- include ../icons/add.ejs %>
 				Audio of Afbeelding
 			</button>
 			<button type="button" class="button--secondary" data-add="videolink">
+				<%- include ../icons/add.ejs %>
 				YouTube video
 			</button>
 		</section>
@@ -45,17 +66,29 @@
 		<h2>Bedankt voor je verhaal.</h2>
 		
 		<label for="tags">Deze woorden omschrijven mijn verhaal:</label>
-		<span class="autocomplete" data-search="tags">
-			<input type="text" name="tags" autocomplete="off" placeholder="Bijv. Oranje, kapitein, Nederlands-Indië">
+		<span class="autocomplete inputAnimation-container" data-search="tags">
+			<input class="inputAnimation" type="text" name="tags" autocomplete="off" placeholder="Bijv. Oranje, kapitein, Nederlands-Indië">
+			<span class="focus-border">
+				<i></i>
+            </span>
 		</span>		
 
 		<label for="email">E-mail</label>
 		<small>Als je jouw email adres of telefoonnummer invult kunnen wij je in de toekomst nog contacteren om meer te vragen over jouw verhaal, foto's of herinneringen.</small>
 		<small>Jouw email-adres wordt niet openbaar gemaakt en wij zullen je niet onnodig e-mailen.</small>
-		<input type="email" name="email" placeholder="email@adres.nl">
-	
+		<span class="inputAnimation-container">
+			<input class="inputAnimation" type="email" name="email" placeholder="email@adres.nl">
+			<span class="focus-border">
+				<i></i>
+			</span>
+		</span>
 		<label for="phone">Telefoon nummer</label>
-		<input type="tel" name="phone" placeholder="0612345678">
+		<span class="inputAnimation-container">
+			<input class="inputAnimation" type="tel" name="phone" placeholder="0612345678">
+			<span class="focus-border">
+				<i></i>
+			</span>		
+		</span>
 
 		<button type="submit" class="button--primary">Versturen</button>
 	</fieldset>

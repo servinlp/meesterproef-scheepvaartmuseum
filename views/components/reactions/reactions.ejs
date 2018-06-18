@@ -1,13 +1,30 @@
 <section class="reactions">
 	<h2>Reageer op dit verhaal</h2>
-	<form class="reactions__send" action="" method="post">
+	<form class="reactions__send" action="/detail/<%= storyID %>/comment" method="post">
 		<textarea name="reaction" id="reaction" cols="30" rows="10" pattern="[\s\S]*" placeholder="Uw reactie"></textarea>
 		<label for="name">Uw naam</label>
 		<input type="text" name="name" pattern="[\s\S]*" placeholder="Jan Jansen">
 		<button type="submit" class="button--primary">Versturen</button>
 	</form>
-	<h2>Reacties op dit verhaal</h2>
-	<%- include( './components/reactionsComment/reactionsComment', {
+	
+	<% if (reactions.length) { %>
+		<h2>Reacties op dit verhaal</h2>
+		<% reactions.forEach((reaction) => { %>
+			<%- include( './components/reactionsComment/reactionsComment', {
+				responseTo: null,
+				datetime: reaction.datetime,
+				time: reaction.time,
+				reaction: reaction.text,
+				name: reaction.name
+			} ) %>
+		<% }) %>
+
+	<% } else { %>
+		<h2>Nog geen reacties</h2>
+	<% } %>
+
+
+<%- include( './components/reactionsComment/reactionsComment', {
 		responseTo: null,
 		datetime: '2016-12-10 05:23',
 		time: 'december 10, 2016 5:23',
