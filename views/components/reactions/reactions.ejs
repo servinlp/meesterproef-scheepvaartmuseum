@@ -6,7 +6,29 @@
 		<input type="text" name="name" pattern="[\s\S]*" placeholder="Jan Jansen">
 		<button type="submit" class="button--primary">Versturen</button>
 	</form>
-	<h2>Reacties op dit verhaal</h2>
+	
+
+	<% if (reactions.length) { %>
+		<h2>Reacties op dit verhaal</h2>
+		<% reactions.forEach((reaction) => { %>
+			<article class="reactions__first-order">
+				<header class="reactions__header">
+					<img class="reactions__header--image" src="/images/boat.svg" alt="Foto van een schip">
+					<p class="reactions__header--name"><%- reaction.name %></p>
+					<time datetime="<%- reaction.datetime %>" class="reactions__header--date"><%- reaction.time %></time>
+				</header>
+			<p class="reactions__reaction"><%- reaction.text %></p>
+			<button class="button--secondary">Reageren op deze reactie</button>
+			</article>
+		<% }) %>
+
+	<% } else { %>
+		<h2>Nog geen reacties</h2>
+	<% } %>
+
+
+
+
 	<article class="reactions__first-order">
 		<header class="reactions__header">
 			<img class="reactions__header--image" src="/images/boat.svg" alt="Foto van een schip">

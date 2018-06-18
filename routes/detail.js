@@ -1,7 +1,7 @@
 const express = require( 'express' ),
 	moment = require( 'moment' ),
-	router = 	express.Router(),
-	pool = 		require( '../lib/mysql' )
+	router = express.Router(),
+	pool = require( '../lib/mysql' )
 
 router.get( '/', ( req, res ) => {
 	res.redirect( '/story-overview' )
@@ -9,9 +9,17 @@ router.get( '/', ( req, res ) => {
 
 router.get( '/:storyID', async ( req, res ) => {
 	console.log( req.params.storyID )
-
+	moment.locale('nl')
 	const reactions = await pool.query( `SELECT * FROM reactions WHERE storyID = ${ req.params.storyID }` )
 		.then( x => x )
+		.then( formatted => formatted.map( x => {
+			return {
+				...x,
+				datetime: moment( x.timestamp ).format( 'DD-MM-YYYY HH:mm' ),
+				time: moment( x.timestamp ).format( 'DD MMMM, YYYY HH:mm' )
+			}
+		} ) )
+		.catch( e => console.log( e ) )
 	console.log( reactions )
 
 	res.render( 'detail', {
@@ -24,10 +32,10 @@ router.post( '/:storyID/comment', ( req, res ) => {
 	const commentMeta = {
 		storyID: req.params.storyID,
 		text: req.body.reaction,
-		timestamp: moment.now(),
+		timestamp: moment(),
 		name: req.body.name ? req.body.name : 'Anoniem'
 	}
-	pool.query( 'INSERT INTO reactions SET ?' , commentMeta )
+	pool.query( 'INSERT INTO reactions SET ?', commentMeta )
 	res.send( 'ok' )
 } )
 
