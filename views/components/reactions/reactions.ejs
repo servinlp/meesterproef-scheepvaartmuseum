@@ -1,6 +1,6 @@
 <section class="reactions">
 	<h2>Reageer op dit verhaal</h2>
-	<form class="reactions__send" action="/detail/comment" method="post">
+	<form class="reactions__send" action="/detail/<%= storyID %>/comment" method="post">
 		<textarea name="reaction" id="reaction" cols="30" rows="10" pattern="[\s\S]*" placeholder="Uw reactie"></textarea>
 		<label for="name">Uw naam</label>
 		<input type="text" name="name" pattern="[\s\S]*" placeholder="Jan Jansen">
