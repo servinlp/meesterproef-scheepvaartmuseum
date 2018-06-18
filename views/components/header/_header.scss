@@ -6,26 +6,23 @@
 	position: absolute;
 	top: 0;
 	z-index: z('header');
+	padding: 0 1rem;
+	padding: 0 5%;
+	@include mq("xl") {
+		padding: 0 2rem;
+		padding: 0 10%;
+	}
 
 	&--container {
-		max-width: 80rem;
 		min-height: 3em;
-		margin: 0 auto;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
-		padding: 0 1rem;
-		padding: 0 5vw;
-		@include mq("small") {
-			padding: 0 2rem;
-			padding: 0 5vw;
-		}
 
 		img,
 		svg {
 			height: 2em;
-			width: 2em;
 			z-index: z('icon');
 			position: relative;
 		}
@@ -55,16 +52,12 @@
 		top: 3rem;
 		left: 0;
 		background: white;
-		padding: 0 1rem;
-		padding: 0 5vw;
 		@include mq("small") {
 			animation: none;
 			flex-direction: row;
 			height: inherit;
 			width: 100%;
 			top: 0;
-			padding: 0 0.2rem;
-			padding: 0 5vw;
 		}
 
 		ul {
@@ -82,13 +75,14 @@
 		}
 
 		li {
-			padding-right: 0;
-
 			&:last-child {
 				padding-right: 0;
 			}
 			@include mq("small") {
 				padding-right: 1rem;
+			}
+			@include mq("medium") {
+				padding-right: 2rem;
 			}
 		}
 
