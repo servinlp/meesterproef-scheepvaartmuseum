@@ -1,6 +1,11 @@
 function setUpMap() { 
 	if ( !document.querySelectorAll( 'main > .map' )[0] ) return
 		
+	// Set SVG Width and Height
+	TweenMax.set( '.map__svg', { attr:{width: window.innerWidth, height: ( window.innerWidth / ( 610 / 574 ) )} } )
+	window.addEventListener( 'resize', () => {
+		TweenMax.set( '.map__svg', { attr:{width: window.innerWidth, height: ( window.innerWidth / ( 610 / 574 ) )} } )
+	} )
 	// Sets the boat on the middle of the route line
 	TweenMax.set( '[href="#boat"]', { xPercent: -50, yPercent: -50 } )
 
@@ -83,6 +88,8 @@ function setUpMap() {
 		
 		// This array will contain the formed animation paths from the routes
 		const allBezierRoutes = []
+		const pathLengths = []
+
 		// Hides all routes that contain "year19..." as an ID
 		map.querySelectorAll( '[id^="year19"]' ).forEach( route => { 
 			route.style = 'display: none'
@@ -103,49 +110,56 @@ function setUpMap() {
 				allBezierRoutes.push( MorphSVGPlugin.pathDataToBezier( path, { 
 					align: '[href="#boat"]'
 				} ) )
+				const pathLength = path.getTotalLength()
+				pathLengths.push( pathLength )
 			}
-
 		} )
+		console.log( pathLengths )
 
 		// Creates every animation and adds them to the boat timeline
 		const boat = document.querySelector( '[href="#boat"]' )
 		TweenMax.set( '.map__svg', {attr:{viewBox: '0 200 170 174'}} )
-		// {attr:{viewBox: '0 0 800 600'}}
-		allBezierRoutes.forEach( arr => { 
-			const boatFollowsLine = TweenMax.to( '[href="#boat"]', 5, { 
+		
+		const animationDurations = pathLengths.map( length => {
+			const time = Number( length ) / 40
+			const fixedTime = Number( time.toFixed( 2 ) )
+			return fixedTime < 3 ? 3 : fixedTime
+		} )
+		
+		allBezierRoutes.forEach( ( arr, i ) => {
+			const boatFollowsLine = TweenMax.to( '[href="#boat"]', animationDurations[i], { 
 				bezier: { 
 					values: arr,
-					// values:[{x:10, y:30}, {x:-30, y:20}, {x:-40, y:10}, {x:30, y:20}, {x:10, y:30}],
 					type: 'cubic',
 					ease: Power1.easeInOut,
 				},
 				onUpdate: () => {
-					// console.log( boat._gsTransform.x
-					// 	, boat._gsTransform.y )
 					TweenMax.set( '.map__svg', {
-						attr:{viewBox: `0 200 ${170 + boat._gsTransform.x} ${274 + boat._gsTransform.y}`}
+						attr:{viewBox: `0 ${200 + ( boat._gsTransform.y / 2 ) } ${170 + boat._gsTransform.x} ${274 + ( boat._gsTransform.y / 4 )}`}
 					} )
 				},
 				ease: Power1.easeInOut
 			} )
 
 			boatTl.add( boatFollowsLine )
-		} )
 
-		// Creates an animation where the finished path gets another style
-		const drawProgressLine = TweenMax.staggerFromTo( `#year${ currentActiveYear.dataset.year } > g > .path-clone`, 5, 
-			{ 
+			const currentYearPath = document.querySelectorAll( `#year${ currentActiveYear.dataset.year } > g > .path-clone` )
+
+			// Creates an animation where the finished path gets another style
+			TweenMax.set( `#year${ currentActiveYear.dataset.year } > g > .path-clone`, {
 				drawSVG: '0% 0%',
-				ease: Power1.easeInOut
-			}, { 
-				drawSVG: '0% 100%', 
-				stroke: 'red',
-				immediateRender:false,
-				ease: Power1.easeInOut
-			},
-			5
-		)
-		lineTl.add( drawProgressLine )
+				stroke: 'red'
+			} )
+			const drawProgressLine = TweenMax.to( currentYearPath[i], animationDurations[i], 
+				{
+					drawSVG: '0% 100%', 
+					stroke: 'red',
+					immediateRender:false,
+					ease: Power1.easeInOut
+				},
+			)
+			lineTl.add( drawProgressLine )
+		} )
 
 		// Start animations
 		boatTl.play()
