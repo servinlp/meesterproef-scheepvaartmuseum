@@ -4,6 +4,7 @@ import setUpMap from './components/map/map.js'
 import toggleToolButton from './components/storyAddItemButton/storyAddItemButton.js'
 import animateStoryOverview from './components/storyGrid/storyGrid.js'
 import autocompleteFromApiInit from './components/lib/autocomplete.js'
+import colorThief from './components/storyHighlight/storyHighlight.js'
 import { enhancedDetailInit } from './components/enhancedDetail/enhancedDetail.js'
 
 ( function IIFE () {
@@ -16,5 +17,6 @@ import { enhancedDetailInit } from './components/enhancedDetail/enhancedDetail.j
 	toggleToolButton()
 	setUpMap()
 	autocompleteFromApiInit() 
+	colorThief()
 	
 } )()
