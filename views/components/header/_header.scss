@@ -124,10 +124,11 @@
 			color: $color-base;
 			transition: 0.2s ease;
 
+			&:focus,
 			&:hover {
 				background: $color-primary-hover;
 
-				&:hover::after {
+				&::after {
 					display: none;
 				}
 			}
