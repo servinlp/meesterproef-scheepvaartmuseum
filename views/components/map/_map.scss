@@ -1,7 +1,7 @@
 .map {
 	height: 50vh;
 	@include hardware;
-	margin: 0 -5%;
+	width: 100%;
 	@include mq('xl') {
 		margin: 0 -10%;
 	}
