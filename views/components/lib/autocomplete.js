@@ -62,14 +62,7 @@ function createList( data ) {
 
 	const ul = document.createElement( 'ul' )
 
-	// If data.length === 0
-	if ( !data.length ) {
-
-		const li = document.createElement( 'li' )
-		li.textContent = 'No matches'
-		ul.appendChild( li )
-
-	} else {
+	if ( data.length > 0 ) {
 
 		const fragment = document.createDocumentFragment()
 
