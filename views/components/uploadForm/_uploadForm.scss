@@ -21,22 +21,27 @@ form {
 	margin: 1rem;
 }
 
+[name^="subtitle"] {
+	display: block !important;
+}
+
 .upload-form {
 	margin: 3rem auto;
-	background-color: $colorBlue;
+	padding: 2.5% 5%;
+	background-color: $colorWhite;
 	line-height: 2;
 	font-size: $uploadFormFontSize;
 	font-weight: $uploadFormFontWeight;
-	color: lighten($colorBlue, 50%);
+	color: darken($colorBlue, 50%);
 	max-width: 60rem;
 	width: 90%;
 
 	legend,
 	h2 {
 		font-family: $font-stack-headers;
-		font-size: 2.5rem;
+		font-size: 2rem;
 		font-weight: 700;
-		color: lighten($colorBlue, 50%);
+		color: darken($colorBlue, 50%);
 		line-height: 1;
 		margin-bottom: 1rem;
 	}
@@ -53,27 +58,38 @@ form {
 
 	label {
 		font-size: 1.25rem;
+		font-weight: 600;
 	}
 
 	input[type="text"],
 	input[type="email"],
 	input[type="tel"] {
 		border: 0;
-		border-bottom: 1px solid lighten($colorBlue, 50%);
-		background-color: $colorBlue;
+		border-bottom: 1px solid darken($colorBlue, 50%);
+		background-color: $colorWhite;
 		display: inline-block;
 		font-size: $uploadFormFontSize;
 		font-weight: $uploadFormFontWeight;
-		color: lighten($colorBlue, 50%);
+		color: darken($colorBlue, 50%);
+		min-width: 3.25rem;
 
 		&::placeholder {
-			color: lighten($colorBlue, 30%);
+			color: rgba(#000, 0.6);
 		}
+	}
+
+	button:first-of-type,
+	[type="submit"]:first-of-type {
+		margin-left: 0;
+	}
+
+	[type="submit"] {
+		display: block;
 	}
 
 	&--natural-form {
 		line-height: 1.5;
-		color: lighten($colorBlue, 50%);
+		color: darken($colorBlue, 50%);
 
 		input[type="text"],
 		input[type="email"],
@@ -87,19 +103,24 @@ form {
 		min-height: 12rem;
 		width: 100% !important;
 		padding: 1rem;
-		background-color: $colorBlue;
-		color: lighten($colorBlue, 50%);
-		border: 0.05rem solid lighten($colorBlue, 10%);
+		background-color: $colorWhite;
+		color: darken($colorBlue, 50%);
+		border: 0.1rem solid darken($colorBlue, 10%);
 		font-size: $uploadFormFontSize;
 
 		&::placeholder {
-			color: lighten($colorBlue, 30%);
+			color: rgba(#000, 0.6);
 		}
 	}
 
 	[name="tags"],
-	[name="email"] {
+	[name="email"],
+	[name="phone"] {
 		display: block !important;
+	}
+
+	[name^="storyText"] {
+		margin: 0.5rem 0;
 	}
 
 	&__tag-suggestion {
@@ -118,19 +139,107 @@ form {
 	small {
 		font-weight: 400;
 		font-size: 0.8rem;
-		line-height: 1;
-		display: inline-block;
+		display: block;
 	}
 
 	&__story {
+		margin: 2rem auto;
+
 		&--button-container {
 			width: 100%;
 
 			button {
-				width: 25%;
-				height: 2rem;
+				padding-left: 2.5rem;
+			}
+
+			svg {
+				position: absolute;
+				top: 50%;
+				left: 1.5rem;
+				height: 50%;
+				transform: translate(-50%, -50%);
+			}
+		}
+	}
+
+	.inputAnimation-container {
+		position: relative;
+		display: inline-block;
+
+		input {
+			outline: none;
+			padding: 0.1rem 0.25rem;
+
+			&:focus {
+				border-bottom: 0;
+			}
+		}
+	}
+
+	.inputAnimation {
+		& ~ .focus-border:before,
+		~ .focus-border:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 0;
+			height: calc(1rem / 8);
+			background-color: $colorBlack;
+			transition: 0.2s;
+			transition-delay: 0.2s;
+		}
+
+		& ~ .focus-border:after {
+			top: auto;
+			bottom: 0;
+			right: auto;
+			left: 0;
+			transition-delay: 0.6s;
+		}
+
+		& ~ .focus-border i:before,
+		~ .focus-border i:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: calc(1rem / 8);
+			height: 0;
+			background-color: $colorBlack;
+			transition: 0.2s;
+		}
+
+		& ~ .focus-border i:after {
+			left: auto;
+			right: 0;
+			top: auto;
+			bottom: 0;
+			transition-delay: 0.4s;
+		}
+
+		&:focus,
+		&:hover {
+			~ .focus-border:before,
+			~ .focus-border:after {
+				width: 100%;
+				transition: 0.2s;
+				transition-delay: 0.6s;
+			}
+
+			~ .focus-border:after {
+				transition-delay: 0.2s;
+			}
+
+			~ .focus-border i:before,
+			~ .focus-border i:after {
+				height: 100%;
+				transition: 0.2s;
+			}
+
+			~ .focus-border i:after {
+				transition-delay: 0.4s;
 			}
 		}
 	}
 }
-
