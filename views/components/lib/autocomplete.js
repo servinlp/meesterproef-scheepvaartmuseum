@@ -68,11 +68,14 @@ function createList( data ) {
 
 		data.forEach( el => {
 
-			const li = document.createElement( 'li' )
-			li.textContent = capitalizeFirstLetter( el )
+			const li = document.createElement( 'li' ),
+				button = document.createElement( 'button' )
 
-			li.addEventListener( 'click', selectTag )
+			button.setAttribute( 'type', 'button' )
+			button.textContent = capitalizeFirstLetter( el )
+			button.addEventListener( 'click', selectTag )
 
+			li.appendChild( button )
 			fragment.appendChild( li )
 
 		} )
@@ -91,11 +94,11 @@ function destroyList( parent ) {
 
 	if ( !ul ) return
 
-	const lis = Array.from( ul.querySelectorAll( 'li' ) )
+	const buttons = Array.from( ul.querySelectorAll( 'button' ) )
 
-	lis.forEach( li => {
+	buttons.forEach( button => {
 
-		li.removeEventListener( 'click', selectTag )
+		button.removeEventListener( 'click', selectTag )
 
 	} )
 
@@ -105,8 +108,10 @@ function destroyList( parent ) {
 
 function selectTag( e ) {
 
+	console.log( e )
+
 	const target = e.target,
-		parent = target.parentNode.parentNode,
+		parent = target.parentNode.parentNode.parentNode,
 		input = parent.querySelector( 'input' ),
 
 		inputValue = input.value,
