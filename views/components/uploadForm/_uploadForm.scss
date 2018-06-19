@@ -3,10 +3,6 @@ label {
 	display: block;
 }
 
-// label {
-// 	margin-top: 1rem;
-// }
-
 textarea {
 	width: 8rem;
 	height: 4rem;
@@ -66,7 +62,6 @@ form {
 	input[type="tel"] {
 		border: 0;
 		border-bottom: 1px solid darken($colorBlue, 10%);
-		// background-color: $colorWhite;
 		display: inline-block;
 		font-size: $uploadFormFontSize;
 		font-weight: $uploadFormFontWeight;
