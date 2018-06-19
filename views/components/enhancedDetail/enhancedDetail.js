@@ -1,3 +1,18 @@
+function selectComponents() {
+	const allElements = document.querySelectorAll( '.container--main > *' )
+
+	function enhancedAddClass( allElements ) {
+		allElements.classList.add( 'detail__content' )
+	}
+
+	function perComponent() {
+		allElements.forEach( enhancedAddClass )
+		enhancedDetailInit()
+	}
+	perComponent()
+}
+
+
 function enhancedDetailInit() {
 	if ( ! ( document.querySelector( '.detail__content' ) && document.querySelector( '.detail__content--container' ) ) ) return
 	if ( 'IntersectionObserver' in window ) {
@@ -8,18 +23,18 @@ function enhancedDetailInit() {
 }
 
 function enhancedDetail() {
-	const contentElements = document.querySelectorAll( '.detail__content--container' )
+	const contentElements = Array.from( document.querySelector( '.detail__content--container' ).children )
 	const config = {
 		rootMargin: '0px 0px 0px 0px',
 		threshold: 0.25
 	}
-	
+
 	const contentObserver = new IntersectionObserver( ( entries, self ) => {
 		entries.forEach( entry => {
 			if ( entry.isIntersecting ) {
 				preloadContent( entry.target )
 				self.unobserve( entry.target )
-			} 
+			}
 		} )
 	}, config )
 
@@ -28,8 +43,7 @@ function enhancedDetail() {
 	} )
 
 	function preloadContent( content ) {
-		const element = content.querySelector( '.detail__content' )
-		element.classList.add( 'visible' )
+		content.classList.add( 'visible' )
 	}
 }
 
@@ -37,11 +51,11 @@ function enhancedDetail() {
 function fallbackDetail() {
 	const element = document.querySelectorAll( '.detail__content' )
 	for ( const [ i ] of element.entries() ) {
-		element[ i ].classList.add( 'visible' ) 
+		element[ i ].classList.add( 'visible' )
 	}
 }
 
 
 export {
-	enhancedDetailInit
+	selectComponents
 }
