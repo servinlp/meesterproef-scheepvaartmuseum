@@ -114,7 +114,6 @@ function setUpMap() {
 				pathLengths.push( pathLength )
 			}
 		} )
-		console.log( pathLengths )
 
 		// Creates every animation and adds them to the boat timeline
 		const boat = document.querySelector( '[href="#boat"]' )
