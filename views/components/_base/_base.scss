@@ -88,3 +88,12 @@ input {
 		font-family: $font-stack-base;
 	}
 }
+
+.no-js .hide-when-no-js {
+	display: none;
+}
+
+.homepage__main {
+	background-color: $colorBlue;
+	height: 100%;
+}

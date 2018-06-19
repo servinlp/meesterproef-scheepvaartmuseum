@@ -5,18 +5,18 @@ import toggleToolButton from './components/storyAddItemButton/storyAddItemButton
 import animateStoryOverview from './components/storyGrid/storyGrid.js'
 import autocompleteFromApiInit from './components/lib/autocomplete.js'
 import colorThief from './components/storyHighlight/storyHighlight.js'
-import { enhancedDetailInit } from './components/enhancedDetail/enhancedDetail.js'
+import { selectComponents } from './components/enhancedDetail/enhancedDetail.js'
 
 ( function IIFE () {
 
 	if( !( document.documentElement.classList && document.querySelectorAll ) ) return
 	animateStoryOverview()
-	enhancedDetailInit()
+	selectComponents()
 	header()
 	uploadForm()
 	toggleToolButton()
 	setUpMap()
-	autocompleteFromApiInit() 
+	autocompleteFromApiInit()
 	colorThief()
-	
+
 } )()
