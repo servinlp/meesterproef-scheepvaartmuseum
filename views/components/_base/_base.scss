@@ -1,5 +1,6 @@
 * {
 	box-sizing: border-box;
+	scroll-behavior: smooth;
 }
 
 body {
@@ -15,6 +16,19 @@ main {
 	}
 	@include mq('medium') {
 		padding: 0 4rem;
+	}
+}
+
+.underline-red {
+	display: inline-block;
+
+	&::after {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 0.25rem;
+		background-color: $secondairy-color;
+		margin-top: 0.2rem;
 	}
 }
 
