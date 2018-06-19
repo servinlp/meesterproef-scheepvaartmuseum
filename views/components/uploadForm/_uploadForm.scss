@@ -82,6 +82,9 @@ form {
 	[type="submit"]:first-of-type {
 		margin-left: 0;
 	}
+	[type="submit"] {
+		display: block;
+	}
 
 	&--natural-form {
 		line-height: 1.5;
