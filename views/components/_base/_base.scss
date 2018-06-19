@@ -1,5 +1,6 @@
 * {
 	box-sizing: border-box;
+	scroll-behavior: smooth;
 }
 
 body {
@@ -9,12 +10,22 @@ body {
 }
 
 main {
-	margin: 0 auto;
-	@include mq('small') {
-		padding: 0 2rem;
+	padding: 0 5%;
+	@include mq('xl') {
+		padding: 0 10%;
 	}
-	@include mq('medium') {
-		padding: 0 4rem;
+}
+
+.underline-red {
+	display: inline-block;
+
+	&::after {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 0.25rem;
+		background-color: $secondairy-color;
+		margin-top: 0.2rem;
 	}
 }
 
@@ -76,6 +87,7 @@ p {
 	line-height: 1.4;
 	font-size: 1em;
 	font-weight: 400;
+	margin-bottom: 1em;
 }
 
 .components__overview {
@@ -99,4 +111,9 @@ input {
 .homepage__main {
 	background-color: $colorBlue;
 	height: 100%;
+}
+
+.fourofour h1 svg {
+	width: 40px;
+	height: auto;
 }
