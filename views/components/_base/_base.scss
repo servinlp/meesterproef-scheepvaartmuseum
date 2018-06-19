@@ -73,6 +73,7 @@ p {
 	line-height: 1.4;
 	font-size: 1em;
 	font-weight: 400;
+	margin-bottom: 1em;
 }
 
 .components__overview {
@@ -91,4 +92,14 @@ input {
 
 .no-js .hide-when-no-js {
 	display: none;
+}
+
+.homepage__main {
+	background-color: $colorBlue;
+	height: 100%;
+}
+
+.fourofour h1 svg {
+	width: 40px;
+	height: auto;
 }
