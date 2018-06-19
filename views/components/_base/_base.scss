@@ -9,12 +9,9 @@ body {
 }
 
 main {
-	margin: 0 auto;
-	@include mq('small') {
-		padding: 0 2rem;
-	}
-	@include mq('medium') {
-		padding: 0 4rem;
+	padding: 0 5%;
+	@include mq('xl') {
+		padding: 0 10%;
 	}
 }
 
