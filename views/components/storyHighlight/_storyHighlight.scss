@@ -54,6 +54,7 @@
 			z-index: 1;
 			color: $color-base;
 			font-size: 0.9rem;
+			margin-bottom: 0;
 			@include mq("medium") {
 				font-size: 1.1rem;
 			}
