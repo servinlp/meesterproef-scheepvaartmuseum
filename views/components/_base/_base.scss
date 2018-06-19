@@ -91,3 +91,7 @@ input {
 		font-family: $font-stack-base;
 	}
 }
+
+.no-js .hide-when-no-js {
+	display: none;
+}
