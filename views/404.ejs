@@ -1,5 +1,11 @@
-<%- include( 'partials/head.ejs' ) %>
+<% include ./partials/head.ejs %>
+<% include ./components/header/header.ejs %>
 
-404
+<main class="stories">
+	<h1 class="title__underline--red stories--title"><span class="underline-red">404</span></h1>
+	<p>Helaas de boot is al gevaren...</p>
+	<p><a href="/" class="button--primary">Klik hier</a> om terug te gaan naar de homepagine</p>
+</main>
 
-<%- include( 'partials/footer.ejs' ) %>
+
+<% include ./partials/footer.ejs %>
