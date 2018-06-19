@@ -18,14 +18,6 @@ main {
 	}
 }
 
-h1 {
-	font-family: $font-stack-headers;
-	font-size: 2.5rem;
-	font-weight: 700;
-	line-height: initial;
-	color: $color-header;
-}
-
 .title__underline--red {
 	text-align: center;
 	margin: 6rem 0 2rem 0;
@@ -43,44 +35,40 @@ h1 {
 	}
 }
 
-h2 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-family: $font-stack-headers;
-	font-size: 1.6em;
 	font-weight: 700;
 	line-height: initial;
 	color: $color-header;
+}
+
+h1 {
+	font-size: 2.5rem;
+}
+
+h2 {
+	font-size: 1.6em;
 }
 
 h3 {
-	font-family: $font-stack-headers;
-	line-height: initial;
 	font-size: 1.6em;
-	font-weight: 700;
-	color: $color-header;
 }
 
 h4 {
-	font-family: $font-stack-headers;
-	line-height: initial;
 	font-size: 1.4em;
-	font-weight: 700;
-	color: $color-header;
 }
 
 h5 {
-	font-family: $font-stack-headers;
-	line-height: initial;
 	font-size: 1.2em;
-	font-weight: 700;
-	color: $color-header;
 }
 
 h6 {
-	font-family: $font-stack-headers;
-	line-height: initial;
 	font-size: 1em;
-	font-weight: 700;
-	color: $color-header;
 }
 
 p {
@@ -93,5 +81,13 @@ p {
 .components__overview {
 	li {
 		margin: 5em 0;
+	}
+}
+
+textarea,
+input {
+	font-family: $font-stack-base;
+	@include input-placeholder {
+		font-family: $font-stack-base;
 	}
 }
