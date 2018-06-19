@@ -78,7 +78,7 @@ router.post ( '/:storyID/:responseto', ( req, res ) => {
 
 	pool.query( 'INSERT INTO reactions SET ?', reactionToComment )
 
-	res.redirect( '/detail/55' )
+	res.redirect( `/detail/${req.params.storyID}/#reactions-anchor` )
 } )
 
 module.exports = router
