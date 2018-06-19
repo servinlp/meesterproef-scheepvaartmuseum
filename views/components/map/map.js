@@ -14,7 +14,6 @@ function setUpMap() {
 	const toggleYearButtons = document.querySelectorAll( '[data-year]' )
 
 	const svgNS = 'http://www.w3.org/2000/svg'
-
 	// Add click functionality to year buttons
 	toggleYearButtons.forEach( button => { 
 		button.addEventListener( 'click', () => { 
@@ -165,7 +164,6 @@ function setUpMap() {
 			5
 		)
 		lineTl.add( drawProgressLine )
-
 		// Start animations
 		boatTl.play()
 		lineTl.play()
