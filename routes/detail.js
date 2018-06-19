@@ -24,8 +24,6 @@ router.get( '/:storyID', async ( req, res ) => {
 			parents = reactions.filter( el => !el.responseTo ),
 			childResponses = reactions.filter( el => el.responseTo )
 
-		console.log( 'childResponses', childResponses )
-
 		childResponses.forEach( el => {
 
 			const match = parents.filter( parentEl => parentEl.ID === el.responseTo )[ 0 ]
@@ -65,7 +63,6 @@ router.post( '/:storyID/comment', ( req, res ) => {
 } )
 
 router.post ( '/:storyID/:responseto', ( req, res ) => {
-	console.log( req.params.storyID, req.params.responseto )
 
 	const reactionToComment = {
 		storyID: req.params.storyID,
