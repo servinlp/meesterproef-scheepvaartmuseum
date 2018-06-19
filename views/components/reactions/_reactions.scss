@@ -40,11 +40,16 @@
 	}
 
 	&__first-order {
-		margin-bottom: 2rem;
+		@include mq('medium') {
+			margin-bottom: 2rem;
+		}
 	}
 
 	&__second-order {
-		margin: 0 0 2rem 4rem;
+		margin: 0 0 0 4rem;
+		@include mq('medium') {
+			margin-bottom: 2rem;
+		}
 	}
 
 	&__header {
@@ -139,6 +144,7 @@
 			}
 			@include mq('medium') {
 				width: 100%;
+				margin: 0 0 0.65rem;
 			}
 		}
 
