@@ -181,6 +181,7 @@ function progressiveDiscloseForm() {
 
 		document.body.appendChild( lDiv )
 
+		lDiv.style.display = 'block'
 		lDiv.style.fontFamily = pFontFam
 		lDiv.style.fontSize = '' + pFontSize + 'px'
 		lDiv.style.position = 'absolute'

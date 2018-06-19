@@ -12,19 +12,32 @@ router.get( '/', ( req, res ) => {
 router.get( '/:storyID', async ( req, res ) => {
 
 	try {
-		const reactions = await pool.query( `SELECT * FROM reactions WHERE storyID = ${ req.params.storyID }` )
-			.then( x => x )
-			.then( formatted => formatted.map( x => {
-				return {
-					...x,
-					datetime: moment( x.timestamp ).format( 'DD-MM-YYYY HH:mm' ),
-					time: moment( x.timestamp ).format( 'DD MMMM, YYYY HH:mm' )
-				}
-			} ) )
+		const reactions = await pool.query( `SELECT * FROM reactions WHERE storyID = ${ req.params.storyID } ORDER BY timestamp ASC` )
+				.then( x => x )
+				.then( formatted => formatted.map( x => {
+					return {
+						...x,
+						datetime: moment( x.timestamp ).format( 'DD-MM-YYYY HH:mm' ),
+						time: moment( x.timestamp ).format( 'DD MMMM, YYYY HH:mm' )
+					}
+				} ) ),
+			parents = reactions.filter( el => !el.responseTo ),
+			childResponses = reactions.filter( el => el.responseTo )
+
+		childResponses.forEach( el => {
+
+			const match = parents.filter( parentEl => parentEl.ID === el.responseTo )[ 0 ]
+			if ( !match.childResponses ) {
+				match.childResponses = []
+			}
+
+			match.childResponses.push( el )
+
+		} )
 
 		res.render( 'detail', {
 			storyID: req.params.storyID,
-			reactions
+			reactions: parents
 		} )
 
 
@@ -46,7 +59,23 @@ router.post( '/:storyID/comment', ( req, res ) => {
 		name: req.body.name ? req.body.name : 'Anoniem'
 	}
 	pool.query( 'INSERT INTO reactions SET ?', commentMeta )
-	res.send( 'ok' )
+	res.redirect( `/detail/${req.params.storyID}/#reactions-anchor` )
+} )
+
+router.post ( '/:storyID/:responseto', ( req, res ) => {
+
+	const reactionToComment = {
+		storyID: req.params.storyID,
+		responseto: req.params.responseto,
+		text: req.body.reaction,
+		fromID: null,
+		timestamp: moment().toISOString(),
+		name: req.body.name ? req.body.name : 'Anoniem'
+	}
+
+	pool.query( 'INSERT INTO reactions SET ?', reactionToComment )
+
+	res.redirect( `/detail/${req.params.storyID}/#reactions-anchor` )
 } )
 
 module.exports = router
