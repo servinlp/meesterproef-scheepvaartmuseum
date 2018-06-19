@@ -3,10 +3,6 @@ label {
 	display: block;
 }
 
-label {
-	margin-top: 1rem;
-}
-
 textarea {
 	width: 8rem;
 	height: 4rem;
@@ -23,12 +19,12 @@ form {
 
 [name^="subtitle"] {
 	display: block !important;
+	margin: 0 0 1rem;
 }
 
 .upload-form {
 	margin: 3rem auto;
 	padding: 2.5% 5%;
-	background-color: $colorWhite;
 	line-height: 2;
 	font-size: $uploadFormFontSize;
 	font-weight: $uploadFormFontWeight;
@@ -65,8 +61,7 @@ form {
 	input[type="email"],
 	input[type="tel"] {
 		border: 0;
-		border-bottom: 1px solid darken($colorBlue, 50%);
-		background-color: $colorWhite;
+		border-bottom: 1px solid darken($colorBlue, 10%);
 		display: inline-block;
 		font-size: $uploadFormFontSize;
 		font-weight: $uploadFormFontWeight;
@@ -119,8 +114,10 @@ form {
 		display: block !important;
 	}
 
+	[name^="upload"],
+	[name^="videolink"],
 	[name^="storyText"] {
-		margin: 0.5rem 0;
+		margin: 0 0 2rem;
 	}
 
 	&__tag-suggestion {
@@ -139,6 +136,7 @@ form {
 	small {
 		font-weight: 400;
 		font-size: 0.8rem;
+		line-height: 1.4;
 		display: block;
 	}
 
@@ -165,6 +163,7 @@ form {
 	.inputAnimation-container {
 		position: relative;
 		display: inline-block;
+		margin-bottom: 1rem;
 
 		input {
 			outline: none;

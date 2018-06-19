@@ -41,8 +41,8 @@
 
 	<fieldset data-disclose="form" class="upload-form__story">
 		<legend>Dit is mijn verhaal:</legend>
-		<textarea maxlength="255" name="story" id="story" cols="30" rows="10" placeholder="Jouw verhaal"></textarea>
-		<section class="upload-form__story--button-container">
+		<textarea maxlength="255" name="storyText-1-0" data-index="0" id="story" cols="30" rows="10" placeholder="Jouw verhaal"></textarea>
+		<section class="hide-when-no-js upload-form__story--button-container">
 			<p>Voeg eventueel extra titels, text, foto's of video's toe!</p>
 			<button type="button" class="button--secondary" data-add="textarea">
 				<%- include ../icons/add.ejs %>
@@ -57,7 +57,7 @@
 				YouTube video
 			</button>
 		</section>
-		<button data-finish="story" type="button" class="button--primary">
+		<button data-finish="story" type="button" class="hide-when-no-js button--primary">
 			Mijn verhaal is af
 		</button>	
 	</fieldset>
@@ -74,8 +74,6 @@
 		</span>		
 
 		<label for="email">E-mail</label>
-		<small>Als je jouw email adres of telefoonnummer invult kunnen wij je in de toekomst nog contacteren om meer te vragen over jouw verhaal, foto's of herinneringen.</small>
-		<small>Jouw email-adres wordt niet openbaar gemaakt en wij zullen je niet onnodig e-mailen.</small>
 		<span class="inputAnimation-container">
 			<input class="inputAnimation" type="email" name="email" placeholder="email@adres.nl">
 			<span class="focus-border">
@@ -89,6 +87,8 @@
 				<i></i>
 			</span>		
 		</span>
+		<small>Als je jouw email adres of telefoonnummer invult kunnen wij je in de toekomst nog contacteren om meer te vragen over jouw verhaal, foto's of herinneringen.</small>
+		<small>Jouw email-adres wordt niet openbaar gemaakt en wij zullen je niet onnodig e-mailen.</small>
 
 		<button type="submit" class="button--primary">Versturen</button>
 	</fieldset>
