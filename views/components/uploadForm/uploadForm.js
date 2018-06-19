@@ -197,7 +197,7 @@ function progressiveDiscloseForm() {
 		document.body.removeChild( lDiv )
 		lDiv = null
 
-		return (lResult.width + 20)
+		return ( lResult.width + 20 )
 	}
 }
 
