@@ -128,11 +128,11 @@ function progressiveDiscloseForm() {
 			// Sets the width to the width of the placeholder with measureText
 			input.style = `width: ${measureText( input.getAttribute( 'placeholder' ), inputFontsize, inputFontFamily ) }px`
 			// Update width on input
-			input.addEventListener( 'input', () => {
+			input.addEventListener( 'input', event => {
 				uploadFormInputEvent( event.target, i, part )
 			} )
 			// Update width on change (for pasting and autocomplete)
-			input.addEventListener( 'change', () => {
+			input.addEventListener( 'change', event => {
 				uploadFormChangeEvent( event.target, i, part )
 			} )
 		}
@@ -197,7 +197,7 @@ function progressiveDiscloseForm() {
 		document.body.removeChild( lDiv )
 		lDiv = null
 
-		return lResult.width
+		return ( lResult.width + 20 )
 	}
 }
 
