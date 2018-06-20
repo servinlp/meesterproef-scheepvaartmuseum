@@ -1,7 +1,9 @@
 <% include ./partials/head.ejs %>
+<% include ./components/header/header.ejs %>
 
-<h1>Story Upload</h1>
-
-<% include ./components/uploadForm/uploadForm %>
+<main class="stories">
+	<h1 class="title__underline--red stories--title"><span class="underline-red">Story</span> <span>Upload</span></h1>
+	<% include ./components/uploadForm/uploadForm %>
+</main>
 
 <% include ./partials/footer.ejs %>

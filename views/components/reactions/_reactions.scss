@@ -40,11 +40,16 @@
 	}
 
 	&__first-order {
-		margin-bottom: 2rem;
+		@include mq('medium') {
+			margin-bottom: 2rem;
+		}
 	}
 
 	&__second-order {
-		margin: 0 0 2rem 4rem;
+		margin: 0 0 0 4rem;
+		@include mq('medium') {
+			margin-bottom: 2rem;
+		}
 	}
 
 	&__header {
@@ -98,7 +103,7 @@
 			display: flex;
 			flex-direction: column;
 			@include mq('small') {
-				transform: translateY(-50%);
+				transform: translateY(calc(-50% - 1px));
 			}
 			@include mq('medium') {
 				flex: 1;
@@ -121,6 +126,8 @@
 
 		textarea {
 			min-height: auto;
+			position: relative;
+			z-index: 1;
 			@include mq('small') {
 				width: calc(55% - 4px);
 			}
@@ -132,11 +139,12 @@
 		input {
 			@include mq('small') {
 				margin-left: 0.5rem;
-				width: calc(35% - 4px);
+				width: calc(45% - 4px);
 				align-self: flex-end;
 			}
 			@include mq('medium') {
 				width: 100%;
+				margin: 0 0 0.65rem;
 			}
 		}
 

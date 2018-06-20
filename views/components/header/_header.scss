@@ -38,6 +38,28 @@
 				display: none;
 			}
 		}
+
+		> a {
+			position: relative;
+
+			&::after {
+				content: "";
+				position: absolute;
+				height: 2px;
+				background-color: $color-primary;
+				width: 0;
+				left: 50%;
+				bottom: -0.2em;
+				z-index: 1;
+				transform: translateX(-50%);
+				transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
+			}
+
+			&:focus::after,
+			&:hover::after {
+				width: 200%;
+			}
+		}
 	}
 
 	.navigation {
@@ -95,39 +117,34 @@
 		a {
 			text-decoration: none;
 			color: black;
-			font-size: 1rem;
+			font-size: 0.9rem;
 			position: relative;
 
 			&::after {
 				content: "";
 				position: absolute;
 				height: 2px;
-				background-color: #3369a0;
+				background-color: $color-primary;
 				width: 0;
 				left: 50%;
 				bottom: -0.2em;
-				-webkit-transform: translateX(-50%);
-				-ms-transform: translateX(-50%);
 				transform: translateX(-50%);
-				-webkit-transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
 				transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
 			}
 
+			&:focus::after,
 			&:hover::after {
 				width: 100%;
 			}
 		}
 
 		.link--jouw-verhaal {
-			background: $color-primary;
 			padding: 0.4rem 1rem;
 			color: $color-base;
-			transition: 0.2s ease;
 
+			&:focus,
 			&:hover {
-				background: $color-primary-hover;
-
-				&:hover::after {
+				&::after {
 					display: none;
 				}
 			}
