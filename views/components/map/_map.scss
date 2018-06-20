@@ -1,10 +1,9 @@
 .map {
 	height: 50vh;
-	@include hardware;
+	-webkit-transform: translate3d(0, 0, 0);
+	-webkit-backface-visibility: hidden;
+	-webkit-perspective: 1000;
 	width: 100%;
-	@include mq('xl') {
-		margin: 0 -10%;
-	}
 
 	&__svg {
 		transform: scale(1);
