@@ -1,28 +1,52 @@
 .map {
-	width: 100vw;
 	height: 50vh;
-	@include mq('small') {
-		margin-left: -2rem;
-	}
-	@include mq('medium') {
-		margin-left: -4rem;
+	-webkit-transform: translate3d(0, 0, 0);
+	-webkit-backface-visibility: hidden;
+	-webkit-perspective: 1000;
+	width: 100%;
+	margin-bottom: 2rem;
+
+	&__title {
+		margin-bottom: 1rem;
+		padding: 0 5%;
+		@include mq('xl') {
+			padding: 0 10%;
+		}
+
+		&--sub {
+			margin-bottom: 2rem;
+			padding: 0 5%;
+			@include mq('xl') {
+				padding: 0 10%;
+			}
+		}
 	}
 
 	&__svg {
 		transform: scale(1);
 		transform-origin: top left;
 		max-width: 100%;
-		max-height: 100%;
+		max-height: 50vh;
 		display: block;
 		margin: 0 auto;
 		background-color: $colorBlue;
-		overflow: hidden;
 
 		// All route groups that contain 19 in the id
 		g[id^="year19"] g path {
 			stroke-width: 0.25rem;
 			stroke-dasharray: 20, 5;
 			stroke: white;
+		}
+
+		.anchor {
+			width: 1.5rem;
+			height: 1.5rem;
+
+			path {
+				position: relative;
+				z-index: 10000;
+				fill: green !important;
+			}
 		}
 
 		[class$="-clone"] {
@@ -38,9 +62,8 @@
 		}
 
 		&--container {
-			width: 100vw;
+			width: 100%;
 			background-color: $colorBlue;
-			overflow: hidden;
 			@include mq("small") {
 				height: 40vh;
 			}
@@ -64,34 +87,20 @@
 				stroke: blue;
 			}
 		}
-		@include mq("small") {
-			transform: scale(1.1);
-		}
-		@include mq("medium") {
-			transform-origin: top;
-			transform: scale(1.5);
-		}
-		@include mq("large") {
-			transform-origin: top;
-			transform: scale(1.6);
-		}
-		@include mq("xl") {
-			transform-origin: top;
-			transform: scale(1.6);
-		}
 	}
 }
 
 .map__year--list {
 	display: flex;
 	justify-content: center;
+	max-width: 100%;
+	flex-flow: row wrap;
 
 	li {
 		position: relative;
 		display: flex;
-		width: 18%;
-		margin-left: auto;
-		margin-bottom: 1rem;
+		min-width: 6rem;
+		margin-right: 0.5rem;
 
 		button {
 			-webkit-appearance: none;
@@ -99,10 +108,10 @@
 			width: 100%;
 			font-size: 1rem;
 			@include mq("small") {
-				font-size: 1.25rem;
+				font-size: 1rem;
 			}
 			@include mq("medium") {
-				font-size: 2rem;
+				font-size: 1rem;
 			}
 		}
 	}
@@ -111,4 +120,8 @@
 .map__year--container {
 	padding: 0 1rem;
 	width: 100%;
+	padding: 0 5%;
+	@include mq('xl') {
+		padding: 0 10%;
+	}
 }

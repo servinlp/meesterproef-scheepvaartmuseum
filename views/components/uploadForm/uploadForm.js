@@ -88,7 +88,7 @@ function addInput( type ) {
 	
 	switch( type ) {
 		case 'subtitle':
-			input.setAttribute( 'placeholder', 'Ondertitel' )
+			input.setAttribute( 'placeholder', '(Optioneel) Subtitel' )
 			break
 		case 'videolink':
 			input.setAttribute( 'placeholder', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' )	
@@ -128,11 +128,11 @@ function progressiveDiscloseForm() {
 			// Sets the width to the width of the placeholder with measureText
 			input.style = `width: ${measureText( input.getAttribute( 'placeholder' ), inputFontsize, inputFontFamily ) }px`
 			// Update width on input
-			input.addEventListener( 'input', () => {
+			input.addEventListener( 'input', event => {
 				uploadFormInputEvent( event.target, i, part )
 			} )
 			// Update width on change (for pasting and autocomplete)
-			input.addEventListener( 'change', () => {
+			input.addEventListener( 'change', event => {
 				uploadFormChangeEvent( event.target, i, part )
 			} )
 		}
@@ -140,7 +140,7 @@ function progressiveDiscloseForm() {
 	// Shows section after story is finished
 	finishStoryButton.addEventListener( 'click', () => {
 		TweenMax.to( '[data-disclose="done"]', .5, { autoAlpha: 1, onComplete: () => {
-			document.querySelector( '[name="tags"]' ).focus()
+			document.querySelector( '.upload-form__finalize input' ).focus()
 		} } )
 		TweenMax.to( finishStoryButton, .1, { autoAlpha: 0, height: 0, padding: 0, margin: 0 } )
 	} )
@@ -181,6 +181,7 @@ function progressiveDiscloseForm() {
 
 		document.body.appendChild( lDiv )
 
+		lDiv.style.display = 'block'
 		lDiv.style.fontFamily = pFontFam
 		lDiv.style.fontSize = '' + pFontSize + 'px'
 		lDiv.style.position = 'absolute'
@@ -197,7 +198,7 @@ function progressiveDiscloseForm() {
 		document.body.removeChild( lDiv )
 		lDiv = null
 
-		return (lResult.width + 20)
+		return ( lResult.width + 20 )
 	}
 }
 

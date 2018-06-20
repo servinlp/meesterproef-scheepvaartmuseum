@@ -17,6 +17,7 @@
 	}
 
 	.story--container-text {
+		background: linear-gradient(70deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.6) 10%, rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 1) 100%);
 		flex-shrink: 5;
 		padding: 2rem;
 		padding-left: 5%;
@@ -25,6 +26,7 @@
 		flex-direction: column;
 		position: absolute;
 		bottom: 0;
+		text-shadow: 0 0 10px gray;
 		@include mq("medium") {
 			width: auto;
 			position: relative;
@@ -52,6 +54,7 @@
 			z-index: 1;
 			color: $color-base;
 			font-size: 0.9rem;
+			margin-bottom: 0;
 			@include mq("medium") {
 				font-size: 1.1rem;
 			}
@@ -64,10 +67,10 @@
 		position: relative;
 		@include mq("medium") {
 			max-width: 50%;
-			min-width: 20rem;
+			min-width: 25rem;
 		}
 		@include mq("xl") {
-			min-width: 25rem;
+			min-width: 30rem;
 		}
 
 		img {
@@ -75,7 +78,6 @@
 			height: 100%;
 			display: block;
 			object-fit: cover;
-			object-position: 50% 0%;
 			float: right;
 			width: 100%;
 			@include mq("medium") {
@@ -94,7 +96,7 @@
 				background: linear-gradient(to top, rgba(0, 0, 0, 0.72) 20%, rgba(0, 0, 0, 0.556) 40%, rgba(0, 0, 0, 0) 100%);
 			}
 			@include mq("medium") {
-				background: linear-gradient(to right, black 0%, rgba(0, 0, 0, 0.659) 40%, rgba(0, 0, 0, 0) 100%);
+				background: linear-gradient(to right, black 0%, rgba(0, 0, 0, 0.7) 40%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0) 100%);
 			}
 		}
 	}
