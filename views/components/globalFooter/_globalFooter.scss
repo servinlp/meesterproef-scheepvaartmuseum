@@ -1,0 +1,47 @@
+.footer {
+	background: var(--footer-background);
+
+	&__title {
+		color: var(--title-white);
+		font-size: 4rem;
+		padding: 1rem 5%;
+		@include mq('xl') {
+			font-size: 6rem;
+			padding: 1rem 10%;
+		}
+
+		&::first-letter {
+			text-transform: capitalize;
+		}
+	}
+
+	& p {
+		padding: 0 5%;
+		color: var(--title-white);
+		@include mq('xl') {
+			padding: 0 10%;
+		}
+	}
+
+	&__bottom {
+		background: darken(#386fa4, 5%);
+		padding: 1rem 0;
+	}
+
+	&__link {
+		color: var(--title-white);
+		font-size: 1rem;
+		padding: 1rem 5%;
+		display: block;
+		text-decoration: none;
+		outline: 0;
+		@include mq('xl') {
+			padding: 1rem 10%;
+		}
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+	}
+}
