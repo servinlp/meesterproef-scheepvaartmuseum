@@ -88,7 +88,7 @@ function addInput( type ) {
 	
 	switch( type ) {
 		case 'subtitle':
-			input.setAttribute( 'placeholder', 'Ondertitel' )
+			input.setAttribute( 'placeholder', '(Optioneel) Subtitel' )
 			break
 		case 'videolink':
 			input.setAttribute( 'placeholder', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' )	
@@ -140,7 +140,7 @@ function progressiveDiscloseForm() {
 	// Shows section after story is finished
 	finishStoryButton.addEventListener( 'click', () => {
 		TweenMax.to( '[data-disclose="done"]', .5, { autoAlpha: 1, onComplete: () => {
-			document.querySelector( '[name="tags"]' ).focus()
+			document.querySelector( '.upload-form__finalize input' ).focus()
 		} } )
 		TweenMax.to( finishStoryButton, .1, { autoAlpha: 0, height: 0, padding: 0, margin: 0 } )
 	} )

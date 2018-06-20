@@ -62,11 +62,13 @@ function createList( data ) {
 
 	const ul = document.createElement( 'ul' )
 
+	let lastButton
+
 	if ( data.length > 0 ) {
 
 		const fragment = document.createDocumentFragment()
 
-		data.forEach( el => {
+		data.forEach( ( el, i ) => {
 
 			const li = document.createElement( 'li' ),
 				button = document.createElement( 'button' )
@@ -78,7 +80,12 @@ function createList( data ) {
 			li.appendChild( button )
 			fragment.appendChild( li )
 
+			if ( data.length - 1 === i )
+				lastButton = button
+
 		} )
+
+		lastButton.addEventListener( 'blur', destroyList )
 
 		ul.appendChild( fragment )
 
@@ -88,17 +95,21 @@ function createList( data ) {
 
 }
 
-function destroyList( parent ) {
+function destroyList( p ) {
 
-	const ul = parent.querySelector( 'ul' )
+	const parent = !p.target ? p : p.target.parentNode.parentNode.parentNode,
+		ul = parent.querySelector( 'ul' )
 
 	if ( !ul ) return
 
 	const buttons = Array.from( ul.querySelectorAll( 'button' ) )
 
-	buttons.forEach( button => {
+	buttons.forEach( ( button, i ) => {
 
 		button.removeEventListener( 'click', selectTag )
+
+		if ( buttons.length - 1 === i )
+			button.removeEventListener( 'blur', destroyList )
 
 	} )
 
@@ -108,11 +119,12 @@ function destroyList( parent ) {
 
 function selectTag( e ) {
 
-	console.log( e )
-
 	const target = e.target,
 		parent = target.parentNode.parentNode.parentNode,
 		input = parent.querySelector( 'input' ),
+
+		allFocussableElements = Array.from( document.querySelectorAll( 'input, select, textarea, button, a, [tabindex]' ) ),
+		indexOfTarget = allFocussableElements.indexOf( target ),
 
 		inputValue = input.value,
 		value = target.textContent
@@ -135,6 +147,8 @@ function selectTag( e ) {
 	}
 
 	destroyList( parent )
+
+	allFocussableElements[ indexOfTarget + 1 ].focus()
 
 	if ( 'createEvent' in document ) {
 

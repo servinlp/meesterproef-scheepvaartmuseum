@@ -11,7 +11,7 @@
 		<time datetime="<%= datetime %>" class="reactions__header--date"><%= time %></time>
 	</header>
 	<p class="reactions__reaction"><%= reaction %></p>
-	<form class="reactions__send" action="" method="post">
+	<form class="reactions__send" action="/detail/<%= storyID %>/<%= id %>" method="post">
 		<textarea name="reaction" id="reaction" pattern="[\s\S]*" placeholder="Uw reactie"></textarea>
 		<div>
 			<input type="text" name="name" pattern="[\s\S]*" placeholder="Uw naam">
@@ -19,3 +19,4 @@
 		</div>
 	</form>
 </article>
+

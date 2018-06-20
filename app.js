@@ -33,6 +33,7 @@ app.use( session( {
 } ) )
 
 app.use( express.static( 'public' ) )
+app.use( express.static( 'views' ) )
 
 app.set( 'views', './views' )
 app.set( 'view engine', 'ejs' )
