@@ -102,6 +102,7 @@ form {
 		color: darken($colorBlue, 50%);
 		border: 0.1rem solid darken($colorBlue, 10%);
 		font-size: $uploadFormFontSize;
+		resize: none;
 
 		&::placeholder {
 			color: rgba(#000, 0.6);

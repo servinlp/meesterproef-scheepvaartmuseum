@@ -20,7 +20,7 @@
 			</span>
 		</span>
 		<span data-disclose="form">
-			dit speelde zich af in
+			dit speelde zich af
 			<span class="autocomplete inputAnimation-container" data-search="locations">
 				<input class="inputAnimation" type="text" name="location" placeholder="locatie" autocomplete="off">
 				<span class="focus-border">
@@ -41,7 +41,7 @@
 
 	<fieldset data-disclose="form" class="upload-form__story">
 		<legend>Dit is mijn verhaal:</legend>
-		<textarea maxlength="255" name="storyText-1-0" data-index="0" id="story" cols="30" rows="10" placeholder="Jouw verhaal"></textarea>
+		<textarea name="storyText-1-0" data-index="0" id="story" cols="30" rows="10" placeholder="Jouw verhaal"></textarea>
 		<section class="hide-when-no-js upload-form__story--button-container">
 			<p>Voeg eventueel extra titels, text, foto's of video's toe!</p>
 			<button type="button" class="button--secondary" data-add="textarea">
@@ -57,14 +57,7 @@
 				YouTube video
 			</button>
 		</section>
-		<button data-finish="story" type="button" class="hide-when-no-js button--primary">
-			Mijn verhaal is af
-		</button>	
-	</fieldset>
-	
-	<fieldset data-disclose="done" class="upload-form__finalize">
-		<h2>Bedankt voor je verhaal.</h2>
-		
+
 		<label for="tags">Deze woorden omschrijven mijn verhaal:</label>
 		<span class="autocomplete inputAnimation-container" data-search="tags">
 			<input class="inputAnimation" type="text" name="tags" autocomplete="off" placeholder="Bijv. Oranje, kapitein, Nederlands-Indië">
@@ -73,6 +66,14 @@
             </span>
 		</span>		
 
+		<button data-finish="story" type="button" class="hide-when-no-js button--primary">
+			Mijn verhaal is af
+		</button>	
+	</fieldset>
+	
+	<fieldset data-disclose="done" class="upload-form__finalize">
+		<h2>Bedankt voor je verhaal.</h2>
+		
 		<label for="email">E-mail</label>
 		<span class="inputAnimation-container">
 			<input class="inputAnimation" type="email" name="email" placeholder="email@adres.nl">
