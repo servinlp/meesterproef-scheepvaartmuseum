@@ -15,9 +15,7 @@ import { selectComponents } from './components/enhancedDetail/enhancedDetail.js'
 	header()
 	uploadForm()
 	toggleToolButton()
-	document.addEventListener( 'DOMContentLoaded', () => {
-		setUpMap()
-	} )
+	setUpMap()
 	autocompleteFromApiInit()
 	colorThief()
 
