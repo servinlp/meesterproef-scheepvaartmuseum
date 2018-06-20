@@ -88,7 +88,7 @@ function addInput( type ) {
 	
 	switch( type ) {
 		case 'subtitle':
-			input.setAttribute( 'placeholder', 'Subtitel' )
+			input.setAttribute( 'placeholder', '(Optioneel) Subtitel' )
 			break
 		case 'videolink':
 			input.setAttribute( 'placeholder', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' )	
