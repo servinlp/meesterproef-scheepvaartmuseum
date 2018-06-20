@@ -254,4 +254,18 @@ form {
 			}
 		}
 	}
+
+	.element-container {
+		position: relative;
+
+		.remove-element {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 1.5rem;
+			height: auto;
+			transform: translate(120%, -120%);
+			cursor: pointer;
+		}
+	}
 }
