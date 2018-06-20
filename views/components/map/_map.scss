@@ -22,10 +22,15 @@
 			stroke: white;
 		}
 
-		.anchor path {
-			position: relative;
-			z-index: 10000;
-			fill: green !important;
+		.anchor {
+			width: 1.5rem;
+			height: 1.5rem;
+
+			path {
+				position: relative;
+				z-index: 10000;
+				fill: green !important;
+			}
 		}
 
 		[class$="-clone"] {

@@ -4,7 +4,7 @@ import setUpMap from './components/map/map.js'
 import toggleToolButton from './components/storyAddItemButton/storyAddItemButton.js'
 import animateStoryOverview from './components/storyGrid/storyGrid.js'
 import autocompleteFromApiInit from './components/lib/autocomplete.js'
-import colorThief from './components/storyHighlight/storyHighlight.js'
+// import colorThief from './components/storyHighlight/storyHighlight.js'
 import { selectComponents } from './components/enhancedDetail/enhancedDetail.js'
 
 ( function IIFE () {
@@ -15,8 +15,10 @@ import { selectComponents } from './components/enhancedDetail/enhancedDetail.js'
 	header()
 	uploadForm()
 	toggleToolButton()
-	setUpMap()
+	document.addEventListener( 'DOMContentLoaded', () => {
+		setUpMap()
+	} )
 	autocompleteFromApiInit()
-	colorThief()
+	// colorThief()
 
 } )()
