@@ -1,5 +1,17 @@
 .footer {
 	background: var(--footer-background);
+	position: relative;
+
+	img {
+		position: absolute;
+		right: 5%;
+		top: -5%;
+		width: 4rem;
+		@include mq('medium') {
+			width: 8rem;
+			top: -15%;
+		}
+	}
 
 	&__title {
 		color: var(--title-white);
