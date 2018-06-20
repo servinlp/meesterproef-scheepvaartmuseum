@@ -188,7 +188,7 @@ form {
 			right: 0;
 			width: 0;
 			height: calc(1rem / 16);
-			background-color: #0d36b0;
+			background-color: $colorDarkBlue;
 			transition: 0.2s;
 			transition-delay: 0.2s;
 		}
@@ -209,7 +209,7 @@ form {
 			left: 0;
 			width: calc(1rem / 16);
 			height: 0;
-			background-color: #0d36b0;
+			background-color: $colorDarkBlue;
 			transition: 0.2s;
 		}
 		// i::after is right border
