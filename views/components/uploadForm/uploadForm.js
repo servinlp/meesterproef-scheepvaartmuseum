@@ -50,8 +50,9 @@ function addTextarea() {
 	// Need to add the data-index here as well to be able to tell on the backend what index there at
 	textarea.setAttribute( 'name', `storyText-${ allTextareas.length + 1 }-${ allInputElements.length }` )
 	textarea.setAttribute( 'placeholder', 'Jouw nieuwe alinea' )
-
+	TweenMax.set( textarea, {autoAlpha: 0, y: -10} )
 	fieldset.insertBefore( textarea, buttonContainer )
+	TweenMax.to( textarea, .4, {autoAlpha: 1, y: 0} )
 
 }
 
@@ -68,10 +69,39 @@ function addFileInput() {
 	input.setAttribute( 'multiple', true )
 	input.setAttribute( 'data-index', allInputElements.length )
 	input.setAttribute( 'name', `upload-${ allFileInputs.length + 1 }-${ allInputElements.length }` )
-
+	TweenMax.set( input, {autoAlpha: 0, y: -10} )
 	fieldset.insertBefore( input, buttonContainer )
+	TweenMax.to( input, .4, {autoAlpha: 1, y: 0} )
+	input.addEventListener( 'change', event => {
+		const files = event.target.files 
+		for ( const file in files ) {
+			if ( files.hasOwnProperty( file ) ) {
+				const fileNum = files[file]
+				const image = document.createElement( 'img' )
+
+				image.classList.add( 'preview' )
+							
+				const reader  = new FileReader()
+			
+				reader.onloadend = function () {
+					image.src = reader.result //converts this to a long  data string for the image preview
+				}
+			
+				if ( fileNum ) {
+					reader.readAsDataURL( fileNum )//reads the data as a URL 
+				}
+				const fileInput = event.target
+				fileInput.insertAdjacentElement( 'afterEnd', image )
+			}
+		}
+
+	} )
 
 }
+
+
+	
+
 
 function addInput( type ) {
 
@@ -96,8 +126,9 @@ function addInput( type ) {
 		default:
 	}
 
-
+	TweenMax.set( input, {autoAlpha: 0, y: -10} )
 	fieldset.insertBefore( input, buttonContainer )
+	TweenMax.to( input, .4, {autoAlpha: 1, y: 0} )
 	input.focus()
 }
 
