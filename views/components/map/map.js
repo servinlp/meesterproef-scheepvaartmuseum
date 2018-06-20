@@ -1,5 +1,5 @@
 function setUpMap() { 
-	if ( !document.querySelectorAll( 'main > .map' )[0] ) return
+	if ( !document.querySelectorAll( 'body > .map' )[0] ) return
 		
 	// Set SVG Width and Height
 	TweenMax.set( '.map__svg', { attr:{width: window.innerWidth, height: ( window.innerWidth / ( 610 / 574 ) )} } )
