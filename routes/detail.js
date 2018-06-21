@@ -1,7 +1,9 @@
 const express = require( 'express' ),
 	moment = require( 'moment' ),
 	router = express.Router(),
-	pool = require( '../lib/mysql' )
+	pool = require( '../lib/mysql' ),
+	getStoryReactions = require( '../lib/getStoryReactions' ),
+	getStoryContent = require( '../lib/getStoryContent' )
 
 moment.locale( 'nl' )
 
@@ -12,41 +14,20 @@ router.get( '/', ( req, res ) => {
 router.get( '/:storyID', async ( req, res ) => {
 
 	try {
-		const reactions = await pool.query( `SELECT * FROM reactions WHERE storyID = ${ req.params.storyID } ORDER BY timestamp ASC` )
-				.then( x => x )
-				.then( formatted => formatted.map( x => {
-					return {
-						...x,
-						datetime: moment( x.timestamp ).format( 'DD-MM-YYYY HH:mm' ),
-						time: moment( x.timestamp ).format( 'DD MMMM, YYYY HH:mm' )
-					}
-				} ) ),
-			parents = reactions.filter( el => !el.responseTo ),
-			childResponses = reactions.filter( el => el.responseTo )
 
-		childResponses.forEach( el => {
-
-			const match = parents.filter( parentEl => parentEl.ID === el.responseTo )[ 0 ]
-			if ( !match.childResponses ) {
-				match.childResponses = []
-			}
-
-			match.childResponses.push( el )
-
-		} )
+		const content = await getStoryContent( req.params.storyID ),
+			reactions = await getStoryReactions( req.params.storyID )
 
 		res.render( 'detail', {
 			storyID: req.params.storyID,
-			reactions: parents
+			story: content,
+			reactions
 		} )
 
-
-		if ( !reactions.length ) {
-			throw new Error( 'No reactions found' )
-		}
-
 	} catch ( error ) {
-		console.log( error )
+
+		console.error( error )
+
 	}
 
 } )

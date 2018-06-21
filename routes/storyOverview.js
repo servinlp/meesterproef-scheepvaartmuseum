@@ -3,7 +3,7 @@ const express = require( 'express' ),
 	pool = require( '../lib/mysql' ),
 	getThumbnailContent = require( '../lib/getThumbnailContent' ),
 
-	limitPerPage = 2
+	limitPerPage = 6
 
 router.get( '/', async ( req, res ) => {
 
