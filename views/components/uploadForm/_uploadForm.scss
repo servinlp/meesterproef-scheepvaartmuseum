@@ -169,6 +169,13 @@ form {
 		box-shadow: 0 0 15px 0 rgba(211, 211, 211, 0.555);
 	}
 
+	.videoPreview {
+		position: relative;
+		width: 17rem;
+		display: inherit;
+		margin-bottom: 4rem;
+	}
+
 	.inputAnimation-container {
 		position: relative;
 		display: inline-block;
