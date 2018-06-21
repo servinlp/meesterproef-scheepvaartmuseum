@@ -1,8 +1,13 @@
 <section class="stories__grid">
-	<% include ../storyGridCard/storyGridCard.ejs %>
-	<% include ../storyGridCard/storyGridCard.ejs %>
-	<% include ../storyGridCard/storyGridCard.ejs %>
-	<% include ../storyGridCard/storyGridCard.ejs %>
-	<% include ../storyGridCard/storyGridCard.ejs %>
-	<% include ../storyGridCard/storyGridCard.ejs %>	
+	<% if (storyCards.length) { %>
+		<% storyCards.forEach((storyCard) => { %>
+			<%- include( './components/storyGridCard/storyGridCard', {
+				image: storyCard.image,
+				title: storyCard.title,
+				subtitle: storyCard.subtitle
+			} ) %>
+		<% }) %>
+	<% } else { %>
+		<h2 id='reactions-anchor'><span class='underline-red'>Nog</span> geen verhalen</h2>
+	<% } %>
 </section>
