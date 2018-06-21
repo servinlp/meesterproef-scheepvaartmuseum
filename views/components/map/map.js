@@ -71,7 +71,8 @@ function setUpMap() {
 				newActiveYear = nextButtonParent.querySelector( 'button' )
 			}
 			else {
-				newActiveYear = document.querySelectorAll( '.map__year--list li' )[0]
+				const newActiveYearListItem = document.querySelectorAll( '.map__year--list li' )[0]
+				newActiveYear = newActiveYearListItem.querySelector('button')
 			}
 		}
 		swapStates( newActiveYear )
