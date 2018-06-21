@@ -91,7 +91,6 @@
 
 .map__year--list {
 	display: flex;
-	// justify-content: center;
 	max-width: 100%;
 	flex-flow: row nowrap;
 	overflow-x: scroll;
@@ -99,10 +98,6 @@
 	min-height: 4rem;
 
 	li {
-		// position: relative;
-		// display: flex;
-		// min-width: 3rem;
-		// margin-right: 0.5rem;
 		transition-property: transform, margin, background-color;
 		transition-timing-function: ease-out;
 		transition-duration: 150ms;
