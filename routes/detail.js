@@ -59,7 +59,13 @@ router.post( '/:storyID/comment', ( req, res ) => {
 		name: req.body.name ? req.body.name : 'Anoniem'
 	}
 	pool.query( 'INSERT INTO reactions SET ?', commentMeta )
-	res.redirect( `/detail/${req.params.storyID}/#reactions-anchor` )
+		.then( () => {
+
+			// Only redirect when query is done
+			res.redirect( `/detail/${req.params.storyID}/#reactions-anchor` )
+
+		} )
+		.catch( err => console.error( err ) )
 } )
 
 router.post ( '/:storyID/:responseto', ( req, res ) => {
@@ -74,8 +80,14 @@ router.post ( '/:storyID/:responseto', ( req, res ) => {
 	}
 
 	pool.query( 'INSERT INTO reactions SET ?', reactionToComment )
+		.then( () => {
 
-	res.redirect( `/detail/${req.params.storyID}/#reactions-anchor` )
+			// Only redirect when query is done
+			res.redirect( `/detail/${req.params.storyID}/#reactions-anchor` )
+
+		} )
+		.catch( err =>  console.error( err ) )
+
 } )
 
 module.exports = router
