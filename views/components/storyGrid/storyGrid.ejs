@@ -1,12 +1,12 @@
 <section class="stories__grid">
-	<% if (storyCards.length) { %>
-		<% storyCards.forEach((storyCard) => { %>
+	<% if ( content.length ) { %>
+		<% content.forEach( ( singleContent ) => { %>
 			<%- include( './components/storyGridCard/storyGridCard', {
-				image: storyCard.image,
-				title: storyCard.title,
-				subtitle: storyCard.subtitle
+				image: singleContent.image,
+				title: singleContent.title,
+				subtitle: singleContent.text
 			} ) %>
-		<% }) %>
+		<% } ) %>
 	<% } else { %>
 		<h2 id='reactions-anchor'><span class='underline-red'>Nog</span> geen verhalen</h2>
 	<% } %>

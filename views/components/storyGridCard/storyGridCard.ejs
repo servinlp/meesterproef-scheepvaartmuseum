@@ -1,7 +1,15 @@
 <a href="" class="stories__grid--card">
-	<img class="stories__grid--card-background" src="<%= image %>" alt="">
+	<img class="stories__grid--card-background" 
+		<% if ( image ) { %>
+			src="<%= image %>" 
+		<% } else { %>
+			src="/images/example-detail.jpg"
+		<% } %>
+	alt="">
 	<article>
 		<h2><%= title %></h2>
-		<p><%= subtitle %></p>
+		<% if ( subtitle ) { %>
+			<p><%= subtitle %></p>
+		<% } %>
 	</article>
 </a>
