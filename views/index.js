@@ -6,6 +6,7 @@ import animateStoryOverview from './components/storyGrid/storyGrid.js'
 import autocompleteFromApiInit from './components/lib/autocomplete.js'
 import colorThief from './components/storyHighlight/storyHighlight.js'
 import { selectComponents } from './components/enhancedDetail/enhancedDetail.js'
+import {optimizedResize} from './components/lib/helpers.js'
 
 ( function IIFE () {
 
@@ -15,6 +16,7 @@ import { selectComponents } from './components/enhancedDetail/enhancedDetail.js'
 	header()
 	uploadForm()
 	toggleToolButton()
+	optimizedResize()
 	setUpMap()
 	autocompleteFromApiInit()
 	colorThief()

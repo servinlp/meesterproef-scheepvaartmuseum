@@ -6,7 +6,9 @@ const express = require( 'express' ),
 
 router.get( '/', ( req, res ) => {
 
-	res.render( 'storyUpload' )
+	res.render( 'storyUpload', {
+		path: '/story-upload'
+	} )
 
 } )
 
@@ -31,7 +33,22 @@ async function uploadToDb( data, dataFiles, res ) {
 
 		dataFiles.forEach( el => {
 
-			contentObj[ el.fieldname ] = el
+			// In the case of a file, you want an array
+			if ( el.mimetype ) {
+
+				if ( !contentObj[ el.fieldname ] ) {
+
+					contentObj[ el.fieldname ] = []
+
+				}
+
+				contentObj[ el.fieldname ].push( el )
+
+			} else {
+				
+				contentObj[ el.fieldname ] = el
+
+			}
 
 		} )
 
@@ -57,9 +74,9 @@ async function uploadToDb( data, dataFiles, res ) {
 			}
 
 		// fileLocation is an array of queries
-		await pool.query( 'INSERT INTO stories SET ?', storyMeta )
+		const insert = await pool.query( 'INSERT INTO stories SET ?', storyMeta )
 
-		res.send( 'success' )
+		res.redirect( `/detail/${ insert.insertId }` )
 
 	} catch ( err ) {
 
@@ -138,9 +155,25 @@ function getContentQueries( order, data ) {
 				type
 			}
 
+		let stop = false
+
 		if ( el.includes( 'upload' ) ) {
 
-			contentInsertObj.link = data[ el ].location
+			data[ el ].forEach( l => {
+
+				const subContentInsertObj = {
+					type: l.mimetype
+				}
+
+				subContentInsertObj.link = l.location
+
+				arr.push(
+					pool.query( 'INSERT INTO content SET ?', subContentInsertObj )
+				)
+
+			} )
+
+			stop = true
 
 		} else if ( type.includes( 'videolink' ) ) {
 
@@ -175,9 +208,13 @@ function getContentQueries( order, data ) {
 
 		}
 
-		arr.push(
-			pool.query( 'INSERT INTO content SET ?', contentInsertObj )
-		)
+		if ( !stop ) {
+
+			arr.push(
+				pool.query( 'INSERT INTO content SET ?', contentInsertObj )
+			)
+
+		}
 
 	} )
 
