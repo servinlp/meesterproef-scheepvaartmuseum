@@ -1,0 +1,71 @@
+.stories {
+	&__grid {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		align-content: stretch;
+
+		&--card {
+			position: relative;
+			width: 100%;
+			height: 16rem;
+			color: $colorWhite;
+			transition: transform 150ms ease-out;
+			margin: 2% 0;
+			@include mq('medium') {
+				width: 48%;
+
+				&:nth-child(odd) {
+					margin-right: 2%;
+				}
+
+				&:nth-child(even) {
+					margin-left: 2%;
+				}
+
+				&:hover {
+					&-background {
+						transform: scale(1.05);
+					}
+					transform: scale(1.05);
+				}
+			}
+			@include mq('large') {
+				height: 20rem;
+			}
+
+			&-background {
+				width: 70%;
+				height: 100%;
+				position: absolute;
+				right: 0;
+				object-fit: cover;
+				transition: transform 150ms ease-out;
+			}
+
+			article {
+				position: absolute;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				padding: 2rem;
+				text-shadow: 1px 1px 0 #000;
+				background: linear-gradient(to right, black 30%, rgba(0, 0, 0, 0.7) 40%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0) 100%);
+
+				h2 {
+					color: $colorWhite;
+					@include mq('large') {
+						max-width: 60%;
+					}
+				}
+
+				p {
+					max-width: 60%;
+					position: absolute;
+					bottom: 2rem;
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+}
