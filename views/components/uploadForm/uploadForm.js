@@ -99,10 +99,6 @@ function addFileInput() {
 
 }
 
-
-	
-
-
 function addInput( type ) {
 
 	const fieldset = document.querySelector( '.upload-form .upload-form__story' ),
