@@ -68,10 +68,42 @@ function addFileInput() {
 	input.setAttribute( 'multiple', true )
 	input.setAttribute( 'data-index', allInputElements.length )
 	input.setAttribute( 'name', `upload-${ allFileInputs.length + 1 }-${ allInputElements.length }` )
-
+	TweenMax.set( input, {autoAlpha: 0, y: -10} )
 	fieldset.insertBefore( input, buttonContainer )
+	TweenMax.to( input, .4, {autoAlpha: 1, y: 0} )
 
+	if ( window.fomrData !== undefined ) return
+	input.addEventListener( 'change', addImage )
+	function addImage() {
+		const files = event.target.files 
+		for ( const file in files ) {
+			if ( files.hasOwnProperty( file ) ) {
+				const fileNum = files[file]
+				const image = document.createElement( 'img' )
+	
+				image.classList.add( 'preview' )
+								
+				const reader  = new FileReader()
+				
+				reader.onloadend = function () {
+					image.src = reader.result 
+				}
+				
+				if ( fileNum ) {
+					reader.readAsDataURL( fileNum )
+				}
+				const fileInput = event.target
+				fileInput.insertAdjacentElement( 'afterEnd', image )
+			}
+		}
+	
+	} 
+	
 }
+
+
+	
+
 
 function addInput( type ) {
 

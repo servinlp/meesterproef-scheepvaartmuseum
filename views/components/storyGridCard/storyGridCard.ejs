@@ -1,0 +1,15 @@
+<a href="" class="stories__grid--card">
+	<img class="stories__grid--card-background" 
+		<% if ( image ) { %>
+			src="<%= image %>" 
+		<% } else { %>
+			src="/images/example-detail.jpg"
+		<% } %>
+	alt="">
+	<article>
+		<h2><%= title %></h2>
+		<% if ( subtitle ) { %>
+			<p><%= subtitle %></p>
+		<% } %>
+	</article>
+</a>

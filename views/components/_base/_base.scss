@@ -9,43 +9,6 @@ body {
 	margin-top: 3em;
 }
 
-main {
-	padding: 0 5%;
-	@include mq('xl') {
-		padding: 0 10%;
-	}
-}
-
-.underline-red {
-	display: inline-block;
-
-	&::after {
-		content: '';
-		display: block;
-		width: 100%;
-		height: 0.25rem;
-		background-color: $secondairy-color;
-		margin-top: 0.2rem;
-	}
-}
-
-.title__underline--red {
-	text-align: center;
-	margin: 6rem 0 2rem 0;
-
-	> .underline-red {
-		display: inline-block;
-
-		&::after {
-			content: '';
-			display: block;
-			width: 100%;
-			height: 0.25rem;
-			background-color: $secondairy-color;
-		}
-	}
-}
-
 h1,
 h2,
 h3,
@@ -87,7 +50,71 @@ p {
 	line-height: 1.4;
 	font-size: 1em;
 	font-weight: 400;
-	// margin-bottom: 1em;
+}
+
+main {
+	padding: 0 5%;
+	@include mq('xl') {
+		padding: 0 10%;
+	}
+}
+
+.underline-red {
+	display: inline-block;
+
+	&::after {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 0.25rem;
+		background-color: $secondairy-color;
+		margin-top: 0.2rem;
+		transform: scaleX(0);
+		animation: swipe 1s forwards;
+		transform-origin: 0% 50%;
+	}
+}
+@keyframes swipe {
+	100% {
+		transform: scaleX(1);
+	}
+}
+
+.title__underline--red {
+	text-align: center;
+	margin: 6rem 0 2rem 0;
+
+	> .underline-red {
+		display: inline-block;
+
+		&::after {
+			content: '';
+			display: block;
+			width: 100%;
+			height: 0.25rem;
+			background-color: $secondairy-color;
+		}
+	}
+}
+
+h1.title__underline--red {
+	font-size: 4rem;
+	@include mq('medium') {
+		font-size: 6rem;
+	}
+	@include mq('xl') {
+		font-size: 8rem;
+	}
+}
+
+h2.title__underline--red {
+	font-size: 1.6em;
+	@include mq('medium') {
+		font-size: 2em;
+	}
+	@include mq('xl') {
+		font-size: 3em;
+	}
 }
 
 .components__overview {
