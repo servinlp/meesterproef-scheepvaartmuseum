@@ -1,7 +1,13 @@
 <section class="stories__pagination" aria-label="pagination">
 	<hr>
-	<a class="link" href="#" aria-current="page">1</a>
-	<a class="link" href="#">2</a>
-	<a class="link" href="#">3</a>
-	<a class="link" href="#">4</a>
+	<% for ( var i = 0; i < numOfPages; i++ ) { %>
+
+		<a class="link" href="/story-overview?index=<%= i + 1 %>"
+			<% if ( i + 1 === pageIndex ) { %>
+				aria-current="page"
+			<% } %>
+		><%= i + 1 %></a>
+
+	<% } %>
+	
 </section>

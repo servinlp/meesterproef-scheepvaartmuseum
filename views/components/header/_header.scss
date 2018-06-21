@@ -47,17 +47,18 @@
 				position: absolute;
 				height: 2px;
 				background-color: $color-primary;
-				width: 0;
+				width: 200%;
 				left: 50%;
 				bottom: -0.2em;
 				z-index: 1;
-				transform: translateX(-50%);
-				transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
+				transform: translateX(-50%) scaleX(0);
+				transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 			}
 
+			&[aria-current="page"]::after,
 			&:focus::after,
 			&:hover::after {
-				width: 200%;
+				transform: translateX(-50%) scaleX(1);
 			}
 		}
 	}
@@ -125,16 +126,17 @@
 				position: absolute;
 				height: 2px;
 				background-color: $color-primary;
-				width: 0;
+				width: 100%;
 				left: 50%;
 				bottom: -0.2em;
-				transform: translateX(-50%);
-				transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
+				transform: translateX(-50%) scaleX(0);
+				transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 			}
 
+			&[aria-current="page"]::after,
 			&:focus::after,
 			&:hover::after {
-				width: 100%;
+				transform: translateX(-50%) scaleX(1);
 			}
 		}
 
@@ -142,6 +144,7 @@
 			padding: 0.4rem 1rem;
 			color: $color-base;
 
+			&[aria-current="page"],
 			&:focus,
 			&:hover {
 				&::after {

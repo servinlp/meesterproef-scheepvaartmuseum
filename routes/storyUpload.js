@@ -6,7 +6,9 @@ const express = require( 'express' ),
 
 router.get( '/', ( req, res ) => {
 
-	res.render( 'storyUpload' )
+	res.render( 'storyUpload', {
+		path: '/story-upload'
+	} )
 
 } )
 
