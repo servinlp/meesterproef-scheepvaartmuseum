@@ -72,37 +72,66 @@ function addFileInput() {
 	fieldset.insertBefore( input, buttonContainer )
 	TweenMax.to( input, .4, {autoAlpha: 1, y: 0} )
 
-	if ( window.fomrData !== undefined ) return
-	input.addEventListener( 'change', addImage )
-	function addImage() {
+	if ( window.formData !== undefined ) return
+	input.addEventListener( 'change', addFiles )
+
+	function addFiles( event ) {
 		const files = event.target.files
 		for ( const file in files ) {
 			if ( files.hasOwnProperty( file ) ) {
 				const fileNum = files[file]
-				const image = document.createElement( 'img' )
+				const type = fileNum.type
 
-				image.classList.add( 'preview' )
-
-				const reader  = new FileReader()
-
-				reader.onloadend = function () {
-					image.src = reader.result
+				switch( type ) {
+					case 'image/png':
+						addImage( fileNum, event.target )
+						break
+					case 'image/gif':
+						addImage( fileNum, event.target )
+						break
+					case 'image/jpg':
+						addImage( fileNum, event.target )
+						break
+					case 'audio/mp3':
+						addAudio( fileNum, event.target )
+						break
+					default:
 				}
 
-				if ( fileNum ) {
-					reader.readAsDataURL( fileNum )
-				}
-				const fileInput = event.target
-				fileInput.insertAdjacentElement( 'afterEnd', image )
 			}
 		}
 
 	}
 
+	function addImage( file, target ) {
+		const image = document.createElement( 'img' )
+
+		image.classList.add( 'previewImage' )
+
+		image.src = URL.createObjectURL( file )
+
+		const fileInput = target
+		fileInput.insertAdjacentElement( 'afterEnd', image )
+
+	}
+
+	function addAudio( file, target ) {
+		const audio = document.createElement( 'audio' )
+		const source = document.createElement( 'source' )
+		audio.appendChild( source )
+
+		audio.setAttribute( 'controls', '' )
+
+		audio.classList.add( 'previewAudio' )
+
+		source.src = URL.createObjectURL( file )
+
+		const fileInput = target
+		fileInput.insertAdjacentElement( 'afterEnd', audio )
+
+	}
+
 }
-
-
-
 
 
 function addInput( type ) {

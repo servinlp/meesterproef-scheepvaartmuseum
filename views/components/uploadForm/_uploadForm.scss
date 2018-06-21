@@ -161,12 +161,21 @@ form {
 		}
 	}
 
-	.preview {
+	.previewImage {
 		max-height: 10rem;
-		margin: 1rem;
+		margin: 0.5rem;
 		margin-left: 0;
-		margin-bottom: 0;
+		margin-bottom: 0.5rem;
 		box-shadow: 0 0 15px 0 rgba(211, 211, 211, 0.555);
+		display: inline-block;
+	}
+
+	.previewAudio {
+		margin: 0.5rem;
+		margin-right: auto;
+		margin-left: 0;
+		display: block;
+		margin-bottom: 0.5rem;
 	}
 
 	.videoPreview {
