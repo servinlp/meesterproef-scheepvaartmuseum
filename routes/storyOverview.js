@@ -3,7 +3,7 @@ const express = require( 'express' ),
 	pool = require( '../lib/mysql' ),
 	getThumbnailContent = require( '../lib/getThumbnailContent' ),
 
-	LIMITPERPAGE = 2
+	limitPerPage = 2
 
 router.get( '/', async ( req, res ) => {
 
@@ -16,13 +16,13 @@ router.get( '/', async ( req, res ) => {
 
 		const [ numberOfStories, AllStories ] = await Promise.all( [
 				pool.query( 'SELECT ID FROM stories' ),
-				pool.query( 'SELECT ID, title, components FROM stories LIMIT ?, ?', [ ( pageIndex - 1 ) * LIMITPERPAGE, LIMITPERPAGE ] )
+				pool.query( 'SELECT ID, title, components FROM stories LIMIT ?, ?', [ ( pageIndex - 1 ) * limitPerPage, limitPerPage ] )
 			] ),
 			storiesWithContent = await getThumbnailContent( AllStories )
 
 		res.render( 'storyOverview', {
 			pageIndex,
-			numOfPages: Math.ceil( numberOfStories.length / LIMITPERPAGE ),
+			numOfPages: Math.ceil( numberOfStories.length / limitPerPage ),
 			content: storiesWithContent,
 			path: '/story-overview'
 		} )
