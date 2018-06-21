@@ -1,44 +1,13 @@
 <section class="stories__grid">
-	<a href="" class="stories__grid--card">
-			<img class="stories__grid--card-background" src="https://img00.deviantart.net/48b9/i/2010/324/5/0/the_old_sailor_by_p_a_i_k_e_a-d338d3v.jpg" alt="">
-		<article>
-			<h2>Mijn opa, de boef</h2>
-			<p>Een kort verhaal over de opa van Berend die een appel gestolen had van de boot.</p>
-		</article>
-	</a>
-	<a href="" class="stories__grid--card">
-		<img class="stories__grid--card-background" src="https://img00.deviantart.net/48b9/i/2010/324/5/0/the_old_sailor_by_p_a_i_k_e_a-d338d3v.jpg" alt="">
-		<article>
-			<h2>Mijn opa, de boef</h2>
-			<p>Een kort verhaal over de opa van Berend die een appel gestolen had van de boot.</p>
-		</article>
-	</a>
-	<a href="" class="stories__grid--card">
-		<img class="stories__grid--card-background" src="https://img00.deviantart.net/48b9/i/2010/324/5/0/the_old_sailor_by_p_a_i_k_e_a-d338d3v.jpg" alt="">
-		<article>
-			<h2>Mijn opa, de boef</h2>
-			<p>Een kort verhaal over de opa van Berend die een appel gestolen had van de boot.</p>
-		</article>
-	</a>
-	<a href="" class="stories__grid--card">
-		<img class="stories__grid--card-background" src="https://img00.deviantart.net/48b9/i/2010/324/5/0/the_old_sailor_by_p_a_i_k_e_a-d338d3v.jpg" alt="">
-		<article>
-			<h2>Mijn opa, de boef</h2>
-			<p>Een kort verhaal over de opa van Berend die een appel gestolen had van de boot.</p>
-		</article>
-	</a>
-	<a href="" class="stories__grid--card">
-		<img class="stories__grid--card-background" src="https://img00.deviantart.net/48b9/i/2010/324/5/0/the_old_sailor_by_p_a_i_k_e_a-d338d3v.jpg" alt="">
-		<article>
-			<h2>Mijn opa, de boef</h2>
-			<p>Een kort verhaal over de opa van Berend die een appel gestolen had van de boot.</p>
-		</article>
-	</a>
-	<a href="" class="stories__grid--card">
-		<img class="stories__grid--card-background" src="https://img00.deviantart.net/48b9/i/2010/324/5/0/the_old_sailor_by_p_a_i_k_e_a-d338d3v.jpg" alt="">
-		<article>
-			<h2>Mijn opa, de boef</h2>
-			<p>Een kort verhaal over de opa van Berend die een appel gestolen had van de boot.</p>
-		</article>
-	</a>
+	<% if (storyCards.length) { %>
+		<% storyCards.forEach((storyCard) => { %>
+			<%- include( './components/storyGridCard/storyGridCard', {
+				image: storyCard.image,
+				title: storyCard.title,
+				subtitle: storyCard.subtitle
+			} ) %>
+		<% }) %>
+	<% } else { %>
+		<h2 id='reactions-anchor'><span class='underline-red'>Nog</span> geen verhalen</h2>
+	<% } %>
 </section>

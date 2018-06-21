@@ -9,6 +9,49 @@ body {
 	margin-top: 3em;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $font-stack-headers;
+	font-weight: 700;
+	line-height: initial;
+	color: $color-header;
+}
+
+h1 {
+	font-size: 2.5rem;
+}
+
+h2 {
+	font-size: 1.6em;
+}
+
+h3 {
+	font-size: 1.6em;
+}
+
+h4 {
+	font-size: 1.4em;
+}
+
+h5 {
+	font-size: 1.2em;
+}
+
+h6 {
+	font-size: 1em;
+}
+
+p {
+	font-family: $font-stack-base;
+	line-height: 1.4;
+	font-size: 1em;
+	font-weight: 400;
+}
+
 main {
 	padding: 0 5%;
 	@include mq('xl') {
@@ -52,50 +95,6 @@ main {
 			background-color: $secondairy-color;
 		}
 	}
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-family: $font-stack-headers;
-	font-weight: 700;
-	line-height: initial;
-	color: $color-header;
-}
-
-h1 {
-	font-size: 2.5rem;
-}
-
-h2 {
-	font-size: 1.6em;
-}
-
-h3 {
-	font-size: 1.6em;
-}
-
-h4 {
-	font-size: 1.4em;
-}
-
-h5 {
-	font-size: 1.2em;
-}
-
-h6 {
-	font-size: 1em;
-}
-
-p {
-	font-family: $font-stack-base;
-	line-height: 1.4;
-	font-size: 1em;
-	font-weight: 400;
-	// margin-bottom: 1em;
 }
 
 h1.title__underline--red {
