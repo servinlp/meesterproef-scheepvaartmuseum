@@ -1,0 +1,66 @@
+.report--container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		input[type="checkbox"]{
+			display: none;
+
+			&+ label {
+				border: solid 1px crimson;
+  				transition: all 100ms;
+  				display: block;
+  				width: 10rem;
+  				margin: 0.5rem;
+  				text-align: center;
+  				padding: 0.2rem;
+			}
+
+			&:checked {
+
+				&+ label{
+					border: solid 1px crimson;
+					background-color: crimson;
+					color: white;
+				}
+			}
+
+			&:hover {
+				&+ label {
+					background-color: crimson;
+					color: white;
+				}
+			}
+		}
+
+		button {
+			border: none;
+  			background-color: crimson;
+  			width: 5rem;
+  			color: white;
+  			height: 2rem;
+  			transition: all 150ms ease-in-out;
+
+  			&:hover {
+  				background-color: #a40f2d;
+  			}
+		}
+	}
+}
+
+.report--container--checkboxes {
+	display: flex;
+}
+
+.no-js .report--submit--btn {
+	display: block;
+}
+
+.hidden {
+	display: none;
+}
