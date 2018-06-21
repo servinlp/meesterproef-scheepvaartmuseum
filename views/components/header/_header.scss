@@ -117,7 +117,7 @@
 		a {
 			text-decoration: none;
 			color: black;
-			font-size: 0.9rem;
+			font-size: 1rem;
 			position: relative;
 
 			&::after {
@@ -125,16 +125,17 @@
 				position: absolute;
 				height: 2px;
 				background-color: $color-primary;
-				width: 0;
-				left: 50%;
+				width: 100%;
+				left: 0;
 				bottom: -0.2em;
-				transform: translateX(-50%);
+				transform: scaleX(0);
+				transform-origin: center;
 				transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
 			}
 
 			&:focus::after,
 			&:hover::after {
-				width: 100%;
+				transform: scaleX(1);
 			}
 		}
 
