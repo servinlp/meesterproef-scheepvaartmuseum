@@ -76,13 +76,11 @@ function addFileInput() {
 	input.addEventListener( 'change', addFiles )
 
 	function addFiles( event ) {
-		console.log( event )
 		const files = event.target.files 
 		for ( const file in files ) {
 			if ( files.hasOwnProperty( file ) ) {
 				const fileNum = files[file]
 				const type = fileNum.type
-				console.log( type )
 
 				switch( type ) {
 					case 'image/png':
