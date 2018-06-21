@@ -23,14 +23,16 @@ router.get( '/', async ( req, res ) => {
 		res.render( 'storyOverview', {
 			pageIndex,
 			numOfPages: Math.ceil( numberOfStories.length / LIMITPERPAGE ),
-			content: storiesWithContent
+			content: storiesWithContent,
+			path: '/story-overview'
 		} )
 
 	} catch ( error ) {
 
 		console.error( error )
 		res.render( 'storyOverview', {
-			content: []
+			content: [],
+			path: '/story-overview'
 		} )
 
 	}

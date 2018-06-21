@@ -11,14 +11,16 @@ router.get( '/', async ( req, res ) => {
 			storiesWithContent = await getThumbnailContent( featuredStories )
 
 		res.render( 'index', {
-			content: storiesWithContent
+			content: storiesWithContent,
+			path: '/'
 		} )
 
 	} catch ( error ) {
 
 		console.error( error )
 		res.render( 'index', {
-			content: []
+			content: [],
+			path: '/'
 		} )
 
 	}
