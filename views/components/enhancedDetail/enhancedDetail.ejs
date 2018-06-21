@@ -21,6 +21,10 @@
 
 				<%- include( './components/detailContentContainers/contentImage.ejs', { image: el.link } ) %>
 
+			<% } else if ( el.type === 'audio/mpeg' || el.type === 'audio/x-wav' ) { %>
+
+				<%- include( './components/detailContentContainers/contentAudio.ejs', { audio: el.link, type: el.type } ) %>
+
 			<% } %>
 
 		<% } ) %>
