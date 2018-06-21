@@ -1,10 +1,14 @@
 
 <div class="story--container">
 	<div class="story--container-text">
-		<h1>Mijn Opa, de Boef</h1>
-		<p>Een kort verhaal over de opa van beren die een appel gestolen had van de boot </p>
+		<h1><%= story.title %></h1>
+		<p><%= story.text %></p>
 	</div>
 	<div class="story--container-image">
-		<img src="/images/example-detail.jpg" alt="highlighted-image">
+		<% if ( story.image ) { %>
+			<img src="<%= story.image %>" alt="">
+		<% } else { %>
+			<img src="/images/example-detail.jpg" alt="">
+		<% } %>
 	</div>
 </div>

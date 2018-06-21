@@ -2,6 +2,7 @@
 	<% if ( content.length ) { %>
 		<% content.forEach( ( singleContent ) => { %>
 			<%- include( './components/storyGridCard/storyGridCard', {
+				ID: singleContent.ID,
 				image: singleContent.image,
 				title: singleContent.title,
 				subtitle: singleContent.text
