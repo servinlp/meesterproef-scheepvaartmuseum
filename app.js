@@ -4,7 +4,7 @@ const express = require( 'express' ),
 	bodyParser = require( 'body-parser' ),
 	helmet = require( 'helmet' ),
 	compression = require( 'compression' ),
-	fs = require('fs')
+	fs = require('fs'),
 
 apiRoute = require( './routes/api' ),
 indexRoute = require( './routes/index' ),
