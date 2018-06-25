@@ -20,6 +20,20 @@ form {
 [name^="subtitle"] {
 	display: block !important;
 	margin: 0 0 1rem;
+	padding: 0.5em;
+	transition: transform 0.3s ease;
+}
+
+.required {
+	position: relative;
+
+	&::after {
+		content: '*';
+		color: red;
+		position: absolute;
+		top: -0.5em;
+		right: -0.5em;
+	}
 }
 
 .upload-form {
@@ -39,7 +53,7 @@ form {
 		font-weight: 700;
 		color: darken($colorBlue, 50%);
 		line-height: 1;
-		margin-bottom: 1rem;
+		margin-bottom: 2rem;
 	}
 
 	h2 {
@@ -118,7 +132,9 @@ form {
 	[name^="upload"],
 	[name^="videolink"],
 	[name^="storyText"] {
-		margin: 0 0 2rem;
+		margin: 0 0 4rem;
+		padding: 0.5em;
+		transition: transform 0.3s ease;
 	}
 
 	&__tag-suggestion {
@@ -263,6 +279,40 @@ form {
 
 			~ .focus-border i:after {
 				transition-delay: 0.4s;
+			}
+		}
+	}
+
+	.element-container {
+		position: relative;
+
+		.remove-element {
+			position: absolute;
+			top: 0;
+			right: 0;
+			transform: translate(120%, -120%);
+			cursor: pointer;
+			font-size: 0;
+			padding: 0.5rem;
+			background-color: transparent;
+			border: 0;
+			transition: transform 0.3s ease;
+
+			&:hover,
+			&:focus {
+				box-shadow: 0 2px 4px 0 rgba(126, 121, 121, 0.61);
+
+				& + input,
+				& + textarea {
+					box-shadow: 0 2px 4px 0 rgba(126, 121, 121, 0.61);
+					transform: translateY(-0.9rem);
+				}
+			}
+
+			svg {
+				fill: $secondairy-color;
+				width: 1.5rem;
+				height: auto;
 			}
 		}
 	}
