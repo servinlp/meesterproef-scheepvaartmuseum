@@ -7,6 +7,21 @@
 	<form action="/admin/logout" method="post">
 		<button type="submit" class="button--primary">Logout</button>
 	</form>
+
+	<% if ( locals.reportedStories ) { %>
+
+		<ul>
+
+		<% reportedStories.forEach( function( el ) { %>
+			<%- include( './components/adminStory/adminStory.ejs', { el: el } ) %>
+		<% } ) %>
+
+		</ul>
+
+	<% } else { %>
+		<p>No reported stories</p>
+	<% } %>
+
 </main>
 
 <% include ./partials/footer.ejs %>

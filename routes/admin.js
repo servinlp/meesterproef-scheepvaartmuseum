@@ -3,7 +3,7 @@ const express = require( 'express' ),
 	pool = require( '../lib/mysql' ),
 	bcrypt = require( 'bcryptjs' )
 
-router.get( '/', ( req, res ) => {
+router.get( '/', async ( req, res ) => {
 
 	if ( !req.session.role || req.session.role !== 1 ) {
 
@@ -11,7 +11,18 @@ router.get( '/', ( req, res ) => {
 
 	} else if ( req.session.role && req.session.role === 1 ) {
 
-		res.render( 'adminPanel' )
+		try {
+			const reportedStories = await getReportedStories()
+
+			res.render( 'adminPanel', {
+				reportedStories
+			} )
+
+		} catch ( err ) {
+
+			console.error( err )
+
+		}
 		
 	}
 
@@ -55,5 +66,52 @@ router.post( '/logout', ( req, res ) => {
 	res.redirect( '/admin' )
 
 } )
+
+router.post( '/remove-story/:storyID', ( req, res ) => {
+
+	console.log( req.params.storyID )
+
+	pool.query( 'DELETE FROM stories WHERE ID = ?', req.params.storyID )
+		.then( result => {
+
+			console.log( 'result', result )
+
+			res.redirect( '/admin' )
+
+		} )
+		.catch( err => {
+
+			console.error( err )
+			res.redirect( '/admin?couldNotRemoveStory=true' )
+
+		} )
+
+} )
+
+function getReportedStories() {
+
+	return new Promise( async ( resolve, reject ) => {
+
+		try {
+
+			const reportedStories = await pool.query( 'SELECT * FROM stories WHERE reports NOT LIKE ?', '0,0' ),
+				stories = reportedStories.map( el => {
+					return {
+						...el,
+						reports: el.reports.split( ',' )
+					}
+				} )
+
+			resolve( stories )
+
+		} catch ( err ) {
+
+			reject( err )
+
+		}
+
+	} )
+
+}
 
 module.exports = router
