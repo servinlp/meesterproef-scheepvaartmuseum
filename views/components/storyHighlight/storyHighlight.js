@@ -1,3 +1,5 @@
+/*eslint-disable */
+
 function colorThief (){
 	const image = document.querySelector( '.story--container-image img' )
 	if ( !image ) return
@@ -22,3 +24,4 @@ function colorThief (){
 } 
 
 export default colorThief
+/*eslint-enable */
