@@ -8,6 +8,7 @@ import colorThief from './components/storyHighlight/storyHighlight.js'
 import { selectComponents } from './components/enhancedDetail/enhancedDetail.js'
 import {optimizedResize} from './components/lib/helpers.js'
 
+
 ( function IIFE () {
 
 	if( !( document.documentElement.classList && document.querySelectorAll ) ) return

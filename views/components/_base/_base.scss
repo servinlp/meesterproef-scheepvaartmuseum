@@ -135,6 +135,10 @@ input {
 	display: none;
 }
 
+body:not( .no-js ) .hide-when-js {
+	display: none;
+}
+
 .homepage__main {
 	height: 100%;
 }
