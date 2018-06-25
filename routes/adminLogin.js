@@ -9,9 +9,7 @@ router.get( '/', ( req, res ) => {
 } )
 
 router.get( '/overview', ( req, res ) => {
-	console.log('hmmm')
-	console.log(req.session)
-	if ( !req.session.role ) {
+	if ( !req.session.role || req.session.role !== 1 ) {
 		res.redirect('/')
 		return
 	}
@@ -29,13 +27,11 @@ router.post( '/login', ( req, res ) => {
 	pool.query( 'SELECT * FROM users WHERE email = ?', [ email ] )
 		.then( record => {
 			if ( !record[0] ) {
-				console.log('no record')
 				res.redirect( '/admin-login' )
 				return
 			}
 			bcrypt.compare( password, record[0].password, ( err, result ) => {
 				if ( err ) {
-					console.log(1)
 					throw err
 				}
 
