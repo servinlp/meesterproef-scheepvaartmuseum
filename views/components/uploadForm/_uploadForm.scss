@@ -53,7 +53,7 @@ form {
 		font-weight: 700;
 		color: darken($colorBlue, 50%);
 		line-height: 1;
-		margin-bottom: 1rem;
+		margin-bottom: 2rem;
 	}
 
 	h2 {
@@ -301,12 +301,12 @@ form {
 			&:hover,
 			&:focus {
 				box-shadow: 0 2px 4px 0 rgba(126, 121, 121, 0.61);
-				transform: translate(120%, -140%);
+				// transform: translate(120%, -140%);
 
 				& + input,
 				& + textarea {
 					box-shadow: 0 2px 4px 0 rgba(126, 121, 121, 0.61);
-					transform: translateY(-20%) !important;
+					transform: translateY(-0.9rem);
 				}
 			}
 

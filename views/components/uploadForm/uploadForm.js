@@ -91,7 +91,7 @@ function addFileInput() {
 	fieldset.insertBefore( inputContainer, buttonContainer ) 
 	
 	TweenMax.set( input, {autoAlpha: 0, y: -10} )
-	TweenMax.to( input, .4, {autoAlpha: 1, y: 0} )
+	TweenMax.to( input, .4, {autoAlpha: 1, y: 0, clearProps: 'all' } )
 
 	if ( window.formData !== undefined ) return
 	input.addEventListener( 'change', addFiles )
