@@ -36,7 +36,7 @@ function addComponent( e ) {
 			addFileInput()
 			break
 		case 'videolink':
-			addInput( 'subtitle' )	
+			addInput( 'subtitle' )
 			addInput( 'videolink' )
 			break
 		default:
@@ -44,7 +44,7 @@ function addComponent( e ) {
 }
 
 function addTextarea() {
-	
+
 	const fieldset = document.querySelector( '.upload-form .upload-form__story' ),
 		buttonContainer = document.querySelector( '.upload-form__story--button-container' ),
 		allInputElements = fieldset.querySelectorAll( '[data-index]' ),
@@ -89,8 +89,72 @@ function addFileInput() {
 	inputContainer.appendChild( removeComponentButton() )
 
 	fieldset.insertBefore( inputContainer, buttonContainer )
+	
+	TweenMax.set( input, {autoAlpha: 0, y: -10} )
+	fieldset.insertBefore( input, buttonContainer )
+	TweenMax.to( input, .4, {autoAlpha: 1, y: 0} )
+
+	if ( window.formData !== undefined ) return
+	input.addEventListener( 'change', addFiles )
+
+	function addFiles( event ) {
+		const files = event.target.files
+		for ( const file in files ) {
+			if ( files.hasOwnProperty( file ) ) {
+				const fileNum = files[file]
+				const type = fileNum.type
+
+				switch( type ) {
+					case 'image/png':
+						addImage( fileNum, event.target )
+						break
+					case 'image/gif':
+						addImage( fileNum, event.target )
+						break
+					case 'image/jpg':
+						addImage( fileNum, event.target )
+						break
+					case 'audio/mp3':
+						addAudio( fileNum, event.target )
+						break
+					default:
+				}
+
+			}
+		}
+
+	}
+
+	function addImage( file, target ) {
+		const image = document.createElement( 'img' )
+
+		image.classList.add( 'previewImage' )
+
+		image.src = URL.createObjectURL( file )
+
+		const fileInput = target
+		fileInput.insertAdjacentElement( 'afterEnd', image )
+
+	}
+
+	function addAudio( file, target ) {
+		const audio = document.createElement( 'audio' )
+		const source = document.createElement( 'source' )
+		audio.appendChild( source )
+
+		audio.setAttribute( 'controls', '' )
+
+		audio.classList.add( 'previewAudio' )
+
+		source.src = URL.createObjectURL( file )
+
+		const fileInput = target
+		fileInput.insertAdjacentElement( 'afterEnd', audio )
+
+	}
 
 }
+
 
 function addInput( type ) {
 
@@ -105,13 +169,13 @@ function addInput( type ) {
 	input.setAttribute( 'type', 'text' )
 	input.setAttribute( 'data-index', allInputElements.length )
 	input.setAttribute( 'name', `${ type }-${ allTextInputs.length + 1 }-${ allInputElements.length }` )
-	
+
 	switch( type ) {
 		case 'subtitle':
 			input.setAttribute( 'placeholder', '(Optioneel) Subtitel' )
 			break
 		case 'videolink':
-			input.setAttribute( 'placeholder', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' )	
+			input.setAttribute( 'placeholder', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' )
 			break
 		default:
 	}
@@ -120,10 +184,29 @@ function addInput( type ) {
 
 	inputContainer.appendChild( input )
 	inputContainer.appendChild( removeComponentButton() )
-
-	fieldset.insertBefore( inputContainer, buttonContainer )
+	fieldset.insertBefore( input, buttonContainer )
 	input.focus()
 
+
+	function videoPreview() {
+		const iframeLink = input.value
+		if ( ! iframeLink.indexOf( 'https://youtube.com/' ) ) return
+		if ( iframeLink.indexOf( '/watch?v=' ) ) {
+			const replacedLink = iframeLink.replace( '/watch?v=', '/embed/' )
+			const iframe = document.createElement( 'iframe' )
+			iframe.classList.add( 'videoPreview' )
+			iframe.src = replacedLink
+			event.target.insertAdjacentElement( 'afterEnd', iframe )
+		} else if ( iframeLink.indexOf( '/embed/' ) ) {
+			const iframe = document.createElement( 'iframe' )
+			iframe.classList.add( 'videoPreview' )
+			iframe.src = iframeLink
+			event.target.insertAdjacentElement( 'afterEnd', iframe )
+		}
+	}
+
+	input.addEventListener( 'change',  videoPreview )
+	
 }
 
 function removeComponentButton() {
