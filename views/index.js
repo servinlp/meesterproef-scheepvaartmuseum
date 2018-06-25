@@ -6,7 +6,6 @@ import animateStoryOverview from './components/storyGrid/storyGrid.js'
 import autocompleteFromApiInit from './components/lib/autocomplete.js'
 import colorThief from './components/storyHighlight/storyHighlight.js'
 import { selectComponents } from './components/enhancedDetail/enhancedDetail.js'
-import EnhancedReport from './components/reportComponent/reportComponent.js'
 import {optimizedResize} from './components/lib/helpers.js'
 
 
@@ -22,6 +21,5 @@ import {optimizedResize} from './components/lib/helpers.js'
 	setUpMap()
 	autocompleteFromApiInit()
 	colorThief()
-	EnhancedReport()
 
 } )()
