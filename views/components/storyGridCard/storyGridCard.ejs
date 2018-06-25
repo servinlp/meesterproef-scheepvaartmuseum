@@ -1,4 +1,4 @@
-<a href="/detail/<%= ID %>" class="stories__grid--card">
+<a href="/detail/<%= ID %>" class="stories__grid--card" data-intersect="true">
 	<img class="stories__grid--card-background" 
 		<% if ( image ) { %>
 			src="<%= image %>" 
@@ -7,9 +7,9 @@
 		<% } %>
 	alt="">
 	<article>
-		<h2><%= title %></h2>
+		<h2 data-intersect="true"><%= title %></h2>
 		<% if ( subtitle ) { %>
-			<p><%= subtitle %></p>
+			<p data-intersect="true"><%= subtitle %></p>
 		<% } %>
 	</article>
 </a>

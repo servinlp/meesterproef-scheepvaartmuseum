@@ -3,17 +3,22 @@
 
 	&__title {
 		margin-bottom: 1rem;
-		padding: 0 5%;
+		padding: 5% 5%;
+		text-align: center;
+		font-size: 7vw;
 		@include mq('xl') {
-			padding: 0 10%;
+			padding: 5% 10%;
 		}
 
 		&--sub {
-			margin-bottom: 2rem;
-			padding: 0 5%;
-			@include mq('xl') {
-				padding: 0 10%;
-			}
+			margin-bottom: 0;
+			padding-left: 0.9rem;
+			padding-bottom: 1rem;
+			position: absolute;
+			top: -1.7rem;
+			color: white;
+			text-shadow: 1px 1px 4px #000;
+			background-color: transparentize($colorBlue, 0.5);
 		}
 	}
 
@@ -114,7 +119,7 @@
 		}
 
 		button {
-			webkit-appearance: none;
+			-webkit-appearance: none;
 			border: 0;
 			min-height: 2rem;
 			width: 100%;
@@ -138,12 +143,18 @@
 	position: absolute;
 	top: 5rem;
 	left: 2rem;
-	webkit-appearance: none;
+	-webkit-appearance: none;
 	background: none;
 	border: 0;
 	width: 3rem;
 	height: 3rem;
 	z-index: z('play-pause');
+	cursor: pointer;
+	transition: transform 150ms ease-out;
+
+	&:hover {
+		transform: scale(1.05);
+	}
 }
 
 .map__year--container {
@@ -151,6 +162,7 @@
 	min-height: 4rem;
 	padding: 0;
 	background-color: $colorBlue;
+	position: relative;
 
 	::-webkit-scrollbar {
 		width: 0.65em;  /* for vertical scrollbars */

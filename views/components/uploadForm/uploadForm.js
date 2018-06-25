@@ -64,7 +64,9 @@ function addTextarea() {
 	textareaContainer.appendChild( removeComponentButton( textarea ) )
 	textareaContainer.appendChild( textarea )
 
-	fieldset.insertBefore( textareaContainer, buttonContainer )
+	TweenMax.set( textareaContainer, {autoAlpha: 0, y: -10} )
+	fieldset.insertBefore( textareaContainer, buttonContainer ) 	
+	TweenMax.to( textareaContainer, .4, {autoAlpha: 1, y: 0, clearProps: 'all' } )
 
 }
 
@@ -92,10 +94,9 @@ function addFileInput() {
 	inputContainer.appendChild( label )
 	label.appendChild( input )
 
-	fieldset.insertBefore( inputContainer, buttonContainer ) 
-	
-	TweenMax.set( input, {autoAlpha: 0, y: -10} )
-	TweenMax.to( input, .4, {autoAlpha: 1, y: 0, clearProps: 'all' } )
+	TweenMax.set( inputContainer, {autoAlpha: 0, y: -10} )
+	fieldset.insertBefore( inputContainer, buttonContainer ) 	
+	TweenMax.to( inputContainer, .4, {autoAlpha: 1, y: 0, clearProps: 'all' } )
 
 	if ( window.formData !== undefined ) return
 	input.addEventListener( 'change', addFiles )
@@ -129,8 +130,9 @@ function addFileInput() {
 		image.src = URL.createObjectURL( file )
 
 		const fileInput = target.parentNode
+		TweenMax.set( image, {autoAlpha: 0, y: -10} )
 		fileInput.insertAdjacentElement( 'afterend', image )
-
+		TweenMax.to( image, .4, {autoAlpha: 1, y: 0, clearProps: 'all' } )
 	}
 
 	function addAudio( file, target ) {
@@ -145,7 +147,10 @@ function addFileInput() {
 		source.src = URL.createObjectURL( file )
 
 		const fileInput = target
-		fileInput.insertAdjacentElement( 'afterEnd', audio )
+
+		TweenMax.set( audio, {autoAlpha: 0, y: -10} )
+		fileInput.insertAdjacentElement( 'afterend', audio )
+		TweenMax.to( audio, .4, {autoAlpha: 1, y: 0, clearProps: 'all' } )
 
 	}
 
@@ -180,7 +185,11 @@ function addInput( type ) {
 
 	inputContainer.appendChild( removeComponentButton( input ) )
 	inputContainer.appendChild( input )
+
+	TweenMax.set( inputContainer, {autoAlpha: 0, y: -10} )
 	fieldset.insertBefore( inputContainer, buttonContainer )
+	TweenMax.to( inputContainer, .4, {autoAlpha: 1, y: 0, clearProps: 'all' } )
+
 	input.focus()
 
 
@@ -192,12 +201,17 @@ function addInput( type ) {
 			const iframe = document.createElement( 'iframe' )
 			iframe.classList.add( 'videoPreview' )
 			iframe.src = replacedLink
+			TweenMax.set( iframe, {autoAlpha: 0, y: -10} )
 			event.target.insertAdjacentElement( 'afterEnd', iframe )
+			TweenMax.to( iframe, .4, {autoAlpha: 1, y: 0, clearProps: 'all' } )
+		
 		} else if ( iframeLink.indexOf( '/embed/' ) ) {
 			const iframe = document.createElement( 'iframe' )
 			iframe.classList.add( 'videoPreview' )
 			iframe.src = iframeLink
+			TweenMax.set( iframe, {autoAlpha: 0, y: -10} )
 			event.target.insertAdjacentElement( 'afterEnd', iframe )
+			TweenMax.to( iframe, .4, {autoAlpha: 1, y: 0, clearProps: 'all' } )
 		}
 	}
 
