@@ -5,20 +5,15 @@
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
-	margin-top: 5rem;
 
 	a {
-		border: none;
-		background: red;
-		color: #fff;
-		padding: 1.5rem;
+		padding: 1.5rem 6rem;
 		font-size: 1.5rem;
-		line-height: 0;
 	}
 }
 
 .calltoaction--paragraph {
-	width: 100%;
+	max-width: 50rem;
 	padding: 1rem;
 	font-size: 2rem;
 	line-height: 2rem;
