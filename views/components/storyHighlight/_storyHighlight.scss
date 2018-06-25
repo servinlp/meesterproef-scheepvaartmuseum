@@ -5,6 +5,7 @@
 	justify-content: space-between;
 	position: relative;
 	min-height: 25rem;
+	max-height: 30rem;
 	@include mq("small") {
 		min-height: 30rem;
 	}
@@ -15,6 +16,7 @@
 	@include mq("large") {
 		flex-direction: row;
 		min-height: 30rem;
+		max-height: 35rem;
 	}
 
 	.story--container-text {
