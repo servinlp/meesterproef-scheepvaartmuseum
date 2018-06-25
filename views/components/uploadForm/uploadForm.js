@@ -82,20 +82,13 @@ function addFileInput() {
 				const fileNum = files[file]
 				const type = fileNum.type
 
-				switch( type ) {
-					case 'image/png':
-						addImage( fileNum, event.target )
-						break
-					case 'image/gif':
-						addImage( fileNum, event.target )
-						break
-					case 'image/jpg':
-						addImage( fileNum, event.target )
-						break
-					case 'audio/mp3':
-						addAudio( fileNum, event.target )
-						break
-					default:
+				if ( type.includes( 'image' ) ) {
+					addImage( fileNum, event.target )
+
+				} else if ( type.includes( 'audio' ) ) {
+
+					addAudio( fileNum, event.target )
+
 				}
 
 			}
