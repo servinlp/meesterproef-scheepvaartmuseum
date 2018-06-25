@@ -40,8 +40,7 @@ app.use( session( {
 	saveUninitialized: true,
 	cookie: {
 		httpOnly: true,
-		secure: ENV.SECURE === '1',
-		role: 0
+		secure: ENV.SECURE === '1'
 	}
 } ) )
 
