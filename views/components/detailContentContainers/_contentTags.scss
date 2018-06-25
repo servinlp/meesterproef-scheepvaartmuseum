@@ -1,7 +1,16 @@
 .content--container-tags {
+	li {
+		display: inline-block;
+	}
+
 	a {
 		color: $color-secondary;
 		transition: 0.2s ease;
+		display: block;
+
+		&::first-letter {
+			text-transform: uppercase;
+		}
 
 		&:hover {
 			text-decoration: none;

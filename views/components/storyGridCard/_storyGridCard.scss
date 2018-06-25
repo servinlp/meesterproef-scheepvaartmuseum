@@ -57,6 +57,10 @@
 					@include mq('large') {
 						max-width: 60%;
 					}
+
+					&::first-letter {
+						text-transform: uppercase;
+					}
 				}
 
 				p {
