@@ -4,15 +4,11 @@
 	flex-direction: column-reverse;
 	justify-content: space-between;
 	position: relative;
-	height: 25rem;
-	@include mq("small") {
-		height: 30rem;
-	}
+	height: 20rem;
 	@include mq("medium") {
-		height: 25rem;
 		flex-direction: row;
 	}
-	@include mq("xl") {
+	@include mq("large") {
 		height: 30rem;
 	}
 
@@ -21,14 +17,15 @@
 		flex-shrink: 5;
 		padding: 2rem;
 		padding-left: 5%;
+		padding-right: 0;
 		display: flex;
 		justify-content: space-between;
 		flex-direction: column;
 		position: absolute;
+		min-width: 50%;
 		bottom: 0;
 		text-shadow: 0 0 10px gray;
 		@include mq("medium") {
-			width: auto;
 			position: relative;
 		}
 		@include mq("xl") {
@@ -38,14 +35,19 @@
 
 		h1 {
 			font-size: 2rem;
-			font-size: 7vw;
 			position: relative;
 			z-index: 1;
 			color: $color-base;
 			margin-bottom: 1rem;
 			@include mq("medium") {
-				font-size: 4rem;
-				font-size: 7vw;
+				font-size: 3.5rem;
+			}
+			@include mq("xl") {
+				font-size: 5rem;
+			}
+
+			&::first-letter {
+				text-transform: uppercase;
 			}
 		}
 
