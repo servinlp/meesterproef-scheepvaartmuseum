@@ -4,6 +4,7 @@ const express = require( 'express' ),
 	bodyParser = require( 'body-parser' ),
 	helmet = require( 'helmet' ),
 	compression = require( 'compression' ),
+	fs = require( 'fs' ),
 
 	apiRoute = require( './routes/api' ),
 	indexRoute = require( './routes/index' ),
@@ -17,6 +18,17 @@ const express = require( 'express' ),
 
 	app = express(),
 	PORT = ENV.NODE_ENV === 'production' ? ENV.PORT : ENV.DEV_PORT
+
+const CSS_FILE = './public/styles/critical.css'
+fs.readFile( CSS_FILE, 'utf8', ( err,data ) => {
+	if ( err ) {
+		return console.log( err )
+	}
+	if ( data ) {
+		app.locals.toInject = data
+	}
+} )
+
 
 app.use( compression() )
 app.use( helmet() )
