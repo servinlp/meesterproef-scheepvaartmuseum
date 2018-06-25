@@ -89,14 +89,12 @@ function addFileInput() {
 	inputContainer.classList.add( 'element-container' )
 
 	inputContainer.appendChild( removeComponentButton() )
-	inputContainer.appendChild( input )
+	inputContainer.appendChild( label )
+	label.appendChild( input )
 
 	fieldset.insertBefore( inputContainer, buttonContainer ) 
 	
 	TweenMax.set( input, {autoAlpha: 0, y: -10} )
-
-	fieldset.insertBefore( label, buttonContainer )
-	label.appendChild( input )
 	TweenMax.to( input, .4, {autoAlpha: 1, y: 0} )
 
 	if ( window.formData !== undefined ) return
@@ -130,8 +128,8 @@ function addFileInput() {
 
 		image.src = URL.createObjectURL( file )
 
-		const fileInput = target
-		fileInput.insertAdjacentElement( 'afterEnd', image )
+		const fileInput = target.parentNode
+		fileInput.insertAdjacentElement( 'afterend', image )
 
 	}
 
