@@ -20,7 +20,7 @@ form {
 
 [name^="subtitle"] {
 	display: block !important;
-	margin: 0 0 1rem;
+	margin: 4rem 0 1rem;
 	padding: 0.5em;
 	transition: transform 0.3s ease;
 }
@@ -134,7 +134,7 @@ form {
 	[name^="upload"],
 	[name^="videolink"],
 	[name^="storyText"] {
-		margin: 0 0 4rem;
+		// margin: 0 0 4rem;
 		padding: 0.5em;
 		transition: transform 0.3s ease;
 	}
@@ -164,6 +164,10 @@ form {
 
 		&--button-container {
 			width: 100%;
+
+			p {
+				margin-top: 4rem;
+			}
 
 			button {
 				padding-left: 2.5rem;
@@ -201,12 +205,12 @@ form {
 		position: relative;
 		width: 17rem;
 		display: inherit;
-		margin-bottom: 4rem;
+		// margin-bottom: 4rem;
 	}
 
 	.labelFileInput {
 		margin: 0.5rem 0;
-		margin-bottom: 4rem;
+		// margin-bottom: 4rem;
 		border: 2px solid $colorBlue;
 		width: 10rem;
 		background: white;
