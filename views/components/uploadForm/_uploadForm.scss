@@ -204,7 +204,7 @@ form {
 	.labelFileInput {
 		margin: 0.5rem 0;
 		width: 10rem;
-		background: white;
+		background: blue;
 		position: relative;
 		text-align: center;
 		box-shadow: 0 0 5px 0 lightgray;
@@ -218,6 +218,7 @@ form {
 			overflow: hidden;
 			position: absolute;
 			z-index: -1;
+			outline: none;
 		}
 	}
 
