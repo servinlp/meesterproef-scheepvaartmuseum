@@ -13,13 +13,10 @@ function colorThief (){
 			const color = colorThief.getColor( img )
 			const colorRGB = 'rgb('+color+')'
 			const background = document.querySelector( '.story--container' )
-			background.style.background = colorRGB
-	
-			//window.URL.revokeObjectURL(img.src) // Use this after you're done with the image and no longer needed
+			background.style.background = colorRGB	
 		  }
 	}
-	// image.crossOrigin = 'Anonymous'
-	// image.src = 'https://www.hetscheepvaartmuseum.nl/sites/default/files/2018-02/2309_0.jpg'
+
 	xhr.open( 'GET', image.src )
 	xhr.send()
 } 

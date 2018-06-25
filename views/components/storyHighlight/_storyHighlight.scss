@@ -25,10 +25,10 @@
 		justify-content: space-between;
 		flex-direction: column;
 		position: absolute;
+		min-width: 50%;
 		bottom: 0;
 		text-shadow: 0 0 10px gray;
 		@include mq("medium") {
-			width: auto;
 			position: relative;
 		}
 		@include mq("xl") {
