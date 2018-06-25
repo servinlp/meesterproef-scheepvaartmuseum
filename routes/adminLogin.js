@@ -4,6 +4,7 @@ const express = require( 'express' ),
 	bcrypt = require( 'bcryptjs' )
 
 router.get( '/', ( req, res ) => {
+	console.log(req.session)
 	res.render( 'adminLogin' )
 
 } )
@@ -13,7 +14,15 @@ router.get( '/overview', ( req, res ) => {
 		res.redirect('/')
 		return
 	}
-	res.render('adminPanel')
+
+	console.log(req.session)
+
+	if (req.session.role === 1) {
+		pool.query(' SELECT * FROM stories WHERE reports != 0')
+			.then(x => console.log(x))
+
+		res.render('adminPanel')
+	}
 })
 
 router.post( '/login', ( req, res ) => {
