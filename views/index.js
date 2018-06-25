@@ -12,14 +12,13 @@ import {optimizedResize} from './components/lib/helpers.js'
 ( function IIFE () {
 
 	if( !( document.documentElement.classList && document.querySelectorAll ) ) return
+	setUpMap()
 	animateStoryOverview()
 	selectComponents()
 	header()
 	uploadForm()
 	toggleToolButton()
 	optimizedResize()
-	setUpMap()
 	autocompleteFromApiInit()
 	colorThief()
-
 } )()

@@ -1,8 +1,12 @@
 <div class="tag--container">
+	<% if ( story.allTags.length ) { %>
 	<p>Tags: </p>
 	<ul class="content--container-tags">
-		<a href="#">Appels</a>
-		<a href="#">Opa</a>
-		<a href="#">Boef</a>
+		<% story.allTags.forEach( function( el ) { %>
+			<li><a href="#"><%= el.name %></a></li>
+		<% } ) %>
 	</ul>
+	<% } else { %>
+		<p>Tags: There are no tags</p>
+	<% } %>
 </div>

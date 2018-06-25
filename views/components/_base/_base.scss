@@ -143,7 +143,14 @@ body:not( .no-js ) .hide-when-js {
 	height: 100%;
 }
 
-.fourofour h1 svg {
-	width: 40px;
-	height: auto;
+.fourofour {
+	h1 svg {
+		width: 6rem;
+		height: auto;
+		fill: $color-header;
+	}
+
+	.button--primary {
+		display: inline-block;
+	}
 }
