@@ -41,7 +41,6 @@ router.get( '/locations', async ( req, res ) => {
 		succes: true,
 		data: location
 	} )
-
 } )
 
 module.exports = router
