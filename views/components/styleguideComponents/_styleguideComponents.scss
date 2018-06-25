@@ -46,19 +46,24 @@
 	font-size: 1rem;
 	text-align: center;
 	padding: 0.75rem 1rem;
-	background-color: darken($color-primary, 10%);
+	background-color: $color-primary;
 	border: none;
 	cursor: pointer;
 	color: white;
 	margin: 1em 0;
 	transition-property: transform, background-color, box-shadow;
 	transition: 150ms ease-out;
+	box-shadow: 0 1px 4px 0px rgba(128, 128, 128, 0.542);
+	letter-spacing: 0.3px;
+	font-weight: 300;
+	border-radius: 3px;
 
+	&[aria-current="page"],
 	&:hover,
 	&:focus {
-		background-color: darken($color-primary, 15%);
+		background-color: lighten($color-primary, 10%);
 		transform: scale(1.01);
-		box-shadow: 0 0.2rem 0.5rem -0.1rem darken($color-primary, 20%);
+		box-shadow: 0 2px 4px 0 rgba(126, 121, 121, 0.61);
 	}
 }
 

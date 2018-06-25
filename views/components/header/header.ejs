@@ -4,7 +4,7 @@
         <div class="header--container">
             <a href="/">
                 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                width="2rem" height="2rem" viewBox="0 0 200.000000 200.000000"
+                width="32px" height="32px" viewBox="0 0 200.000000 200.000000"
                 preserveAspectRatio="xMidYMid meet">
                 <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)"
                 fill="#000000" stroke="none">
@@ -43,13 +43,25 @@
             <nav class="navigation">
                 <ul>
                     <li>
-                        <a href="/">Uitgelicht</a>
+                        <a href="/"
+						<% if ( locals.path && path === '/' ) { %>
+							aria-current="page"
+						<% } %>
+						>Uitgelicht</a>
                     </li>
                     <li>
-                        <a href="/story-overview">Alle verhalen</a>
+                        <a href="/story-overview"
+						<% if ( locals.path && path === '/story-overview' ) { %>
+							aria-current="page"
+						<% } %>
+						>Alle verhalen</a>
                     </li>
                     <li>
-                        <a class="link--jouw-verhaal button--primary" href="/story-upload">Deel je verhaal</a>
+                        <a class="link--jouw-verhaal button--primary" href="/story-upload"
+						<% if ( locals.path && path === '/story-upload' ) { %>
+							aria-current="page"
+						<% } %>
+						>Deel je verhaal</a>
                     </li>
                 </ul>
             </nav>
@@ -57,4 +69,3 @@
         <div class="gradient"></div>
     </header>
     
-  

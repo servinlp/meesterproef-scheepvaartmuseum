@@ -7,6 +7,8 @@ import autocompleteFromApiInit from './components/lib/autocomplete.js'
 import colorThief from './components/storyHighlight/storyHighlight.js'
 import { selectComponents } from './components/enhancedDetail/enhancedDetail.js'
 import EnhancedReport from './components/reportComponent/reportComponent.js'
+import {optimizedResize} from './components/lib/helpers.js'
+
 
 ( function IIFE () {
 
@@ -16,6 +18,7 @@ import EnhancedReport from './components/reportComponent/reportComponent.js'
 	header()
 	uploadForm()
 	toggleToolButton()
+	optimizedResize()
 	setUpMap()
 	autocompleteFromApiInit()
 	colorThief()

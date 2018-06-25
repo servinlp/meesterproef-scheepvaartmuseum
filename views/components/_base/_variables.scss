@@ -2,12 +2,13 @@ $primary-color: #3369a0;
 $secondairy-color: #c81200;
 $button-font-color: #fff;
 $colorBlue: rgb(17, 69, 223);
+$colorDarkBlue: #0d36b0;
 $colorWhite: #fafafa;
 $colorBlack: #111;
-$font-stack-base: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-$font-stack-headers: 'PT Serif', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-stack-base: 'Open Sans', Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-stack-headers: 'PT Serif', Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 $color-base: #fff;
-$color-primary: #1512d6;
+$color-primary: #062ed9;
 $color-secondary: #eb2d2d;
 $color-primary-hover: #0e76d1;
 $color-primary-border: rgb(18, 64, 107);
@@ -17,3 +18,9 @@ $inputPadding: 0.7rem;
 $uploadFormFontSize: 1.25rem;
 $uploadFormFontWeight: 600;
 $color-header: #333;
+
+:root {
+	--footer-background: #386fa4;
+	--title-spacegrey: #333;
+	--title-white: white;
+}

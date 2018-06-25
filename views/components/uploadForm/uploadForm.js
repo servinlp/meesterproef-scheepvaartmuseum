@@ -29,7 +29,7 @@ function addComponent( e ) {
 			addFileInput()
 			break
 		case 'videolink':
-			addInput( 'subtitle' )	
+			addInput( 'subtitle' )
 			addInput( 'videolink' )
 			break
 		default:
@@ -37,12 +37,12 @@ function addComponent( e ) {
 }
 
 function addTextarea() {
-	
+
 	const fieldset = document.querySelector( '.upload-form .upload-form__story' ),
 		buttonContainer = document.querySelector( '.upload-form__story--button-container' ),
 		allInputElements = fieldset.querySelectorAll( '[data-index]' ),
-		allTextareas = fieldset.querySelectorAll( 'textarea' ), 
-	
+		allTextareas = fieldset.querySelectorAll( 'textarea' ),
+
 		textarea = document.createElement( 'textarea' )
 
 	// data-index so that we can see what index there at
@@ -61,17 +61,71 @@ function addFileInput() {
 		buttonContainer = document.querySelector( '.upload-form__story--button-container' ),
 		allInputElements = fieldset.querySelectorAll( '[data-index]' ),
 		allFileInputs = fieldset.querySelectorAll( '[type="file"]' ),
-	
+
 		input = document.createElement( 'input' )
 
 	input.setAttribute( 'type', 'file' )
 	input.setAttribute( 'multiple', true )
 	input.setAttribute( 'data-index', allInputElements.length )
 	input.setAttribute( 'name', `upload-${ allFileInputs.length + 1 }-${ allInputElements.length }` )
-
+	TweenMax.set( input, {autoAlpha: 0, y: -10} )
 	fieldset.insertBefore( input, buttonContainer )
+	TweenMax.to( input, .4, {autoAlpha: 1, y: 0} )
+
+	if ( window.formData !== undefined ) return
+	input.addEventListener( 'change', addFiles )
+
+	function addFiles( event ) {
+		const files = event.target.files
+		for ( const file in files ) {
+			if ( files.hasOwnProperty( file ) ) {
+				const fileNum = files[file]
+				const type = fileNum.type
+
+				if ( type.includes( 'image' ) ) {
+					addImage( fileNum, event.target )
+
+				} else if ( type.includes( 'audio' ) ) {
+
+					addAudio( fileNum, event.target )
+
+				}
+
+			}
+		}
+
+	}
+
+	function addImage( file, target ) {
+		const image = document.createElement( 'img' )
+
+		image.classList.add( 'previewImage' )
+
+		image.src = URL.createObjectURL( file )
+
+		const fileInput = target
+		fileInput.insertAdjacentElement( 'afterEnd', image )
+
+	}
+
+	function addAudio( file, target ) {
+		const audio = document.createElement( 'audio' )
+		const source = document.createElement( 'source' )
+		audio.appendChild( source )
+
+		audio.setAttribute( 'controls', '' )
+
+		audio.classList.add( 'previewAudio' )
+
+		source.src = URL.createObjectURL( file )
+
+		const fileInput = target
+		fileInput.insertAdjacentElement( 'afterEnd', audio )
+
+	}
 
 }
+
 
 function addInput( type ) {
 
@@ -79,19 +133,19 @@ function addInput( type ) {
 		buttonContainer = document.querySelector( '.upload-form__story--button-container' ),
 		allInputElements = fieldset.querySelectorAll( '[data-index]' ),
 		allTextInputs = fieldset.querySelectorAll( `[type="text"][name^="${ type }"]` ),
-	
+
 		input = document.createElement( 'input' )
 
 	input.setAttribute( 'type', 'text' )
 	input.setAttribute( 'data-index', allInputElements.length )
 	input.setAttribute( 'name', `${ type }-${ allTextInputs.length + 1 }-${ allInputElements.length }` )
-	
+
 	switch( type ) {
 		case 'subtitle':
 			input.setAttribute( 'placeholder', '(Optioneel) Subtitel' )
 			break
 		case 'videolink':
-			input.setAttribute( 'placeholder', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' )	
+			input.setAttribute( 'placeholder', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' )
 			break
 		default:
 	}
@@ -99,6 +153,26 @@ function addInput( type ) {
 
 	fieldset.insertBefore( input, buttonContainer )
 	input.focus()
+
+
+	function videoPreview() {
+		const iframeLink = input.value
+		if ( ! iframeLink.indexOf( 'https://youtube.com/' ) ) return
+		if ( iframeLink.indexOf( '/watch?v=' ) ) {
+			const replacedLink = iframeLink.replace( '/watch?v=', '/embed/' )
+			const iframe = document.createElement( 'iframe' )
+			iframe.classList.add( 'videoPreview' )
+			iframe.src = replacedLink
+			event.target.insertAdjacentElement( 'afterEnd', iframe )
+		} else if ( iframeLink.indexOf( '/embed/' ) ) {
+			const iframe = document.createElement( 'iframe' )
+			iframe.classList.add( 'videoPreview' )
+			iframe.src = iframeLink
+			event.target.insertAdjacentElement( 'afterEnd', iframe )
+		}
+	}
+
+	input.addEventListener( 'change',  videoPreview )
 }
 
 function progressiveDiscloseForm() {
@@ -123,7 +197,7 @@ function progressiveDiscloseForm() {
 	// For every part of the form that we want to disclose
 	parts.forEach( ( part, i ) => {
 		const input = part.querySelector( 'input' ) || part.querySelector( 'textarea' )
-		
+
 		if ( input !== null ) {
 			// Sets the width to the width of the placeholder with measureText
 			input.style = `width: ${measureText( input.getAttribute( 'placeholder' ), inputFontsize, inputFontFamily ) }px`

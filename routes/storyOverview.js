@@ -1,9 +1,41 @@
 const express = require( 'express' ),
-	router = 	express.Router()
+	router = express.Router(),
+	pool = require( '../lib/mysql' ),
+	getThumbnailContent = require( '../lib/getThumbnailContent' ),
 
-router.get( '/', ( req, res ) => {
+	limitPerPage = 6
 
-	res.render( 'storyOverview' )
+router.get( '/', async ( req, res ) => {
+
+	try {
+
+		let pageIndex = 1
+
+		if ( req.query.index )
+			pageIndex = parseInt( req.query.index )
+
+		const [ numberOfStories, AllStories ] = await Promise.all( [
+				pool.query( 'SELECT ID FROM stories' ),
+				pool.query( 'SELECT ID, title, components FROM stories LIMIT ?, ?', [ ( pageIndex - 1 ) * limitPerPage, limitPerPage ] )
+			] ),
+			storiesWithContent = await getThumbnailContent( AllStories )
+
+		res.render( 'storyOverview', {
+			pageIndex,
+			numOfPages: Math.ceil( numberOfStories.length / limitPerPage ),
+			content: storiesWithContent,
+			path: '/story-overview'
+		} )
+
+	} catch ( error ) {
+
+		console.error( error )
+		res.render( 'storyOverview', {
+			content: [],
+			path: '/story-overview'
+		} )
+
+	}
 
 } )
 
