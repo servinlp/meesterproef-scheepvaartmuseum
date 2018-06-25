@@ -61,8 +61,8 @@ function addTextarea() {
 
 	textareaContainer.classList.add( 'element-container' )
 
-	textareaContainer.appendChild( textarea )
 	textareaContainer.appendChild( removeComponentButton( textarea ) )
+	textareaContainer.appendChild( textarea )
 
 	fieldset.insertBefore( textareaContainer, buttonContainer )
 
@@ -88,7 +88,7 @@ function addFileInput() {
 
 	inputContainer.classList.add( 'element-container' )
 
-	inputContainer.appendChild( removeComponentButton() )
+	inputContainer.appendChild( removeComponentButton( input ) )
 	inputContainer.appendChild( label )
 	label.appendChild( input )
 
@@ -178,8 +178,8 @@ function addInput( type ) {
 
 	inputContainer.classList.add( 'element-container' )
 
-	inputContainer.appendChild( input )
 	inputContainer.appendChild( removeComponentButton( input ) )
+	inputContainer.appendChild( input )
 	fieldset.insertBefore( inputContainer, buttonContainer )
 	input.focus()
 
