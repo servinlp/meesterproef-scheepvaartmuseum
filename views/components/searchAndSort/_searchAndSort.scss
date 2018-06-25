@@ -3,13 +3,18 @@
 		text-align: center;
 		font-size: 1rem;
 		margin: 0 auto;
+
+		&--element {
+			margin: 0;
+			text-align: left;
+		}
 	}
 
 	&__search {
 		display: inline-block;
-		width: 45%;
+		width: 48%;
 		min-width: 18rem;
-		margin-right: 2.5%;
+		margin-right: 2%;
 
 		[for="search"] {
 			text-align: left;
@@ -33,9 +38,9 @@
 	}
 
 	&__sort {
-		width: 45%;
+		width: 48%;
 		min-width: 18rem;
-		margin-left: 2.5%;
+		margin-left: 2%;
 		display: inline-block;
 		text-align: left;
 
@@ -48,10 +53,11 @@
 
 	[name="sort"] {
 		-webkit-appearance: none;
-		appearance: none;
+		// appearance: none;
 		border-radius: 0;
+		display: block;
 		font-size: 1rem;
-		padding: $inputPadding;
+		padding: calc(#{$inputPadding} + 0.1rem);
 		width: 100%;
 		background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(135deg, gray 50%, transparent 50%), linear-gradient(to right, #ccc, #ccc);
 		background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;

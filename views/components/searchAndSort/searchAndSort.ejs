@@ -1,17 +1,28 @@
 <section class="stories__form">
-	<form class="stories__search" action="" method="get">
-		<label for="search">Zoeken op</label>
-		<input type="text" id="search" name="search" placeholder="Zoek hier naar verhalen">
-		<button class="button--primary" type="submit">Zoeken</button>
-	</form>
-	
-	<form class="stories__sort" action="" method="get">
-		<label for="sort">Sorteer op</label>
-		<select name="sort" id="sort">
-			<option value="uitgelicht" selected>Uitgelicht</option>
-			<option value="rating">Aantal keer bekeken</option>
-		</select>
-		<button class="button--primary" type="submit">Sorteren</button>
+	<form class="stories__form--element" action="/story-overview/search" method="POST">
+		<fieldset class="stories__search">
+
+			<label for="search">Zoeken op</label>
+			<% if(locals.searchTerm) {%>
+				<input type="text" id="search" name="search" value="<%= searchTerm %>" placeholder="Zoek hier naar verhalen">
+			<% } else { %>
+				<input type="text" id="search" name="search" placeholder="Zoek hier naar verhalen">
+			<% } %>
+
+			<button class="button--primary" type="submit">Zoeken</button>
+		</fieldset><!--
+		--><fieldset class="stories__sort">
+			<label for="sort">Sorteer op</label>
+			<select name="sort" id="sort">
+				<option value="oudste" selected>Oudste</option>
+				<option value="nieuwste">Nieuwste</option>
+			</select>
+			<button class="button--primary" type="submit">Sorteren</button>
+		</fieldset>
 	</form>
 </section>
-<p class="stories__search--result" id="searchResult"><span id="number-result">...</span> verhalen gebaseerd op de zoekterm: <span id="search-word" class="underline-red">appel</span> </p>
+<% if(locals.searchTerm !== undefined && locals.sortTerm === undefined) {%>
+<p class="stories__search--result" id="searchResult"><span id="number-result">...</span> verhalen gebaseerd op de zoekterm: <span id="search-word" class="underline-red"> <%= searchTerm %> </span> </p>
+<% } else if (locals.searchTerm !== undefined && locals.sortTerm !== undefined) {%>
+<p class="stories__search--result" id="searchResult"><span id="number-result">...</span> verhalen gebaseerd op de zoekterm: <span id="search-word" class="underline-red"> <%= searchTerm %> </span> en gesorteerd op: <span id="search-word" class="underline-red"> <%= sortTerm %> </span>  </p>
+<% } else {}%>
