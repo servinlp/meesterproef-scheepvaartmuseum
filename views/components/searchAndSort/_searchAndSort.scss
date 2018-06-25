@@ -2,7 +2,7 @@
 	&__form {
 		text-align: center;
 		font-size: 1rem;
-		margin: 0 auto;
+		margin: 0;
 	}
 
 	&__search {
@@ -48,10 +48,11 @@
 
 	[name="sort"] {
 		-webkit-appearance: none;
-		appearance: none;
+		// appearance: none;
 		border-radius: 0;
+		display: block;
 		font-size: 1rem;
-		padding: $inputPadding;
+		padding: calc(#{$inputPadding} + 0.1rem);
 		width: 100%;
 		background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(135deg, gray 50%, transparent 50%), linear-gradient(to right, #ccc, #ccc);
 		background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
