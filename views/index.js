@@ -14,7 +14,6 @@ import {optimizedResize, animateOnIntersect} from './components/lib/helpers.js'
 	if( !( document.documentElement.classList && document.querySelectorAll ) ) return
 	animateOnIntersect()
 	setUpMap()
-	animateStoryOverview()
 	selectComponents()
 	header()
 	uploadForm()
