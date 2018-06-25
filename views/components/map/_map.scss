@@ -123,7 +123,7 @@
 			background-color: $colorBlue;
 			color: $colorWhite;
 			outline-color: $colorWhite;
-
+			cursor: pointer;
 			&:focus {
 				button {
 					background-color: $colorDarkBlue;
