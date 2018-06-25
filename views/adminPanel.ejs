@@ -1,5 +1,12 @@
 <% include ./partials/head.ejs %>
 <% include ./components/header/header.ejs %>
 
+<main>
+	<h1 class="title__underline--red stories--title"><span class="underline-red">Admin</span> panel</h1>
+
+	<form action="/admin/logout" method="post">
+		<button type="submit" class="button--primary">Logout</button>
+	</form>
+</main>
 
 <% include ./partials/footer.ejs %>

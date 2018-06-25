@@ -4,30 +4,31 @@ const express = require( 'express' ),
 	bcrypt = require( 'bcryptjs' )
 
 router.get( '/', ( req, res ) => {
-	res.render( 'adminLogin' )
+
+	if ( !req.session.role || req.session.role !== 1 ) {
+
+		res.render( 'adminLogin' )
+
+	} else if ( req.session.role && req.session.role === 1 ) {
+
+		res.render( 'adminPanel' )
+		
+	}
 
 } )
 
-router.get( '/overview', ( req, res ) => {
-	if ( !req.session.role || req.session.role !== 1 ) {
-		res.redirect('/')
-		return
-	}
-	res.render('adminPanel')
-})
-
 router.post( '/login', ( req, res ) => {
-	console.log( req.body )
+
 	const {
 		email,
 		password
 	} = req.body
 
 	
-	pool.query( 'SELECT * FROM users WHERE email = ?', [ email ] )
+	pool.query( 'SELECT * FROM users WHERE email = ?', email )
 		.then( record => {
 			if ( !record[0] ) {
-				res.redirect( '/admin-login' )
+				res.redirect( '/admin' )
 				return
 			}
 			bcrypt.compare( password, record[0].password, ( err, result ) => {
@@ -41,8 +42,18 @@ router.post( '/login', ( req, res ) => {
 				}
 			} )
 		} ).then(() => {
-			res.redirect( '/admin-login/overview' )
+			res.redirect( '/admin' )
 		}).catch(err => console.log(err))
+
+} )
+
+router.post( '/logout', ( req, res ) => {
+
+	delete req.session.role
+	req.session.save()
+
+	res.redirect( '/admin' )
+
 } )
 
 module.exports = router

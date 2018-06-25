@@ -9,7 +9,7 @@ const express = require( 'express' ),
 	apiRoute = require( './routes/api' ),
 	indexRoute = require( './routes/index' ),
 	detailRoute = require( './routes/detail' ),
-	adminLoginRoute = require( './routes/adminLogin' ),
+	adminRoute = require( './routes/admin' ),
 	componentsRoute = require( './routes/components' ),
 	storyOverviewRoute = require( './routes/storyOverview' ),
 	storyUploadRoute = require( './routes/storyUpload' ),
@@ -59,7 +59,7 @@ app.use( '/', indexRoute )
 app.use( '/detail', detailRoute )
 app.use( '/styleguide', styleguideRoute )
 app.use( '/components', componentsRoute )
-app.use( '/admin-login', adminLoginRoute )
+app.use( '/admin', adminRoute )
 app.use( '/story-upload', storyUploadRoute )
 app.use( '/story-overview', storyOverviewRoute )
 
