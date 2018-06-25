@@ -134,7 +134,6 @@ form {
 	[name^="upload"],
 	[name^="videolink"],
 	[name^="storyText"] {
-		// margin: 0 0 4rem;
 		padding: 0.5em;
 		transition: transform 0.3s ease;
 	}
@@ -205,12 +204,10 @@ form {
 		position: relative;
 		width: 17rem;
 		display: inherit;
-		// margin-bottom: 4rem;
 	}
 
 	.labelFileInput {
 		margin: 0.5rem 0;
-		// margin-bottom: 4rem;
 		border: 2px solid $colorBlue;
 		width: 10rem;
 		background: white;

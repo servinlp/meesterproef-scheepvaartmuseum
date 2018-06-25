@@ -5,6 +5,9 @@
 @import './components/_base/_base.scss';
 @import './components/_base/_libs.scss';
 
+@import './components/header/_header.scss';
+@import './components/globalFooter/_globalFooter.scss';
+
 @import './components/adminLogin/_adminLogin.scss';
 @import './components/storyHighlight/_storyHighlight.scss';
 @import './components/map/_map.scss';
