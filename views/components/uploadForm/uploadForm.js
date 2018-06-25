@@ -62,7 +62,7 @@ function addTextarea() {
 	textareaContainer.classList.add( 'element-container' )
 
 	textareaContainer.appendChild( textarea )
-	textareaContainer.appendChild( removeComponentButton( allInputElements.length ) )
+	textareaContainer.appendChild( removeComponentButton() )
 
 	fieldset.insertBefore( textareaContainer, buttonContainer )
 
@@ -73,7 +73,7 @@ function addFileInput() {
 	const fieldset = document.querySelector( '.upload-form .upload-form__story' ),
 		buttonContainer = document.querySelector( '.upload-form__story--button-container' ),
 		allInputElements = fieldset.querySelectorAll( '[data-index]' ),
-		allFileInputs = fieldset.querySelectorAll( '[type='file']' ),
+		allFileInputs = fieldset.querySelectorAll( '[type="file"]' ),
 	
 		inputContainer = document.createElement( 'div' ),
 		input = document.createElement( 'input' )
@@ -86,7 +86,7 @@ function addFileInput() {
 	inputContainer.classList.add( 'element-container' )
 
 	inputContainer.appendChild( input )
-	inputContainer.appendChild( removeComponentButton( allInputElements.length ) )
+	inputContainer.appendChild( removeComponentButton() )
 
 	fieldset.insertBefore( inputContainer, buttonContainer )
 
@@ -119,14 +119,14 @@ function addInput( type ) {
 	inputContainer.classList.add( 'element-container' )
 
 	inputContainer.appendChild( input )
-	inputContainer.appendChild( removeComponentButton( allInputElements.length ) )
+	inputContainer.appendChild( removeComponentButton() )
 
 	fieldset.insertBefore( inputContainer, buttonContainer )
 	input.focus()
 
 }
 
-function removeComponentButton( dataIndex ) {
+function removeComponentButton() {
 
 	/*
 	<?xml version='1.0' encoding='iso-8859-1'?>
@@ -173,10 +173,8 @@ function removeComponentButton( dataIndex ) {
 
 function removeComponent( e ) {
 
-	const svg = e.target,
-		container = svg.parent
-
-	console.log( container )
+	const svg = e.target.tagName === 'path' ? e.target.parentNode : e.target,
+		container = svg.parentNode
 
 	svg.removeEventListener( 'click', removeComponent )
 
