@@ -45,6 +45,10 @@
 			@include mq("xl") {
 				font-size: 5rem;
 			}
+
+			&::first-letter {
+				text-transform: uppercase;
+			}
 		}
 
 		p {
