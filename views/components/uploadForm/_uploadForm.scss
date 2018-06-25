@@ -20,7 +20,7 @@ form {
 
 [name^="subtitle"] {
 	display: block !important;
-	margin: 0 0 1rem;
+	margin: 4rem 0 1rem;
 	padding: 0.5em;
 	transition: transform 0.3s ease;
 }
@@ -70,6 +70,7 @@ form {
 	label {
 		font-size: 1.25rem;
 		font-weight: 600;
+		transition: transform 0.3s ease;
 	}
 
 	input[type="text"],
@@ -133,7 +134,6 @@ form {
 	[name^="upload"],
 	[name^="videolink"],
 	[name^="storyText"] {
-		margin: 0 0 4rem;
 		padding: 0.5em;
 		transition: transform 0.3s ease;
 	}
@@ -164,6 +164,10 @@ form {
 		&--button-container {
 			width: 100%;
 
+			p {
+				margin-top: 4rem;
+			}
+
 			button {
 				padding-left: 2.5rem;
 			}
@@ -185,6 +189,7 @@ form {
 		margin-bottom: 0.5rem;
 		box-shadow: 0 0 15px 0 rgba(211, 211, 211, 0.555);
 		display: inline-block;
+		transition: transform 0.3s ease;
 	}
 
 	.previewAudio {
@@ -199,7 +204,28 @@ form {
 		position: relative;
 		width: 17rem;
 		display: inherit;
-		margin-bottom: 4rem;
+	}
+
+	.labelFileInput {
+		margin: 0.5rem 0;
+		border: 2px solid $colorBlue;
+		width: 10rem;
+		background: white;
+		position: relative;
+		text-align: center;
+		box-shadow: 0 0 5px 0 lightgray;
+		cursor: pointer;
+		border-radius: 3px;
+
+		input {
+			width: 0.1px;
+			height: 0.1px;
+			opacity: 0;
+			overflow: hidden;
+			position: absolute;
+			z-index: -1;
+			outline: none;
+		}
 	}
 
 	.inputAnimation-container {
@@ -294,7 +320,7 @@ form {
 			position: absolute;
 			top: 0;
 			right: 0;
-			transform: translate(100%, 0%);
+			transform: translate(120%, -120%);
 			cursor: pointer;
 			font-size: 0;
 			padding: 0.5rem;
@@ -306,6 +332,8 @@ form {
 			&:focus {
 				box-shadow: 0 2px 4px 0 rgba(126, 121, 121, 0.61);
 
+				& + label,
+				& ~ .previewImage,
 				& + input,
 				& + textarea {
 					box-shadow: 0 2px 4px 0 rgba(126, 121, 121, 0.61);

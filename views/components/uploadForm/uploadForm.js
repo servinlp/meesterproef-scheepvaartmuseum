@@ -61,8 +61,8 @@ function addTextarea() {
 
 	textareaContainer.classList.add( 'element-container' )
 
-	textareaContainer.appendChild( textarea )
 	textareaContainer.appendChild( removeComponentButton( textarea ) )
+	textareaContainer.appendChild( textarea )
 
 	fieldset.insertBefore( textareaContainer, buttonContainer )
 
@@ -77,6 +77,9 @@ function addFileInput() {
 	
 		inputContainer = document.createElement( 'div' ),
 		input = document.createElement( 'input' )
+	const label = document.createElement( 'Label' )
+	label.innerHTML = 'Add files'
+	label.classList.add( 'labelFileInput' )
 
 	input.setAttribute( 'type', 'file' )
 	input.setAttribute( 'multiple', true )
@@ -85,8 +88,9 @@ function addFileInput() {
 
 	inputContainer.classList.add( 'element-container' )
 
-	inputContainer.appendChild( input )
 	inputContainer.appendChild( removeComponentButton( input ) )
+	inputContainer.appendChild( label )
+	label.appendChild( input )
 
 	fieldset.insertBefore( inputContainer, buttonContainer ) 
 	
@@ -124,8 +128,8 @@ function addFileInput() {
 
 		image.src = URL.createObjectURL( file )
 
-		const fileInput = target
-		fileInput.insertAdjacentElement( 'afterEnd', image )
+		const fileInput = target.parentNode
+		fileInput.insertAdjacentElement( 'afterend', image )
 
 	}
 
@@ -174,8 +178,8 @@ function addInput( type ) {
 
 	inputContainer.classList.add( 'element-container' )
 
-	inputContainer.appendChild( input )
 	inputContainer.appendChild( removeComponentButton( input ) )
+	inputContainer.appendChild( input )
 	fieldset.insertBefore( inputContainer, buttonContainer )
 	input.focus()
 
