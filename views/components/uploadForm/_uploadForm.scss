@@ -185,6 +185,26 @@ form {
 		margin-bottom: 4rem;
 	}
 
+	.labelFileInput {
+		margin: 0.5rem 0;
+		width: 10rem;
+		background: white;
+		position: relative;
+		text-align: center;
+		box-shadow: 0 0 5px 0 lightgray;
+		cursor: pointer;
+		border-radius: 3px;
+
+		input {
+			width: 0.1px;
+			height: 0.1px;
+			opacity: 0;
+			overflow: hidden;
+			position: absolute;
+			z-index: -1;
+		}
+	}
+
 	.inputAnimation-container {
 		position: relative;
 		display: inline-block;

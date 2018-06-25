@@ -63,13 +63,18 @@ function addFileInput() {
 		allFileInputs = fieldset.querySelectorAll( '[type="file"]' ),
 
 		input = document.createElement( 'input' )
+	const label = document.createElement( 'Label' )
+	label.innerHTML = 'Add files'
+	label.classList.add( 'labelFileInput' )
 
 	input.setAttribute( 'type', 'file' )
 	input.setAttribute( 'multiple', true )
 	input.setAttribute( 'data-index', allInputElements.length )
 	input.setAttribute( 'name', `upload-${ allFileInputs.length + 1 }-${ allInputElements.length }` )
 	TweenMax.set( input, {autoAlpha: 0, y: -10} )
-	fieldset.insertBefore( input, buttonContainer )
+
+	fieldset.insertBefore( label, buttonContainer )
+	label.appendChild( input )
 	TweenMax.to( input, .4, {autoAlpha: 1, y: 0} )
 
 	if ( window.formData !== undefined ) return
