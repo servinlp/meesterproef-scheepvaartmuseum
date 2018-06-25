@@ -1,5 +1,5 @@
 <section class="stories__form">
-	<form action="/story-overview/search" method="POST">
+	<form class="stories__form--element" action="/story-overview/search" method="POST">
 		<fieldset class="stories__search">
 
 			<label for="search">Zoeken op</label>
@@ -10,17 +10,19 @@
 			<% } %>
 
 			<button class="button--primary" type="submit">Zoeken</button>
-		</fieldset>
-		<fieldset class="stories__sort">
+		</fieldset><!--
+		--><fieldset class="stories__sort">
 			<label for="sort">Sorteer op</label>
 			<select name="sort" id="sort">
-				<option value="uitgelicht" selected>Uitgelicht</option>
-				<option value="rating">Aantal keer bekeken</option>
+				<option value="oudste" selected>Oudste</option>
+				<option value="nieuwste">Nieuwste</option>
 			</select>
 			<button class="button--primary" type="submit">Sorteren</button>
 		</fieldset>
 	</form>
 </section>
-<% if(locals.searchTerm) {%>
+<% if(locals.searchTerm !== undefined && locals.sortTerm === undefined) {%>
 <p class="stories__search--result" id="searchResult"><span id="number-result">...</span> verhalen gebaseerd op de zoekterm: <span id="search-word" class="underline-red"> <%= searchTerm %> </span> </p>
-<% } %>
+<% } else if (locals.searchTerm !== undefined && locals.sortTerm !== undefined) {%>
+<p class="stories__search--result" id="searchResult"><span id="number-result">...</span> verhalen gebaseerd op de zoekterm: <span id="search-word" class="underline-red"> <%= searchTerm %> </span> en gesorteerd op: <span id="search-word" class="underline-red"> <%= sortTerm %> </span>  </p>
+<% } else {}%>

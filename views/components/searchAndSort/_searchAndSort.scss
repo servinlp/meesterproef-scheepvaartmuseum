@@ -2,14 +2,19 @@
 	&__form {
 		text-align: center;
 		font-size: 1rem;
-		margin: 0;
+		margin: 0 auto;
+
+		&--element {
+			margin: 0;
+			text-align: left;
+		}
 	}
 
 	&__search {
 		display: inline-block;
-		width: 45%;
+		width: 48%;
 		min-width: 18rem;
-		margin-right: 2.5%;
+		margin-right: 2%;
 
 		[for="search"] {
 			text-align: left;
@@ -33,9 +38,9 @@
 	}
 
 	&__sort {
-		width: 45%;
+		width: 48%;
 		min-width: 18rem;
-		margin-left: 2.5%;
+		margin-left: 2%;
 		display: inline-block;
 		text-align: left;
 
