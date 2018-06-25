@@ -20,6 +20,8 @@ form {
 [name^="subtitle"] {
 	display: block !important;
 	margin: 0 0 1rem;
+	padding: 0.5em;
+	transition: transform 0.3s ease;
 }
 
 .required {
@@ -130,7 +132,9 @@ form {
 	[name^="upload"],
 	[name^="videolink"],
 	[name^="storyText"] {
-		margin: 0 0 2rem;
+		margin: 0 0 4rem;
+		padding: 0.5em;
+		transition: transform 0.3s ease;
 	}
 
 	&__tag-suggestion {
@@ -286,11 +290,31 @@ form {
 			position: absolute;
 			top: 0;
 			right: 0;
-			width: 1.5rem;
-			height: auto;
 			transform: translate(120%, -120%);
 			cursor: pointer;
-			fill: $secondairy-color;
+			font-size: 0;
+			padding: 0.5rem;
+			background-color: transparent;
+			border: 0;
+			transition: transform 0.3s ease;
+
+			&:hover,
+			&:focus {
+				box-shadow: 0 2px 4px 0 rgba(126, 121, 121, 0.61);
+				transform: translate(120%, -140%);
+
+				& + input,
+				& + textarea {
+					box-shadow: 0 2px 4px 0 rgba(126, 121, 121, 0.61);
+					transform: translateY(-20%) !important;
+				}
+			}
+
+			svg {
+				fill: $secondairy-color;
+				width: 1.5rem;
+				height: auto;
+			}
 		}
 	}
 }

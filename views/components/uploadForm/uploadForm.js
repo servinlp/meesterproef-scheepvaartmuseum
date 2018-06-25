@@ -61,8 +61,8 @@ function addTextarea() {
 
 	textareaContainer.classList.add( 'element-container' )
 
-	textareaContainer.appendChild( textarea )
 	textareaContainer.appendChild( removeComponentButton() )
+	textareaContainer.appendChild( textarea )
 
 	fieldset.insertBefore( textareaContainer, buttonContainer )
 
@@ -85,13 +85,12 @@ function addFileInput() {
 
 	inputContainer.classList.add( 'element-container' )
 
-	inputContainer.appendChild( input )
 	inputContainer.appendChild( removeComponentButton() )
+	inputContainer.appendChild( input )
 
-	fieldset.insertBefore( inputContainer, buttonContainer )
+	fieldset.insertBefore( inputContainer, buttonContainer ) 
 	
 	TweenMax.set( input, {autoAlpha: 0, y: -10} )
-	fieldset.insertBefore( input, buttonContainer )
 	TweenMax.to( input, .4, {autoAlpha: 1, y: 0} )
 
 	if ( window.formData !== undefined ) return
@@ -182,9 +181,9 @@ function addInput( type ) {
 
 	inputContainer.classList.add( 'element-container' )
 
-	inputContainer.appendChild( input )
 	inputContainer.appendChild( removeComponentButton() )
-	fieldset.insertBefore( input, buttonContainer )
+	inputContainer.appendChild( input )
+	fieldset.insertBefore( inputContainer, buttonContainer )
 	input.focus()
 
 
@@ -234,12 +233,14 @@ function removeComponentButton() {
 	<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 486.4 486.4'><path d='M446 70H344.8V53.5c0-29.5-24-53.5-53.5-53.5h-96.2c-29.5 0-53.5 24-53.5 53.5V70H40.4c-7.5 0-13.5 6-13.5 13.5S32.9 97 40.4 97h24.4v317.2c0 39.8 32.4 72.2 72.2 72.2h212.4c39.8 0 72.2-32.4 72.2-72.2V97H446c7.5 0 13.5-6 13.5-13.5S453.5 70 446 70zM168.6 53.5c0-14.6 11.9-26.5 26.5-26.5h96.2c14.6 0 26.5 11.9 26.5 26.5V70H168.6V53.5zm226 360.7c0 24.9-20.3 45.2-45.2 45.2H137c-24.9 0-45.2-20.3-45.2-45.2V97h302.9v317.2h-.1z'/><path d='M243.2 411c7.5 0 13.5-6 13.5-13.5V158.9c0-7.5-6-13.5-13.5-13.5s-13.5 6-13.5 13.5v238.5c0 7.5 6 13.6 13.5 13.6zM155.1 396.1c7.5 0 13.5-6 13.5-13.5V173.7c0-7.5-6-13.5-13.5-13.5s-13.5 6-13.5 13.5v208.9c0 7.5 6.1 13.5 13.5 13.5zM331.3 396.1c7.5 0 13.5-6 13.5-13.5V173.7c0-7.5-6-13.5-13.5-13.5s-13.5 6-13.5 13.5v208.9c0 7.5 6 13.5 13.5 13.5z'/></svg>
 	*/
 
-	const svgNS = 'http://www.w3.org/2000/svg',
+	const svgButton = document.createElement( 'button' ),
+		svgNS = 'http://www.w3.org/2000/svg',
 		svg = document.createElementNS( svgNS, 'svg' ),
 		path = document.createElementNS( svgNS, 'path' ),
 		stripes = document.createElementNS( svgNS, 'path' )
 
-	svg.classList.add( 'remove-element' )
+	svgButton.classList.add( 'remove-element' )
+
 	svg.setAttribute( 'viewBox', '0 0 486.4 486.4' )
 
 	path.setAttribute( 'd', 'M446 70H344.8V53.5c0-29.5-24-53.5-53.5-53.5h-96.2c-29.5 0-53.5 24-53.5 53.5V70H40.4c-7.5 0-13.5 6-13.5 13.5S32.9 97 40.4 97h24.4v317.2c0 39.8 32.4 72.2 72.2 72.2h212.4c39.8 0 72.2-32.4 72.2-72.2V97H446c7.5 0 13.5-6 13.5-13.5S453.5 70 446 70zM168.6 53.5c0-14.6 11.9-26.5 26.5-26.5h96.2c14.6 0 26.5 11.9 26.5 26.5V70H168.6V53.5zm226 360.7c0 24.9-20.3 45.2-45.2 45.2H137c-24.9 0-45.2-20.3-45.2-45.2V97h302.9v317.2h-.1z' )
@@ -248,9 +249,12 @@ function removeComponentButton() {
 	svg.appendChild( path )
 	svg.appendChild( stripes )
 
-	svg.addEventListener( 'click', removeComponent )
+	svgButton.textContent = 'Remove element'
+	svgButton.appendChild( svg )
 
-	return svg
+	svgButton.addEventListener( 'click', removeComponent )
+
+	return svgButton
 
 }
 
