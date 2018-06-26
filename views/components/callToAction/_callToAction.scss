@@ -9,6 +9,11 @@
 	a {
 		padding: 1.5rem 6rem;
 		font-size: 1.5rem;
+		background-color: $color-secondary;
+
+		&:hover {
+			background-color: #e64c4c;
+		}
 	}
 }
 
