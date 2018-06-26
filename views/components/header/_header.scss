@@ -1,0 +1,219 @@
+.header {
+	width: 100%;
+	min-height: 3em;
+	background: white;
+	box-shadow: 0 0 20px 0 lightgray;
+	position: absolute;
+	top: 0;
+	z-index: z('header');
+
+	h1 {
+		font-size: 1rem;
+		margin-right: auto;
+		margin-left: 1rem;
+		display: inline;
+	}
+
+	&--container {
+		min-height: 3em;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 1rem;
+		padding: 0 5%;
+		@include mq("xl") {
+			padding: 0 2rem;
+			padding: 0 10%;
+		}
+
+		img,
+		svg {
+			height: 2em;
+			z-index: z('icon');
+			position: relative;
+		}
+
+		button {
+			border: 1px solid black;
+			margin-left: auto;
+			padding: 0.25rem;
+			background: transparent;
+			font-size: 1.5em;
+			opacity: 0;
+			visibility: hidden;
+			cursor: pointer;
+			@include mq("medium") {
+				display: none;
+			}
+		}
+
+		> a {
+			position: relative;
+
+			&::after {
+				content: "";
+				position: absolute;
+				height: 2px;
+				background-color: $color-primary;
+				width: 200%;
+				left: 50%;
+				bottom: -0.2em;
+				z-index: 1;
+				transform: translateX(-50%) scaleX(0);
+				transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+			}
+
+			&[aria-current="page"]::after,
+			&:focus::after,
+			&:hover::after {
+				transform: translateX(-50%) scaleX(1);
+			}
+		}
+	}
+
+	.navigation {
+		// padding: 0 5%;
+		// @include mq("xl") {
+		// 	padding: 0 10%;
+		// }
+		@include mq("medium") {
+			flex-direction: row;
+			height: inherit;
+			// width: 100%;
+			top: 0;
+		}
+
+		ul {
+			display: flex;
+			height: 12rem;
+			flex-direction: column;
+			justify-content: space-around;
+			text-align: center;
+			background-color: white;
+			position: absolute;
+			top: 3rem;
+			left: 0;
+			width: 100%;
+			transform: scaleY(0);
+			@include mq("medium") {
+				justify-content: flex-end;
+				flex-direction: row;
+				height: inherit;
+				width: 100%;
+				position: initial;
+				top: 0;
+			}
+		}
+
+		li {
+			&:last-child {
+				padding-right: 0;
+			}
+			@include mq("medium") {
+				padding-right: 1rem;
+			}
+			@include mq("medium") {
+				padding-right: 2rem;
+			}
+		}
+
+		a {
+			text-decoration: none;
+			color: black;
+			font-size: 1rem;
+			position: relative;
+
+			&::after {
+				content: "";
+				position: absolute;
+				height: 2px;
+				background-color: $color-primary;
+				width: 100%;
+				left: 50%;
+				bottom: -0.2em;
+				transform: translateX(-50%) scaleX(0);
+				transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+			}
+
+			&[aria-current="page"]::after,
+			&:focus::after,
+			&:hover::after {
+				transform: translateX(-50%) scaleX(1);
+			}
+		}
+
+		.link--jouw-verhaal {
+			padding: 0.4rem 1rem;
+			color: $color-base;
+
+			&[aria-current="page"],
+			&:focus,
+			&:hover {
+				&::after {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+.header--container {
+	background: white;
+	position: relative;
+}
+
+.header--fixed {
+	position: fixed;
+	top: 0;
+}
+
+.overflow--hidden {
+	overflow: hidden;
+}
+
+.gradient {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background: black;
+	opacity: 0;
+	transition: 0.3s ease;
+	visibility: hidden;
+	@include mq("medium") {
+		display: none;
+	}
+}
+
+.gradient--show {
+	opacity: 0.7;
+	visibility: visible;
+}
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+
+	99% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+main {
+	margin-top: 15rem;
+	@include mq('medium') {
+		margin-top: 3rem;
+	}
+}
+
+.no-js {
+	.header {
+		ul {
+			transform: scaleY(1);
+		}
+	}
+}
