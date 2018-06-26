@@ -11,7 +11,10 @@
 	</script>
 
 	<style>
-	<%- toInject %>
+	<% if (locals.toInject) { %>
+		<%- toInject %>
+	<% } %>
+	
 	</style>
 	<link rel="preload" href="/styles/index.css" as="style" onload="this.rel='stylesheet'">
 	<noscript><link rel="stylesheet" href="/styles/index.css" ></noscript>
