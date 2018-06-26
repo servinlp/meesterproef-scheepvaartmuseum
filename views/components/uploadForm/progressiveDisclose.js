@@ -8,8 +8,6 @@ function progressiveDiscloseForm() {
 	// Progressive enhancement
 	const finishStoryButton = document.querySelector( '[data-finish="story"]' )
 	finishStoryButton.style = 'display: block;'
-	// Hides form elements
-	TweenMax.set( [ parts, '.upload-form__story', '.upload-form__finalize' ], { autoAlpha: 0 } )
 	// Show first form element
 	TweenMax.set( parts[0], { autoAlpha: 1 } )
 

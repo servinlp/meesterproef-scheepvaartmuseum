@@ -49,7 +49,9 @@ function animateOnIntersect() {
 	} )
 
 	function preloadContent( content ) {
-		TweenMax.to( content, .6, { autoAlpha: 1, y: 0, clearProps: 'all', ease: Power1.easeOut }, .25 )
+		TweenMax.to( content, .6, { autoAlpha: 1, y: 0, clearProps: 'all', ease: Power1.easeOut, onComplete() {
+			content.classList.add( 'show' )
+		} }, .25 )
 	}
 }
 
