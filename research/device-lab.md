@@ -1,6 +1,6 @@
 ## Inhoudsopgave
 
-- [Research](#research)
+- [Onderzoek](#onderzoek)
 - [Nokia Lumia 620](#nokia-lumia-620)
 - [Windows Surface Pad](#windows-surface-pad)
 - [Nexus 5](#nexus-5)
@@ -29,9 +29,9 @@ Resultaten zijn verschillend per device, de meest belangrijke zijn hieronder ged
 
 Geen javascript            |  samen geperste afbeeldingen
 :-------------------------:|:-------------------------:
-![](/Users/jamie/Documents/Projects/scheepvaart-museum/device-lab/IMG_5690.jpg)  |  ![](/Users/jamie/Documents/Projects/scheepvaart-museum/device-lab/IMG_5691.jpg)
+![](https://raw.githubusercontent.com/moniac/meesterproef-scheepvaartmuseum/research/device-lab/research/images/IMG_5690.jpg)  |  ![](https://raw.githubusercontent.com/moniac/meesterproef-scheepvaartmuseum/research/device-lab/research/images/IMG_5691.jpg)
 deel verhaal margins            |  Menu over content |
-![](/Users/jamie/Documents/Projects/scheepvaart-museum/device-lab/IMG_5692.jpg)  |  ![](/Users/jamie/Documents/Projects/scheepvaart-museum/device-lab/IMG_5693.jpg)
+![](https://raw.githubusercontent.com/moniac/meesterproef-scheepvaartmuseum/research/device-lab/research/images/IMG_5692.jpg)  |  ![](https://raw.githubusercontent.com/moniac/meesterproef-scheepvaartmuseum/research/device-lab/research/images/IMG_5693.jpg)
 
 
 ## Windows Surface Pad
@@ -50,9 +50,9 @@ deel verhaal margins            |  Menu over content |
 
 Niet werkende kaart |  content over elkaar
 :-------------------------:|:-------------------------:
-![](/Users/jamie/Documents/Projects/scheepvaart-museum/device-lab/IMG_5694.jpg)  |  ![](/Users/jamie/Documents/Projects/scheepvaart-museum/device-lab/IMG_5695.jpg)
+![](https://raw.githubusercontent.com/moniac/meesterproef-scheepvaartmuseum/research/device-lab/research/images/IMG_5694.jpg)  |  ![](https://raw.githubusercontent.com/moniac/meesterproef-scheepvaartmuseum/research/device-lab/research/images/IMG_5695.jpg)
 Rare uitlijning boot            |  "call to action" volledige breedte |
-![](/Users/jamie/Documents/Projects/scheepvaart-museum/device-lab/IMG_5696.jpg)  |  ![](/Users/jamie/Documents/Projects/scheepvaart-museum/device-lab/IMG_5698.jpg)
+![](https://raw.githubusercontent.com/moniac/meesterproef-scheepvaartmuseum/research/device-lab/research/images/IMG_5696.jpg)  |  ![](https://raw.githubusercontent.com/moniac/meesterproef-scheepvaartmuseum/research/device-lab/research/images/IMG_5698.jpg)
 
 
 ## Nexus 5
@@ -78,13 +78,13 @@ Rare uitlijning boot            |  "call to action" volledige breedte |
 
 Kaart            |  "call to action" full screen
 :-------------------------:|:-------------------------:
-![](/Users/jamie/Documents/Projects/scheepvaart-museum/device-lab/IMG_5677.jpg)  |  ![](/Users/jamie/Documents/Projects/scheepvaart-museum/device-lab/IMG_5679.jpg)
+![](https://raw.githubusercontent.com/moniac/meesterproef-scheepvaartmuseum/research/device-lab/research/images/IMG_5677.jpg)  |  ![](https://raw.githubusercontent.com/moniac/meesterproef-scheepvaartmuseum/research/device-lab/research/images/IMG_5679.jpg)
 Header            |  Margin |
-![](/Users/jamie/Documents/Projects/scheepvaart-museum/device-lab/IMG_5681.jpg)  |  ![](/Users/jamie/Documents/Projects/scheepvaart-museum/device-lab/IMG_5680.jpg)
+![](https://raw.githubusercontent.com/moniac/meesterproef-scheepvaartmuseum/research/device-lab/research/images/IMG_5681.jpg)  |  ![](https://raw.githubusercontent.com/moniac/meesterproef-scheepvaartmuseum/research/device-lab/research/images/IMG_5680.jpg)
 Detail page            |  Hamburger menu |
-![](/Users/jamie/Documents/Projects/scheepvaart-museum/device-lab/IMG_5682.jpg)  |  ![](/Users/jamie/Documents/Projects/scheepvaart-museum/device-lab/IMG_5683.jpg)
+![](https://raw.githubusercontent.com/moniac/meesterproef-scheepvaartmuseum/research/device-lab/research/images/IMG_5682.jpg)  |  ![](https://raw.githubusercontent.com/moniac/meesterproef-scheepvaartmuseum/research/device-lab/research/images/IMG_5683.jpg)
 Footer            |  deel je verhaal |
-![](/Users/jamie/Documents/Projects/scheepvaart-museum/device-lab/IMG_5684.jpg)  |  ![](/Users/jamie/Documents/Projects/scheepvaart-museum/device-lab/IMG_5685.jpg)
+![](https://raw.githubusercontent.com/moniac/meesterproef-scheepvaartmuseum/research/device-lab/research/images/IMG_5684.jpg)  |  ![](https://raw.githubusercontent.com/moniac/meesterproef-scheepvaartmuseum/research/device-lab/research/images/IMG_5685.jpg)
 
 
 ## Revolution Phone
@@ -103,6 +103,6 @@ Footer            |  deel je verhaal |
 
 Kaart zonder Javascript |  Landscape kaart zonder Javascript
 :-------------------------:|:-------------------------:
-![](/Users/jamie/Documents/Projects/scheepvaart-museum/device-lab/IMG_5686.jpg)  |  ![](/Users/jamie/Documents/Projects/scheepvaart-museum/device-lab/IMG_5687.jpg)
+![](https://raw.githubusercontent.com/moniac/meesterproef-scheepvaartmuseum/research/device-lab/research/images/IMG_5686.jpg)  |  ![](https://raw.githubusercontent.com/moniac/meesterproef-scheepvaartmuseum/research/device-lab/research/images/IMG_5687.jpg)
 Menu over content            |  Uitlijning van tekst binnen knoppen |
-![](/Users/jamie/Documents/Projects/scheepvaart-museum/device-lab/IMG_5688.jpg)  |  ![](/Users/jamie/Documents/Projects/scheepvaart-museum/device-lab/IMG_5689.jpg)
+![](https://raw.githubusercontent.com/moniac/meesterproef-scheepvaartmuseum/research/device-lab/research/images/IMG_5688.jpg)  |  ![](https://raw.githubusercontent.com/moniac/meesterproef-scheepvaartmuseum/research/device-lab/research/images/IMG_5689.jpg)
