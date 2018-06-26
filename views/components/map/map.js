@@ -28,7 +28,7 @@ function setUpMap() {
 
 	// Sets the boat on the middle of the route line
 	TweenMax.set( '[href="#boat"]', { xPercent: -50, yPercent: -50 } )
-	TweenMax.set( playButton, {autoAlpha: 0} )
+	// TweenMax.set( playButton, {autoAlpha: 0} )
 
 	function pauseAnimation( ) {
 		boatTl.pause()
