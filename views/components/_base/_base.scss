@@ -146,6 +146,7 @@ html:not( .no-js ) .hide-when-js {
 	height: 100%;
 }
 
+.offline,
 .fourofour {
 	h1 svg {
 		width: 6rem;
@@ -156,6 +157,10 @@ html:not( .no-js ) .hide-when-js {
 	.button--primary {
 		display: inline-block;
 	}
+}
+
+.offline h1 {
+	font-size: 6rem;
 }
 
 ::-webkit-scrollbar {
