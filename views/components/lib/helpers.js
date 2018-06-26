@@ -26,6 +26,7 @@ const optimizedResize = () => {
 }
 
 function animateOnIntersect() {
+	if ( !window.IntersectionObserver ) return
 	const elements = document.querySelectorAll( '[data-intersect]' )
 	
 	TweenMax.set( elements, { autoAlpha: .25, y: 100 } )
@@ -49,10 +50,11 @@ function animateOnIntersect() {
 	} )
 
 	function preloadContent( content ) {
-		TweenMax.to( content, .6, { autoAlpha: 1, y: 0, clearProps: 'all', ease: Power1.easeOut }, .25 )
+		TweenMax.to( content, .6, { autoAlpha: 1, y: 0, clearProps: 'all', ease: Power1.easeOut, onComplete() {
+			content.classList.add( 'show' )
+		} }, .25 )
 	}
 }
-
 
 export {
 	capitalizeFirstLetter,

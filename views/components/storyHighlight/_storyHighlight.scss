@@ -7,6 +7,7 @@
 	height: 20rem;
 	@include mq("medium") {
 		flex-direction: row;
+		height: 25rem;
 	}
 	@include mq("large") {
 		height: 30rem;
@@ -40,7 +41,10 @@
 			color: $color-base;
 			margin-bottom: 1rem;
 			@include mq("medium") {
-				font-size: 3.5rem;
+				font-size: 3rem;
+			}
+			@include mq("large") {
+				font-size: 4rem;
 			}
 			@include mq("xl") {
 				font-size: 5rem;

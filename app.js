@@ -19,15 +19,16 @@ const express = require( 'express' ),
 	app = express(),
 	PORT = ENV.NODE_ENV === 'production' ? ENV.PORT : ENV.DEV_PORT
 
-const CSS_FILE = './public/styles/critical.css'
-fs.readFile( CSS_FILE, 'utf8', ( err,data ) => {
-	if ( err ) {
-		return console.log( err )
-	}
-	if ( data ) {
-		app.locals.toInject = data
-	}
-} )
+
+// const CSS_FILE = './public/styles/critical.css'
+// fs.readFile( CSS_FILE, 'utf8', ( err,data ) => {
+// 	if ( err ) {
+// 		return console.log( err )
+// 	}
+// 	if ( data ) {
+// 		app.locals.toInject = data
+// 	}
+// } )
 
 
 app.use( compression() )
@@ -64,6 +65,12 @@ app.use( '/story-upload', storyUploadRoute )
 app.use( '/story-overview', storyOverviewRoute )
 
 app.use( '/api/v1', apiRoute )
+
+app.get( '/offline', ( req, res ) => {
+
+	res.render( 'offline' )
+
+} )
 
 app.use( '*', fourOFourRoute )
 

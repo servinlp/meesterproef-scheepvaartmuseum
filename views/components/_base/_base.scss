@@ -81,8 +81,11 @@ main {
 }
 
 .title__underline--red {
-	text-align: center;
-	margin: 6rem 0 2rem 0;
+	text-align: initial;
+	margin: 3rem 0 2rem 0;
+	@include mq('medium') {
+		text-align: center;
+	}
 
 	> .underline-red {
 		display: inline-block;
@@ -143,6 +146,7 @@ html:not( .no-js ) .hide-when-js {
 	height: 100%;
 }
 
+.offline,
 .fourofour {
 	h1 svg {
 		width: 6rem;
@@ -153,6 +157,10 @@ html:not( .no-js ) .hide-when-js {
 	.button--primary {
 		display: inline-block;
 	}
+}
+
+.offline h1 {
+	font-size: 6rem;
 }
 
 ::-webkit-scrollbar {

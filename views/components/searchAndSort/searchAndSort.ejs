@@ -14,15 +14,34 @@
 		--><fieldset class="stories__sort">
 			<label for="sort">Sorteer op</label>
 			<select name="sort" id="sort">
-				<option value="oudste" selected>Oudste</option>
-				<option value="nieuwste">Nieuwste</option>
+				<option value="nieuwste"
+					<% if ( !locals.sortTerm || sortTerm === 'nieuwste' ) { %>
+						selected
+					<% } %>
+				>Nieuwste</option>
+				<option value="oudste"
+					<% if ( locals.sortTerm && sortTerm === 'oudste' ) { %>
+						selected
+					<% } %>
+				>Oudste</option>
 			</select>
 			<button class="button--primary" type="submit">Sorteren</button>
 		</fieldset>
+		<% if ( locals.tag ) { %>
+			<fieldset class="hidden-fieldset">
+				<input type="text" name="tag" value="<%= tag %>">
+			</fieldset>
+		<% } %>
 	</form>
 </section>
-<% if(locals.searchTerm !== undefined && locals.sortTerm === undefined) {%>
-<p class="stories__search--result" id="searchResult"><span id="number-result">...</span> verhalen gebaseerd op de zoekterm: <span id="search-word" class="underline-red"> <%= searchTerm %> </span> </p>
-<% } else if (locals.searchTerm !== undefined && locals.sortTerm !== undefined) {%>
-<p class="stories__search--result" id="searchResult"><span id="number-result">...</span> verhalen gebaseerd op de zoekterm: <span id="search-word" class="underline-red"> <%= searchTerm %> </span> en gesorteerd op: <span id="search-word" class="underline-red"> <%= sortTerm %> </span>  </p>
-<% } else {}%>
+<% if ( locals.searchTerm && locals.sortTerm && locals.tag ) {%>
+	<p class="stories__search--result" id="searchResult"><span id="number-result">...</span> verhalen gebaseerd op de zoekterm: <span id="search-word" class="underline-red"> <%= searchTerm %> </span> gesorteerd op: <span id="search-word" class="underline-red"> <%= sortTerm %> </span> met de tag: <span id="search-word" class="underline-red"> <%= tag %> </span>  </p>
+<% } else if ( locals.searchTerm && locals.sortTerm ) {%>
+	<p class="stories__search--result" id="searchResult"><span id="number-result">...</span> verhalen gebaseerd op de zoekterm: <span id="search-word" class="underline-red"> <%= searchTerm %> </span> en gesorteerd op: <span id="search-word" class="underline-red"> <%= sortTerm %> </span>  </p>
+<% } else if( locals.searchTerm ) {%>
+	<p class="stories__search--result" id="searchResult"><span id="number-result">...</span> verhalen gebaseerd op de zoekterm: <span id="search-word" class="underline-red"> <%= searchTerm %> </span> </p>
+<% } else if ( locals.sortTerm && locals.tag ) { %>
+	<p class="stories__search--result" id="searchResult"><span id="number-result">...</span> verhalen gesorteerd op: <span id="search-word" class="underline-red"> <%= sortTerm %> </span> met de tag: <span id="search-word" class="underline-red"> <%= tag %> </span>  </p>
+<% } else if ( locals.tag ) { %>
+	<p class="stories__search--result" id="searchResult"><span id="number-result">...</span> verhalen gebaseerd op de tag: <span id="search-word" class="underline-red"> <%= tag %> </span>  </p>
+<% } %>

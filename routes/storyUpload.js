@@ -66,7 +66,7 @@ async function uploadToDb( data, dataFiles, res ) {
 				title: data.title,
 				email: data.email,
 				phone: data.phone,
-				tags: tagIDS,
+				tags: tagIDS.length > 0 ? tagIDS : null,
 				location: locationID,
 				timestamp: moment.now(),
 				storyTime: data.time,

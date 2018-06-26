@@ -2,12 +2,15 @@
 	width: 100%;
 
 	&__title {
-		margin-bottom: 1rem;
 		padding: 5% 5%;
-		text-align: center;
+		text-align: initial;
 		font-size: 7vw;
+		@include mq('medium') {
+			padding: 2% 10%;
+			text-align: center;
+		}
 		@include mq('xl') {
-			padding: 5% 10%;
+			padding: 2% 10%;
 		}
 
 		&--sub {
@@ -22,6 +25,17 @@
 		}
 	}
 
+	&__intro {
+		font-size: 1rem;
+		padding: 0% 5%;
+		max-width: 60rem;
+		margin: auto;
+		@include mq('medium') {
+			font-size: 1.3rem;
+			line-height: 1.6rem;
+		}
+	}
+
 	&__svg {
 		transform: scale(1);
 		transform-origin: top left;
@@ -30,22 +44,45 @@
 		display: block;
 		margin: 0 auto;
 		background-color: $colorBlue;
+		@include mq('small') {
+			max-height: 40vh;
+		}
+		@include mq('medium') {
+			max-height: 50vh;
+		}
 
 		// All route groups that contain 19 in the id
-		g[id^="year19"] g path {
+		g[id^="year19"] g [class*="path"] {
 			stroke-width: 0.25rem;
 			stroke-dasharray: 20, 5;
 			stroke: white;
 		}
 
-		.anchor {
-			width: 1.5rem;
-			height: 1.5rem;
+		text {
+			stroke: none;
+			transform: translate(-4rem, -0.4rem);
+			font-size: 16px;
+			fill: white;
+			text-shadow: 2px 2px 8px #000, 2px 2px 8px #000, 2px 2px 8px #000, 2px 2px 8px #000;
+			line-height: 1.05;
 
-			path {
-				position: relative;
-				z-index: 10000;
-				fill: orange !important;
+			&#Southampton {
+				transform: translate(-4.7rem, -0.4rem);
+			}
+
+			&.Amsterdam-left,
+			&.Batavia-left {
+				transform: translate(-1.75rem, -0.4rem);
+			}
+
+			&.Amsterdam-right,
+			&.Batavia-right {
+				transform: translate(1.75rem, -0.4rem);
+			}
+
+			&.Amsterdam,
+			&.Batavia {
+				transform: translate(0.25rem, -0.4rem);
 			}
 		}
 
@@ -108,14 +145,11 @@
 			font-weight: 600;
 		}
 
-		&[data-state="active"],
-		&:hover {
+		&[data-state="active"] button,
+		button:focus,
+		button:hover {
 			transform: scale(1.5);
 			background-color: $colorDarkBlue;
-
-			button {
-				background-color: $colorDarkBlue;
-			}
 		}
 
 		button {
@@ -129,12 +163,9 @@
 			color: $colorWhite;
 			outline-color: $colorWhite;
 			cursor: pointer;
-
-			&:focus {
-				button {
-					background-color: $colorDarkBlue;
-				}
-			}
+			transition-property: transform, margin, background-color;
+			transition-timing-function: ease-out;
+			transition-duration: 150ms;
 		}
 	}
 }
@@ -152,8 +183,14 @@
 	cursor: pointer;
 	transition: transform 150ms ease-out;
 
+	&:focus,
 	&:hover {
 		transform: scale(1.05);
+	}
+
+	&.play-button {
+		opacity: 0;
+		visibility: hidden;
 	}
 }
 
@@ -179,5 +216,15 @@
 		background: $colorDarkBlue;
 		border-radius: 1rem;
 		height: 0.65em;
+	}
+}
+
+.no-js {
+	.map__svg--container {
+		overflow: hidden;
+	}
+
+	#worldMapAnimation {
+		transform: translateX(-40%) scale(2);
 	}
 }

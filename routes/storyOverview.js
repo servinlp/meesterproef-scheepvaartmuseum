@@ -9,57 +9,110 @@ router.get( '/', async ( req, res ) => {
 
 	try {
 
+		const { sortTerm, searchTerm, tag } = req.query
 		let pageIndex = 1
 
-		if ( req.query.index )
-			pageIndex = parseInt( req.query.index )
+		if ( req.query.index ) {
 
-		let query
+			pageIndex = parseInt( req.query.index )
+		
+		}
+
+		let query, tagID
+
+		if ( tag ) {
+
+			tagID = ( await pool.query( 'SELECT ID FROM tags WHERE name = ?', tag ) )[ 0 ].ID
+
+			res.locals.tag = tag
+
+		}
+
+		// Both
+		if ( sortTerm && searchTerm ) {
+
+			res.locals.searchTerm = searchTerm
+			res.locals.sortTerm = sortTerm
+			
+			let sortBy
+			switch (sortTerm) {
+				case 'oudste':
+					sortBy = `ASC`
+					break
+				case 'nieuwste':
+					sortBy = `DESC`
+					break
+			
+				default:
+					break
+			}
+
+			if ( tagID ) {
+
+				query = pool.query( 'SELECT ID, title, components FROM stories WHERE title LIKE ? AND tags LIKE ? ORDER BY title ' + sortBy + ' LIMIT ?, ?', [ `%${ searchTerm }%`, `%${ tagID }%`, ( pageIndex - 1 ) * limitPerPage, limitPerPage ] )
+
+			} else {
+
+				query = pool.query( 'SELECT ID, title, components FROM stories WHERE title LIKE ? ORDER BY title ' + sortBy + ' LIMIT ?, ?', [ `%${ searchTerm }%`, ( pageIndex - 1 ) * limitPerPage, limitPerPage ] )
+
+			}
+
+		}
 		// Only search
-		if ( req.query.searchTerm !== undefined && req.query.sortTerm === undefined ) {
-			res.locals.searchTerm = req.query.searchTerm
-			query = pool.query( 'SELECT ID, title, components FROM stories WHERE title LIKE ? LIMIT ?, ?', [ `%${ req.query.searchTerm }%`, ( pageIndex - 1 ) * limitPerPage, limitPerPage ] )
+		else if ( searchTerm ) {
+
+			res.locals.searchTerm = searchTerm
+
+			if ( tagID ) {
+
+				query = pool.query( 'SELECT ID, title, components FROM stories WHERE title LIKE ? AND tags LIKE ? ORDER BY ID DESC LIMIT ?, ?', [ `%${ searchTerm }%`, `%${ tagID }%`, ( pageIndex - 1 ) * limitPerPage, limitPerPage ] )
+
+			} else {
+
+				query = pool.query( 'SELECT ID, title, components FROM stories WHERE title LIKE ? ORDER BY ID DESC LIMIT ?, ?', [ `%${ searchTerm }%`, ( pageIndex - 1 ) * limitPerPage, limitPerPage ] )
+
+			}
 		
 		} 
 		// Only sort
-		else if ( req.query.sortTerm !== undefined && req.query.searchTerm === undefined ) {
-			res.locals.sortTerm = req.query.sortTerm
+		else if ( sortTerm ) {
+
+			res.locals.sortTerm = sortTerm
 			let sortBy
-			switch (req.query.sortTerm) {
+			switch (sortTerm) {
 				case 'oudste':
-					sortBy = `DESC`
-					break
-				case 'nieuwste':
 					sortBy = `ASC`
 					break
-			
-				default:
-					break
-			}
-			query = pool.query( 'SELECT ID, title, components FROM stories ORDER BY title ' + sortBy + ' LIMIT ?, ?', [ ( pageIndex - 1 ) * limitPerPage, limitPerPage ] )
-		} 
-		// Both
-		else if (req.query.sortTerm !== undefined && req.query.searchTerm !== undefined) {
-			res.locals.searchTerm = req.query.searchTerm
-			res.locals.sortTerm = req.query.sortTerm
-			
-			let sortBy
-			switch (req.query.sortTerm) {
-				case 'oudste':
-					sortBy = `DESC`
-					break
 				case 'nieuwste':
-					sortBy = `ASC`
+					sortBy = `DESC`
 					break
 			
 				default:
 					break
 			}
 
-			query = pool.query( 'SELECT ID, title, components FROM stories WHERE title LIKE ? ORDER BY title ' + sortBy + ' LIMIT ?, ?', [ `%${ req.query.searchTerm }%`, ( pageIndex - 1 ) * limitPerPage, limitPerPage ] )
-		}
-		else {
-			query = pool.query( 'SELECT ID, title, components FROM stories LIMIT ?, ?', [ ( pageIndex - 1 ) * limitPerPage, limitPerPage ] )
+			if ( tagID ) {
+
+				query = pool.query( 'SELECT ID, title, components FROM stories WHERE tags LIKE ? ORDER BY ID ' + sortBy + ' LIMIT ?, ?', [ `%${ tagID }%`, ( pageIndex - 1 ) * limitPerPage, limitPerPage ] )
+
+			} else {
+
+				query = pool.query( 'SELECT ID, title, components FROM stories ORDER BY ID ' + sortBy + ' LIMIT ?, ?', [ ( pageIndex - 1 ) * limitPerPage, limitPerPage ] )
+
+			}
+
+		} else {
+
+			if ( tagID ) {
+
+				query = pool.query( 'SELECT ID, title, components FROM stories WHERE tags LIKE ? ORDER BY ID DESC LIMIT ?, ?', [ `%${ tagID }%`, ( pageIndex - 1 ) * limitPerPage, limitPerPage ] )
+
+			} else {
+				
+				query = pool.query( 'SELECT ID, title, components FROM stories ORDER BY ID DESC LIMIT ?, ?', [ ( pageIndex - 1 ) * limitPerPage, limitPerPage ] )
+
+			}
+
 		}
 
 		const [ numberOfStories, AllStories ] = await Promise.all( [
@@ -89,82 +142,60 @@ router.get( '/', async ( req, res ) => {
 
 router.post('/search', async (req, res) => {
 
-	try {
-		const sort = req.body.sort
-		const search = req.body.search
+	const { sort, search, tag } = req.body
 
-		let pageIndex = 1
+	let URL = '/story-overview'
 
-		// if ( req.query.index ) pageIndex = parseInt( req.query.index )
-		let query
-		// if just search
-		if (search !== undefined && sort === undefined) {
-			query = pool.query( 'SELECT ID, title, components FROM stories WHERE title LIKE ? LIMIT ?, ?', [ `%${ search }%`, ( pageIndex - 1 ) * limitPerPage, limitPerPage ] )
-		}
-		// If just sort
-		else if( sort !== undefined && search === undefined ) {
-			let sortBy
-			switch (sort) {
-				case 'oudste':
-					sortBy = `DESC`
-					break
-				case 'nieuwste':
-					sortBy = `ASC`
-					break
-			
-				default:
-					break
-			}
+	if ( sort ) {
 
-			query = pool.query( 'SELECT ID, title, components FROM stories ORDER BY title ' + sortBy + ' LIMIT ?, ?', [ ( pageIndex - 1 ) * limitPerPage, limitPerPage ] )
-		}
-		// If both
-		else if (search !== undefined && sort !== undefined) {
+		if ( !URL.includes( '?' ) ) {
+
+			URL += '?'
 			
-			let sortBy
-			switch (sort) {
-				case 'oudste':
-					sortBy = `DESC`
-					break
-				case 'nieuwste':
-					sortBy = `ASC`
-					break
+		} else {
 			
-				default:
-					break
-			}
-			
-			query = pool.query( 'SELECT ID, title, components FROM stories WHERE title LIKE ? ORDER BY title ' + sortBy + ' LIMIT ?, ?', [ `%${ search }%`, ( pageIndex - 1 ) * limitPerPage, limitPerPage ] )
+			URL += '&'
 
 		}
 
-		const [ numberOfStories, AllStories ] = await Promise.all( [
-				pool.query( 'SELECT ID FROM stories' ),
-				query
-			] )
-
-		req.query = search
-		
-		const storiesWithContent = await getThumbnailContent( AllStories )
-		res.render( 'storyOverview', {
-			searchTerm: search,
-			sortTerm: sort,
-			pageIndex,
-			numOfPages: Math.ceil( numberOfStories.length / limitPerPage ),
-			content: storiesWithContent,
-			path: '/story-overview/search'
-		} )
-
-	} catch ( error ) {
-
-		console.error( error )
-		res.render( 'storyOverview', {
-			content: [],
-			path: '/story-overview'
-		} )
+		URL += `sortTerm=${ sort }`
 
 	}
 
-})
+	if ( search ) {
+
+		if ( !URL.includes( '?' ) ) {
+
+			URL += '?'
+			
+		} else {
+			
+			URL += '&'
+
+		}
+
+		URL += `searchTerm=${ search }`
+
+	}
+
+	if ( tag ) {
+
+		if ( !URL.includes( '?' ) ) {
+
+			URL += '?'
+			
+		} else {
+			
+			URL += '&'
+
+		}
+
+		URL += `tag=${ tag }`
+
+	}
+
+	res.redirect( URL )
+
+} )
 
 module.exports = router
