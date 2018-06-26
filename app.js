@@ -66,6 +66,12 @@ app.use( '/story-overview', storyOverviewRoute )
 
 app.use( '/api/v1', apiRoute )
 
+app.get( '/offline', ( req, res ) => {
+
+	res.render( 'offline' )
+
+} )
+
 app.use( '*', fourOFourRoute )
 
 app.listen( PORT, () => {
