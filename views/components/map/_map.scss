@@ -32,20 +32,37 @@
 		background-color: $colorBlue;
 
 		// All route groups that contain 19 in the id
-		g[id^="year19"] g path {
+		g[id^="year19"] g [class*="path"] {
 			stroke-width: 0.25rem;
 			stroke-dasharray: 20, 5;
 			stroke: white;
 		}
 
-		.anchor {
-			width: 1.5rem;
-			height: 1.5rem;
+		text {
+			stroke: none;
+			transform: translate(-4rem, -0.4rem);
+			font-size: 16px;
+			fill: white;
+			text-shadow: 2px 2px 8px #000, 2px 2px 8px #000, 2px 2px 8px #000, 2px 2px 8px #000;
+			line-height: 1.05;
 
-			path {
-				position: relative;
-				z-index: 10000;
-				fill: orange !important;
+			&#Southampton {
+				transform: translate(-4.7rem, -0.4rem);
+			}
+
+			&.Amsterdam-left,
+			&.Batavia-left {
+				transform: translate(-1.75rem, -0.4rem);
+			}
+
+			&.Amsterdam-right,
+			&.Batavia-right {
+				transform: translate(1.75rem, -0.4rem);
+			}
+
+			&.Amsterdam,
+			&.Batavia {
+				transform: translate(0.25rem, -0.4rem);
 			}
 		}
 
