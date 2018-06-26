@@ -174,6 +174,7 @@ function addInput( type ) {
 	switch( type ) {
 		case 'subtitle':
 			input.setAttribute( 'placeholder', '(Optioneel) Subtitel' )
+			input.classList.add( 'subtitle' )
 			break
 		case 'videolink':
 			input.setAttribute( 'placeholder', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' )
@@ -191,7 +192,6 @@ function addInput( type ) {
 	TweenMax.to( inputContainer, .4, {autoAlpha: 1, y: 0, clearProps: 'all' } )
 
 	input.focus()
-
 
 	function videoPreview() {
 		const iframeLink = input.value
