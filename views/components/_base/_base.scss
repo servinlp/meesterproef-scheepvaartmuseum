@@ -81,8 +81,11 @@ main {
 }
 
 .title__underline--red {
-	text-align: center;
-	margin: 6rem 0 2rem 0;
+	text-align: initial;
+	margin: 3rem 0 2rem 0;
+	@include mq('medium') {
+		text-align: center;
+	}
 
 	> .underline-red {
 		display: inline-block;
