@@ -5,6 +5,7 @@ import toggleToolButton from './components/storyAddItemButton/storyAddItemButton
 import autocompleteFromApiInit from './components/lib/autocomplete.js'
 import colorThief from './components/storyHighlight/storyHighlight.js'
 import initReportComponent from './components/reportComponent/reportComponent.js'
+import removeStoryInit from './components/adminStory/adminStory.js'
 import { selectComponents } from './components/enhancedDetail/enhancedDetail.js'
 import {optimizedResize, animateOnIntersect} from './components/lib/helpers.js'
 
@@ -22,4 +23,5 @@ import {optimizedResize, animateOnIntersect} from './components/lib/helpers.js'
 	autocompleteFromApiInit()
 	colorThief()
 	initReportComponent()
+	removeStoryInit()
 } )()

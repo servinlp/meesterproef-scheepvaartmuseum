@@ -5,25 +5,29 @@
 
 		<% story.content.forEach( function( el ) { %>
 
-			<% if ( el.type === 'title/h2' ) { %>
+			<% if ( el && el.type ) { %>
 
-				<%- include( './components/detailContentContainers/contentTitle.ejs', { title: el.text } ) %>
+				<% if ( el.type === 'title/h2' ) { %>
 
-			<% } else if ( el.type === 'text' ) { %>
+					<%- include( './components/detailContentContainers/contentTitle.ejs', { title: el.text } ) %>
 
-				<%- include( './components/detailContentContainers/contentParagraph.ejs', { text: el.text } ) %>
+				<% } else if ( el.type === 'text' ) { %>
 
-			<% } else if ( el.type === 'videolink/youtube' ) { %>
+					<%- include( './components/detailContentContainers/contentParagraph.ejs', { text: el.text } ) %>
 
-				<%- include( './components/detailContentContainers/contentVideoYoutube.ejs', { ID: el.text } ) %>
+				<% } else if ( el.type === 'videolink/youtube' ) { %>
 
-			<% } else if ( el.type === 'image/jpeg' || el.type === 'image/jpg' || el.type === 'image/png' || el.type === 'image/gif' ) { %>
+					<%- include( './components/detailContentContainers/contentVideoYoutube.ejs', { ID: el.text } ) %>
 
-				<%- include( './components/detailContentContainers/contentImage.ejs', { image: el.link } ) %>
+				<% } else if ( el.type === 'image/jpeg' || el.type === 'image/jpg' || el.type === 'image/png' || el.type === 'image/gif' ) { %>
 
-			<% } else if ( el.type === 'audio/mpeg' || el.type === 'audio/x-wav' ) { %>
+					<%- include( './components/detailContentContainers/contentImage.ejs', { image: el.link } ) %>
 
-				<%- include( './components/detailContentContainers/contentAudio.ejs', { audio: el.link, type: el.type } ) %>
+				<% } else if ( el.type === 'audio/mpeg' || el.type === 'audio/x-wav' ) { %>
+
+					<%- include( './components/detailContentContainers/contentAudio.ejs', { audio: el.link, type: el.type } ) %>
+
+				<% } %>
 
 			<% } %>
 
