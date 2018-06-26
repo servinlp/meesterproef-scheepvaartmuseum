@@ -1,5 +1,5 @@
 import header from './components/header/header.js'
-import uploadForm from './components/uploadForm/uploadForm.js'
+import {uploadForm, disableAllInputs} from './components/uploadForm/uploadForm.js'
 import setUpMap from './components/map/map.js'
 import toggleToolButton from './components/storyAddItemButton/storyAddItemButton.js'
 import autocompleteFromApiInit from './components/lib/autocomplete.js'
@@ -18,6 +18,7 @@ import {optimizedResize, animateOnIntersect} from './components/lib/helpers.js'
 	selectComponents()
 	header()
 	uploadForm()
+	disableAllInputs()
 	toggleToolButton()
 	optimizedResize()
 	autocompleteFromApiInit()
