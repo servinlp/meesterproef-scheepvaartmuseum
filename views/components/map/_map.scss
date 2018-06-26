@@ -108,14 +108,11 @@
 			font-weight: 600;
 		}
 
-		&[data-state="active"],
-		&:hover {
+		&[data-state="active"] button,
+		button:focus,
+		button:hover {
 			transform: scale(1.5);
 			background-color: $colorDarkBlue;
-
-			button {
-				background-color: $colorDarkBlue;
-			}
 		}
 
 		button {
@@ -129,12 +126,9 @@
 			color: $colorWhite;
 			outline-color: $colorWhite;
 			cursor: pointer;
-
-			&:focus {
-				button {
-					background-color: $colorDarkBlue;
-				}
-			}
+			transition-property: transform, margin, background-color;
+			transition-timing-function: ease-out;
+			transition-duration: 150ms;
 		}
 	}
 }
@@ -152,8 +146,14 @@
 	cursor: pointer;
 	transition: transform 150ms ease-out;
 
+	&:focus,
 	&:hover {
 		transform: scale(1.05);
+	}
+
+	&.play-button {
+		opacity: 0;
+		visibility: hidden;
 	}
 }
 
@@ -179,5 +179,15 @@
 		background: $colorDarkBlue;
 		border-radius: 1rem;
 		height: 0.65em;
+	}
+}
+
+.no-js {
+	.map__svg--container {
+		overflow: hidden;
+	}
+
+	#worldMapAnimation {
+		transform: translateX(-40%) scale(2);
 	}
 }

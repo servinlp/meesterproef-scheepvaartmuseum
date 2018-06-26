@@ -1,0 +1,10 @@
+<li class="remove-story">
+	<a href="/detail/<%= el.ID %>">ID: <%= el.ID %>, Title: <%= el.title %></a>
+	
+	Incorrect: <span><%= el.reports[ 0 ] %></span>,
+	Ongepast: <span><%= el.reports[ 1 ] %></span>
+
+	<form action="/admin/remove-story/<%= el.ID %>" method="post">
+		<button type="submit" class="button--primary">Remove story</button>
+	</form>
+</li>

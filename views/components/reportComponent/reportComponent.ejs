@@ -1,11 +1,35 @@
 <section class="report--container">
 	<p>Is er iets mis met het verhaal?</p>
-	<form>
+	<form action="/detail/<%= storyID %>/report" method="post">
 		<div class="report--container--checkboxes">
-			<input type="checkbox" id="incorrect" name="report"><label for="incorrect">incorrect</label>
-			<input type="checkbox" id="inapproriate" name="report"> 
-			<label for="inapproriate">ongepast</label>
+			<% if ( locals.report ) { %>
+
+				<input type="checkbox" id="incorrect" name="incorrect"
+					<% if ( locals.report[ 0 ] ) { %>
+						checked
+					<% } else { %>
+						checked="false"
+					<% } %>
+				>
+				<label for="incorrect">Incorrect</label>
+				<input type="checkbox" id="inapproriate" name="ongepast"
+					<% if ( locals.report[ 1 ] ) { %>
+						checked="true"
+					<% } else { %>
+						checked="false"
+					<% } %>
+				> 
+				<label for="inapproriate">Ongepast</label>
+
+			<% } else { %>
+
+				<input type="checkbox" id="incorrect" name="incorrect" checked="false">
+				<label for="incorrect">Incorrect</label>
+				<input type="checkbox" id="inapproriate" name="ongepast" checked="false">
+				<label for="inapproriate">Ongepast</label>
+
+			<% } %>
 		</div>
-		<button class="report--submit--btn hide-when-js">submit</button> 
+		<button type="submit" class="report--submit--btn hide-when-js">submit</button> 
 	</form>
 </section>

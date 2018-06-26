@@ -5,11 +5,20 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
-	<script>document.documentElement.className=''
+	<script>
+		document.documentElement.className=''
+		if ( 'IntersectionObserver' in window ) document.documentElement.className+=' intersectionObserver'
 	</script>
 
 	<style>
+<<<<<<< HEAD
 	<%# - toInject %>
+=======
+	<% if (locals.toInject) { %>
+		<%- toInject %>
+	<% } %>
+	
+>>>>>>> 1504f3676680e524b120876538428358516699dc
 	</style>
 	<link rel="preload" href="/styles/index.css" as="style" onload="this.rel='stylesheet'">
 	<noscript><link rel="stylesheet" href="/styles/index.css" ></noscript>

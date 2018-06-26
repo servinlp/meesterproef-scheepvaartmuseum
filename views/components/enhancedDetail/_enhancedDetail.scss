@@ -17,3 +17,13 @@
 	display: block;
 	transform: translateY(0);
 }
+
+html.intersectionObserver [data-intersect] {
+	opacity: 0;
+	visibility: hidden;
+
+	&.show {
+		opacity: 1;
+		visibility: visible;
+	}
+}

@@ -135,7 +135,7 @@ input {
 	display: none;
 }
 
-body:not( .no-js ) .hide-when-js {
+html:not( .no-js ) .hide-when-js {
 	display: none;
 }
 
