@@ -22,7 +22,7 @@
     "build:scss": "node-sass --output-style compressed ./views/index.scss -o ./public/styles",
     "build:scss:critical": "node-sass --output-style compressed ./views/critical.scss -o ./public/styles",
     "build:js": "browserify ./views/index.js -t babelify | uglifyjs -cm -o ./public/scripts/index.js",
-    "onchange:css": "onchange \"./views/index.scss\" \"./views/components/**.scss\" -- yarn run node-sass  \"./views/critical.scss\" --source-map true -o ./public/styles/ && yarn run node-sass \"./views/index.scss\" --source-map true -o ./public/styles/",
+    "onchange:css": "onchange \"./views/index.scss\" \"./views/components/**/**.scss\" -- yarn run node-sass \"./views/index.scss\" --source-map true -o ./public/styles/",
     "onchange:critical": "onchange \"./views/critical.scss\" -- yarn run node-sass \"./views/index.scss\" --source-map true -o ./public/styles/",
     "optimise:css": "postcss --config './postcss.config.js' ./public/styles/index.css -o ./public/styles/index.css --verbose",
     "optimise:css:critical": "postcss --config './postcss.config.js' ./public/styles/critical.css -o ./public/styles/critical.css --verbose",

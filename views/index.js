@@ -5,14 +5,16 @@ import toggleToolButton from './components/storyAddItemButton/storyAddItemButton
 import animateStoryOverview from './components/storyGrid/storyGrid.js'
 import autocompleteFromApiInit from './components/lib/autocomplete.js'
 import colorThief from './components/storyHighlight/storyHighlight.js'
+import initReportComponent from './components/reportComponent/reportComponent.js'
 import { selectComponents } from './components/enhancedDetail/enhancedDetail.js'
-import {optimizedResize} from './components/lib/helpers.js'
+import {optimizedResize, animateOnIntersect} from './components/lib/helpers.js'
+
 
 ( function IIFE () {
 
 	if( !( document.documentElement.classList && document.querySelectorAll ) ) return
+	animateOnIntersect()
 	setUpMap()
-	animateStoryOverview()
 	selectComponents()
 	header()
 	uploadForm()
@@ -20,4 +22,5 @@ import {optimizedResize} from './components/lib/helpers.js'
 	optimizedResize()
 	autocompleteFromApiInit()
 	colorThief()
+	initReportComponent()
 } )()

@@ -25,7 +25,37 @@ const optimizedResize = () => {
 	throttle( 'resize', 'optimizedResize' )
 }
 
+function animateOnIntersect() {
+	const elements = document.querySelectorAll( '[data-intersect]' )
+	
+	TweenMax.set( elements, { autoAlpha: .25, y: 100 } )
+
+	const config = {
+		rootMargin: '0px 0px 0px 0px',
+		threshold: 0.25
+	}
+
+	const contentObserver = new IntersectionObserver( ( entries, self ) => {
+		entries.forEach( entry => {
+			if ( entry.isIntersecting ) {
+				preloadContent( entry.target )
+				self.unobserve( entry.target )
+			}
+		} )
+	}, config )
+
+	elements.forEach( content => {
+		contentObserver.observe( content )
+	} )
+
+	function preloadContent( content ) {
+		TweenMax.to( content, .6, { autoAlpha: 1, y: 0, clearProps: 'all', ease: Power1.easeOut }, .25 )
+	}
+}
+
+
 export {
 	capitalizeFirstLetter,
-	optimizedResize
+	optimizedResize,
+	animateOnIntersect
 }
