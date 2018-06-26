@@ -22,7 +22,7 @@
 	</form>
 </section>
 <% if(locals.searchTerm !== undefined && locals.sortTerm === undefined) {%>
-<p class="stories__search--result" id="searchResult"><span id="number-result">...</span> verhalen gebaseerd op de zoekterm: <span id="search-word" class="underline-red"> <%= searchTerm %> </span> </p>
+<p class="stories__search--result" id="searchResult" data-intersect="true"><span id="number-result">...</span> verhalen gebaseerd op de zoekterm: <span id="search-word" class="underline-red"> <%= searchTerm %> </span> </p>
 <% } else if (locals.searchTerm !== undefined && locals.sortTerm !== undefined) {%>
-<p class="stories__search--result" id="searchResult"><span id="number-result">...</span> verhalen gebaseerd op de zoekterm: <span id="search-word" class="underline-red"> <%= searchTerm %> </span> en gesorteerd op: <span id="search-word" class="underline-red"> <%= sortTerm %> </span>  </p>
+<p class="stories__search--result" id="searchResult" data-intersect="true"><span id="number-result">...</span> verhalen gebaseerd op de zoekterm: <span id="search-word" class="underline-red"> <%= searchTerm %> </span> en gesorteerd op: <span id="search-word" class="underline-red"> <%= sortTerm %> </span>  </p>
 <% } else {}%>

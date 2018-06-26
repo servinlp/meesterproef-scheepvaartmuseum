@@ -23,7 +23,8 @@
 					margin-left: 2%;
 				}
 
-				&:hover {
+				&:hover,
+				&:focus {
 					&-background {
 						transform: scale(1.05);
 					}

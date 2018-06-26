@@ -26,6 +26,7 @@ const optimizedResize = () => {
 }
 
 function animateOnIntersect() {
+	if ( !window.IntersectionObserver ) return
 	const elements = document.querySelectorAll( '[data-intersect]' )
 	
 	TweenMax.set( elements, { autoAlpha: .25, y: 100 } )

@@ -39,9 +39,9 @@
                 </g>
                 </svg>
             </a>
-            <button>☰</button>
-            <nav class="navigation">
-                <ul>
+            <nav class="navigation" role="navigation">
+                <button id="toggle" aria-expanded="false" aria-controls="menu">Menu</button>
+                <ul id="menu">
                     <li>
                         <a href="/"
 						<% if ( locals.path && path === '/' ) { %>

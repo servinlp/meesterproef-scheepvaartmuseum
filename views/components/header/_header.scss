@@ -28,13 +28,15 @@
 		}
 
 		button {
-			border: none;
-			height: 2em;
-			width: 2em;
+			border: 1px solid black;
+			margin-left: auto;
+			padding: 0.25rem;
 			background: transparent;
 			font-size: 1.5em;
+			opacity: 0;
+			visibility: hidden;
 			cursor: pointer;
-			@include mq("small") {
+			@include mq("medium") {
 				display: none;
 			}
 		}
@@ -64,25 +66,12 @@
 	}
 
 	.navigation {
-		animation: fade-in 1s;
-		position: absolute;
-		right: 0;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-around;
-		align-items: center;
-		line-height: 3rem;
-		top: 3rem;
-		left: 0;
-		background: white;
-		padding: 0 1rem;
 		padding: 0 5%;
 		@include mq("xl") {
-			padding: 0 2rem;
 			padding: 0 10%;
 		}
-		@include mq("small") {
-			animation: none;
+		@include mq("medium") {
+			// animation: none;
 			flex-direction: row;
 			height: inherit;
 			width: 100%;
@@ -90,16 +79,24 @@
 		}
 
 		ul {
-			height: 12rem;
 			display: flex;
+			height: 12rem;
 			flex-direction: column;
 			justify-content: space-around;
 			text-align: center;
-			@include mq("small") {
+			background-color: white;
+			position: absolute;
+			top: 3rem;
+			left: 0;
+			width: 100%;
+			transform: scaleY(0);
+			@include mq("medium") {
 				justify-content: flex-end;
 				flex-direction: row;
 				height: inherit;
 				width: 100%;
+				position: initial;
+				top: 0;
 			}
 		}
 
@@ -107,7 +104,7 @@
 			&:last-child {
 				padding-right: 0;
 			}
-			@include mq("small") {
+			@include mq("medium") {
 				padding-right: 1rem;
 			}
 			@include mq("medium") {
@@ -155,25 +152,6 @@
 	}
 }
 
-.nav--progressive {
-	position: absolute;
-	width: 100%;
-	opacity: 1;
-	@include mq("small") {
-		position: relative;
-		width: 20em;
-	}
-}
-
-.nav--hide {
-	visibility: hidden;
-	opacity: 0;
-	@include mq("small") {
-		opacity: 1;
-		visibility: visible;
-	}
-}
-
 .header--container {
 	background: white;
 	position: relative;
@@ -196,7 +174,7 @@
 	opacity: 0;
 	transition: 0.3s ease;
 	visibility: hidden;
-	@include mq("small") {
+	@include mq("medium") {
 		display: none;
 	}
 }
@@ -216,5 +194,20 @@
 
 	100% {
 		opacity: 1;
+	}
+}
+
+main {
+	margin-top: 15rem;
+	@include mq('medium') {
+		margin-top: 3rem;
+	}
+}
+
+.no-js {
+	.header {
+		ul {
+			transform: scaleY(1);
+		}
 	}
 }
