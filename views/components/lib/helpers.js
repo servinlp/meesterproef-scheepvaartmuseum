@@ -56,7 +56,6 @@ function animateOnIntersect() {
 	}
 }
 
-
 export {
 	capitalizeFirstLetter,
 	optimizedResize,
