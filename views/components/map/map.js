@@ -131,7 +131,7 @@ function setUpMap() {
 		function addSVGAnchors( elem ){ 
 			elem.insertAdjacentHTML( 'afterend', `
 			<?xml version="1.0" encoding="UTF-8"?>
-			<svg class="anchor-marker" x="${elem.getPointAtLength( 0 ).x - 15}" y="${elem.getPointAtLength( 0 ).y - 27}" width="30px" height="30px" viewBox="0 0 690 689" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			<svg class="anchor-marker" x="${elem.getPointAtLength( 0 ).x - 15}" y="${elem.getPointAtLength( 0 ).y - 27}" width="30px" height="30px" viewBox="0 0 690 689" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
 				<g stroke="none" stroke-width="0" fill="none" fill-rule="evenodd">
 					<path d="M344.5353,654.7629 C339.5983,646.8599 334.8383,639.4319 330.2643,631.8889 C296.7813,576.6619 262.8443,521.7029 230.0383,466.0759 C205.1533,423.8789 183.6073,379.8969 163.8953,335.0029 C155.5143,315.9169 147.8373,296.7939 143.9793,276.2119 C123.0143,164.3769 200.3643,55.2309 312.7993,38.1639 C413.0613,22.9449 507.7883,80.9579 538.8763,177.3629 C554.4223,225.5729 552.0513,273.5149 532.0773,320.1209 C515.4383,358.9439 497.2023,397.0339 477.0883,434.2139 C444.6273,494.2139 408.7653,552.1829 372.6263,609.9909 C364.1993,623.4719 355.7903,636.9629 347.3643,650.4439 C346.5513,651.7449 345.6833,653.0129 344.5353,654.7629" id="marker" fill="#000000"></path>
 					<path d="M495.8643,239.6466 C495.8593,322.8916 427.8233,390.7686 344.3923,390.7646 C261.3883,390.7596 193.4343,322.6526 193.5363,239.5676 C193.6383,155.8166 261.4753,88.2976 345.3523,88.4646 C428.1923,88.6286 495.8693,156.6066 495.8643,239.6466" id="white-ring" fill="#FFFFFF"></path>
@@ -147,7 +147,7 @@ function setUpMap() {
 		function addSVGAnchorEnd( elem ){ 
 			elem.insertAdjacentHTML( 'afterend', `
 			<?xml version="1.0" encoding="UTF-8"?>
-			<svg class="anchor-marker" x="${elem.getPointAtLength( elem.getTotalLength() ).x - 15}" y="${elem.getPointAtLength( elem.getTotalLength() ).y - 27}" width="30px" height="30px" viewBox="0 0 690 689" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			<svg class="anchor-marker" x="${elem.getPointAtLength( elem.getTotalLength() ).x - 15}" y="${elem.getPointAtLength( elem.getTotalLength() ).y - 27}" width="30px" height="30px" viewBox="0 0 690 689" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
 				<g stroke="none" stroke-width="0" fill="none" fill-rule="evenodd">
 					<path d="M344.5353,654.7629 C339.5983,646.8599 334.8383,639.4319 330.2643,631.8889 C296.7813,576.6619 262.8443,521.7029 230.0383,466.0759 C205.1533,423.8789 183.6073,379.8969 163.8953,335.0029 C155.5143,315.9169 147.8373,296.7939 143.9793,276.2119 C123.0143,164.3769 200.3643,55.2309 312.7993,38.1639 C413.0613,22.9449 507.7883,80.9579 538.8763,177.3629 C554.4223,225.5729 552.0513,273.5149 532.0773,320.1209 C515.4383,358.9439 497.2023,397.0339 477.0883,434.2139 C444.6273,494.2139 408.7653,552.1829 372.6263,609.9909 C364.1993,623.4719 355.7903,636.9629 347.3643,650.4439 C346.5513,651.7449 345.6833,653.0129 344.5353,654.7629" id="marker" fill="#000000"></path>
 					<path d="M495.8643,239.6466 C495.8593,322.8916 427.8233,390.7686 344.3923,390.7646 C261.3883,390.7596 193.4343,322.6526 193.5363,239.5676 C193.6383,155.8166 261.4753,88.2976 345.3523,88.4646 C428.1923,88.6286 495.8693,156.6066 495.8643,239.6466" id="white-ring" fill="#FFFFFF"></path>
