@@ -6,7 +6,6 @@ label {
 textarea {
 	width: 8rem;
 	height: 4rem;
-	color: red;
 }
 
 input,
@@ -348,4 +347,9 @@ form {
 			}
 		}
 	}
+}
+
+html:not( .no-js ) [data-disclose] {
+	opacity: 0;
+	visibility: hidden;
 }
