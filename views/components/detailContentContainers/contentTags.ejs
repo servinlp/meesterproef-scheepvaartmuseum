@@ -3,7 +3,7 @@
 	<p>Tags: </p>
 	<ul class="content--container-tags">
 		<% story.allTags.forEach( function( el ) { %>
-			<li><a href="#"><%= el.name %></a></li>
+			<li><a href="/story-overview?tag=<%= el.name %>"><%= el.name %> (<%= el.count %>)</a></li>
 		<% } ) %>
 	</ul>
 	<% } else { %>
