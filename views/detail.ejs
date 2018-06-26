@@ -7,4 +7,23 @@
 	<% include ./components/reactions/reactions.ejs %>
 	<% include ./components/reportComponent/reportComponent.ejs %>
 </main>
+
+<script>
+	window.addEventListener('beforeinstallprompt', function(e) {
+	// beforeinstallprompt Event fired
+	//('beforeinstallprompt Event fired')
+	// e.userChoice will return a Promise.
+	// For more details read: https://developers.google.com/web/fundamentals/getting-started/primers/promises
+		e.userChoice.then(function(choiceResult) {
+			//(choiceResult.outcome)
+			if(choiceResult.outcome == 'dismissed') {
+			//('User cancelled home screen install')
+			}
+			else {
+			//('User added to home screen')
+			}
+		})
+	})
+</script>
+
 <% include ./partials/footer.ejs %>

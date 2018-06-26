@@ -8,6 +8,7 @@ import initReportComponent from './components/reportComponent/reportComponent.js
 import removeStoryInit from './components/adminStory/adminStory.js'
 import { selectComponents } from './components/enhancedDetail/enhancedDetail.js'
 import {optimizedResize, animateOnIntersect} from './components/lib/helpers.js'
+import initSW from './service-worker-handler.js'
 
 
 ( function IIFE () {
@@ -25,4 +26,5 @@ import {optimizedResize, animateOnIntersect} from './components/lib/helpers.js'
 	colorThief()
 	initReportComponent()
 	removeStoryInit()
+	initSW()
 } )()
