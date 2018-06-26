@@ -18,6 +18,12 @@ router.get( '/:storyID', async ( req, res ) => {
 		const content = await getStoryContent( req.params.storyID ),
 			reactions = await getStoryReactions( req.params.storyID )
 
+		if ( req.session.reports && req.session.reports[ req.params.storyID ] ) {
+
+			res.locals.report = req.session.reports[ req.params.storyID ]
+
+		}
+
 		res.render( 'detail', {
 			storyID: req.params.storyID,
 			story: content,
@@ -49,7 +55,7 @@ router.post( '/:storyID/comment', ( req, res ) => {
 		.catch( err => console.error( err ) )
 } )
 
-router.post ( '/:storyID/:responseto', ( req, res ) => {
+router.post ( '/:storyID/comment/:responseto', ( req, res ) => {
 
 	const reactionToComment = {
 		storyID: req.params.storyID,
@@ -68,6 +74,84 @@ router.post ( '/:storyID/:responseto', ( req, res ) => {
 
 		} )
 		.catch( err =>  console.error( err ) )
+
+} )
+
+router.post( '/:storyID/report', async ( req, res ) => {
+
+	try {
+
+		const { incorrect, ongepast, js } = req.body,
+			storyID = req.params.storyID,
+
+			story = await pool.query( 'SELECT * FROM stories WHERE ID = ?', storyID ),
+			reports = story[ 0 ].reports,
+			reportsSplit = reports.split( ',' )
+
+		if ( !req.session.reports ) {
+			req.session.reports = {}
+		}
+
+		if ( !req.session.reports[ storyID ] ) {
+
+			req.session.reports[ storyID ] = [ true, true ]
+
+		}
+
+		if ( incorrect && incorrect === 'on' ) {
+
+			reportsSplit[ 0 ] = parseInt( reportsSplit[ 0 ] ) + 1
+
+			req.session.reports[ storyID ][ 0 ] = true
+
+		} else if ( incorrect && incorrect === 'off' ) {
+
+			reportsSplit[ 0 ] = parseInt( reportsSplit[ 0 ] ) - 1
+
+			req.session.reports[ storyID ][ 0 ] = false
+
+		}
+
+		if ( ongepast && ongepast === 'on' ) {
+
+			reportsSplit[ 1 ] = parseInt( reportsSplit[ 1 ] ) + 1
+
+			req.session.reports[ storyID ][ 1 ] = true
+
+		} else if ( ongepast && ongepast === 'off' ) {
+
+			reportsSplit[ 1 ] = parseInt( reportsSplit[ 1 ] ) - 1
+
+			req.session.reports[ storyID ][ 1 ] = false
+
+		}
+
+		const newReports = reportsSplit.join( ',' )
+
+		await pool.query( 'UPDATE stories SET ? WHERE ID = ?', [
+			{
+				reports: newReports
+			},
+			storyID
+		] )
+
+		if ( !js ) {
+
+			res.redirect( `/detail/${ storyID }` )
+
+		} else {
+
+			res.json( {
+				succes: true
+			} )
+
+		}
+
+	} catch ( error ) {
+
+		console.error( error )
+
+	}
 
 } )
 

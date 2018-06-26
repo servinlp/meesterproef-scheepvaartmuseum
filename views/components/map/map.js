@@ -251,9 +251,7 @@ function setUpMap() {
 			.play()
 			.eventCallback( 'onComplete', () => {
 				// Adds a delay before playing the next animation
-				setTimeout( () => {
-					nextAnimation()
-				}, 2000 )
+				TweenMax.delayedCall( 2, nextAnimation )
 			} )
 		lineTl.play()
 

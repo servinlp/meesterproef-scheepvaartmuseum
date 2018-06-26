@@ -5,6 +5,9 @@
 @import './components/_base/_base.scss';
 @import './components/_base/_libs.scss';
 
+@import './components/header/_header.scss';
+@import './components/globalFooter/_globalFooter.scss';
+
 @import './components/adminLogin/_adminLogin.scss';
 @import './components/storyHighlight/_storyHighlight.scss';
 @import './components/map/_map.scss';
@@ -19,6 +22,14 @@
 @import './components/detailContentContainers/_contentVideo.scss';
 @import './components/detailContentContainers/_contentAudio.scss';
 @import './components/detailContentContainers/_contentTags.scss';
+
+@import './components/reportComponent/_reportComponent.scss';
 @import './components/callToAction/_callToAction.scss';
 @import './components/storyGridCard/_storyGridCard.scss';
-@import './components/globalFooter/_globalFooter.scss';
+
+@import './components/storyAddItemButton/_storyAddItemButton.scss';
+@import './components/styleguideComponents/_styleguideComponents.scss';
+@import './components/uploadForm/_uploadForm.scss';
+
+@import './components/adminStory/_adminStory.scss';
+@import './components/notification/_notification.scss';

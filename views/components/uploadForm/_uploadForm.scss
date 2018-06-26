@@ -6,6 +6,7 @@ label {
 textarea {
 	width: 8rem;
 	height: 4rem;
+	color: red;
 }
 
 input,
@@ -19,7 +20,21 @@ form {
 
 [name^="subtitle"] {
 	display: block !important;
-	margin: 0 0 1rem;
+	margin: 4rem 0 1rem;
+	padding: 0.5em;
+	transition: transform 0.3s ease;
+}
+
+.required {
+	position: relative;
+
+	&::after {
+		content: '*';
+		color: red;
+		position: absolute;
+		top: -0.5em;
+		right: -0.5em;
+	}
 }
 
 .upload-form {
@@ -39,7 +54,7 @@ form {
 		font-weight: 700;
 		color: darken($colorBlue, 50%);
 		line-height: 1;
-		margin-bottom: 1rem;
+		margin-bottom: 2rem;
 	}
 
 	h2 {
@@ -55,6 +70,7 @@ form {
 	label {
 		font-size: 1.25rem;
 		font-weight: 600;
+		transition: transform 0.3s ease;
 	}
 
 	input[type="text"],
@@ -118,7 +134,8 @@ form {
 	[name^="upload"],
 	[name^="videolink"],
 	[name^="storyText"] {
-		margin: 0 0 2rem;
+		padding: 0.5em;
+		transition: transform 0.3s ease;
 	}
 
 	&__tag-suggestion {
@@ -147,6 +164,10 @@ form {
 		&--button-container {
 			width: 100%;
 
+			p {
+				margin-top: 4rem;
+			}
+
 			button {
 				padding-left: 2.5rem;
 			}
@@ -168,6 +189,7 @@ form {
 		margin-bottom: 0.5rem;
 		box-shadow: 0 0 15px 0 rgba(211, 211, 211, 0.555);
 		display: inline-block;
+		transition: transform 0.3s ease;
 	}
 
 	.previewAudio {
@@ -182,7 +204,28 @@ form {
 		position: relative;
 		width: 17rem;
 		display: inherit;
-		margin-bottom: 4rem;
+	}
+
+	.labelFileInput {
+		margin: 0.5rem 0;
+		border: 2px solid $colorBlue;
+		width: 10rem;
+		background: white;
+		position: relative;
+		text-align: center;
+		box-shadow: 0 0 5px 0 lightgray;
+		cursor: pointer;
+		border-radius: 3px;
+
+		input {
+			width: 0.1px;
+			height: 0.1px;
+			opacity: 0;
+			overflow: hidden;
+			position: absolute;
+			z-index: -1;
+			outline: none;
+		}
 	}
 
 	.inputAnimation-container {
@@ -193,14 +236,17 @@ form {
 		input {
 			outline: none;
 			padding: 0.1rem 0.25rem;
+			transition: border 100ms ease-out;
 
-			&:focus {
-				border-bottom: 0;
+			&:focus,
+			&:hover {
+				border-bottom: 1px solid rgba(0, 0, 0, 0);
 			}
 		}
 	}
 
 	.inputAnimation {
+		// ::before is top border
 		& ~ .focus-border:before,
 		~ .focus-border:after {
 			content: "";
@@ -208,12 +254,12 @@ form {
 			top: 0;
 			right: 0;
 			width: 0;
-			height: calc(1rem / 8);
-			background-color: $colorBlack;
+			height: calc(1rem / 16);
+			background-color: #0d36b0;
 			transition: 0.2s;
 			transition-delay: 0.2s;
 		}
-
+		// Bottom border
 		& ~ .focus-border:after {
 			top: auto;
 			bottom: 0;
@@ -221,19 +267,19 @@ form {
 			left: 0;
 			transition-delay: 0.6s;
 		}
-
+		// i::before is left border
 		& ~ .focus-border i:before,
 		~ .focus-border i:after {
 			content: "";
 			position: absolute;
 			top: 0;
 			left: 0;
-			width: calc(1rem / 8);
+			width: calc(1rem / 16);
 			height: 0;
-			background-color: $colorBlack;
+			background-color: #0d36b0;
 			transition: 0.2s;
 		}
-
+		// i::after is right border
 		& ~ .focus-border i:after {
 			left: auto;
 			right: 0;
@@ -263,6 +309,42 @@ form {
 
 			~ .focus-border i:after {
 				transition-delay: 0.4s;
+			}
+		}
+	}
+
+	.element-container {
+		position: relative;
+
+		.remove-element {
+			position: absolute;
+			top: 0;
+			right: 0;
+			transform: translate(120%, -120%);
+			cursor: pointer;
+			font-size: 0;
+			padding: 0.5rem;
+			background-color: transparent;
+			border: 0;
+			transition: transform 0.3s ease;
+
+			&:hover,
+			&:focus {
+				box-shadow: 0 2px 4px 0 rgba(126, 121, 121, 0.61);
+
+				& + label,
+				& ~ .previewImage,
+				& + input,
+				& + textarea {
+					box-shadow: 0 2px 4px 0 rgba(126, 121, 121, 0.61);
+					transform: translateY(-0.9rem);
+				}
+			}
+
+			svg {
+				fill: $secondairy-color;
+				width: 1.5rem;
+				height: auto;
 			}
 		}
 	}
