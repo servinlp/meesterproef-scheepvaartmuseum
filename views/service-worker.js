@@ -13,7 +13,7 @@ self.addEventListener( 'install', event => {
 			] ) )
 			.then( self.skipWaiting() )
 			.catch( e => console.error( 'SW STATIC_CACHE error:', e ) )
-	)å
+	)
 
 } )
 
