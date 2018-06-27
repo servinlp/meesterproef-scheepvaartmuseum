@@ -19,18 +19,6 @@ const express = require( 'express' ),
 	app = express(),
 	PORT = ENV.NODE_ENV === 'production' ? ENV.PORT : ENV.DEV_PORT
 
-
-// const CSS_FILE = './public/styles/critical.css'
-// fs.readFile( CSS_FILE, 'utf8', ( err,data ) => {
-// 	if ( err ) {
-// 		return console.log( err )
-// 	}
-// 	if ( data ) {
-// 		app.locals.toInject = data
-// 	}
-// } )
-
-
 app.use( compression() )
 app.use( helmet() )
 
@@ -55,6 +43,22 @@ app.use( bodyParser.urlencoded( {
 	extended: false
 } ) )
 app.use( bodyParser.json() )
+
+// app.get( '*', ( req, res, next ) => {
+
+// 	const CSS_FILE = './public/styles/critical.css'
+// 	fs.readFile( CSS_FILE, 'utf8', ( err,data ) => {
+// 		if ( err ) {
+// 			return console.log( err )
+// 		}
+// 		if ( data ) {
+// 			app.locals.toInject = data
+// 		}
+
+// 		next()
+// 	} )
+
+// } )
 
 app.use( '/', indexRoute )
 app.use( '/detail', detailRoute )
