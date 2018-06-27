@@ -93,6 +93,12 @@ function addFileInput() {
 	inputContainer.appendChild( removeComponentButton( input ) )
 	inputContainer.appendChild( label )
 	label.appendChild( input )
+	label.insertAdjacentHTML( 'beforeend', `
+	<svg xmlns="https://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+		<path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+		<path d="M0 0h24v24H0z" fill="none"/>
+	</svg>
+	` )
 
 	TweenMax.set( inputContainer, {autoAlpha: 0, y: -10} )
 	fieldset.insertBefore( inputContainer, buttonContainer ) 	
@@ -282,4 +288,44 @@ function removeComponent( e ) {
 
 }
 
-export default uploadForm
+/*
+ * Prevents default behavior of pushing enter button. This method doesn't work,
+ * if bind it to the 'onkeydown' of the document|form, or to the 'onkeypress' of
+ * the input. So method should be attached directly to the input 'onkeydown'
+ */
+function preventEnterKey( e ) {
+	// W3C (Chrome|FF) || IE
+	e = e || window.event
+	const keycode = e.which || e.keyCode
+	if ( keycode === 13 ) { // Key code of enter button
+		// Cancel default action
+		if ( e.preventDefault ) { // W3C
+			e.preventDefault()
+		} else { // IE
+			e.returnValue = false
+		}
+		// Cancel visible action
+		if ( e.stopPropagation ) { // W3C
+			e.stopPropagation()
+		} else { // IE
+			e.cancelBubble = true
+		}
+		// We don't need anything else
+		return false
+	}
+}
+
+/* Disable enter key for all inputs of the document */
+function disableAllInputs() {
+	const inputs = document.querySelectorAll( '.upload-form input' )
+	if ( inputs ) {
+		for ( let i = 0; i < inputs.length; i++ ) {
+			inputs[i].onkeydown = preventEnterKey
+		}
+	}
+}
+
+export {
+	uploadForm, 
+	disableAllInputs
+}
