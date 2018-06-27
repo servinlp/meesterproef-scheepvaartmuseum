@@ -51,18 +51,17 @@ yarn run build
 
 - [Introduction](#introduction)
 - [Process](#process)
-- [Managment](#managment)
+- [Management](#management)
 - [Rendering thumbnails](#rendering-thumbnails)
 - [Rendering the detail page](#rendering-the-detail-page)
 - [Progressive enhancement](#progressive-enhancement)
-- [Creating, using and documenting an API](#creating-using-and-documenting-an-API)
+- [Creating, using and documenting an API](#creating-using-and-documenting-an-api)
 - [Reporting](#reporting)
-- [Admin dashboard](#admin-dashboard)
 - [Contributors](#contributors)
 
 ## Introduction
 
-This project is a product made for the [Scheepvaartmuseum](https://www.hetscheepvaartmuseum.nl/) to be used during and after there up comming exhibition about The Oranje called [MS Oranje changing course](https://www.hetscheepvaartmuseum.com/about-us/press/1282/persbericht-tentoonstelling-ms-oranje-koers-gewijzigd-eng). What the Scheepvaartmuseum wanted was a place where visitors could leave behind a tale of there own about there history with the Oranje. This could be something they themselves experienced or something they where told by there (grand-)parents. Using these stories the Scheepvaartmuseum wants to create a conversation between people where they tell there story.
+This project is a product made for the [Scheepvaartmuseum](https://www.hetscheepvaartmuseum.nl/) to be used during and after there up coming exhibition about The Oranje called [MS Oranje changing course](https://www.hetscheepvaartmuseum.com/about-us/press/1282/persbericht-tentoonstelling-ms-oranje-koers-gewijzigd-eng). What the Scheepvaartmuseum wanted was a place where visitors could leave behind a tale of there own about there history with the Oranje. This could be something they themselves experienced or something they where told by there (grand-)parents. Using these stories the Scheepvaartmuseum wants to create a conversation between people where they tell there story.
 
 ### Our design challenge
 
@@ -71,23 +70,23 @@ How can we create a platform that encourages people to share and tell stories ab
 ### Personal goals
 
 - Progressive enhancement
-- Backend
+- back end
 
 ## Process
 
 ### Working with a group of six
 
-So before even starting the first challenge we already had was how to work in a group of six people. Espacially when no one had experience working in such a large group and halve of the team didn't have proper experience with working with other developers. We needed to work in a way then when creating a PR (pull request) we would have the least amount of merge conflicts. What we (Mees, Mo and I) desided was that for this working in components was probebly the best option. This way everyone could work on there own component and once done create a PR with minimal merge conflicts. By working in this way the main merge conflicts were in `index.js` and `index.scss` where every component would be imported to be combined.
+So before even starting the first challenge we already had was how to work in a group of six people. Especially when no one had experience working in such a large group and halve of the team didn't have proper experience with working with other developers. We needed to work in a way then when creating a PR (pull request) we would have the least amount of merge conflicts. What we (Mees, Mo and I) decided was that for this working in components was probably the best option. This way everyone could work on there own component and once done create a PR with minimal merge conflicts. By working in this way the main merge conflicts were in `index.js` and `index.scss` where every component would be imported to be combined.
 
 ### Stack
 
-Seeing as we where in need of a backend the obvious choice for this was node.js. This mainly because Mees, Mo and I had experience using this. For the database we wanted to keep it as simple for oureselfes as possible so we decided on MySQL (with PhpMyAdmin as interface, this was my decition). As templating engine we whent for [ejs](http://www.ejs.co/) for the same reason we choose node.js.
+Seeing as we where in need of a back end the obvious choice for this was node.js. This mainly because Mees, Mo and I had experience using this. For the database we wanted to keep it as simple for ourselves as possible so we decided on MySQL (with PhpMyAdmin as interface, this was my decision). As templating engine we went for [ejs](http://www.ejs.co/) for the same reason we choose node.js.
 
 For the Front end stack we choose SCSS as our CSS preprocessor and JS modules for our JavaScript.
 
 ### Working with components
 
-So when we knew that we where going to work using components we needed a folder structure for this. This is something Mo and I worked on. To make sure the components where like there own world it was abvious that per component you needed a folder, an ejs file, a SCSS file and a JavaScript file. And all of this should be in something like a components folder. Beside components we could also use a folder for the head and footer of the page (Mo's idea) so for this we created a partials folder. The components and partials folder would then be placed in the views folder (as is the standerd when working with node.js). In the view folder would then also be the page ejs files. From here all neccisary components and partials would then be included.
+So when we knew that we where going to work using components we needed a folder structure for this. This is something Mo and I worked on. To make sure the components where like there own world it was obvious that per component you needed a folder, an ejs file, a SCSS file and a JavaScript file. And all of this should be in something like a components folder. Beside components we could also use a folder for the head and footer of the page (Mo's idea) so for this we created a partials folder. The components and partials folder would then be placed in the views folder (as is the standard when working with node.js). In the view folder would then also be the page ejs files. From here all necessary components and partials would then be included.
 
 So in the end our views folder to work in looked something like this:
 
@@ -111,9 +110,9 @@ So in the end our views folder to work in looked something like this:
 - [Added partials for simple head and footer](https://github.com/moniac/meesterproef-scheepvaartmuseum/commit/b324d5c5f2a6d362db782b45859ff890ac7dd91a)
 
 
-### Keeping the backend seperated
+### Keeping the back end separated
 
-To ensure that the backend stayed clear for any one of us we needed to seperate as much as possible. This meant that for (almost) every page a route was preverable. Next to this I also create a lib folder for any scripts that could be imported on the backend (for instance the MySQL pool).
+To ensure that the back end stayed clear for any one of us we needed to separate as much as possible. This meant that for (almost) every page a route was preferable. Next to this I also create a lib folder for any scripts that could be imported on the back end (for instance the MySQL pool).
 
 **Relative commits**
 
@@ -121,13 +120,13 @@ To ensure that the backend stayed clear for any one of us we needed to seperate 
 - [Add a route for every page](https://github.com/moniac/meesterproef-scheepvaartmuseum/commit/86a3f4f9b0a03bf09784e4c9bf9bcedb4eaa54db#diff-0364f57fbff2fabbe941ed20c328ef1a)
 - [Fix eslint errors, servin is boos, added lib folder for our node modules, add promise sql with pool connection](https://github.com/moniac/meesterproef-scheepvaartmuseum/commit/9c318d1752b07b73ff6eeada3566d02c0abc16e3#diff-fd1940159a592c074df64da530d394e3)
 
-## Managment
+## Management
 
-Because we are with a group of 6 people whose level vary greatly it was desided that you could not commit directly to the master branch. To get something here you would need to work on you own branch and create a PR that MUST be reviewed by a college before it can be merged with master. This way everything has to be checked for mistakes or errors.
+Because we are with a group of 6 people whose level vary greatly it was decided that you could not commit directly to the master branch. To get something here you would need to work on you own branch and create a PR that MUST be reviewed by a college before it can be merged with master. This way everything has to be checked for mistakes or errors.
 
-One thing that also was importent for this project was code quality and code style. Code quality could be checked durring the PR reviews but for code style we used ESlint for JavaScript and Stylelint for SCSS. With these tools (couresy to Mo for this) we could set rules for the code styleguide that would show an error when a rule was broken. Nothing in a way that it would prevent you from doing anything but noticable enough. Using these errors we could just tell someone to fix these errors without having to personaly point everything out ourselfs.
+One thing that also was important for this project was code quality and code style. Code quality could be checked durring the PR reviews but for code style we used ESlint for JavaScript and Stylelint for SCSS. With these tools (courtesy to Mo for this) we could set rules for the code style guide that would show an error when a rule was broken. Nothing in a way that it would prevent you from doing anything but noticeable enough. Using these errors we could just tell someone to fix these errors without having to personally point everything out ourselves.
 
-The rules for the linters where set up by Mo and I (most of the rules where added on my request). The rules lead to a constant code style (and a bit of frustration for people that didn't necesaraly agree with a rule).
+The rules for the linters where set up by Mo and I (most of the rules where added on my request). The rules lead to a constant code style (and a bit of frustration for people that didn't necessarily agree with a rule).
 
 Total pull request: [163](https://github.com/moniac/meesterproef-scheepvaartmuseum/pulls?q=is%3Apr+is%3Aclosed)
 
@@ -293,7 +292,7 @@ To write CSS for when JavaScript or the `IntersectionObserver` was supported I a
 </script>
 ```
 
-By default the `<html>` tag already has a `no-js` class on it. The first line will remove this if JavaScript is enabled while the second line will add a class off `intersectionObserver` to the `<html>` tag when it is supported. This way we can have styles targeted at the moments when JavaScript is not enabled/supported and in the cases where the `IntersectionObserver` isn't supported we can immediatly show the elements that would otherwise be hidden untill triggert.
+By default the `<html>` tag already has a `no-js` class on it. The first line will remove this if JavaScript is enabled while the second line will add a class off `intersectionObserver` to the `<html>` tag when it is supported. This way we can have styles targeted at the moments when JavaScript is not enabled/supported and in the cases where the `IntersectionObserver` isn't supported we can immediately show the elements that would otherwise be hidden until triggered.
 
 Here is the CSS used to target browsers that support the `IntersectionObserver`.
 
@@ -364,7 +363,7 @@ function getDataFromApi( api ) {
 
 ## Reporting
 
-For the reporting of stories 2 things where important. Being able to report a story and not being able to report a stoy more then once. For the last part `sessions` started becoming importent.
+For the reporting of stories 2 things where important. Being able to report a story and not being able to report a story more then once. For the last part `sessions` started becoming important.
 
 Now if you report a story it will be stored in a session object called `reports`. `reports` is an object that contains all of your reports like so.
 
@@ -372,12 +371,12 @@ Now if you report a story it will be stored in a session object called `reports`
 //...
 reports: {
 	79: [ true, false ],
-	STORY_ID : [ INCORRECT, INAPPROPIAT ]
+	STORY_ID : [ INCORRECT, INAPPROPRIATE ]
 },
 //...
 ```
 
-The values of the `reports` object are then send on the matching pages so that the checkboxes for reporting can be set acourdingly.
+The values of the `reports` object are then send on the matching pages so that the checkboxes for reporting can be set accordingly.
 
 **Relative PR's**
 
