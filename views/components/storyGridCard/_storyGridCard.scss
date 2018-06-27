@@ -1,4 +1,9 @@
 .stories {
+	&--title {
+		text-align: center;
+		margin-top: 5rem;
+	}
+
 	&__grid {
 		display: flex;
 		flex-flow: row wrap;
