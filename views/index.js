@@ -10,10 +10,10 @@ import { selectComponents } from './components/enhancedDetail/enhancedDetail.js'
 import {optimizedResize, animateOnIntersect} from './components/lib/helpers.js'
 import initSW from './service-worker-handler.js'
 
-
 ( function IIFE () {
 
 	if( !( document.documentElement.classList && document.querySelectorAll ) ) return
+	initSW()
 	animateOnIntersect()
 	setUpMap()
 	selectComponents()
@@ -26,5 +26,4 @@ import initSW from './service-worker-handler.js'
 	colorThief()
 	initReportComponent()
 	removeStoryInit()
-	initSW()
 } )()

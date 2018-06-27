@@ -28,7 +28,7 @@ function header () {
 	}
 	sizeHeader()
 
-	if ( document.querySelector( 'main' ) ) {
+	if( document.querySelector( 'main' ) ) {
 		document.querySelector( 'main' ).style='margin-top: 3rem;'
 	}
 
