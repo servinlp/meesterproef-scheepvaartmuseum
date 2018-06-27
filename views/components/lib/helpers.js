@@ -67,7 +67,6 @@ function fireInstallPrompt(){
 			// e.userChoice will return a Promise.
 			// For more details read: https://developers.google.com/web/fundamentals/getting-started/primers/promises
 			e.userChoice.then( choiceResult => {
-				console.log( choiceResult.outcome )
 				if( choiceResult.outcome === 'dismissed' ) {
 					console.log( 'User cancelled home screen install' )
 				}
