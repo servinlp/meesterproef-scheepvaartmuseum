@@ -80,7 +80,7 @@ function addFileInput() {
 		inputContainer = document.createElement( 'div' ),
 		input = document.createElement( 'input' )
 	const label = document.createElement( 'Label' )
-	label.innerHTML = 'Add files'
+	label.innerHTML = 'Bestand toevoegen'
 	label.classList.add( 'labelFileInput' )
 
 	input.setAttribute( 'type', 'file' )
