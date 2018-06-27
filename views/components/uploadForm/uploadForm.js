@@ -174,7 +174,6 @@ function addInput( type ) {
 	switch( type ) {
 		case 'subtitle':
 			input.setAttribute( 'placeholder', '(Optioneel) Subtitel' )
-			input.classList.add( 'subtitle' )
 			break
 		case 'videolink':
 			input.setAttribute( 'placeholder', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' )
@@ -192,6 +191,7 @@ function addInput( type ) {
 	TweenMax.to( inputContainer, .4, {autoAlpha: 1, y: 0, clearProps: 'all' } )
 
 	input.focus()
+
 
 	function videoPreview() {
 		const iframeLink = input.value
@@ -282,44 +282,4 @@ function removeComponent( e ) {
 
 }
 
-/*
- * Prevents default behavior of pushing enter button. This method doesn't work,
- * if bind it to the 'onkeydown' of the document|form, or to the 'onkeypress' of
- * the input. So method should be attached directly to the input 'onkeydown'
- */
-function preventEnterKey( e ) {
-	// W3C (Chrome|FF) || IE
-	e = e || window.event
-	const keycode = e.which || e.keyCode
-	if ( keycode === 13 ) { // Key code of enter button
-		// Cancel default action
-		if ( e.preventDefault ) { // W3C
-			e.preventDefault()
-		} else { // IE
-			e.returnValue = false
-		}
-		// Cancel visible action
-		if ( e.stopPropagation ) { // W3C
-			e.stopPropagation()
-		} else { // IE
-			e.cancelBubble = true
-		}
-		// We don't need anything else
-		return false
-	}
-}
-
-/* Disable enter key for all inputs of the document */
-function disableAllInputs() {
-	const inputs = document.querySelectorAll( '.upload-form input' )
-	if ( inputs ) {
-		for ( let i = 0; i < inputs.length; i++ ) {
-			inputs[i].onkeydown = preventEnterKey
-		}
-	}
-}
-
-export {
-	uploadForm,
-	disableAllInputs
-}
+export default uploadForm
