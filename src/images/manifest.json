@@ -16,5 +16,5 @@
     "theme_color": "#3369a0",
     "background_color": "#3369a0",
     "display": "standalone",
-    "start_url": "https://scheepvaartmuseum.maddev.nl/"
+    "start_url": "../"
 }
