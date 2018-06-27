@@ -6,6 +6,7 @@
 *   [Getting Started](#getting-started)
 *   [API Documentation](/wiki/API)
 *	[Logbook](./logbook)
+*	[Readme Mo](#readme-mo)
 
 ## General Overview
 
@@ -46,6 +47,24 @@ yarn run build
 
 # Readme Mo
 
+![ship](https://media.giphy.com/media/l0MYSryDg63YEmXVS/giphy.gif)
+
+## Table of Contents
+
+*   [Introduction](#introduction)
+*   [The Design Challenge](#the-design-challenge)
+*   [User Scenarios](#user-scenarios)
+*   [My goals](#my-goals)
+*   [The Process](#the-process)
+*   [The matching subjects](#the-matching-subjects)
+*   [Tooling](#tooling)
+*   [Modularity in mind](#modularity-in-mind)
+*   [Adding some quality of life](#adding-some-quality-of-life)
+*   [Optimising performance](#optimising-performance)
+*   [Backend operations](#backend-operations)
+*   [Summary](#summary)
+*   [Conclusion](#conclusion)
+
 ## Introduction
 
 This project was a product made for the 'Het Scheepvaartmuseum'. The museum has an exposition on a famous dutch ship called 'De Oranje'. This ship has had a very interesting life and has transported a lot of people during its active years.
@@ -55,6 +74,14 @@ The problem that the client wants to solve is that they need a way for people to
 ## The design challenge
 
 How can we create a platform that encourages people to share and tell stories about the ship 'De oranje'?
+
+## User scenarios
+
+Gert, a 87 year old grandfather has some fond memories of the ship, he wants to read about stories from a specific year.
+
+---
+
+Jan remembered how his grandfather used to tell him stories about the ship and that he had some pictures somewhere, he wants to share stories on the platform so others can read them and give more details on these stories.
 
 ## My goals
 
@@ -72,12 +99,17 @@ In my idea I could have done a better job of taking this into consideration. Thi
 ## The matching subjects
 
 * Performance Matters
-* Real-time web
+* Back-End
 * Browser Technologies
+* CSS To The Rescue
 
 ### Tooling
 
 For this project we decided on setting up a tooling setup so that we could all work with the same basis and have enforced SCSS and JS rules.
+
+![tabs vs spaces](https://media.giphy.com/media/LROKNqr26NG48/giphy.gif)
+
+Having a proper tooling setup can be crucial for a team,it basically ensures that everyone has the exact same working tools and that all the code looks the same, this is important because you want everyone to be able to understand the code and not spend time arguing properly. Also, fuck spaces.
 
 These were the requirements setup by our team;
 
@@ -101,6 +133,45 @@ Which resulted in this tech stack;
 * Seng wizard
 
 This process started from [this commit](https://github.com/moniac/meesterproef-scheepvaartmuseum/commit/a417a0a7e1b5b712864d526697b48a36a7c7c889) until [this one.](https://github.com/moniac/meesterproef-scheepvaartmuseum/commit/4eca4fe0be6aa5fde2f25c92d9dd0c37220d9d49)
+
+![nerd](https://media.giphy.com/media/1o1r3yH332EA61E1hw/giphy.gif)
+
+## Modularity in mind
+
+We knew right away that if we didn't setup a proper structure for our project that we would run into git conflicts. My teammate Servin and I came up with a map structure for each component.
+
+The structure looked like this;
+
+```
+componentName
+|---- _componentName.scss
+|---- componentName.ejs
+|---- componentName.js
+```
+
+This ensured that everyone could create a component on their own branch.
+
+To help the other people out, [I created a page on the wiki that described this work process right here.](https://github.com/moniac/meesterproef-scheepvaartmuseum/wiki/Adding-a-new-component)
+
+## Adding some quality of life
+
+![Just a dash](https://media.giphy.com/media/l4Jz3a8jO92crUlWM/giphy.gif)
+
+Some of our teammates struggled with git and github. To help them, I wrote a wikipage on how to work with git. [This wiki page can be found here.](https://github.com/moniac/meesterproef-scheepvaartmuseum/wiki/Git-workflow)
+
+---
+
+It was quite annoying to have to create a folder with three files everytime. So I used a tool to create a script that would do most of the work for us.
+
+The script works as follows;
+
+```
+yarn component component-Name
+```
+
+This script would create a folder with all three files included, camelCasing the folder and files with the input name.
+
+---
 
 It was a very large task and quite a challenge, but I felt pretty confident about it. I cranked out a fully working tooling setup in about 2/3 days. I understood that the team was waiting on me so the pressure was there.
 
@@ -219,7 +290,7 @@ Again, I wrote a weekly nerd article on this based on this project, [which can b
 
 ---
 
-### Real-Time Web
+### Back-End
 
 At Real-Time Web we used an API to get data and used templating to have the server send HTML to the client.
 
@@ -291,6 +362,16 @@ function enhancedDetailInit() {
 	}
 }
 ```
+
+---
+
+## CSS To The Rescue
+
+Since a lot of people would be writing CSS at the same time, we needed a way to make sure we wouldn't overwrite each others code. 
+
+I suggested using the BEM method to the team, which is a method of naming and structuring your elements. This helped a lot in making sure we wouldn't make each others lives too difficult.
+
+Next to BEM, we also used SASS so that we could structure our components nicely, making components modular and reusable anywhere.
 
 ## In Conclusion
 
