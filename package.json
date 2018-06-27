@@ -56,6 +56,7 @@
     "multer-s3": "^2.7.0",
     "postcss-preset-env": "^5.1.0",
     "promise-mysql": "^3.2.1",
+    "sharp": "^0.20.4",
     "uuid": "^3.2.1"
   },
   "devDependencies": {

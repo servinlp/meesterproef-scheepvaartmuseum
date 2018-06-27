@@ -14,6 +14,7 @@ import initSW from './service-worker-handler.js'
 ( function IIFE () {
 
 	if( !( document.documentElement.classList && document.querySelectorAll ) ) return
+	initSW()
 	animateOnIntersect()
 	setUpMap()
 	selectComponents()
@@ -26,5 +27,4 @@ import initSW from './service-worker-handler.js'
 	colorThief()
 	initReportComponent()
 	removeStoryInit()
-	initSW()
 } )()
