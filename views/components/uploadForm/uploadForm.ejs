@@ -4,7 +4,7 @@
 		<span data-disclose="form" data-intersect="true">
 			<span data-intersect="true" style="display: inline-block;">Ik ben</span>
 			<span class="inputAnimation-container" data-intersect="true">
-				<input class="inputAnimation" type="text" placeholder="Naam of anoniem">
+				<input class="inputAnimation" type="text" placeholder="Naam of anoniem" maxlength="40">
 				<span class="focus-border">
 					<i></i>
 				</span>
@@ -13,7 +13,7 @@
 		<span data-disclose="form">
 			en ik wil een verhaal vertellen over 
 			<span class="inputAnimation-container required">
-				<input class="inputAnimation" type="text" name="title" required placeholder="titel">
+				<input class="inputAnimation" type="text" name="title" required placeholder="titel" maxlength="40">
 				<span class="focus-border">
 					<i></i>
 				</span>
@@ -22,7 +22,7 @@
 		<span data-disclose="form">
 			dit speelde zich af
 			<span class="autocomplete inputAnimation-container" data-search="locations">
-				<input class="inputAnimation" type="text" name="location" placeholder="locatie" autocomplete="off">
+				<input class="inputAnimation" type="text" name="location" placeholder="locatie" autocomplete="off" maxlength="40">
 				<span class="focus-border">
 					<i></i>
 				</span>
@@ -31,7 +31,7 @@
 		<span data-disclose="form">
 			in het jaar 
 			<span class="inputAnimation-container">
-				<input class="inputAnimation" type="text" name="time" placeholder="19..">.
+				<input class="inputAnimation" type="text" name="time" placeholder="19.." pattern="[0-9]{10}" maxlength="5">.
 				<span class="focus-border">
 					<i></i>
 				</span>

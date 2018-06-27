@@ -3,14 +3,16 @@
 	position: relative;
 	margin-top: 10rem;
 
-	img {
+	svg {
 		position: absolute;
 		right: 5%;
-		top: -5%;
+		top: -12.5%;
 		width: 4rem;
+		height: 4rem;
 		@include mq('medium') {
 			width: 8rem;
-			top: -15%;
+			height: 8rem;
+			top: -31%;
 		}
 	}
 
