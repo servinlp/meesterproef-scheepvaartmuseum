@@ -1,4 +1,9 @@
 .stories {
+	&--title {
+		text-align: center;
+		margin-top: 5rem;
+	}
+
 	&__grid {
 		display: flex;
 		flex-flow: row wrap;
@@ -25,10 +30,14 @@
 
 				&:focus,
 				&:hover {
-					&-background {
+					transform: scale(1.05);
+				}
+
+				&-background {
+					&:focus,
+					&:hover {
 						transform: scale(1.05);
 					}
-					transform: scale(1.05);
 				}
 			}
 			@include mq('large') {

@@ -80,5 +80,6 @@ function fireInstallPrompt(){
 export {
 	capitalizeFirstLetter,
 	optimizedResize,
-	animateOnIntersect
+	animateOnIntersect,
+	fireInstallPrompt
 }
