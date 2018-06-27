@@ -208,13 +208,16 @@ form {
 	.labelFileInput {
 		margin: 0.5rem 0;
 		border: 2px solid $colorBlue;
-		width: 10rem;
+		width: 15rem;
+		border-radius: 100px;
 		background: white;
 		position: relative;
+		font-size: 1rem;
+		font-weight: 400;
 		text-align: center;
 		box-shadow: 0 0 5px 0 lightgray;
 		cursor: pointer;
-		border-radius: 3px;
+		transition: 0.2s ease;
 
 		input {
 			width: 0.1px;
@@ -224,6 +227,19 @@ form {
 			position: absolute;
 			z-index: -1;
 			outline: none;
+		}
+
+		svg {
+			position: absolute;
+			top: 50%;
+			left: 1.5rem;
+			height: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		&:hover {
+			transform: scale(1.01);
+			box-shadow: 0 0.2rem 0.5rem -0.1rem #031976;
 		}
 	}
 

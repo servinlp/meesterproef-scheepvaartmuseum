@@ -93,6 +93,12 @@ function addFileInput() {
 	inputContainer.appendChild( removeComponentButton( input ) )
 	inputContainer.appendChild( label )
 	label.appendChild( input )
+	label.insertAdjacentHTML( 'beforeend', `
+	<svg xmlns="https://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+		<path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+		<path d="M0 0h24v24H0z" fill="none"/>
+	</svg>
+	` )
 
 	TweenMax.set( inputContainer, {autoAlpha: 0, y: -10} )
 	fieldset.insertBefore( inputContainer, buttonContainer ) 	
@@ -146,7 +152,7 @@ function addFileInput() {
 
 		source.src = URL.createObjectURL( file )
 
-		const fileInput = target
+		const fileInput = target.parentNode
 
 		TweenMax.set( audio, {autoAlpha: 0, y: -10} )
 		fileInput.insertAdjacentElement( 'afterend', audio )
@@ -320,6 +326,6 @@ function disableAllInputs() {
 }
 
 export {
-	uploadForm,
+	uploadForm, 
 	disableAllInputs
 }
