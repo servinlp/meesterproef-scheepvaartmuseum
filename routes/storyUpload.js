@@ -14,9 +14,7 @@ router.get( '/', ( req, res ) => {
 
 //Post the upload input file
 router.post( '/upload', upload.any(), ( req, res ) => {
-
 	uploadToDb( req.body, req.files, res )
-	console.log( req.files[ 0 ].transforms )
 } )
 
 async function uploadToDb( data, dataFiles, res ) {
