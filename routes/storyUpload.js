@@ -14,9 +14,7 @@ router.get( '/', ( req, res ) => {
 
 //Post the upload input file
 router.post( '/upload', upload.any(), ( req, res ) => {
-
 	uploadToDb( req.body, req.files, res )
-
 } )
 
 async function uploadToDb( data, dataFiles, res ) {
@@ -165,7 +163,15 @@ function getContentQueries( order, data ) {
 					type: l.mimetype
 				}
 
-				subContentInsertObj.link = l.location
+				if ( l.location ) {
+
+					subContentInsertObj.link = l.location
+
+				} else {
+
+					subContentInsertObj.link = l.transforms[ 0 ].location
+
+				}
 
 				arr.push(
 					pool.query( 'INSERT INTO content SET ?', subContentInsertObj )

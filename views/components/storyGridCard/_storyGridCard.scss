@@ -25,10 +25,14 @@
 
 				&:focus,
 				&:hover {
-					&-background {
+					transform: scale(1.05);
+				}
+
+				&-background {
+					&:focus,
+					&:hover {
 						transform: scale(1.05);
 					}
-					transform: scale(1.05);
 				}
 			}
 			@include mq('large') {

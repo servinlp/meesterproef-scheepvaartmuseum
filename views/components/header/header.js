@@ -28,7 +28,9 @@ function header () {
 	}
 	sizeHeader()
 
-	document.querySelector( 'main' ).style='margin-top: 3rem;'
+	if( document.querySelector( 'main' ) ) {
+		document.querySelector( 'main' ).style='margin-top: 3rem;'
+	}
 
 	button.addEventListener( 'click', hamburgerToggle )
 	gradient.addEventListener( 'click', hamburgerToggle ) 
