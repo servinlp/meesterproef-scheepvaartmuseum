@@ -368,4 +368,5 @@ form {
 html:not( .no-js ) [data-disclose] {
 	opacity: 0;
 	visibility: hidden;
+	height: 0;
 }

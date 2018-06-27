@@ -9,7 +9,7 @@ function progressiveDiscloseForm() {
 	const finishStoryButton = document.querySelector( '[data-finish="story"]' )
 	finishStoryButton.style = 'display: block;'
 	// Show first form element
-	TweenMax.set( parts[0], { autoAlpha: 1 } )
+	TweenMax.set( parts[0], { autoAlpha: 1, height: '100%' } )
 
 	// For measureText function
 	const inputElement = parts[0].querySelector( 'input' )
@@ -35,7 +35,7 @@ function progressiveDiscloseForm() {
 	} )
 	// Shows section after story is finished
 	finishStoryButton.addEventListener( 'click', () => {
-		TweenMax.to( '[data-disclose="done"]', .5, { autoAlpha: 1, onComplete: () => {
+		TweenMax.to( '[data-disclose="done"]', .5, { autoAlpha: 1, height: '100%', onComplete: () => {
 			document.querySelector( '.upload-form__finalize input' ).focus()
 		} } )
 		TweenMax.to( finishStoryButton, .1, { autoAlpha: 0, height: 0, padding: 0, margin: 0 } )
@@ -46,7 +46,7 @@ function progressiveDiscloseForm() {
 		// Shows the next element
 		if ( length >= 3 ) {
 			const nextElement = parts[i+1] || part.closest( '[data-disclose="form"]' )
-			TweenMax.to( nextElement, .8, { autoAlpha: 1 }, .2 )
+			TweenMax.to( nextElement, .8, { autoAlpha: 1, height: '100%' } )
 		}
 		// Dynamic input width change
 		if( length > input.getAttribute( 'placeholder' ).length && input.tagName === 'INPUT' ) {
@@ -67,7 +67,7 @@ function progressiveDiscloseForm() {
 		// Shows the next element
 		if ( length >= 1 ) {
 			const nextElement = parts[i+1] || part.closest( '[data-disclose="form"]' )
-			TweenMax.to( nextElement, .8, { autoAlpha: 1 } )
+			TweenMax.to( nextElement, .8, { autoAlpha: 1, height: '100%' } )
 		}
 	}
 
@@ -94,7 +94,7 @@ function progressiveDiscloseForm() {
 		document.body.removeChild( lDiv )
 		lDiv = null
 
-		return ( lResult.width + 20 )
+		return ( lResult.width + 30 )
 	}
 }
 

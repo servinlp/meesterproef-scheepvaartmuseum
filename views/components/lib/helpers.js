@@ -59,39 +59,38 @@ function animateOnIntersect() {
 function fireInstallPrompt(){
 	let deferredPrompt
 
-	window.addEventListener('beforeinstallprompt', function(e) {
-		console.log('beforeinstallprompt Event fired')
+	window.addEventListener( 'beforeinstallprompt', e => {
+		console.log( 'beforeinstallprompt Event fired' )
 		e.preventDefault()
 				
 		// Stash the event so it can be triggered later.
 		deferredPrompt = e
 		
 		return false
-	})
-	  
+	} )
 
 	if ( document.querySelector( '.detailpage--main' ) ) {
 		setTimeout( addListener, 6000 )
 	}
 	function addListener(){
-		if (deferredPrompt !== undefined) {
+		if ( deferredPrompt !== undefined ) {
 			// The user has had a postive interaction with our app and Chrome
 			// has tried to prompt previously, so let's show the prompt.
 			deferredPrompt.prompt()
 					
 			// Follow what the user has selected.
-			deferredPrompt.userChoice.then(function(choiceResult) {
+			deferredPrompt.userChoice.then( choiceResult => {
 							
-				if (choiceResult.outcome == 'dismissed') {
-				console.log('User cancelled homescreen install')
+				if ( choiceResult.outcome === 'dismissed' ) {
+					console.log( 'User cancelled homescreen install' )
 				}
 				else {
-				console.log('User added to homescreen')
+					console.log( 'User added to homescreen' )
 				}
 				
 				// We no longer need the prompt.  Clear it up.
 				deferredPrompt = null
-			})
+			} )
 		}
 	}
 }
