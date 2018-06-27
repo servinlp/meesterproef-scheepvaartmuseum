@@ -55,7 +55,7 @@ yarn run build
 - [Rendering thumbnails](#rendering-thumbnails)
 - [Rendering the detail page](#rendering-the-detail-page)
 - [Progressive enhancement](#progressive-enhancement)
-- [Creating, using and documenting an API](#creating,using-and-documenting-an-API)
+- [Creating, using and documenting an API](#creating-using-and-documenting-an-API)
 - [Reporting](#reporting)
 - [Admin dashboard](#admin-dashboard)
 - [Contributors](#contributors)
@@ -284,16 +284,79 @@ And here you see how thanks to our modulair content structure, we are able to ea
 
 ## Progressive enhancement
 
+To write CSS for when JavaScript or the `IntersectionObserver` was supported I added the following lines to the `head`.
+
+```html
+<script>
+	document.documentElement.className=''
+	if ( 'IntersectionObserver' in window ) document.documentElement.className+=' intersectionObserver'
+</script>
+```
+
+By default the `<html>` tag already has a `no-js` class on it. The first line will remove this if JavaScript is enabled while the second line will add a class off `intersectionObserver` to the `<html>` tag when it is supported. This way we can have styles targeted at the moments when JavaScript is not enabled/supported and in the cases where the `IntersectionObserver` isn't supported we can immediatly show the elements that would otherwise be hidden untill triggert.
+
+Here is the CSS used to target browsers that support the `IntersectionObserver`.
+
+```css
+html.intersectionObserver [data-intersect] {
+	opacity: 0;
+	visibility: hidden;
+
+	&.show {
+		opacity: 1;
+		visibility: visible;
+	}
+} 
+```
+
+For the autocomplete of tags I also did a small thing to prevent it from breaking when `Promises` aren't supported. It doesn't have a fallback sinds it's not a big problem if it doesn't work.
+
+```javascript
+if ( !autocomplete[ 0 ] || !( 'fetch' in window ) ) return
+```
+
+(If your wondering is that the only progressive enhancement he did, no it's not. But the most things I did was push others to do PE instead of writing a lot myself.)
+
 **Relative Commits**
 
-- [Checking for IntersectionObserver](https://github.com/moniac/meesterproef-scheepvaartmuseum/pull/145/files#diff-3ba8b538bde02c786094097bff3dba1c)
-- [Hide elements only if IntersectionObserver is supported](https://github.com/moniac/meesterproef-scheepvaartmuseum/pull/145/files#diff-987b95b2fdceb3e31e640faa6a8da7ba)
+- [Checking for IntersectionObserver #145](https://github.com/moniac/meesterproef-scheepvaartmuseum/pull/145/files#diff-3ba8b538bde02c786094097bff3dba1c)
+- [Hide elements only if IntersectionObserver is supported #145](https://github.com/moniac/meesterproef-scheepvaartmuseum/pull/145/files#diff-987b95b2fdceb3e31e640faa6a8da7ba)
+- [Apply tag and location api #76](https://github.com/moniac/meesterproef-scheepvaartmuseum/pull/76/files#diff-7545532630c12b6a9ae432c1916f90a1)
 
 ## Creating, using and documenting an API
 
+[Here](https://github.com/moniac/meesterproef-scheepvaartmuseum/pull/76/files#diff-4e8b28a0f7943cb0fe11996dd13fd7df) you can see a small change that made it so on the Front end I only needed one function for both api's. In the end this also made more sense documentation wise. This way the structure of all api's can be more similar.
+
+```javascript
+function getDataFromApi( api ) {
+
+	return new Promise( ( resolve, reject ) => {
+
+		fetch( api )
+			.then( res => res.json() )
+			.then( res => {
+
+				if ( res.succes ) {
+
+					resolve( res.data )
+
+				} else {
+
+					reject( res.message )
+
+				}
+
+			} )
+			.catch( err => reject( err ) )
+
+	} )
+
+}
+```
+
 **Relative PR's**
 
-- [ Add the api for tags and location with link in readme for documenta… #71](https://github.com/moniac/meesterproef-scheepvaartmuseum/pull/71)
+- [Add the api for tags and location with link in readme for documentation #71](https://github.com/moniac/meesterproef-scheepvaartmuseum/pull/71)
 - [Apply tag and location api #76](https://github.com/moniac/meesterproef-scheepvaartmuseum/pull/76)
 - [Apply tag and location api #87](https://github.com/moniac/meesterproef-scheepvaartmuseum/pull/87)
 
@@ -301,15 +364,24 @@ And here you see how thanks to our modulair content structure, we are able to ea
 
 ## Reporting
 
+For the reporting of stories 2 things where important. Being able to report a story and not being able to report a stoy more then once. For the last part `sessions` started becoming importent.
+
+Now if you report a story it will be stored in a session object called `reports`. `reports` is an object that contains all of your reports like so.
+
+```javascript
+//...
+reports: {
+	79: [ true, false ],
+	STORY_ID : [ INCORRECT, INAPPROPIAT ]
+},
+//...
+```
+
+The values of the `reports` object are then send on the matching pages so that the checkboxes for reporting can be set acourdingly.
+
 **Relative PR's**
 
 - [Add report functionality (with session) #137](https://github.com/moniac/meesterproef-scheepvaartmuseum/pull/137)
-
-## Admin dashboard
-
-**Relative PR's**
-
-- [ Feature/admin overview page #139](https://github.com/moniac/meesterproef-scheepvaartmuseum/pull/139)
 
 ## Contributors
 
