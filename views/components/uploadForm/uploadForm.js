@@ -146,7 +146,7 @@ function addFileInput() {
 
 		source.src = URL.createObjectURL( file )
 
-		const fileInput = target
+		const fileInput = target.parentNode
 
 		TweenMax.set( audio, {autoAlpha: 0, y: -10} )
 		fileInput.insertAdjacentElement( 'afterend', audio )
