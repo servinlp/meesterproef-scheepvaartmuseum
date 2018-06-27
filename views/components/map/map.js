@@ -17,6 +17,7 @@ function setUpMap() {
 	const toggleYearButtons = document.querySelectorAll( '[data-year]' )
 
 	sizeMap()
+	pauseOnIntersect()
 
 	window.addEventListener( 'optimizedResize', sizeMap )
 	pauseButton.addEventListener( 'click', pauseAnimation )
@@ -30,6 +31,7 @@ function setUpMap() {
 	TweenMax.set( '[href="#boat"]', { xPercent: -50, yPercent: -50 } )
 
 	function pauseAnimation( ) {
+		console.log( 'pausing map' )
 		boatTl.pause()
 		lineTl.pause()
 		
@@ -43,6 +45,35 @@ function setUpMap() {
 		togglePlayButton()
 		pauseButton.focus()
 	}
+
+	( function pauseOnMenuPress(){
+		// On menu press
+		const menu = document.querySelector( '.header #toggle' )
+		menu.addEventListener( 'mousedown', pauseAnimation )
+		menu.addEventListener( 'touchstart', pauseAnimation )
+	} )()
+
+	function pauseOnIntersect(){
+		if ( !window.IntersectionObserver ) return
+		const map = document.querySelector( '.map' )
+			
+		const config = {
+			rootMargin: '0px 0px 0px 0px',
+			threshold: [ .55, 0.6, 0.65, 1.0 ]
+		}
+	
+		const contentObserver = new IntersectionObserver( entries => {
+			entries.forEach( entry => {
+				if ( entry.intersectionRatio < 0.6 ) {
+					pauseAnimation()
+				}	
+			} )
+		}, config )
+	
+		contentObserver.observe( map )
+	
+	}
+
 	function togglePlayButton(){
 		TweenMax.set( playButton, {autoAlpha: 0} )
 		TweenMax.set( pauseButton, {autoAlpha: 1} )

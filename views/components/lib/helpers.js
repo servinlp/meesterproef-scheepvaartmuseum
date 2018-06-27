@@ -56,6 +56,27 @@ function animateOnIntersect() {
 	}
 }
 
+function fireInstallPrompt(){
+	if( document.querySelector( '.detailpage--main' ) ) {
+		window.addEventListener( 'beforeinstallprompt', e => {
+			// beforeinstallprompt Event fired
+			console.log( 'beforeinstallprompt Event fired' )
+			// e.userChoice will return a Promise.
+			// For more details read: https://developers.google.com/web/fundamentals/getting-started/primers/promises
+			e.userChoice.then( choiceResult => {
+				console.log( choiceResult.outcome )
+				if( choiceResult.outcome === 'dismissed' ) {
+					console.log( 'User cancelled home screen install' )
+				}
+				else {
+					console.log( 'User added to home screen' )
+				}
+			} )
+		} )	
+	}
+}
+
+
 export {
 	capitalizeFirstLetter,
 	optimizedResize,
