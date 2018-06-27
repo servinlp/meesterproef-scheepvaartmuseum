@@ -31,7 +31,6 @@ function setUpMap() {
 	TweenMax.set( '[href="#boat"]', { xPercent: -50, yPercent: -50 } )
 
 	function pauseAnimation( ) {
-		console.log( 'pausing map' )
 		boatTl.pause()
 		lineTl.pause()
 		
@@ -124,9 +123,7 @@ function setUpMap() {
 		// Change global variable to new active button
 		currentActiveYear = newActive
 
-		console.log( playButton.dataset.pressed )
 		if( playButton.dataset.pressed === 'false' ) {
-			console.log( 'play button is pressed state' )
 			togglePlayButton()
 		}
 	}
