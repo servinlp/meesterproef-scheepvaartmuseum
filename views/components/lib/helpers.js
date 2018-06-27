@@ -57,7 +57,7 @@ function animateOnIntersect() {
 }
 
 function fireInstallPrompt(){
-	if(document.querySelector('.detailpage--main')) {
+	if( document.querySelector( '.detailpage--main' ) ) {
 		window.addEventListener( 'beforeinstallprompt', e => {
 			// beforeinstallprompt Event fired
 			console.log( 'beforeinstallprompt Event fired' )
